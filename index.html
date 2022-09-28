@@ -1,24 +1,80 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Ngôi nhà cà phê</title>
-        <link rel="stylesheet" href="./public/css/normalize.css" />
-        <link rel="stylesheet" href="./public/css/icomoon/style.css" />
-        <link rel="stylesheet" href="./public/css/style.css" />
-    </head>
-    <body>
-        <div id="header">
-            <div id="nav">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ngôi nhà cà phê</title>
+    <link rel="stylesheet" href="./public/css/normalize.css" />
+    <link rel="stylesheet" href="./public/css/icomoon/style.css" />
+    <link rel="stylesheet" href="./public/css/style.css" />
+</head>
+
+<body>
+
+    <div id="header">
+        <div id="nav">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div id="nav_mobile">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+        <div class="container">
+            <div class="slider">
+                <span class="icon-circle-left"></span>
+                <ul class="slider-dots">
+                    <span class="icon-minus active" data-index="0"></span>
+                    <span class="icon-minus " data-index="1"></span>
+                    <span class="icon-minus " data-index="2"></span>
+                </ul>
+                <div class="slider-pictures">
+                    <div class="slider-main">
+                        <div class="slider-picture-item">
+                            <img src="./public/img/slider_1.webp" alt="" />
+                        </div>
+                        <div class="slider-picture-item">
+                            <img src="./public/img/slider_1.webp" alt="" />
+                        </div>
+                        <div class="slider-picture-item">
+                            <img src="./public/img/slider_1.webp" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <span class="icon-circle-right"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div id="preview">
+                <div class="p-item"></div>
+                <div class="p-item"></div>
+                <div class="p-item"></div>
+                <div class="p-item"></div>
+            </div>
+            <div id="preview_mobile">
+                <div class="p-item"></div>
+                <div class="p-item"></div>
+                <div class="p-item"></div>
+                <div class="p-item"></div>
+            </div>
+            <div id="sidebar">
                 <ul>
                     <li></li>
                     <li></li>
                     <li></li>
                 </ul>
             </div>
-            <div id="nav_mobile">
+            <div id="sidebar_mobile">
                 <ul>
                     <li></li>
                     <li></li>
@@ -26,47 +82,16 @@
                 </ul>
             </div>
         </div>
-        <div id="main">
-            <div class="container">
-                <div class="slider"></div>
-            </div>
-            <div class="container">
-                <div id="preview">
-                    <div class="p-item"></div>
-                    <div class="p-item"></div>
-                    <div class="p-item"></div>
-                    <div class="p-item"></div>
-                </div>
-                <div id="preview_mobile">
-                    <div class="p-item"></div>
-                    <div class="p-item"></div>
-                    <div class="p-item"></div>
-                    <div class="p-item"></div>
-                </div>
-                <div id="sidebar">
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <div id="sidebar_mobile">
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-            </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
         </div>
-        <div id="footer">
-            <div class="container">
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col"></div>
-            </div>
-        </div>
-    </body>
-    <script type="module" src="./src/index.js"></script>
+    </div>
+</body>
+<script type="module" src="./src/index.js"></script>
+
 </html>
