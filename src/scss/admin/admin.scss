@@ -32,6 +32,12 @@ html {
     }
 }
 
+// 
+
+.opened_nav {
+    left: 0 !important;
+}
+
 #header {
     border-bottom: 1px solid gray;
     position: relative;
@@ -45,6 +51,7 @@ html {
     #nav {
         position: fixed;
         top: 0;
+        transition: left .5s ease-in-out;
         left: -60%;
         background-color: #fff;
         height: 100%;
