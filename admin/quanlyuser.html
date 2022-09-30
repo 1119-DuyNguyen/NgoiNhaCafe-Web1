@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý user</title>
+    <link rel="stylesheet" href="../public/css/normalize.css" />
+    <link rel="stylesheet" href="../public/css/icomoon/style.css" />
+    <link rel="stylesheet" href="../public/css/admin.css" />
+</head>
+<body>
+    <div id="header">
+        <h1><i class="icon-menu" id="nav_open"></i> Trang chủ</h1>
+        <div id="nav">
+            <h1><i class="icon-cross" id="nav_close"></i></h1>
+            <ul>
+                <li><a href="">Người dùng</a></li>
+                <li><a href="">Sản phẩm</a></li>
+                <li><a href="">Đăng xuất</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+        <div id="managerment">
+            <div id="select-all">
+                <input type="checkbox" id="check-all">
+                <label for="check-all">Chọn tất cả</label>
+            </div>
+            <div id="actions">
+                <select id="decisions">
+                    <option value="undone" selected>-- Hành động --</option>
+                    <option value="delete">Xóa</option>
+                </select>
+                <button class="btn btn-info">Thực hiện</button>
+            </div>
+        </div>
+        <div class="table-container">
+            <table id="users">
+                <tr>
+                    <th></th>
+                    <th>Họ tên</th>
+                    <th>Tên đăng nhập</th>
+                    <th>Địa chỉ email</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" value="1" class="user-checkbox"></td>
+                    <td>Nguyễn Văn A</td>
+                    <td>anv</td>
+                    <td><a href="mailto:anguyen@example.com">anguyen@example.com</a></td>
+                    <td>
+                        <button class="btn btn-info">Sửa</button>
+                        <button class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" value="2" class="user-checkbox"></td>
+                    <td>Trần Quốc V</td>
+                    <td>vtq</td>
+                    <td><a href="mailto:vquoc@example.com">vquoc@example.com</a></td>
+                    <td>
+                        <button class="btn btn-info">Sửa</button>
+                        <button class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" value="3" class="user-checkbox"></td>
+                    <td>Nguyễn Văn C</td>
+                    <td>anv</td>
+                    <td><a href="mailto:cvan@example.com">cvan@example.com</a></td>
+                    <td>
+                        <button class="btn btn-info">Sửa</button>
+                        <button class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" value="4" class="user-checkbox"></td>
+                    <td>Trần Hà D</td>
+                    <td>vtq</td>
+                    <td><a href="mailto:had@example.com">had@example.com</a></td>
+                    <td>
+                        <button class="btn btn-info">Sửa</button>
+                        <button class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" value="5" class="user-checkbox"></td>
+                    <td>Đặng Văn E</td>
+                    <td>vtq</td>
+                    <td><a href="mailto:edang@example.com">edang@example.com</a></td>
+                    <td>
+                        <button class="btn btn-info">Sửa</button>
+                        <button class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="footer">Copyright &copy; 2022 Ngôi nhà Cafe</div>
+    <script src="../src/components/admin/admin.js"></script>
+</body>
+</html>

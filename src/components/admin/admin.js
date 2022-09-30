@@ -10,4 +10,21 @@ document.addEventListener('DOMContentLoaded', e => {
     nav_close.addEventListener('click', e => {
         nav.classList.remove("opened_nav");
     })
+
+    // Quản lý user
+
+    let select_all = document.querySelector("#check-all");
+    let checkboxes = document.querySelectorAll(".user-checkbox");
+
+    select_all.addEventListener('change', e => {
+        if (select_all.checked) {
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = true;
+            })
+        } else {
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            })
+        }
+    })
 })

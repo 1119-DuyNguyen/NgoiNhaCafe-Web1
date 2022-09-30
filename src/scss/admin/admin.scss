@@ -10,6 +10,9 @@ a {
 html {
     font-family: sans-serif;
 }
+body {
+    min-height: 100%;
+}
 
 // Colors
 
@@ -67,6 +70,29 @@ html {
     }
 }
 
+
+.btn {
+    padding: 5px;
+    border: none;
+    color: white;
+    transition: background-color .2s ease-in-out;
+    cursor: pointer;
+    &.btn-danger {
+        background-color: #d60000;
+        &:active {
+            background-color: darken(#d60000, 10%);
+        }
+    }
+    &.btn-info {
+        background-color: #1fb8ff;
+        &:active {
+            background-color: darken(#1fb8ff, 10%);
+        }
+    }
+}
+
+// Trang chủ
+
 .card-container {
     display: flex;
     flex-direction: column;
@@ -97,10 +123,49 @@ html {
     }
 }
 
+// Quản lý user
+
+#managerment {
+    & > * {
+        display: inline-block;
+    }
+    margin: 5px;
+    #select-all {
+        vertical-align: middle;
+    }
+}
+
+.table-container {
+    overflow-x: auto;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        tr {
+            &:nth-of-type(even) { 
+                background: #eee; 
+            }
+            border-bottom: 1px solid gray;
+            &:last-child {
+                border-bottom: none;
+            }
+            th, td {
+                &:first-child {
+                    text-align: center;
+                }
+                padding: 10px;
+                border-right: 1px solid gray;
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+    }
+}
+
 #footer {
-    background-color: white;
     position: absolute;
     bottom: 0;
+    background-color: white;
     text-transform: uppercase;
     font-weight: bold;
     border-top: 1px solid gray;
