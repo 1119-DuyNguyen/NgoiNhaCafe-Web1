@@ -1,36 +1,3 @@
-html {
-    box-sizing: border-box;
-}
-* {
-    margin: 0;
-    padding: 0;
-}
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-input,
-textarea,
-select,
-button {
-    outline: none;
-}
-input {
-    line-height: normal;
-}
-label,
-button {
-    cursor: pointer;
-}
-a {
-    text-decoration: none;
-}
-img {
-    display: block;
-    width: 100%;
-}
-
 .slider {
     position: relative;
     span {
@@ -65,12 +32,12 @@ img {
         bottom: 5%;
         z-index: 10;
         font-size: 20px;
+        cursor: pointer;
         li:hover {
             cursor: pointer;
         }
         .active {
             opacity: 0.1;
-            cursor: pointer;
         }
     }
 
@@ -97,11 +64,13 @@ img {
         }
     }
 }
-@media (max-width: 425px) {
-    .slider-dots {
-        display: none !important;
-    }
-    .ti {
-        font-size: 7px !important;
+@media screen and (max-width: 425px) {
+    .slider {
+        .slider-dots {
+            display: none;
+        }
+        .icl {
+            font-size: 7px !important;
+        }
     }
 }
