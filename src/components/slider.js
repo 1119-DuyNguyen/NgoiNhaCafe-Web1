@@ -12,12 +12,17 @@ let positionX = 0;
 let index = 0;
 
 export function run() {
-    leftBtn.onclick = function () {
-        handleClickSlider(-1);
-    };
-    rightBtn.onclick = function () {
-        handleClickSlider(1);
-    };
+    if (leftBtn) {
+        leftBtn.onclick = function () {
+            handleClickSlider(-1);
+        };
+    }
+    if (rightBtn) {
+        rightBtn.onclick = function () {
+            handleClickSlider(1);
+        };
+    }
+
     if (dotItems) {
         dotItems.forEach((item) => {
             item.onclick = (e) => {
@@ -38,25 +43,27 @@ export function run() {
 }
 
 export function handleClickSlider(direction) {
-    if (direction === 1) {
-        index++;
-        if (index > sliderLength - 1) {
-            index = 0;
-            positionX = itemLength;
+    if (sliderMain && sliderItems && sliderLength && itemLength) {
+        if (direction === 1) {
+            index++;
+            if (index > sliderLength - 1) {
+                index = 0;
+                positionX = itemLength;
+            }
+            positionX = positionX - itemLength;
+            sliderMain.style = `transform: translateX(${positionX}px)`;
+        } else if (direction === -1) {
+            index--;
+            if (index < 0) {
+                index = sliderLength - 1;
+                positionX = -itemLength * sliderLength;
+            }
+            positionX = positionX + itemLength;
+            sliderMain.style = `transform: translateX(${positionX}px)`;
         }
-        positionX = positionX - itemLength;
-        sliderMain.style = `transform: translateX(${positionX}px)`;
-    } else if (direction === -1) {
-        index--;
-        if (index < 0) {
-            index = sliderLength - 1;
-            positionX = -itemLength * sliderLength;
-        }
-        positionX = positionX + itemLength;
-        sliderMain.style = `transform: translateX(${positionX}px)`;
+        dotItems.forEach((item) => {
+            item.classList.remove('active');
+        });
+        dotItems[index].classList.add('active');
     }
-    dotItems.forEach((item) => {
-        item.classList.remove('active');
-    });
-    dotItems[index].classList.add('active');
 }
