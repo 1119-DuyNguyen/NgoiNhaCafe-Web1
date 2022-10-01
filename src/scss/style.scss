@@ -1,4 +1,5 @@
-@use "app";
+@use 'app';
 @use "./header/header";
-@use "toast";
-
+@use 'toast';
+@use 'productInfo';
+@use 'footer';
