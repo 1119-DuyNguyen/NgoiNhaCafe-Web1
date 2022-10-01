@@ -1,0 +1,218 @@
+@media screen and (min-width: 1024px) {
+    //class dùng chung
+    $--primary-color: #fff2d9;
+    $--text-color: #000;
+    $--text-hover: #ea8025;
+    .header__desktop-list {
+        display: block;
+    }
+    .not-flow {
+        word-wrap: break-word;
+        // white-space: pre-wrap;
+        word-break: break-word;
+    }
+
+    .header__menu-mobile {
+        display: none;
+    }
+
+    .header__mobile {
+        display: none;
+    }
+    .size-small {
+        margin-left: 4px;
+        color: $--text-color;
+        font-size: 8px;
+    }
+
+    .font-family {
+        // font-family: 'SF Pro Text', sans-serif;
+    }
+
+    .text-color {
+        color: $--text-color;
+    }
+
+    .medium-font-size {
+        font-size: 16px;
+    }
+
+    .layout-white {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: rgba($color: rgb(255, 255, 255), $alpha: 0.93);
+    }
+
+    .text-hover ul li:hover > a {
+        color: $--text-hover;
+    }
+
+    // phần code
+
+    .header__icon-menu-btn {
+        display: none;
+    }
+
+    .menu__board {
+        display: none;
+    }
+
+    .header__title {
+        margin-left: 54px;
+        display: flex;
+        text-align: center;
+    }
+
+    .header-line {
+        margin-top: 12px;
+    }
+
+    .header__desktop-list {
+        position: absolute;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        height: 100%;
+    }
+
+    .header__selection {
+        height: 100%;
+    }
+
+    .header__selection-all {
+        display: flex;
+        height: 100%;
+        margin: 0;
+        padding-left: 0;
+    }
+
+    .header__selection-all-item {
+        list-style: none;
+        padding: 0 19px;
+        padding-top: 15px;
+    }
+
+    .header__selection-all-item > a {
+        font-weight: 600;
+    }
+
+    .header__selection-all-item:nth-child(3) {
+        position: relative;
+    }
+
+    // Inside menu-board
+    .header__modal {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 260px;
+        top: 3.57em;
+        right: 0;
+    }
+
+    .flex-assist {
+        display: flex;
+        height: 100%;
+    }
+
+    .header__menu-modal {
+        margin: auto;
+        z-index: 1;
+    }
+
+    .header__inside-menu-modal {
+        display: flex;
+        padding: 0;
+        margin: 0;
+    }
+
+    .header__inside-menu-item-1 {
+        display: block;
+        flex: 1;
+        list-style: none;
+        width: 134px;
+        height: 184px;
+        padding: 12px 24px;
+    }
+
+    .header__inside-menu-item-1 > a {
+        display: block;
+        text-decoration: none;
+        border-bottom: 2px solid;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    //
+    .header__inside-menu-suggested {
+        margin-top: 16px;
+        padding: 0;
+    }
+
+    .header__inside-menu-item-2 {
+        list-style: none;
+        margin-bottom: 4px;
+    }
+
+    .header__inside-menu-item-2 > a {
+        display: block;
+        color: rgba($color: #000000, $alpha: 0.6);
+    }
+
+    .hover:hover .header__modal {
+        display: block;
+    }
+
+    .header__selection-all > li > a {
+        text-decoration: none;
+    }
+
+    .header__acount {
+        display: flex;
+        padding-top: 5px;
+    }
+
+    .header__acount:hover a,
+    .icon-profile {
+        color: $--text-hover;
+    }
+
+    // .icon-profile:hover {
+    //     color: $--text-hover;
+    // }
+
+    .user-line {
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .header__acount .icon {
+        font-size: 15px;
+        line-height: 17px;
+    }
+
+    .border-square {
+        text-align: center;
+        opacity: 1;
+        padding: 3px 3px 4px 3px;
+        border: 3px solid;
+        border-radius: 50%;
+        height: 27px;
+        overflow: hidden;
+    }
+
+    .header__acount .icon {
+        margin: 8px;
+        cursor: pointer;
+    }
+
+    .border-square:hover {
+        color: $--text-hover;
+    }
+
+    // .cart-icon {
+    //     background-color: $--text-hover;
+    //     border-color: $--text-hover;
+    // }
+}
