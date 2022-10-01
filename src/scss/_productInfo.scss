@@ -1,0 +1,202 @@
+@mixin optionProductFlex() {
+    transition: all 0.3s;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+@mixin optionContainer() {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+@mixin optionItem() {
+    display: inline-flex;
+    padding: 0 16px;
+    height: 40px;
+    line-height: 1;
+    margin-right: 8px;
+    margin-top: 12px;
+    color: #666666;
+    @include optionProductFlex();
+}
+@mixin sizeIcon($size) {
+    .icon-small {
+        font-size: $size;
+        margin-right: 8px;
+    }
+    .icon-medium {
+        font-size: $size + 4;
+        margin-right: 8px;
+    }
+    .icon-large {
+        font-size: $size + 8;
+        margin-right: 8px;
+    }
+}
+@mixin productTitle() {
+    .h2 {
+        font-size: 24px;
+        margin-bottom: 18px;
+        font-weight: 700;
+        color: #000;
+    }
+}
+$active-color: #e57905;
+.--hide {
+    display: none !important;
+}
+
+.size-content {
+    @include sizeIcon(12px);
+}
+
+.product-about {
+    position: relative;
+    width: 100%;
+    display: flex;
+    .product_shopping {
+        flex: 1;
+        padding: 0 16px;
+        .--active {
+            border-color: $active-color;
+            background: $active-color;
+            color: #fff;
+        }
+        .info {
+            @include productTitle();
+            .info_sale {
+                display: flex;
+                margin: 12px 0px;
+                align-items: center;
+                .info_sale_item {
+                    margin-right: 12px;
+                }
+                .info_sale_price {
+                    //line-height: 0.75;
+                    font-family: 'Arial', sans-serif;
+                    font-size: 26px;
+                    color: $active-color;
+                    font-weight: 600;
+                    margin-right: 36px;
+                }
+
+                .info_sale_original {
+                    font-size: 12px;
+                }
+                .info_sale_percent {
+                    font-size: 14px;
+                    width: 90px;
+                    height: 100%;
+                    text-align: center;
+                    border-radius: 3px;
+                    color: $active-color;
+                    border: 1px solid;
+                    padding: 4px 8px;
+                    background: #fff7e6;
+                }
+            }
+        }
+        .option-size {
+            margin: 32px 0 0;
+            .h4 {
+                font-weight: 600;
+                color: #000;
+            }
+            .option-size_selections {
+                @include optionContainer();
+                .option-size_selections_item {
+                    @include optionItem();
+                }
+            }
+        }
+        .option-topping {
+            margin: 32px 0 0;
+            .h4 {
+                font-weight: 600;
+                color: #000;
+            }
+            .option-topping_selections {
+                @include optionContainer();
+                .option-topping_selections_item {
+                    @include optionItem();
+                }
+            }
+        }
+    }
+    .product_shopping_cart {
+        display: flex;
+        @include optionProductFlex();
+        justify-content: center;
+        padding: 16px 0;
+        background-color: $active-color;
+        color: #ffffff;
+        margin: 32px 0;
+        .icon {
+        }
+        .h4 {
+            padding: 0 24px;
+        }
+        &:hover {
+            cursor: pointer;
+            opacity: 0.7;
+        }
+    }
+}
+.product-description {
+    padding: 0 16px;
+    @include productTitle();
+    p {
+        font-size: 16px;
+    }
+    hr {
+        margin: 32px 0;
+
+        border-top: 1px solid #eee;
+    }
+}
+.product-related {
+    @include productTitle();
+    padding: 0 16px;
+}
+
+/*responsive mobile*/
+@media screen and (max-width: 425px) {
+}
+/*responsive tablet*/
+@media screen and (max-width: 768px) {
+    .product-about {
+        display: block;
+    }
+    .product {
+        .product_visual {
+            padding: 0 16px;
+            .product_visual_img {
+                width: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+/*responsive desktop*/
+@media screen and (min-width: 768px) {
+    .product {
+        padding: 0 40px;
+        .product_visual {
+            flex: 1;
+            padding: 0 16px;
+            .product_visual_img {
+                width: 560px;
+                height: 560px;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
