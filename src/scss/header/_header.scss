@@ -1,2 +1,5 @@
 @use 'headerMobile';
 @use 'headerDesktop';
+#header {
+    z-index: 999;
+}
