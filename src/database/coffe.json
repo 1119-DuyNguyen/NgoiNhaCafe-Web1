@@ -2,181 +2,181 @@
     {
         "title": "Black",
         "description": "Black coffee is as simple as it gets with ground coffee beans steeped in hot water, served warm. And if you want to sound fancy, you can call black coffee by its proper name: cafe noir.",
-        "ingredients": ["Coffee"],
         "image": "public/img/dataImages/Black.jpg",
         "id": 1,
-        "price": 47729,
-        "currency": "\u0111"
+        "price": 24000,
+        "currency": "đ",
+        "tag": ["Coffee"]
     },
     {
         "title": "Latte",
         "description": "As the most popular coffee drink out there, the latte is comprised of a shot of espresso and steamed milk with just a touch of foam. It can be ordered plain or with a flavor shot of anything from vanilla to pumpkin spice.",
-        "ingredients": ["Espresso", "Steamed Milk"],
         "image": "public/img/dataImages/Latte.jpg",
         "id": 2,
-        "price": 49494,
-        "currency": "\u0111"
+        "price": 42000,
+        "currency": "đ",
+        "tag": ["Espresso", "Steamed Milk"]
     },
     {
         "title": "Cappuccino",
         "description": "Cappuccino is a latte made with more foam than steamed milk, often with a sprinkle of cocoa powder or cinnamon on top. Sometimes you can find variations that use cream instead of milk or ones that throw in flavor shot, as well.",
-        "ingredients": ["Espresso", "Steamed Milk", "Foam"],
         "image": "public/img/dataImages/Cappuccino.jpg",
         "id": 3,
-        "price": 49320,
-        "currency": "\u0111"
+        "price": 45000,
+        "currency": "đ",
+        "tag": ["Espresso", "Steamed Milk", "Foam"]
     },
     {
         "title": "Americano",
         "description": "With a similar flavor to black coffee, the americano consists of an espresso shot diluted in hot water.",
-        "ingredients": ["Espresso", "Hot Water"],
         "image": "public/img/dataImages/Americano.jpg",
         "id": 4,
-        "price": 21034,
-        "currency": "\u0111"
+        "price": 39000,
+        "currency": "đ",
+        "tag": ["Espresso", "Hot Water"]
     },
     {
         "title": "Espresso",
         "description": "An espresso shot can be served solo or used as the foundation of most coffee drinks, like lattes and macchiatos.",
-        "ingredients": ["1oz Espresso"],
         "image": "public/img/dataImages/Espresso.jpg",
         "id": 5,
-        "price": 29731,
-        "currency": "\u0111"
+        "price": 37000,
+        "currency": "đ",
+        "tag": ["1oz Espresso"]
     },
     {
         "title": "Doppio",
         "description": "A double shot of espresso, the doppio is perfect for putting extra pep in your step.",
-        "ingredients": ["2oz Espresso"],
         "image": "public/img/dataImages/Doppio.jpg",
         "id": 6,
-        "price": 48481,
-        "currency": "\u0111"
+        "price": 25000,
+        "currency": "đ",
+        "tag": ["2oz Espresso"]
     },
     {
         "title": "Cortado",
-        "description": "Like yin and yang, a cortado is the perfect balance of espresso and warm steamed milk. The milk is used to cut back on the espresso\u2019s acidity.",
-        "ingredients": ["1oz Espresso", "1oz Steamed Milk"],
+        "description": "Like yin and yang, a cortado is the perfect balance of espresso and warm steamed milk. The milk is used to cut back on the espresso’s acidity.",
         "image": "public/img/dataImages/Cortado.jpg",
         "id": 7,
-        "price": 24162,
-        "currency": "\u0111"
+        "price": 40000,
+        "currency": "đ",
+        "tag": ["1oz Espresso", "1oz Steamed Milk"]
     },
     {
         "title": "Red Eye",
         "description": "Named after those pesky midnight flights, a red eye can cure any tiresome morning. A full cup of hot coffee with an espresso shot mixed in, this will definitely get your heart racing.",
-        "ingredients": ["Coffee", "Espresso"],
-        "image": "public/img/dataImages/Red_Eye.jpg",
+        "image": "public/img/dataImages/Red Eye.jpg",
         "id": 8,
-        "price": 36340,
-        "currency": "\u0111"
+        "price": 25000,
+        "currency": "đ",
+        "tag": ["Coffee", "Espresso"]
     },
     {
         "title": "Galao",
         "description": "Originating in Portugal, this hot coffee drink is closely related to the latte and cappuccino. Only difference is it contains about twice as much foamed milk, making it a lighter drink compared to the other two.",
-        "ingredients": ["Espresso", "Foamed milk"],
         "image": "public/img/dataImages/Galao.jpg",
         "id": 9,
-        "price": 30597,
-        "currency": "\u0111"
+        "price": 41000,
+        "currency": "đ",
+        "tag": ["Espresso", "Foamed milk"]
     },
     {
         "title": "Lungo",
         "description": "A lungo is a long-pull espresso. The longer the pull, the more caffeine there is and the more ounces you can enjoy.",
-        "ingredients": ["Long pulled espresso"],
         "image": "public/img/dataImages/Lungo.jpg",
         "id": 10,
-        "price": 20707,
-        "currency": "\u0111"
+        "price": 27000,
+        "currency": "đ",
+        "tag": ["Long pulled espresso"]
     },
     {
         "title": "Macchiato",
-        "description": "The macchiato is another espresso-based drink that has a small amount of foam on top. It\u2019s the happy medium between a cappuccino and a doppio.",
-        "ingredients": ["Espresso", "Foam"],
+        "description": "The macchiato is another espresso-based drink that has a small amount of foam on top. It’s the happy medium between a cappuccino and a doppio.",
         "image": "public/img/dataImages/Macchiato.jpg",
         "id": 11,
-        "price": 38701,
-        "currency": "\u0111"
+        "price": 41000,
+        "currency": "đ",
+        "tag": ["Espresso", "Foam"]
     },
     {
         "title": "Mocha",
-        "description": "For all you chocolate lovers out there, you\u2019ll fall in love with a mocha (or maybe you already have). The mocha is a chocolate espresso drink with steamed milk and foam.",
-        "ingredients": ["Espresso", "Steamed Milk", "Chocolate"],
+        "description": "For all you chocolate lovers out there, you’ll fall in love with a mocha (or maybe you already have). The mocha is a chocolate espresso drink with steamed milk and foam.",
         "image": "public/img/dataImages/Mocha.jpg",
         "id": 12,
-        "price": 49411,
-        "currency": "\u0111"
+        "price": 44000,
+        "currency": "đ",
+        "tag": ["Espresso", "Steamed Milk", "Chocolate"]
     },
     {
         "title": "Ristretto",
         "description": "Ristretto is an espresso shot. It uses less hot water which creates a sweeter flavor compared to the bitter taste of a traditional shot of espresso or a doppio.",
-        "ingredients": ["Short pulled espresso"],
         "image": "public/img/dataImages/Ristretto.jpg",
         "id": 13,
-        "price": 44966,
-        "currency": "\u0111"
+        "price": 25000,
+        "currency": "đ",
+        "tag": ["Short pulled espresso"]
     },
     {
         "title": "Flat White",
-        "description": "This Aussie-born drink is basically a cappuccino without the foam or chocolate sprinkle. It\u2019s an espresso drink with steamed milk.",
-        "ingredients": ["Espresso", "Steamed Milk"],
-        "image": "public/img/dataImages/Flat_White.jpg",
+        "description": "This Aussie-born drink is basically a cappuccino without the foam or chocolate sprinkle. It’s an espresso drink with steamed milk.",
+        "image": "public/img/dataImages/Flat White.jpg",
         "id": 14,
-        "price": 29192,
-        "currency": "\u0111"
+        "price": 21000,
+        "currency": "đ",
+        "tag": ["Espresso", "Steamed Milk"]
     },
     {
         "title": "Affogato",
         "description": "The affogato is an excuse to enjoy a scoop of ice cream any time of day (and any time of year in my opinion). Served with a scoop of ice cream and a shot of espresso, or two.",
-        "ingredients": ["Espresso", "Ice cream"],
         "image": "public/img/dataImages/Affogato.jpg",
         "id": 15,
-        "price": 48132,
-        "currency": "\u0111"
+        "price": 43000,
+        "currency": "đ",
+        "tag": ["Espresso", "Ice cream"]
     },
     {
         "title": "Cafe au Lait",
-        "description": "Cafe au lait is perfect for the coffee minimalist who wants a bit more flavor. Just add a splash of warm milk to your coffee and you\u2019re all set!",
-        "ingredients": ["Coffee", "Steamed Milk"],
-        "image": "public/img/dataImages/Cafe_au_Lait.jpg",
+        "description": "Cafe au lait is perfect for the coffee minimalist who wants a bit more flavor. Just add a splash of warm milk to your coffee and you’re all set!",
+        "image": "public/img/dataImages/Cafe au Lait.jpg",
         "id": 16,
-        "price": 33102,
-        "currency": "\u0111"
+        "price": 38000,
+        "currency": "đ",
+        "tag": ["Coffee", "Steamed Milk"]
     },
     {
         "title": "Irish",
         "description": "Irish coffee consists of black coffee, whiskey and sugar, topped with whipped cream.",
-        "ingredients": ["Coffee", "Whiskey", "Sugar", "Cream"],
         "image": "public/img/dataImages/Irish.jpg",
         "id": 17,
-        "price": 31021,
-        "currency": "\u0111"
+        "price": 33000,
+        "currency": "đ",
+        "tag": ["Coffee", "Whiskey", "Sugar", "Cream"]
     },
     {
         "title": "Guayoyo",
         "description": "Traditional venezuelan coffee prepared by filtering the ground coffee in a cone of cloth and pouring hot water on top of it. It's prefferably drinked wihout milk nor cream.",
-        "ingredients": ["Coffee", "Traditional", "Hot Water"],
         "image": "public/img/dataImages/Guayoyo.jpg",
         "id": 18,
-        "price": 32975,
-        "currency": "\u0111"
+        "price": 41000,
+        "currency": "đ",
+        "tag": ["Coffee", "Traditional", "Hot Water"]
     },
     {
         "title": "Cortadito",
         "description": "Traditional cuban coffee method where a bit of freshly brewed coffee is mixed with sugar to create a highly sugared paste. Then add the rest of the coffee and stir adding milk until a 50/50 ratio is achieved.",
-        "ingredients": ["Coffee", "Traditional", "Sugar", "Milk"],
         "image": "public/img/dataImages/Cortadito.jpg",
         "id": 19,
-        "price": 39692,
-        "currency": "\u0111"
+        "price": 48000,
+        "currency": "đ",
+        "tag": ["Coffee", "Traditional", "Sugar", "Milk"]
     },
     {
         "title": "Aguapanela Coffee",
         "description": "Bring panela and coffee to a boil in a small pan for 30 minutes until panela is melted. Brew your coffee using your favorite brewing technique but add the hot aguapanela instead of hot water. Delicious sweetened coffee is ready.",
-        "ingredients": ["Coffee", "Sweet", "Panela", "Traditional"],
-        "image": "public/img/dataImages/Aguapanela_Coffee.jpg",
+        "image": "public/img/dataImages/Aguapanela Coffee.jpg",
         "id": 20,
-        "price": 46670,
-        "currency": "\u0111"
+        "price": 37000,
+        "currency": "đ",
+        "tag": ["Coffee", "Sweet", "Panela", "Traditional"]
     }
 ]
