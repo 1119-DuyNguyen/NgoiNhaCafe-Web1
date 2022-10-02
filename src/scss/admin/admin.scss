@@ -13,6 +13,9 @@ html {
 body {
     min-height: 100%;
 }
+h1 {
+    margin: 5px 0;
+}
 
 // Colors
 
@@ -42,11 +45,11 @@ body {
 }
 
 #header {
+    width: 100%;
     border-bottom: 1px solid gray;
-    position: relative;
-    top: 0;
+    margin-bottom: 10px;
     h1 {
-        margin: 5px 0;
+        margin: 5px 10px;
         i {
             padding-right: 20vw;
         }
@@ -63,8 +66,21 @@ body {
         ul {
             li {
                 list-style: none;
-                padding: 15px;
-                border-bottom: 1px solid gray;
+                a {
+                    transition: all .2s ease-in-out;
+                    display: block;
+                    padding: 15px;
+                    color: black;
+                    border-bottom: 1px solid gray;
+                    &:first-child {
+                        border-top: 1px solid gray;
+                        border-bottom: none;
+                    }
+                    &:hover {
+                        background-color: #cdcdcd;
+                        color: white;
+                    }
+                }
             }
         }
     }
@@ -121,6 +137,9 @@ body {
             }
         }
     }
+    @media only screen and (min-width: 768px) {
+        flex-direction: row;
+    }
 }
 
 // Quản lý user
@@ -172,4 +191,45 @@ body {
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
+}
+
+// Responsive - desktop
+
+@media only screen and (min-width: 768px) {
+
+    #header {
+        display: inline-block;
+        & > h1 {
+            display: inline-block;
+            .icon-menu {
+                display: none;
+            }
+        }
+        #nav {
+            & > h1 {
+                display: none;
+            }
+            width: initial;
+            background-color: initial;
+            display: block;
+            position: initial;
+            left: 0;
+            float: right;
+            ul {
+                display: inline-flex;
+                float: right;
+                li a {
+                    border: none !important;
+                }
+            }
+        }
+    }
+
+    #main {
+        height: max-content;
+        clear: both;
+        margin: 10px 40px;
+    }
+
+    
 }
