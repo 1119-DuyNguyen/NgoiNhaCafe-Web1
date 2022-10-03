@@ -1,27 +1,27 @@
-function toast({ title = "", message = "", type = "", duration = "" }) {
+export function toast({ title = '', message = '', type = '', duration = '' }) {
     type = type.toLowerCase();
-    const toastList = document.getElementById("toast");
+    const toastList = document.getElementById('toast');
     if (toastList) {
-        // cần fix lại links icons
         const icons = {
-            success: "ti-check",
-            warning: "ti-alert",
-            info: "ti-info-alt",
-            error: "ti-close",
+            success: 'icon-checkbox-checked',
+            warning: 'icon-notification',
+            info: 'icon-info',
+            error: 'icon-cancel-circle',
         };
         const icon = icons[type];
         const delay = duration / 1000;
-        var toast = document.createElement("div");
+        var toast = document.createElement('div');
 
         toast.style.animation =
-            "slideInLeft ease 0.3s, fadeOut linear 3s forwards";
+            'slideInLeft ease 0.3s, fadeOut linear 3s forwards';
 
-        toast.classList.add("toast");
-        toast.classList.add("toast--" + type);
+        toast.classList.add('toast');
+        toast.classList.add('toast--' + type);
+
         toast.innerHTML = `
     
         <div class="toast__icon">
-          <i class="circle-background ${icon}">  </i>
+          <span class="${icon} toast-icon-background">  </span>
         </div>
         <div class="toast__body">
           <h3 class="toast__title">
@@ -32,7 +32,6 @@ function toast({ title = "", message = "", type = "", duration = "" }) {
     
           </p>
         </div>
-        <div class="toast__close ti-close">
         </div>  `;
         toastList.appendChild(toast);
         setTimeout(function () {
@@ -41,19 +40,38 @@ function toast({ title = "", message = "", type = "", duration = "" }) {
     }
 }
 
-function showSuccessToast() {
-    toast({
-        title: "Success",
-        message: " Đăng ký thành công",
-        type: "success",
-        duration: 3000,
-    });
-}
-function showErrorToast() {
-    toast({
-        title: "Error",
-        message: "Đã có lỗi xảy ra xin vui lòng liên hệ quản trị viên",
-        type: "Error",
-        duration: 3000,
-    });
-}
+/*example function*/
+
+// export function showSuccessToast() {
+//     toast({
+//         title: 'Success',
+//         message: ' Đăng ký thành công',
+//         type: 'success',
+//         duration: 3000,
+//     });
+// }
+// export function showErrorToast() {
+//     toast({
+//         title: 'Error',
+//         message: 'Đã có lỗi xảy ra xin vui lòng liên hệ quản trị viên',
+//         type: 'Error',
+//         duration: 10000,
+//     });
+// }
+// export function showInfoToast() {
+//     toast({
+//         title: 'Info',
+//         message: 'Đã có lỗi xảy ra xin vui lòng liên hệ quản trị viên',
+//         type: 'Info',
+//         duration: 3000,
+//     });
+// }
+
+// export function showWarningToast() {
+//     toast({
+//         title: 'Warning',
+//         message: 'Đã có lỗi xảy ra xin vui lòng liên hệ quản trị viên',
+//         type: 'Warning',
+//         duration: 3000,
+//     });
+// }

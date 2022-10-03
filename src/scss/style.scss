@@ -1,3 +1,7 @@
-@use "app";
-@use "toast";
-@use "footer";
+@use 'app';
+@use "./header/header";
+@use 'slider';
+@use 'toast';
+@use 'productInfo';
+@use 'footer';
+

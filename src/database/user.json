@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "username": "Bret",
+        "email": "Sincere@april.biz",
+        "address": "215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam",
+        "phone": "04147274",
+        "password": "khongcopass",
+        "type": "admin"
+    },
+    {
+        "id": 2,
+        "username": "Antonette",
+        "email": "Shanna@melissa.tv",
+        "address": "215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam",
+        "phone": "04252181",
+        "password": "khongcopass",
+        "type": "user"
+    },
+    {
+        "id": 3,
+        "username": "Samantha",
+        "email": "Nathan@yesenia.net",
+        "address": "215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam",
+        "phone": "06949196",
+        "password": "khongcopass",
+        "type": "user"
+    },
+    {
+        "id": 4,
+        "username": "Karianne",
+        "email": "Julianne.OConner@kory.org",
+        "address": "215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam",
+        "phone": "01261619",
+        "password": "khongcopass",
+        "type": "user"
+    },
+    {
+        "id": 5,
+        "username": "Kamren",
+        "email": "Lucio_Hettinger@annie.ca",
+        "address": "215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam",
+        "phone": "06242940",
+        "password": "khongcopass",
+        "type": "admin"
+    },
+    {
+        "id": 6,
+        "username": "Leopoldo_Corkery",
+        "email": "Karley_Dach@jasper.info",
+        "address": "215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam",
+        "phone": "01358817",
+        "password": "khongcopass",
+        "type": "admin"
+    },
+    {
+        "id": 7,
+        "username": "Elwyn.Skiles",
+        "email": "Telly.Hoeger@billy.biz",
+        "address": "215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam",
+        "phone": "09097100",
+        "password": "khongcopass",
+        "type": "user"
+    },
+    {
+        "id": 8,
+        "username": "Maxime_Nienow",
+        "email": "Sherwood@rosamond.me",
+        "address": "215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam",
+        "phone": "07079780",
+        "password": "khongcopass",
+        "type": "user"
+    },
+    {
+        "id": 9,
+        "username": "Delphine",
+        "email": "Chaim_McDermott@dana.io",
+        "address": "215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam",
+        "phone": "06698949",
+        "password": "khongcopass",
+        "type": "admin"
+    },
+    {
+        "id": 10,
+        "username": "Moriah.Stanton",
+        "email": "Rey.Padberg@karina.biz",
+        "address": "215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam",
+        "phone": "08437211",
+        "password": "khongcopass",
+        "type": "user"
+    }
+]
