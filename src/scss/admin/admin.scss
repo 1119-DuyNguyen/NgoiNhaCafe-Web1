@@ -13,8 +13,8 @@ html {
 body {
     min-height: 100%;
 }
-h1 {
-    margin: 5px 0;
+h1, h2, h3, h4, h5, h6 {
+    margin: 20px 0;
 }
 
 // Colors
@@ -40,11 +40,17 @@ h1 {
 
 // 
 
+.admin-container {
+    &.--hidden {
+        display: none;
+    }
+}
+
 .opened_nav {
     left: 0 !important;
 }
 
-#header {
+#header-admin {
     width: 100%;
     border-bottom: 1px solid gray;
     margin-bottom: 10px;
@@ -92,7 +98,15 @@ h1 {
     border: none;
     color: white;
     transition: background-color .2s ease-in-out;
+    padding: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    &.btn-success {
+        background-color: #12d600;
+        &:active {
+            background-color: darken(#12d600, 10%);
+        }
+    }
     &.btn-danger {
         background-color: #d60000;
         &:active {
@@ -104,6 +118,9 @@ h1 {
         &:active {
             background-color: darken(#1fb8ff, 10%);
         }
+    }
+    i {
+        vertical-align: middle;
     }
 }
 
@@ -197,7 +214,7 @@ h1 {
 
 @media only screen and (min-width: 768px) {
 
-    #header {
+    #header-admin {
         display: inline-block;
         & > h1 {
             display: inline-block;
