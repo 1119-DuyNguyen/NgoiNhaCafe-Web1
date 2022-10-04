@@ -1,5 +1,9 @@
 $--primary-color: #fff2d9;
+$--text-color: #000;
 // class dùng nhìu lần
+.flex {
+    display: flex;
+}
 
 .layout-dark {
     position: absolute;
@@ -30,6 +34,11 @@ $--primary-color: #fff2d9;
     display: block;
 }
 
+.size-small {
+    margin-left: 6px;
+    color: $--text-color;
+    font-size: 8px;
+}
 // phần code
 
 #header {
@@ -141,6 +150,7 @@ $--primary-color: #fff2d9;
     position: relative;
     z-index: 2;
     transition: 0.5s ease-in;
+    overflow-y: auto;
 }
 
 .board-body > p {
