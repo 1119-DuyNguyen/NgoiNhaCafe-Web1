@@ -13,8 +13,8 @@ html {
 body {
     min-height: 100%;
 }
-h1 {
-    margin: 5px 0;
+h1, h2, h3, h4, h5, h6 {
+    margin: 20px 0;
 }
 
 // Colors
@@ -40,11 +40,17 @@ h1 {
 
 //
 
+.admin-container {
+    &.--hidden {
+        display: none;
+    }
+}
+
 .opened_nav {
     left: 0 !important;
 }
 
-#header {
+#header-admin {
     width: 100%;
     border-bottom: 1px solid gray;
     margin-bottom: 10px;
@@ -90,12 +96,14 @@ h1 {
     padding: 5px;
     border: none;
     color: white;
-    transition: background-color 0.2s ease-in-out;
     cursor: pointer;
     span,
     i {
         vertical-align: middle;
     }
+    transition: background-color .2s ease-in-out;
+    padding: 5px;
+    border-radius: 4px;
     &.btn-success {
         background-color: #12d600;
         &:active {
@@ -113,6 +121,9 @@ h1 {
         &:active {
             background-color: darken(#1fb8ff, 10%);
         }
+    }
+    i {
+        vertical-align: middle;
     }
 }
 
@@ -191,6 +202,10 @@ h1 {
                 &:first-child {
                     text-align: center;
                 }
+                &:nth-child(2) {
+                    width: 2%;
+                    text-align: center;
+                }
                 padding: 10px;
                 border-right: 1px solid gray;
                 &:last-child {
@@ -226,7 +241,7 @@ h1 {
 // Responsive - desktop
 
 @media only screen and (min-width: 768px) {
-    #header {
+    #header-admin {
         display: inline-block;
         & > h1 {
             display: inline-block;
