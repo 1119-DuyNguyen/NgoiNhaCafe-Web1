@@ -1,22 +1,36 @@
 #footer {
+
+
 //    position: absolute;
     width: 100%;
     bottom: 0;
     padding: 20px 0;
     background-color: #000000d9;
     .container {
-        margin: 0 80px;
+        margin: 0 60px;
         display: flex;
         color: white;
-        justify-content: space-between;
+        justify-content: space-around;
+        padding-bottom: 100px;
         .col {
-            width: 20%;
+            width: 25%;
+            margin-bottom: 10px;
+            padding-right: 15px;
             text-align: justify;
-            h3 {
+            p {
+                padding: 3px;
+            }
+            .col-head {
+                font-size: 18px;
+                margin-bottom: 8px;
                 i {
                     vertical-align: middle;
                     margin-right: 5px;
                 }
+            }
+            i {
+                font-size: 30px;
+                padding-right: 5px;
             }
         }
     }
@@ -29,6 +43,7 @@
             flex-direction: column;
             .col {
                 flex: 100%;
+                margin-bottom: 30px;
             }
         }
     }
@@ -39,6 +54,7 @@
         .container {
             margin: 0 40px;
             flex-wrap: wrap;
+            padding-bottom: 0px;
             .col {
                 padding-right: 15px;
                 flex: 45%;
@@ -46,4 +62,5 @@
             }
         }
     }
+
 }

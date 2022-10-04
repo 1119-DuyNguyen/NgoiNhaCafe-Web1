@@ -1,66 +1,460 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ngôi nhà cà phê</title>
-    <link rel="stylesheet" href="./public/css/normalize.css" />
-    <link rel="stylesheet" href="./public/css/icomoon/style.css" />
-    <link rel="stylesheet" href="./public/css/style.css" />
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ngôi nhà cà phê</title>
+        <link rel="stylesheet" href="./public/css/normalize.css" />
+        <link rel="stylesheet" href="./public/css/icomoon/style.css" />
+        <link rel="stylesheet" href="./public/css/style.css" />
+    </head>
+    <body>
+        <div id="header">
+            <div class="menu__mobile">
+                <div class="header__menu-mobile">
+                    <h3 class="header__menu-mobile-line">Ngôi nhà cafe</h3>
+                    <!-- Khúc này là đợi có icon rồi thêm vô -->
+                    <span class="line-height-50 icon-large icon-home"></span>
+                </div>
+ 
+                <div class="menu__board --disappear">
+                    <div class="layout-dark"></div>
+ 
+                    <div class="board-body">
+                        <div id="close-btn" class="close-btn-wrap">
+                            <span class="icon icon-cross"></span>
+                        </div>
+ 
+                        <ul class="text-hover board__list">
+                            <li class="board__item">
+                                <a
+                                    class="font-family text-color"
+                                    href="#"
+                                    title=""
+                                    >Cà phê</a
+                                >
+                            </li>
+ 
+                            <li class="board__item">
+                                <a
+                                    class="font-family text-color"
+                                    href="#"
+                                    title=""
+                                    >Trà</a
+                                >
+                            </li>
+ 
+                            <li class="board__item">
+                                <a
+                                    class="font-family text-color"
+                                    href="#"
+                                    title=""
+                                    >Thực đơn
+                                
+                                    <span class="size-small icon-circle-down"></span>
+                                </a>
 
-<body>
-    <div id="header">
-        <div id="nav">
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-        <div id="nav_mobile">
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+                                
+ 
+                                <!-- Phần bên trong thực đơn -->
+                                <div class="--disappear board__item-inside">
+                                    <ul class="board__item-all">
+                                        <li class="board__item-all-list">
+                                            <a
+                                                class="font-family text-color"
+                                                href="#"
+                                                >Tất cả</a
+                                            >
+                                        </li>
+ 
+                                        <li class="board__item-all-list">
+                                            <a
+                                                class="font-family text-color"
+                                                href="#"
+                                                >Cà phê</a
+                                            >
+                                        </li>
+ 
+                                        <li class="board__item-all-list">
+                                            <a
+                                                class="font-family text-color"
+                                                href="#"
+                                                >Trà</a
+                                            >
+                                        </li>
+ 
+                                        <li class="board__item-all-list">
+                                            <a
+                                                class="font-family text-color"
+                                                href="#"
+                                                >dfsdfds</a
+                                            >
+                                        </li>
+ 
+                                        <li class="board__item-all-list">
+                                            <a
+                                                class="font-family text-color"
+                                                href="#"
+                                                >fdsfdsfs</a
+                                            >
+                                        </li>
+ 
+                                        <li class="board__item-all-list">
+                                            <a
+                                                class="font-family text-color"
+                                                href="#"
+                                                >dsfdsfs</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+ 
+                            <li class="board__item">
+                                <a
+                                    class="font-family text-color"
+                                    href="#"
+                                    title=""
+                                    >Về chúng tôi</a
+                                >
+                            </li>
+ 
+                            <li class="board__item">
+                                <a
+                                    class="font-family text-color"
+                                    href="#"
+                                    title=""
+                                    >Tài Khoản</a
+                                >
+                            </li>
+ 
+                            <li class="board__item">
+                                <a
+                                    class="font-family text-color"
+                                    href="#"
+                                    title=""
+                                    >Giỏ hàng</a
+                                >
+                            </li>
+ 
+                            <div class="form__log-in-out"></div>
+                        </ul>
+                    </div>
+                </div>
+ 
+                <div id="menu-btn" class="line-height-50 header__icon-menu-btn">
+                    <span class="icon-large icon-menu"></span>
+                </div>
+            </div>
+ 
+            <!-- desktop-list -->
+            <div class="header__desktop-list">
+                <div class="header__title">
+                    <h3 class="header-line">Ngôi nhà cafe</h3>
+                    <!-- Khúc này là đợi có icon rồi thêm vô -->
+                    <span class="line-height-50 icon-large icon-home"></span>
+                </div>
+ 
+                <div class="text-hover header__selection">
+                    <ul class="header__selection-all">
+                        <li class="header__selection-all-item">
+                            <a class="font-family text-color" href="#"
+                                >Cà phê</a
+                            >
+                        </li>
+ 
+                        <li class="header__selection-all-item">
+                            <a class="font-family text-color" href="#">Trà</a>
+                        </li>
+ 
+                        <li class="hover header__selection-all-item">
+                            <a class="font-family text-color" href="#"
+                                >Thực đơn</a
+                            >
+ 
+                            <span class="size-small icon-circle-down"></span>
+ 
+                            <div class="header__modal">
+                                <div class="flex-assist">
+                                    <div class="layout-white"></div>
+ 
+                                    <div class="header__menu-modal">
+                                        <ul
+                                            class="text-hover header__inside-menu-modal"
+                                        >
+                                            <li
+                                                class="header__inside-menu-item-1"
+                                            >
+                                                <a
+                                                    class="font-family text-color"
+                                                    href="#"
+                                                    >Tất cả</a
+                                                >
+                                            </li>
+ 
+                                            <li
+                                                class="header__inside-menu-item-1"
+                                            >
+                                                <a
+                                                    class="font-family text-color"
+                                                    href="#"
+                                                    >Cà phê</a
+                                                >
+ 
+                                                <ul
+                                                    class="text-hover header__inside-menu-suggested"
+                                                >
+                                                    <li
+                                                        class="header__inside-menu-item-2"
+                                                    >
+                                                        <a
+                                                            class="not-flow font-family text-color"
+                                                            href="#"
+                                                        >
+                                                            gggggggggg
+                                                        </a>
+                                                    </li>
+ 
+                                                    <li
+                                                        class="header__inside-menu-item-2"
+                                                    >
+                                                        <a
+                                                            class="not-flow font-family text-color"
+                                                            href="#"
+                                                        >
+                                                            gggggggggg
+                                                        </a>
+                                                    </li>
+ 
+                                                    <li
+                                                        class="header__inside-menu-item-2"
+                                                    >
+                                                        <a
+                                                            class="not-flow font-family text-color"
+                                                            href="#"
+                                                        >
+                                                            gggggggggg
+                                                        </a>
+                                                    </li>
+ 
+                                                    <li
+                                                        class="header__inside-menu-item-2"
+                                                    >
+                                                        <a
+                                                            class="not-flow font-family text-color"
+                                                            href="#"
+                                                        >
+                                                            gggggggggg
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+ 
+                                            <li
+                                                class="text-color header__inside-menu-item-1"
+                                            >
+                                                <a
+                                                    class="font-family text-color"
+                                                    href="#"
+                                                    >Trà</a
+                                                >
+ 
+                                                <ul
+                                                    class="text-hover header__inside-menu-suggested"
+                                                >
+                                                    <li
+                                                        class="header__inside-menu-item-2"
+                                                    >
+                                                        <a
+                                                            class="font-family text-color"
+                                                            href="#"
+                                                        >
+                                                            gggggggggg
+                                                        </a>
+                                                    </li>
+ 
+                                                    <li
+                                                        class="header__inside-menu-item-2"
+                                                    >
+                                                        <a
+                                                            class="font-family text-color"
+                                                            href="#"
+                                                        >
+                                                            gggggggggg
+                                                        </a>
+                                                    </li>
+                                                    <li
+                                                        class="header__inside-menu-item-2"
+                                                    >
+                                                        <a
+                                                            class="font-family text-color"
+                                                            href="#"
+                                                        >
+                                                            gggggggggg
+                                                        </a>
+                                                    </li>
+                                                    <li
+                                                        class="header__inside-menu-item-2"
+                                                    >
+                                                        <a
+                                                            class="font-family text-color"
+                                                            href="#"
+                                                        >
+                                                            gggggggggg
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+ 
+                                            <li
+                                                class="header__inside-menu-item-1"
+                                            >
+                                                <a
+                                                    class="font-family text-color"
+                                                    href="#"
+                                                    >Hi-Tea Healthy</a
+                                                >
+ 
+                                                <ul
+                                                    class="text-hover header__inside-menu-suggested"
+                                                >
+                                                    <li
+                                                        class="header__inside-menu-item-2"
+                                                    >
+                                                        <a
+                                                            class="font-family text-color"
+                                                            href="#"
+                                                        >
+                                                            gggggggggg
+                                                        </a>
+                                                    </li>
+                                                    <li
+                                                        class="header__inside-menu-item-2"
+                                                    >
+                                                        <a
+                                                            class="font-family text-color"
+                                                            href="#"
+                                                        >
+                                                            gggggggggg
+                                                        </a>
+                                                    </li>
+                                                    <li
+                                                        class="header__inside-menu-item-2"
+                                                    >
+                                                        <a
+                                                            class="font-family text-color"
+                                                            href="#"
+                                                        >
+                                                            gggggggggg
+                                                        </a>
+                                                    </li>
+                                                    <li
+                                                        class="header__inside-menu-item-2"
+                                                    >
+                                                        <a
+                                                            class="font-family text-color"
+                                                            href="#"
+                                                        >
+                                                            gggggggggg
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+ 
+                        <li class="header__selection-all-item">
+                            <a class="font-family text-color" href="#"
+                                >Về chúng tôi</a
+                            >
+                        </li>
+ 
+                        <li class="header__selection-all-item">
+                            <a class="font-family text-color" href="#"
+                                >Liên hệ</a
+                            >
+                        </li>
+
+                        <div class="form__log-in-out"></div>
+                    </ul>
+                </div>
+
+ 
+                <div class="header__acount">
+                    <div class="icon border-square">
+                        <a href="#"></a>
+                        <span class="icon-user"></span>
+                    </div>
+                    <div class="icon border-square cart-icon">
+                        <a href="#"></a>
+                        <span class="icon-cart"></span>
+                    </div>
+                    <!-- <a class="user-line text-color" href="#">Tài khoản</a> -->
+                </div>
+                <!-- <a class="user-line text-color" href="#">Tài khoản</a> -->
+            </div>
         </div>
     </div>
     <div id="main">
         <div class="container">
-            <div class="slider"></div>
-        </div>
-        <div class="container">
-            <div id="preview">
-                <div class="p-item"></div>
-                <div class="p-item"></div>
-                <div class="p-item"></div>
-                <div class="p-item"></div>
-            </div>
-            <div id="preview_mobile">
-                <div class="p-item"></div>
-                <div class="p-item"></div>
-                <div class="p-item"></div>
-                <div class="p-item"></div>
-            </div>
-            <div id="sidebar">
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+            <div class="slider">
+                <span class="icl icon-circle-left"></span>
+                <ul class="slider-dots">
+                    <div class="icon-minus active" data-index="0"></div>
+                    <div class="icon-minus " data-index="1"></div>
+                    <div class="icon-minus " data-index="2"></div>
                 </ul>
+                <div class="slider-pictures">
+                    <div class="slider-main">
+                        <div class="slider-picture-item">
+                            <img src="./public/img/slider_1.webp" alt="" />
+                        </div>
+                        <div class="slider-picture-item">
+                            <img src="./public/img/slider_2.webp" alt="" />
+                        </div>
+                        <div class="slider-picture-item">
+                            <img src="./public/img/slider_3.webp" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <span class="icl icon-circle-right"></span>
             </div>
-            <div id="sidebar_mobile">
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
+            <div class="container">
+
+
+                <div id="preview">
+                    <div class="p-item"></div>
+                    <div class="p-item"></div>
+                    <div class="p-item"></div>
+                    <div class="p-item"></div>
+                </div>
+                <div id="preview_mobile">
+                    <div class="p-item"></div>
+                    <div class="p-item"></div>
+                    <div class="p-item"></div>
+                    <div class="p-item"></div>
+                </div>
+                <div id="sidebar">
+                    <ul style="margin-top: 0">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div id="sidebar_mobile">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="product-container" style="display: none;">
+              <div class="product-container" style="display: none;">
             <div class="left-list">
                 <ul class="left-container">
                     <li class="all-product mobile-top">
@@ -185,33 +579,122 @@
                         <a href="#">Product Info</a>
                         <p style="margin-top: 15px;">Product Price</p>
                     </div>
+            <!-- chi tiet san pham -->
+            <div class="product --hide">
+                <div class="product-about">
+                    <div class="product_visual">
+                        <div class="product_visual_img">
+                            <img src="./public/img/capheda.jpg" alt="cà phê đá" />
+                        </div>
+                    </div>
+                    <div class="product_shopping">
+                        <div class="info">
+                            <h2 class="h2">Cà Phê Sữa Đá</h2>
+                            <div class="info_sale">
+                                <div class="info_sale_price info_sale_item">
+                                    29.000 đ
+                                </div>
+                                <del class="info_sale_original info_sale_item --hide">0 đ</del>
+                                <div class="info_sale_percent info_sale_item --hide">
+                                    Giảm 0 %
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option-size">
+                            <div class="h4">Chọn size (bắt buộc)</div>
+                            <ul class="option-size_selections">
+                                <li class="option-size_selections_item">
+                                    <p class="size-content">
+                                        <span class="icon-mug icon-small"></span>
+                                        Nhỏ + 0 đ
+                                    </p>
+                                </li>
+                                <li class="option-size_selections_item">
+                                    <p class="size-content">
+                                        <span class="icon-mug icon-medium"></span>
+                                        Vừa + 6.000 đ
+                                    </p>
+                                </li>
+                                <li class="option-size_selections_item">
+                                    <p class="size-content">
+                                        <span class="icon-mug icon-large"></span>
+                                        Lớn + 10.000 đ
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="option-topping">
+                            <div class="h4">Topping</div>
+                            <ul class="option-topping_selections">
+                                <li class="option-topping_selections_item">
+                                    <p>Kem Phô Mai Macchiato + 10.000 đ</p>
+                                </li>
+                                <li class="option-topping_selections_item">
+                                    <p>Shot Espresso + 10.000</p>
+                                </li>
+                                <li class="option-topping_selections_item">
+                                    <p>Trân châu trắng + 10.000 đ</p>
+                                </li>
+                                <li class="option-topping_selections_item">
+                                    <p>Sốt Caramel + 10.000 đ</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="product_shopping_cart">
+                            <span class="icon-cart icon"></span>
+                            <div class="h4">Đặt giao tận nơi</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-description">
+                    <hr />
+                    <h2 class="h2">Mô tả sản phẩm</h2>
+                    <p>
+                        Cà phê Đắk Lắk nguyên chất được pha phin truyền thống
+                        kết hợp với sữa đặc tạo nên hương vị đậm đà, hài hòa
+                        giữa vị ngọt đầu lưỡi và vị đắng thanh thoát nơi hậu vị.
+                    </p>
+                    <hr />
+                </div>
+                <div class="product-related">
+                    <h2 class="h2">Sản phẩm liên quan</h2>
+                    //Item-lấy từ menu
                 </div>
             </div>
         </div>
+ 
         <div id="footer">
             <div class="container">
                 <div class="col">
-                    <h2>Giới thiệu</h2>
+                    <p class="col-head">Giới thiệu</p>
                     <p>Về chúng tôi</p>
                     <p>Sản phẩm</p>
                     <p>Khuyến mãi</p>
                 </div>
                 <div class="col">
-                    <h2>Thông tin</h2>
+                    <p class="col-head">Thông tin</p>
+                    <p>Cửa hàng</p>
+                    <p>Quy tắc bảo mật</p>
+                    <p>Điều khoản sử dụng</p>
                 </div>
                 <div class="col">
-                    <h3><i class="icon-phone"></i> Đặt hàng: 1800 1234</h3>
-                    <p>Liên hệ</p>
-                    <p>273 An Dương Vương, phường 3, quận 5, TP.Hồ Chí Minh</p>
+                    <p class="col-head"><i class="icon-phone"></i>1800 1234</p>
+                    <p class="col-head"><i class="icon-location"></i> Liên hệ</p>
+                    <p>Trụ sở: 273 An Dương Vương, phường 3, quận 5, TP.Hồ Chí Minh</p>
                 </div>
                 <div class="col">
-                    <h2>Mạng xã hội</h2>
+                    <p class="col-head">Mạng xã hội</p>
                     <i class="icon-facebook"></i>
+                    <i class="icon-instagram"></i>
+                    <i class="icon-youtube"></i>
+                    <i class="icon-twitter"></i>
                 </div>
             </div>
         </div>
         <!-- toast -->
         <div id="toast"></div>
+    </div>
+
 </body>
 <script type="module" src="./src/index.js"></script>
 

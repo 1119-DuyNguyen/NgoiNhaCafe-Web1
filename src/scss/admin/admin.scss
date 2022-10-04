@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    font-family: sans-serif;
+}
+body {
+    min-height: 100%;
+}
+h1 {
+    margin: 5px 0;
+}
+
+// Colors
+
+.yellow {
+    background-color: #FFC107;
+    .card-btn {
+        background-color: darken(#FFC107, 5%);
+        .icon-arrow-right {
+            color: darken(#FFC107, 5%);
+        }
+    }
+}
+.blue {
+    background-color: #17A2B8;
+    .card-btn {
+        background-color: darken(#17A2B8, 5%);
+        .icon-arrow-right {
+            color: darken(#17A2B8, 5%);
+        }
+    }
+}
+
+// 
+
+.opened_nav {
+    left: 0 !important;
+}
+
+#header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    margin-bottom: 10px;
+    h1 {
+        margin: 5px 10px;
+        i {
+            padding-right: 20vw;
+        }
+    }
+    #nav {
+        position: fixed;
+        top: 0;
+        transition: left .5s ease-in-out;
+        left: -60%;
+        background-color: #fff;
+        height: 100%;
+        z-index: 9;
+        width: 60%;
+        ul {
+            li {
+                list-style: none;
+                a {
+                    transition: all .2s ease-in-out;
+                    display: block;
+                    padding: 15px;
+                    color: black;
+                    border-bottom: 1px solid gray;
+                    &:first-child {
+                        border-top: 1px solid gray;
+                        border-bottom: none;
+                    }
+                    &:hover {
+                        background-color: #cdcdcd;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.btn {
+    padding: 5px;
+    border: none;
+    color: white;
+    transition: background-color .2s ease-in-out;
+    cursor: pointer;
+    &.btn-danger {
+        background-color: #d60000;
+        &:active {
+            background-color: darken(#d60000, 10%);
+        }
+    }
+    &.btn-info {
+        background-color: #1fb8ff;
+        &:active {
+            background-color: darken(#1fb8ff, 10%);
+        }
+    }
+}
+
+// Trang chủ
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    .card {
+        margin: 0 auto;
+        text-align: center;
+        width: 95vw;
+        border: 1px solid gray;
+        box-sizing: border-box;
+        padding-top: 5px;
+        .card-info {
+            .number {
+                font-size: x-large;
+            }
+        }
+        .card-btn {
+            margin-top: 50px;
+            color: black;
+            display: block;
+            text-align: center;
+            padding: 5px;
+            .icon-arrow-right {
+                background-color: black;
+                border-radius: 50px;
+                padding: 3px;
+            }
+        }
+    }
+    @media only screen and (min-width: 768px) {
+        flex-direction: row;
+    }
+}
+
+// Quản lý user
+
+#managerment {
+    & > * {
+        display: inline-block;
+    }
+    margin: 5px;
+    #select-all {
+        vertical-align: middle;
+    }
+}
+
+.table-container {
+    overflow-x: auto;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        tr {
+            &:nth-of-type(even) { 
+                background: #eee; 
+            }
+            border-bottom: 1px solid gray;
+            &:last-child {
+                border-bottom: none;
+            }
+            th, td {
+                &:first-child {
+                    text-align: center;
+                }
+                padding: 10px;
+                border-right: 1px solid gray;
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+    }
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    background-color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-top: 1px solid gray;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+// Responsive - desktop
+
+@media only screen and (min-width: 768px) {
+
+    #header {
+        display: inline-block;
+        & > h1 {
+            display: inline-block;
+            .icon-menu {
+                display: none;
+            }
+        }
+        #nav {
+            & > h1 {
+                display: none;
+            }
+            width: initial;
+            background-color: initial;
+            display: block;
+            position: initial;
+            left: 0;
+            float: right;
+            ul {
+                display: inline-flex;
+                float: right;
+                li a {
+                    border: none !important;
+                }
+            }
+        }
+    }
+
+    #main {
+        height: max-content;
+        clear: both;
+        margin: 10px 40px;
+    }
+
+    
+}
