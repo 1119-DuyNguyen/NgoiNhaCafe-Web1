@@ -10,4 +10,4 @@ console.log(imgs);
 console.log(users);
 
 header.run();
-slider.run();
+slider.onLoad();
