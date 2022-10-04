@@ -188,6 +188,10 @@ h1, h2, h3, h4, h5, h6 {
                 &:first-child {
                     text-align: center;
                 }
+                &:nth-child(2) {
+                    width: 2%;
+                    text-align: center;
+                }
                 padding: 10px;
                 border-right: 1px solid gray;
                 &:last-child {
