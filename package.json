@@ -26,6 +26,7 @@
     },
     "scripts": {
         "watch": "sass --watch --update --no-source-map src/scss:public/css",
+        "admin": "sass --watch --update --no-source-map src/scss/admin:public/css/admin",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [

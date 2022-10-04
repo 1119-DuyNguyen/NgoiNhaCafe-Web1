@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Quản lý user</title>
+        <title>Quản lý sản phẩm</title>
         <link rel="stylesheet" href="../public/css/normalize.css" />
         <link rel="stylesheet" href="../public/css/icomoon/style.css" />
         <link rel="stylesheet" href="../public/css/admin/admin.css" />
@@ -12,6 +12,7 @@
     <body>
         <div id="header">
             <h1><i class="icon-menu" id="nav_open"></i> Quản trị</h1>
+
             <div id="nav">
                 <h1><i class="icon-cross" id="nav_close"></i></h1>
                 <ul>
@@ -24,6 +25,11 @@
             </div>
         </div>
         <div id="main">
+            <h2 class="product-text">
+                Danh mục sản phẩm
+
+                <button class="btn btn-success add-product-tag">Add new</button>
+            </h2>
             <div id="managerment">
                 <div id="select-all">
                     <input type="checkbox" id="check-all" />
@@ -40,11 +46,12 @@
             <div class="table-container">
                 <table id="users">
                     <tr>
+                        <!-- Quy tắc là: khi add thì sản phẩm đầu tiên phải nằm phía dưới-->
                         <th></th>
-                        <th>Họ tên</th>
-                        <th>Tên đăng nhập</th>
-                        <th>Địa chỉ email</th>
-                        <th></th>
+                        <th>Stt</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Actions</th>
                     </tr>
                     <tr>
                         <td>
@@ -54,16 +61,19 @@
                                 class="user-checkbox"
                             />
                         </td>
-                        <td>Nguyễn Văn A</td>
-                        <td>anv</td>
+                        <td>1</td>
+                        <td>Sản phẩm A</td>
+                        <td>Amin</td>
                         <td>
-                            <a href="mailto:anguyen@example.com"
-                                >anguyen@example.com</a
-                            >
-                        </td>
-                        <td>
-                            <button class="btn btn-info">Sửa</button>
-                            <button class="btn btn-danger">Xóa</button>
+                            <button class="btn btn-info">
+                                <span class="icon-pencil"></span>
+                            </button>
+                            <button class="btn btn-info">
+                                <span class="icon-info"></span>
+                            </button>
+                            <button class="btn btn-danger">
+                                <span class="icon-bin"></span>
+                            </button>
                         </td>
                     </tr>
                     <tr>
@@ -74,16 +84,20 @@
                                 class="user-checkbox"
                             />
                         </td>
-                        <td>Trần Quốc V</td>
-                        <td>vtq</td>
+                        <td>2</td>
+                        <td>Sản phẩm B</td>
+                        <td>Amin</td>
+
                         <td>
-                            <a href="mailto:vquoc@example.com"
-                                >vquoc@example.com</a
-                            >
-                        </td>
-                        <td>
-                            <button class="btn btn-info">Sửa</button>
-                            <button class="btn btn-danger">Xóa</button>
+                            <button class="btn btn-info">
+                                <span class="icon-pencil"></span>
+                            </button>
+                            <button class="btn btn-info">
+                                <span class="icon-info"></span>
+                            </button>
+                            <button class="btn btn-danger">
+                                <span class="icon-bin"></span>
+                            </button>
                         </td>
                     </tr>
                     <tr>
@@ -94,16 +108,20 @@
                                 class="user-checkbox"
                             />
                         </td>
-                        <td>Nguyễn Văn C</td>
-                        <td>anv</td>
+                        <td>3</td>
+                        <td>Sản phẩm C</td>
+                        <td>Amin</td>
+
                         <td>
-                            <a href="mailto:cvan@example.com"
-                                >cvan@example.com</a
-                            >
-                        </td>
-                        <td>
-                            <button class="btn btn-info">Sửa</button>
-                            <button class="btn btn-danger">Xóa</button>
+                            <button class="btn btn-info">
+                                <span class="icon-pencil"></span>
+                            </button>
+                            <button class="btn btn-info">
+                                <span class="icon-info"></span>
+                            </button>
+                            <button class="btn btn-danger">
+                                <span class="icon-bin"></span>
+                            </button>
                         </td>
                     </tr>
                     <tr>
@@ -114,14 +132,20 @@
                                 class="user-checkbox"
                             />
                         </td>
-                        <td>Trần Hà D</td>
-                        <td>vtq</td>
+                        <td>4</td>
+                        <td>Sản phẩm D</td>
+                        <td>Amin</td>
+
                         <td>
-                            <a href="mailto:had@example.com">had@example.com</a>
-                        </td>
-                        <td>
-                            <button class="btn btn-info">Sửa</button>
-                            <button class="btn btn-danger">Xóa</button>
+                            <button class="btn btn-info">
+                                <span class="icon-pencil"></span>
+                            </button>
+                            <button class="btn btn-info">
+                                <span class="icon-info"></span>
+                            </button>
+                            <button class="btn btn-danger">
+                                <span class="icon-bin"></span>
+                            </button>
                         </td>
                     </tr>
                     <tr>
@@ -132,16 +156,20 @@
                                 class="user-checkbox"
                             />
                         </td>
-                        <td>Đặng Văn E</td>
-                        <td>vtq</td>
+                        <td>5</td>
+                        <td>Sản phẩm E</td>
+                        <td>Amin</td>
+
                         <td>
-                            <a href="mailto:edang@example.com"
-                                >edang@example.com</a
-                            >
-                        </td>
-                        <td>
-                            <button class="btn btn-info">Sửa</button>
-                            <button class="btn btn-danger">Xóa</button>
+                            <button class="btn btn-info">
+                                <span class="icon-pencil"></span>
+                            </button>
+                            <button class="btn btn-info">
+                                <span class="icon-info"></span>
+                            </button>
+                            <button class="btn btn-danger">
+                                <span class="icon-bin"></span>
+                            </button>
                         </td>
                     </tr>
                 </table>

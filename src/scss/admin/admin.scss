@@ -20,25 +20,25 @@ h1 {
 // Colors
 
 .yellow {
-    background-color: #FFC107;
+    background-color: #ffc107;
     .card-btn {
-        background-color: darken(#FFC107, 5%);
+        background-color: darken(#ffc107, 5%);
         .icon-arrow-right {
-            color: darken(#FFC107, 5%);
+            color: darken(#ffc107, 5%);
         }
     }
 }
 .blue {
-    background-color: #17A2B8;
+    background-color: #17a2b8;
     .card-btn {
-        background-color: darken(#17A2B8, 5%);
+        background-color: darken(#17a2b8, 5%);
         .icon-arrow-right {
-            color: darken(#17A2B8, 5%);
+            color: darken(#17a2b8, 5%);
         }
     }
 }
 
-// 
+//
 
 .opened_nav {
     left: 0 !important;
@@ -57,7 +57,7 @@ h1 {
     #nav {
         position: fixed;
         top: 0;
-        transition: left .5s ease-in-out;
+        transition: left 0.5s ease-in-out;
         left: -60%;
         background-color: #fff;
         height: 100%;
@@ -67,7 +67,7 @@ h1 {
             li {
                 list-style: none;
                 a {
-                    transition: all .2s ease-in-out;
+                    transition: all 0.2s ease-in-out;
                     display: block;
                     padding: 15px;
                     color: black;
@@ -86,13 +86,22 @@ h1 {
     }
 }
 
-
 .btn {
     padding: 5px;
     border: none;
     color: white;
-    transition: background-color .2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
     cursor: pointer;
+    span,
+    i {
+        vertical-align: middle;
+    }
+    &.btn-success {
+        background-color: #12d600;
+        &:active {
+            background-color: darken(#12d600, 10%);
+        }
+    }
     &.btn-danger {
         background-color: #d60000;
         &:active {
@@ -160,14 +169,25 @@ h1 {
         width: 100%;
         border-collapse: collapse;
         tr {
-            &:nth-of-type(even) { 
-                background: #eee; 
+            &:nth-of-type(even) {
+                background: #eee;
             }
             border-bottom: 1px solid gray;
             &:last-child {
                 border-bottom: none;
             }
-            th, td {
+            th {
+                &:nth-child(2) {
+                    width: 2%;
+                }
+            }
+            td {
+                &:nth-child(2) {
+                    text-align: center;
+                }
+            }
+            th,
+            td {
                 &:first-child {
                     text-align: center;
                 }
@@ -178,6 +198,16 @@ h1 {
                 }
             }
         }
+    }
+}
+
+//quản lý sản phẩm text CODE:của HuyLe
+.product-text {
+    .add-product-tag {
+        width: auto;
+        padding: 4px 8px;
+        font-size: 14px;
+        vertical-align: middle;
     }
 }
 
@@ -196,7 +226,6 @@ h1 {
 // Responsive - desktop
 
 @media only screen and (min-width: 768px) {
-
     #header {
         display: inline-block;
         & > h1 {
@@ -230,6 +259,4 @@ h1 {
         clear: both;
         margin: 10px 40px;
     }
-
-    
 }
