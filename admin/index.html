@@ -49,7 +49,7 @@
                 </div>
             </div>
     
-            <div class="admin-container" data-csr="users">
+            <div class="admin-container --hidden" data-csr="users">
                 <h2>Người dùng <button class="btn btn-success">Thêm mới</button></h2>
                 <div id="managerment">
                     <div id="select-all">
@@ -180,6 +180,158 @@
                                 <button class="btn btn-info"><i class="icon-pencil"></i></button>
                                 <button class="btn btn-info"><i class="icon-info"></i></button>
                                 <button class="btn btn-danger"><i class="icon-bin"></i></button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="admin-container --hidden" data-csr="products">
+                <h2 class="product-text">
+                    Danh mục sản phẩm
+    
+                    <button class="btn btn-success add-product-tag">Add new</button>
+                </h2>
+                <div id="managerment">
+                    <div id="select-all">
+                        <input type="checkbox" id="check-all" />
+                        <label for="check-all">Chọn tất cả</label>
+                    </div>
+                    <div id="actions">
+                        <select id="decisions">
+                            <option value="undone" selected>-- Hành động --</option>
+                            <option value="delete">Xóa</option>
+                        </select>
+                        <button class="btn btn-info">Thực hiện</button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table id="users">
+                        <tr>
+                            <!-- Quy tắc là: khi add thì sản phẩm đầu tiên phải nằm phía dưới-->
+                            <th></th>
+                            <th>Stt</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input
+                                    type="checkbox"
+                                    value="1"
+                                    class="user-checkbox"
+                                />
+                            </td>
+                            <td>1</td>
+                            <td>Sản phẩm A</td>
+                            <td>Amin</td>
+                            <td>
+                                <button class="btn btn-info">
+                                    <span class="icon-pencil"></span>
+                                </button>
+                                <button class="btn btn-info">
+                                    <span class="icon-info"></span>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <span class="icon-bin"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input
+                                    type="checkbox"
+                                    value="2"
+                                    class="user-checkbox"
+                                />
+                            </td>
+                            <td>2</td>
+                            <td>Sản phẩm B</td>
+                            <td>Amin</td>
+    
+                            <td>
+                                <button class="btn btn-info">
+                                    <span class="icon-pencil"></span>
+                                </button>
+                                <button class="btn btn-info">
+                                    <span class="icon-info"></span>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <span class="icon-bin"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input
+                                    type="checkbox"
+                                    value="3"
+                                    class="user-checkbox"
+                                />
+                            </td>
+                            <td>3</td>
+                            <td>Sản phẩm C</td>
+                            <td>Amin</td>
+    
+                            <td>
+                                <button class="btn btn-info">
+                                    <span class="icon-pencil"></span>
+                                </button>
+                                <button class="btn btn-info">
+                                    <span class="icon-info"></span>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <span class="icon-bin"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input
+                                    type="checkbox"
+                                    value="4"
+                                    class="user-checkbox"
+                                />
+                            </td>
+                            <td>4</td>
+                            <td>Sản phẩm D</td>
+                            <td>Amin</td>
+    
+                            <td>
+                                <button class="btn btn-info">
+                                    <span class="icon-pencil"></span>
+                                </button>
+                                <button class="btn btn-info">
+                                    <span class="icon-info"></span>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <span class="icon-bin"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input
+                                    type="checkbox"
+                                    value="5"
+                                    class="user-checkbox"
+                                />
+                            </td>
+                            <td>5</td>
+                            <td>Sản phẩm E</td>
+                            <td>Amin</td>
+    
+                            <td>
+                                <button class="btn btn-info">
+                                    <span class="icon-pencil"></span>
+                                </button>
+                                <button class="btn btn-info">
+                                    <span class="icon-info"></span>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <span class="icon-bin"></span>
+                                </button>
                             </td>
                         </tr>
                     </table>
