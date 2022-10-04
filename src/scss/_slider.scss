@@ -32,7 +32,9 @@
         bottom: 5%;
         z-index: 10;
         font-size: 20px;
+        transform: translateY(32px);
         cursor: pointer;
+        font-size: 16px;
         li:hover {
             cursor: pointer;
         }
@@ -64,7 +66,7 @@
         }
     }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
     .slider {
         .slider-dots {
             display: none;
