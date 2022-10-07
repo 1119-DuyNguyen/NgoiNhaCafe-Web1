@@ -96,6 +96,9 @@ export function productInfo(title, dataImgs) {
     const html = `                
     <div class="container">
     <div class="content">
+        <div class="close">
+        <i class="icon-cross icon"></i>
+        </div>
         <div class="product-about">
             <div class="product_visual">
                 <div class="product_visual_img">
@@ -111,14 +114,15 @@ export function productInfo(title, dataImgs) {
                     <div class="info_price">
                         <div class="price" data-price="${data.price}">${data.price}đ</div>
                         <div class="info-count">
+                            <div class="icon minus --gray">
+                            <i class="icon-minus"></i>
+                            </div>
+                            <div class="info-count_num" data-quantity="1">1</div>
                             <div class="icon plus">
-                                <i class="icon-plus"></i>
+                            <i class="icon-plus "></i>
                             </div>
 
-                            <div class="info-count_num" data-quantity="1">1</div>
-                            <div class="icon minus">
-                                <i class="icon-minus"></i>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -208,10 +212,14 @@ export function productInfo(title, dataImgs) {
     });
     //submit data
     initSubmitProduct();
+    // close icon
+    const closeBtn = detailProduct.querySelector('.close');
+    closeBtn.addEventListener('click', () => closeDisplay(detailProduct));
 }
 function calcQuantity(btn) {
     const textQuantity = btn.parentElement.querySelector('.info-count_num');
     let sign = btn.classList.contains('minus') ? -1 : 1;
+    let btnMinus = btn.parentElement.querySelector('.minus');
     btn.addEventListener('click', (e) => {
         e.preventDefault();
 
@@ -220,6 +228,13 @@ function calcQuantity(btn) {
         if (dataProduct.quantity < 1) {
             dataProduct.quantity = 1;
         } else {
+            if (dataProduct.quantity == 1 && sign == -1) {
+                if (!btnMinus.classList.contains('--gray'))
+                    btnMinus.classList.add('--gray');
+            } else if (btnMinus.classList.contains('--gray')) {
+                btnMinus.classList.remove('--gray');
+            }
+
             textQuantity.textContent = dataProduct.quantity;
             //          textQuantity.setAttribute('data-quantity', dataProduct.quantity);
         }
@@ -234,24 +249,32 @@ function removeOptionActive(options) {
 function initSubmitProduct() {
     const cart = detailProduct.querySelector('.product_shopping_cart');
     cart.addEventListener('click', () => {
-        console.log(dataProduct);
         for (const data in dataProduct) {
             if (!dataProduct[data]) {
                 errorMessageNullProduct();
                 return;
             }
         }
-        closeDisplay(detailProduct);
+
+        // closeDisplay(detailProduct);
+        successMessageAddCart();
         //return data
         console.log(dataProduct);
     });
-    errorMessageNullProduct();
 }
 function errorMessageNullProduct() {
     toast({
         title: ' Đã có lỗi xảy ra ',
         message: 'Ấn f5 và chọn đầy đủ thông tin',
         type: 'error',
+        duration: 3000,
+    });
+}
+function successMessageAddCart() {
+    toast({
+        title: ' Đã thêm vào giỏ hàng ',
+        message: '',
+        type: 'Success',
         duration: 3000,
     });
 }
