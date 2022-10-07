@@ -3,6 +3,19 @@ export function run(dataImgs) {
     const listLv2 = document.querySelectorAll('.list-lv2');
     const mobileMenuAll = document.querySelector('.mobile-top');
     const imageContainer = document.querySelector('.image-container-LP');
+    const cafeContainer = document.querySelector('.cf-container');
+    const leftCfvn = document.querySelector('.left-cfvn');
+    const leftCfMay = document.querySelector('.left-cfMay');
+    const leftColdbrew = document.querySelector('.left-cold-brew');
+    const leftTraTraiCay = document.querySelector('.left-tra-trai-cay');
+    const leftTraSuaMacchiato = document.querySelector(
+        '.left-tra-sua-macchiato'
+    );
+    const leftHiTeaTra = document.querySelector('.left-hi-tea-tra');
+    const leftHiTeaDaTuyet = document.querySelector('.left-hi-tea-da-tuyet');
+    const leftHiTeaBlingBling = document.querySelector(
+        '.left-hi-tea-bling-bling'
+    );
     const cfvn = document.querySelector('.cfvn-txt');
     const cfMay = document.querySelector('.cfMay-txt');
     const coldBrew = document.querySelector('.cold-brew-txt');
@@ -46,6 +59,7 @@ export function run(dataImgs) {
             }
         };
     }
+
     const cfvnhtml = dataImgs.map(function (element) {
         if (element.tag === 'Cà Phê Việt Nam') {
             return `
@@ -63,6 +77,7 @@ export function run(dataImgs) {
                 </div>
                     <a href="#">${element.title}</a>
                     <p style="margin-top: 15px">${element.price} đ</p>
+                    <span class="icon-plus"></span>
             </div>
         </div>`;
         }
@@ -70,7 +85,7 @@ export function run(dataImgs) {
     const cfMayhtml = dataImgs.map(function (element) {
         if (element.tag === 'Cà Phê Máy') {
             return `
-        <div class="image-item">
+            <div class="image-item">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -84,14 +99,15 @@ export function run(dataImgs) {
                 </div>
                     <a href="#">${element.title}</a>
                     <p style="margin-top: 15px">${element.price} đ</p>
-                </div>
-                </div>`;
+                    <span class="icon-plus"></span>
+            </div>
+        </div>`;
         }
     });
     const coldBrewhtml = dataImgs.map(function (element) {
         if (element.tag === 'Cold Brew') {
             return `
-        <div class="image-item">
+            <div class="image-item">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -105,14 +121,15 @@ export function run(dataImgs) {
                 </div>
                     <a href="#">${element.title}</a>
                     <p style="margin-top: 15px">${element.price} đ</p>
-                </div>
-                </div>`;
+                    <span class="icon-plus"></span>
+            </div>
+        </div>`;
         }
     });
     const traTraiCayhtml = dataImgs.map(function (element) {
         if (element.tag === 'Trà trái cây') {
             return `
-        <div class="image-item">
+            <div class="image-item">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -126,14 +143,15 @@ export function run(dataImgs) {
                 </div>
                     <a href="#">${element.title}</a>
                     <p style="margin-top: 15px">${element.price} đ</p>
-                </div>
-                </div>`;
+                    <span class="icon-plus"></span>
+            </div>
+        </div>`;
         }
     });
     const traSuaMacchiatohtml = dataImgs.map(function (element) {
         if (element.tag === 'Trà sữa Macchiato') {
             return `
-        <div class="image-item">
+            <div class="image-item">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -147,14 +165,15 @@ export function run(dataImgs) {
                 </div>
                     <a href="#">${element.title}</a>
                     <p style="margin-top: 15px">${element.price} đ</p>
-                </div>
-                </div>`;
+                    <span class="icon-plus"></span>
+            </div>
+        </div>`;
         }
     });
     const hiTeaTrahtml = dataImgs.map(function (element) {
         if (element.tag === 'Hi-Tea Trà') {
             return `
-        <div class="image-item">
+            <div class="image-item">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -168,14 +187,15 @@ export function run(dataImgs) {
                 </div>
                     <a href="#">${element.title}</a>
                     <p style="margin-top: 15px">${element.price} đ</p>
-                </div>
-                </div>`;
+                    <span class="icon-plus"></span>
+            </div>
+        </div>`;
         }
     });
     const hiTeaDaTuyethtml = dataImgs.map(function (element) {
         if (element.tag === 'Hi-Tea Đá Tuyết') {
             return `
-        <div class="image-item">
+            <div class="image-item">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -189,14 +209,15 @@ export function run(dataImgs) {
                 </div>
                     <a href="#">${element.title}</a>
                     <p style="margin-top: 15px">${element.price} đ</p>
-                </div>
-                </div>`;
+                    <span class="icon-plus"></span>
+            </div>
+        </div>`;
         }
     });
     const hiTeaBlingBlinghtml = dataImgs.map(function (element) {
         if (element.tag === 'Hi-Tea Bling Bling') {
             return `
-        <div class="image-item">
+            <div class="image-item">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -210,8 +231,9 @@ export function run(dataImgs) {
                 </div>
                     <a href="#">${element.title}</a>
                     <p style="margin-top: 15px">${element.price} đ</p>
-                </div>
-                </div>`;
+                    <span class="icon-plus"></span>
+            </div>
+        </div>`;
         }
     });
     cfvn.innerHTML = cfvnhtml.join('');
@@ -222,4 +244,43 @@ export function run(dataImgs) {
     hiTeaTra.innerHTML = hiTeaTrahtml.join('');
     hiTeaDaTuyet.innerHTML = hiTeaDaTuyethtml.join('');
     hiTeaBlingBling.innerHTML = hiTeaBlingBlinghtml.join('');
+
+    //tránh header che kh thấy product
+
+    if (screen.width > 849) {
+        leftCfvn.onclick = function () {
+            scrollTo(0, cfvn.offsetTop - 90);
+        };
+        leftCfMay.onclick = function () {
+            scrollTo(0, cfMay.offsetTop - 70);
+        };
+        leftColdbrew.onclick = function () {
+            scrollTo(0, coldBrew.offsetTop - 70);
+        };
+        leftTraTraiCay.onclick = function () {
+            scrollTo(0, traTraiCay.offsetTop - 70);
+        };
+        leftTraSuaMacchiato.onclick = function () {
+            scrollTo(0, traSuaMacchiato.offsetTop - 70);
+        };
+        leftHiTeaTra.onclick = function () {
+            scrollTo(0, hiTeaTra.offsetTop - 70);
+        };
+        leftHiTeaDaTuyet.onclick = function () {
+            scrollTo(0, hiTeaDaTuyet.offsetTop - 70);
+        };
+        leftHiTeaBlingBling.onclick = function () {
+            scrollTo(0, hiTeaBlingBling.offsetTop - 70);
+        };
+    } else {
+        leftCfvn.onclick = function () {
+            scrollTo(0, cfvn.offsetTop - 150);
+        };
+        leftTraTraiCay.onclick = function () {
+            scrollTo(0, traTraiCay.offsetTop - 150);
+        };
+        leftHiTeaTra.onclick = function () {
+            scrollTo(0, hiTeaTra.offsetTop - 150);
+        };
+    }
 }
