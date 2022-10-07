@@ -1,5 +1,17 @@
-import dataToppings from '../database/topping.json' assert { type: 'json' };
-
+//import dataToppings from '../database/topping.json' assert { type: 'json' };
+import { toast } from './toast.js';
+const detailProduct = document.getElementById('detail-product');
+const dataProduct = {};
+function initDataProduct(price, quantity = 1, size = 'medium') {
+    dataProduct.price = price;
+    dataProduct.quantity = quantity;
+    dataProduct.size = size;
+}
+const priceOption = {
+    small: 0,
+    medium: 6000,
+    large: 10000,
+};
 function createToppingHTML(tag) {
     const topping = dataToppings[tag];
     let toppingHTML = '';
@@ -43,109 +55,133 @@ function createRelatedHTML(dataImg = { tag: '', title: {} }, dataImgs) {
 
     return relatedHTML;
 }
+function createOptionSize() {}
+function toggleDisplay(element) {
+    if (element.classList.contains('--hide')) {
+        element.classList.remove('--hide');
+    } else {
+        element.classList.add('--hide');
+    }
+}
+function openDisplay(element) {
+    if (element.classList.contains('--hide')) {
+        element.classList.remove('--hide');
+    }
+}
+export function closeDisplay(element) {
+    if (!element.classList.contains('--hide')) {
+        element.classList.add('--hide');
+    }
+}
 export function productInfo(title, dataImgs) {
-    const detailProduct = document.getElementById('detail-product');
-
     const data = dataImgs.find((item) => item.title === title);
-
     if (!data || !detailProduct) {
         return;
     }
-    const toppingHTML = createToppingHTML(data.tag);
+    initDataProduct(data.price);
+    detailProduct.addEventListener('click', (e) => {
+        if (e.target === detailProduct) {
+            closeDisplay(detailProduct);
+        }
+    });
+
+    openDisplay(detailProduct);
+
+    // const toppingHTML = createToppingHTML(data.tag);
+
     const relatedHTML = createRelatedHTML(
         { tag: data.tag, title: data.title },
         dataImgs
     );
-
     const html = `                
-    <div class="product-about">
-    <div class="product_visual">
-        <div class="product_visual_img">
-            <img
-                src="./${data.image}"
-                alt="ảnh ${data.title}"
-            />
-        </div>
-    </div>
-    <div class="product_shopping">
-        <div class="info">
-            <h2 class="h2">${data.title}</h2>
-            <div class="info_sale">
-                <div class="info_sale_price info_sale_item">
-                ${data.price}đ
+    <div class="container">
+    <div class="content">
+        <div class="product-about">
+            <div class="product_visual">
+                <div class="product_visual_img">
+                    <img
+                        src="./${data.image}"
+                        alt="cà phê đá"
+                    />
                 </div>
-                <del
-                    class="info_sale_original info_sale_item --hide"
-                    >${data.priceTotal}đ</del
-                >
-                <div
-                    class="info_sale_percent info_sale_item --hide"
-                >
-                ${data.salePercent}%
+            </div>
+            <div class="product_shopping">
+                <div class="info">
+                    <h2 class="h2">${data.title}</h2>
+                    <div class="info_price">
+                        <div class="price" data-price="${data.price}">${data.price}đ</div>
+                        <div class="info-count">
+                            <div class="icon plus">
+                                <i class="icon-plus"></i>
+                            </div>
+
+                            <div class="info-count_num" data-quantity="1">1</div>
+                            <div class="icon minus">
+                                <i class="icon-minus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-description">
+                    <hr />
+                    <p>
+                       ${data.description}
+                    </p>
+                    <hr />
+                </div>
+                <div class="option-size">
+                    <div class="h4">Chọn size (bắt buộc)</div>
+                    <ul class="option_selections">
+                        <li class="option_selections_item" data-option-size="small">
+                            <p class="size-content" >
+                                <i
+                                    class="icon-mug icon-small"
+                                ></i>
+                                Nhỏ + 0 đ
+                            </p>
+                        </li>
+                        <li class="option_selections_item --active" data-option-size="medium">
+                            <p class="size-content">
+                                <i
+                                    class="icon-mug icon-medium"
+                                ></i>
+                                Vừa + 6.000 đ
+                            </p>
+                        </li>
+                        <li class="option_selections_item" data-option-size="large">
+                            <p class="size-content">
+                                <i
+                                    class="icon-mug icon-large"
+                                ></i>
+                                Lớn + 10.000 đ
+                            </p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="option-size">
-            <div class="h4">Chọn size (bắt buộc)</div>
-            <ul class="option_selections">
-                <li class="option_selections_item">
-                    <p class="size-content">
-                        <span
-                            class="icon-mug icon-small"
-                        ></span>
-                        Nhỏ + 0 đ
-                    </p>
-                </li>
-                <li class="option_selections_item">
-                    <p class="size-content">
-                        <span
-                            class="icon-mug icon-medium"
-                        ></span>
-                        Vừa + 6.000 đ
-                    </p>
-                </li>
-                <li class="option_selections_item">
-                    <p class="size-content">
-                        <span
-                            class="icon-mug icon-large"
-                        ></span>
-                        Lớn + 10.000 đ
-                    </p>
-                </li>
-            </ul>
-        </div>
-        <div class="option-topping">
-            <div class="h4">Topping</div>
-            <ul class="option_selections">
-               ${toppingHTML}
-            </ul>
-        </div>
-        <div class="product_shopping_cart">
-            <span class="icon-cart icon"></span>
-            <div class="h4">Đặt giao tận nơi</div>
+
+        <div class="product-related">
+            <h2 class="h2">Sản phẩm liên quan</h2>
+            ${relatedHTML.outerHTML}
         </div>
     </div>
-</div>
-<div class="product-description">
-    <hr />
-    <h2 class="h2">Mô tả sản phẩm</h2>
-    <p>
-     ${data.description}
-    </p>
-    <hr />
-</div>
-<div class="product-related">
-    <h2 class="h2">Sản phẩm liên quan</h2>
-    ${relatedHTML.outerHTML}
+    <div class="cart">
+        <div class="product_shopping_cart">
+            <i class="icon-cart icon"></i>
+            <div class="h4">Thêm vào giỏ hàng</div>
+        </div>
+    </div>
 </div>`;
 
     detailProduct.innerHTML = html;
 
-    //addEventListener
+    //tới sản phẩm liên quan
     const imgs = detailProduct.querySelectorAll('li img[data-title]');
     imgs.forEach((img) => {
         img.addEventListener('click', (e) => {
             e.preventDefault();
+            if (!img.dataset.title) return;
             productInfo(img.dataset.title, dataImgs);
             detailProduct.scrollIntoView(true);
             //tránh header che kh thấy product
@@ -155,5 +191,67 @@ export function productInfo(title, dataImgs) {
                 window.scroll(0, scrolledY - headerHeight);
             }
         });
+    });
+    // tăng / giảm số ly mua
+    const btnQuantities = detailProduct.querySelectorAll('.info_price .icon');
+    btnQuantities.forEach(calcQuantity);
+
+    const optionsSize = detailProduct.querySelectorAll('.option-size li');
+
+    optionsSize.forEach((option) => {
+        option.addEventListener('click', (e) => {
+            e.preventDefault();
+            removeOptionActive(optionsSize);
+            option.classList.add('--active');
+            dataProduct.size = option.dataset.optionSize;
+        });
+    });
+    //submit data
+    initSubmitProduct();
+}
+function calcQuantity(btn) {
+    const textQuantity = btn.parentElement.querySelector('.info-count_num');
+    let sign = btn.classList.contains('minus') ? -1 : 1;
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        dataProduct.quantity += sign;
+
+        if (dataProduct.quantity < 1) {
+            dataProduct.quantity = 1;
+        } else {
+            textQuantity.textContent = dataProduct.quantity;
+            //          textQuantity.setAttribute('data-quantity', dataProduct.quantity);
+        }
+    });
+}
+function removeOptionActive(options) {
+    options.forEach((option) => {
+        if (option.classList.contains('--active'))
+            option.classList.remove('--active');
+    });
+}
+function initSubmitProduct() {
+    const cart = detailProduct.querySelector('.product_shopping_cart');
+    cart.addEventListener('click', () => {
+        console.log(dataProduct);
+        for (const data in dataProduct) {
+            if (!dataProduct[data]) {
+                errorMessageNullProduct();
+                return;
+            }
+        }
+        closeDisplay(detailProduct);
+        //return data
+        console.log(dataProduct);
+    });
+    errorMessageNullProduct();
+}
+function errorMessageNullProduct() {
+    toast({
+        title: ' Đã có lỗi xảy ra ',
+        message: 'Ấn f5 và chọn đầy đủ thông tin',
+        type: 'error',
+        duration: 3000,
     });
 }
