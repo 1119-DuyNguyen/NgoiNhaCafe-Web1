@@ -1,3 +1,4 @@
+import { productInfo } from './productInfo.js';
 export function run(dataImgs) {
     const imageContainer = document.querySelector(
         '.home-product .image-container'
@@ -5,7 +6,7 @@ export function run(dataImgs) {
     const htmls = dataImgs.map((element, index) => {
         if (index < 8) {
             return `
-        <div class="image-item">
+            <div class="image-item" id="${element.id}">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -17,10 +18,21 @@ export function run(dataImgs) {
                     <div class="text-buy">Mua ngay!</div>
                         </div>
                 </div>
-                    <a href="#">${element.title}</a>
+                    <n>${element.title}</n>
                     <p style="margin-top: 15px">${element.price} đ</p>
-                </div>`;
+                    <span class="icon-plus"></span>
+            </div>
+        </div>`;
         }
     });
     imageContainer.innerHTML = htmls.join('');
+
+    const productList = document.querySelectorAll('.image-item');
+
+    productList.forEach(function (product) {
+        product.addEventListener('click', function () {
+            const dataID = product.id;
+            productInfo(dataImgs[dataID - 1].title, dataImgs);
+        });
+    });
 }

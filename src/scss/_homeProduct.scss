@@ -17,6 +17,8 @@
         .image-item {
             padding: 15px;
             position: relative;
+            max-height: 450px;
+            max-width: 350px;
             .image-pack {
                 img {
                     max-height: 270px;
@@ -38,7 +40,7 @@
                     transform: translate(-50%, -50%);
                     -ms-transform: translate(-50%, -50%);
                     .text-buy {
-                        background-color: #4caf50;
+                        background-color: #fa8c16;
                         color: white;
                         font-size: 16px;
                         padding: 16px 32px;
@@ -59,8 +61,35 @@
                     display: block;
                 }
             }
+            n {
+                font-weight: 600;
+                font-size: 16px;
+            }
+            n:hover {
+                cursor: pointer;
+                color: #fa8c16;
+            }
             p {
                 opacity: 0.7;
+            }
+            .icon-plus {
+                float: right;
+                right: 57px;
+                left: 36px;
+                transform: translate(-12px, -20px);
+                font-size: 16px;
+                color: white;
+                border-radius: 50%;
+                width: 32px;
+                height: 32px;
+                background-color: #fa8c16;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+            }
+            .icon-plus:hover {
+                cursor: pointer;
+                opacity: 0.5;
             }
         }
     }
