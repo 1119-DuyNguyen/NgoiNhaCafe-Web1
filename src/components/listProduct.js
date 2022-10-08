@@ -321,7 +321,7 @@ export function run(dataImgs) {
     productList.forEach(function (product) {
         product.addEventListener('click', function () {
             const dataID = product.id;
-            productInfo(dataImgs[dataID].title, dataImgs);
+            productInfo(dataImgs[dataID - 1].title, dataImgs);
         });
     });
 }
