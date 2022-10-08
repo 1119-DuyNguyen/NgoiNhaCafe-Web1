@@ -111,6 +111,14 @@ html {
                                 display: block;
                             }
                         }
+                        n {
+                            font-weight: 600;
+                            font-size: 16px;
+                        }
+                        n:hover {
+                            cursor: pointer;
+                            color: #fa8c16;
+                        }
                         p {
                             opacity: 0.7;
                         }

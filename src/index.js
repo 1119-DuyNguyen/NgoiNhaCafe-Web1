@@ -13,5 +13,3 @@ header.run();
 slider.onLoad();
 listProduct.run(dataImgs);
 homeProduct.run(dataImgs);
-//productInfo(dataImgs[5].title, dataImgs);
-

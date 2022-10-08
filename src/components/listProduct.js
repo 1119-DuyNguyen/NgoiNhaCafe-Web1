@@ -1,3 +1,4 @@
+import { productInfo } from './productInfo.js';
 export function run(dataImgs) {
     const listItem = document.querySelectorAll('.left-list .list-item');
     const listLv2 = document.querySelectorAll('.list-lv2');
@@ -25,7 +26,8 @@ export function run(dataImgs) {
     const hiTeaTra = document.querySelector('.hi-tea-tra-txt');
     const hiTeaDaTuyet = document.querySelector('.hi-tea-da-tuyet-txt');
     const hiTeaBlingBling = document.querySelector('.hi-tea-bling-bling-txt');
-    console.log(mobileMenuAll);
+
+    //xử lý active
     if (listItem && listLv2) {
         listItem.forEach(function (item) {
             item.onclick = (e) => {
@@ -61,10 +63,11 @@ export function run(dataImgs) {
         };
     }
 
+    //render danh mục sản phẩm
     const cfvnhtml = dataImgs.map(function (element) {
         if (element.tag === 'Cà Phê Việt Nam') {
             return `
-        <div class="image-item">
+        <div class="image-item" id="${element.id}">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -76,7 +79,7 @@ export function run(dataImgs) {
                     <div class="text-buy">Mua ngay!</div>
                         </div>
                 </div>
-                    <a href="#">${element.title}</a>
+                    <n>${element.title}</n>
                     <p style="margin-top: 15px">${element.price} đ</p>
                     <span class="icon-plus"></span>
             </div>
@@ -86,7 +89,7 @@ export function run(dataImgs) {
     const cfMayhtml = dataImgs.map(function (element) {
         if (element.tag === 'Cà Phê Máy') {
             return `
-            <div class="image-item">
+            <div class="image-item" id="${element.id}">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -98,7 +101,7 @@ export function run(dataImgs) {
                     <div class="text-buy">Mua ngay!</div>
                         </div>
                 </div>
-                    <a href="#">${element.title}</a>
+                    <n>${element.title}</n>
                     <p style="margin-top: 15px">${element.price} đ</p>
                     <span class="icon-plus"></span>
             </div>
@@ -108,7 +111,7 @@ export function run(dataImgs) {
     const coldBrewhtml = dataImgs.map(function (element) {
         if (element.tag === 'Cold Brew') {
             return `
-            <div class="image-item">
+            <div class="image-item" id="${element.id}">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -120,7 +123,7 @@ export function run(dataImgs) {
                     <div class="text-buy">Mua ngay!</div>
                         </div>
                 </div>
-                    <a href="#">${element.title}</a>
+                    <n>${element.title}</n>
                     <p style="margin-top: 15px">${element.price} đ</p>
                     <span class="icon-plus"></span>
             </div>
@@ -130,7 +133,7 @@ export function run(dataImgs) {
     const traTraiCayhtml = dataImgs.map(function (element) {
         if (element.tag === 'Trà trái cây') {
             return `
-            <div class="image-item">
+            <div class="image-item" id="${element.id}">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -142,7 +145,7 @@ export function run(dataImgs) {
                     <div class="text-buy">Mua ngay!</div>
                         </div>
                 </div>
-                    <a href="#">${element.title}</a>
+                    <n>${element.title}</n>
                     <p style="margin-top: 15px">${element.price} đ</p>
                     <span class="icon-plus"></span>
             </div>
@@ -152,7 +155,7 @@ export function run(dataImgs) {
     const traSuaMacchiatohtml = dataImgs.map(function (element) {
         if (element.tag === 'Trà sữa Macchiato') {
             return `
-            <div class="image-item">
+            <div class="image-item" id="${element.id}">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -164,7 +167,7 @@ export function run(dataImgs) {
                     <div class="text-buy">Mua ngay!</div>
                         </div>
                 </div>
-                    <a href="#">${element.title}</a>
+                    <n>${element.title}</n>
                     <p style="margin-top: 15px">${element.price} đ</p>
                     <span class="icon-plus"></span>
             </div>
@@ -174,7 +177,7 @@ export function run(dataImgs) {
     const hiTeaTrahtml = dataImgs.map(function (element) {
         if (element.tag === 'Hi-Tea Trà') {
             return `
-            <div class="image-item">
+            <div class="image-item" id="${element.id}">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -186,7 +189,7 @@ export function run(dataImgs) {
                     <div class="text-buy">Mua ngay!</div>
                         </div>
                 </div>
-                    <a href="#">${element.title}</a>
+                    <n>${element.title}</n>
                     <p style="margin-top: 15px">${element.price} đ</p>
                     <span class="icon-plus"></span>
             </div>
@@ -196,7 +199,7 @@ export function run(dataImgs) {
     const hiTeaDaTuyethtml = dataImgs.map(function (element) {
         if (element.tag === 'Hi-Tea Đá Tuyết') {
             return `
-            <div class="image-item">
+            <div class="image-item" id="${element.id}">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -208,7 +211,7 @@ export function run(dataImgs) {
                     <div class="text-buy">Mua ngay!</div>
                         </div>
                 </div>
-                    <a href="#">${element.title}</a>
+                    <n>${element.title}</n>
                     <p style="margin-top: 15px">${element.price} đ</p>
                     <span class="icon-plus"></span>
             </div>
@@ -218,7 +221,7 @@ export function run(dataImgs) {
     const hiTeaBlingBlinghtml = dataImgs.map(function (element) {
         if (element.tag === 'Hi-Tea Bling Bling') {
             return `
-            <div class="image-item">
+            <div class="image-item" id="${element.id}">
             <div class="image-pack">
                 <img
                     class="product-image"
@@ -230,7 +233,7 @@ export function run(dataImgs) {
                     <div class="text-buy">Mua ngay!</div>
                         </div>
                 </div>
-                    <a href="#">${element.title}</a>
+                    <n>${element.title}</n>
                     <p style="margin-top: 15px">${element.price} đ</p>
                     <span class="icon-plus"></span>
             </div>
@@ -311,4 +314,14 @@ export function run(dataImgs) {
             });
         });
     }
+
+    //render product info
+    const productList = document.querySelectorAll('.image-item');
+
+    productList.forEach(function (product) {
+        product.addEventListener('click', function () {
+            const dataID = product.id;
+            productInfo(dataImgs[dataID].title, dataImgs);
+        });
+    });
 }
