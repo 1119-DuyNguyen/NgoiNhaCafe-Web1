@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}
 .product-container {
     font-family: Verdana, Geneva, Tahoma, sans-serif !important;
     font-size: 16px;
@@ -125,6 +128,10 @@
                             align-items: center;
                             justify-content: center;
                             display: flex;
+                        }
+                        .icon-plus:hover {
+                            cursor: pointer;
+                            opacity: 0.5;
                         }
                     }
                 }
