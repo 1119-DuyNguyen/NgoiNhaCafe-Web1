@@ -1,0 +1,90 @@
+.home-product {
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-size: 16px;
+    line-height: 1;
+    padding: 25px;
+    ul {
+        list-style-type: none;
+    }
+    a {
+        text-decoration: none;
+    }
+    .image-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: space-around;
+        .image-item {
+            padding: 15px;
+            position: relative;
+            .image-pack {
+                img {
+                    max-height: 270px;
+                    border-radius: 15px;
+                    box-shadow: 5px 10px 8px #888888;
+                    opacity: 1;
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    transition: 0.5s ease;
+                    backface-visibility: hidden;
+                }
+                .buy-now {
+                    transition: 0.5s ease;
+                    opacity: 1;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);
+                    .text-buy {
+                        background-color: #4caf50;
+                        color: white;
+                        font-size: 16px;
+                        padding: 16px 32px;
+                        display: none;
+                    }
+                }
+            }
+            .image-pack:hover {
+                img {
+                    display: block;
+                    max-width: 100%;
+                    opacity: 0.3;
+                    cursor: pointer;
+                }
+                .text-buy {
+                    opacity: 1;
+                    cursor: pointer;
+                    display: block;
+                }
+            }
+            p {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+@media (max-width: 992px) {
+    .home-product {
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+        .image-container {
+            .image-item {
+                padding: 10px;
+                flex: 0 0 50%;
+            }
+            img {
+                max-width: 340px;
+                max-height: 340px !important;
+                display: block;
+                cursor: pointer;
+                width: 100%;
+            }
+            .text-buy {
+                padding: 6px !important;
+            }
+        }
+    }
+}
