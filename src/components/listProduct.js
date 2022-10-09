@@ -30,12 +30,14 @@ export function run(dataImgs) {
 
     if (leftItem && listLv2) {
         leftItem.forEach(function (item) {
-            item.addEventListener('click', function (e) {
-                item.classList.add('active');
-                if (item.nextElementSibling) {
-                    item.nextElementSibling.style = 'display:block;';
-                }
-            });
+            if (screen.width > 849) {
+                item.addEventListener('click', function (e) {
+                    item.classList.add('active');
+                    if (item.nextElementSibling) {
+                        item.nextElementSibling.style = 'display:block;';
+                    }
+                });
+            }
         });
     }
 

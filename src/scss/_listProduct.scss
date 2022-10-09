@@ -23,6 +23,10 @@ html {
             margin-right: auto;
             padding-left: 15px;
             padding-right: 15px;
+            .icon-circle-down {
+                float: right;
+                transform: translate(-12px, -25px);
+            }
             .list-item {
                 margin: 10px;
                 .list-lv2 {
