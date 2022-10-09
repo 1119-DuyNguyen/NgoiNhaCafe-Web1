@@ -76,10 +76,9 @@ $active-color: #e57905;
     background-color: gray !important;
 }
 #detail-product {
-    transition: visibility 1s;
     z-index: 20;
     position: fixed;
-    animation: topIn 1s ease-in;
+    animation: topIn 0.5s ease-in;
 
     background-color: rgba(0, 0, 0, 0.4);
     top: 0;
@@ -261,22 +260,21 @@ $active-color: #e57905;
         .option_selections {
             @include optionContainer();
             display: inline-block;
-
+            width: 100%;
             .option_selections_item {
                 display: inline-block;
                 cursor: pointer;
-                margin-right: 64px;
-                margin-bottom: 16px;
-                margin-top: 16px;
-                margin: 16px 64px 16px 0;
+                // margin-right: 64px;
+                // margin-bottom: 32px;
+                // margin-top: 16px;
+                margin: 16px 64px 32px 0;
                 box-shadow: 0px 0px 16px 4px #00000040;
-                /* 16padding cha ,64 margin right con ;*/
-                width: calc(25% - 80px);
+                /*64 margin right con ;*/
+                width: calc(25% - 64px);
 
                 height: width;
                 overflow: hidden;
                 border-radius: 10px;
-
                 img {
                     width: 100%;
                     // inline sẽ có khoảng trống dưới để chừa cho
@@ -311,7 +309,11 @@ $active-color: #e57905;
             .option_selections {
                 .option_selections_item {
                     /*16px padding cha và 32px margin con *2*/
-                    width: calc(50% - 80px);
+                    &:nth-child(even) {
+                        margin-right: 0;
+                    }
+                    width: calc(50% - 32px);
+
                     img {
                         width: 100%;
                     }
