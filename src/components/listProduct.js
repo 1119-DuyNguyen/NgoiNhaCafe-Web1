@@ -5,6 +5,7 @@ export function run(dataImgs) {
     const listLv2 = document.querySelectorAll('.list-lv2');
     const mobileMenuAll = document.querySelector('.mobile-top');
     const mobileMenuTxt = document.querySelector('.mobile-top p');
+    const circleDown = document.querySelector('.icon-circle-down');
     const leftCfvn = document.querySelectorAll('.left-cfvn');
     const leftCfMay = document.querySelector('.left-cfMay');
     const leftColdbrew = document.querySelector('.left-cold-brew');
@@ -44,13 +45,10 @@ export function run(dataImgs) {
     if (mobileMenuAll) {
         var menuMobileOn = false;
         if (menuMobileOn === true) {
-            productContainer.onclick = function () {
-                stopPropagation();
-                listItem.forEach(function (item1) {
-                    item1.classList.remove('mobile-menu-on');
-                });
-                mobileMenuAll = false;
-            };
+            listItem.forEach(function (item1) {
+                item1.classList.remove('mobile-menu-on');
+            });
+            mobileMenuAll = false;
         }
         mobileMenuAll.onclick = function (e) {
             if (menuMobileOn === false) {

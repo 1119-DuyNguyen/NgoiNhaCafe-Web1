@@ -25,10 +25,14 @@ html {
             padding-right: 15px;
             .icon-circle-down {
                 float: right;
-                transform: translate(-12px, -25px);
+                display: none;
             }
             .list-item {
                 margin: 10px;
+                .icon-circle-down {
+                    float: right;
+                    display: block !important;
+                }
                 .list-lv2 {
                     display: none;
                 }
@@ -171,6 +175,10 @@ html {
             width: 92% !important;
             height: fit-content !important;
             z-index: 2;
+            .icon-circle-down {
+                float: right;
+                display: block !important;
+            }
             .list-lv2 {
                 display: none;
             }
@@ -237,6 +245,10 @@ html {
             width: 91% !important;
             height: fit-content !important;
             z-index: 2;
+            .icon-circle-down {
+                float: right;
+                display: block !important;
+            }
             .list-lv2 {
                 display: none;
             }
@@ -304,6 +316,10 @@ html {
             width: 90% !important;
             height: fit-content !important;
             z-index: 2;
+            .icon-circle-down {
+                float: right;
+                display: block !important;
+            }
             .list-lv2 {
                 display: none;
             }
@@ -371,6 +387,10 @@ html {
             width: 86% !important;
             height: fit-content !important;
             z-index: 2;
+            .icon-circle-down {
+                float: right;
+                display: block !important;
+            }
             .list-lv2 {
                 display: none;
             }
@@ -438,6 +458,10 @@ html {
             width: 85% !important;
             height: fit-content !important;
             z-index: 2;
+            .icon-circle-down {
+                float: right;
+                display: block !important;
+            }
             .list-lv2 {
                 display: none;
             }
