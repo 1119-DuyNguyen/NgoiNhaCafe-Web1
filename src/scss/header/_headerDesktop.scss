@@ -3,30 +3,46 @@
     $--primary-color: #fff2d9;
     $--text-color: #000;
     $--text-hover: #ea8025;
+    .--disappear {
+        display: none;
+    }
+    .--displayBlock {
+        display: block;
+    }
+
+    .opacity-light {
+        opacity: 0.5;
+    }
+
     .header__desktop-list {
         display: block;
     }
+
     .not-flow {
         word-wrap: break-word;
         // white-space: pre-wrap;
         word-break: break-word;
     }
 
-    .header__menu-mobile {
+    .menu__mobile {
         display: none;
     }
 
-    .header__mobile {
+    .header__menu-mobile {
         display: none;
     }
     .size-small {
         margin-left: 4px;
         color: $--text-color;
         font-size: 8px;
+        cursor: pointer;
     }
 
-    .font-family {
-        // font-family: 'SF Pro Text', sans-serif;
+    .size-normal {
+        cursor: pointer;
+        margin-left: 4px;
+        color: $--text-color;
+        font-size: 11px;
     }
 
     .text-color {
@@ -171,11 +187,9 @@
     .header__acount {
         display: flex;
         padding-top: 5px;
-    }
-
-    .header__acount:hover a,
-    .icon-profile {
-        color: $--text-hover;
+        .search-icon {
+            cursor: pointer;
+        }
     }
 
     // .icon-profile:hover {
@@ -199,20 +213,179 @@
         border: 3px solid;
         border-radius: 50%;
         height: 27px;
-        overflow: hidden;
     }
 
     .header__acount .icon {
         margin: 8px;
+    }
+
+    .header__acount:hover .user-icon {
         cursor: pointer;
     }
 
-    .border-square:hover {
-        color: $--text-hover;
+    .user-icon {
+        position: relative;
+        // &:hover {
+        //     cursor: pointer;
+        // }
+        .form-change-dir {
+            box-shadow: 0px 0px 6px 0.5px rgb(209 205 205);
+            cursor: default;
+            background-color: white;
+            position: absolute;
+            top: 124%;
+            right: -50%;
+            padding: 12px;
+            border-radius: 10px;
+            .close-btn {
+                float: right;
+                padding: 0;
+                margin-right: 5px;
+                border: none;
+                font-size: 12px;
+                background-color: white;
+                cursor: pointer;
+            }
+            .form-change-table {
+                padding: 0;
+                list-style: none;
+                margin: 15px 0;
+                .form-change-dir-nav {
+                    display: flex;
+                    align-items: center;
+                    width: 130px;
+                    height: 33px;
+                    display: flex;
+                    .form-change-dir-text {
+                        font-size: 13px;
+                        margin-left: 17px;
+                        text-decoration: none;
+                        color: $--text-color;
+                        &:hover {
+                            color: $--text-hover;
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    // .cart-icon {
-    //     background-color: $--text-hover;
-    //     border-color: $--text-hover;
-    // }
+    .cart-icon {
+        position: relative;
+        display: flex;
+        cursor: pointer;
+        //
+        .icon-btn-badge {
+            //
+            // display: none;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            height: 17px;
+            width: 19px;
+            background-color: red;
+            color: white;
+            justify-items: center;
+            align-items: center;
+            border-radius: 50%;
+            z-index: 1002;
+        }
+    }
+
+    //form chuyển hướng sang form đăng nhập
+    .change-dir-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        // canh giữa hay lên trên cao tí
+        // display: flex;
+
+        //layout-dark PC
+        .layout-dark {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color: #000, $alpha: 0.5);
+        }
+
+        .modal-body {
+            position: relative;
+            width: 380px;
+            height: 430px;
+            background-color: white;
+            // canh giữa hay là trên cao xíu?
+            // margin: auto;
+            top: 41%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            border-radius: 5px;
+            .modal-inner {
+                border-radius: 8px;
+                .modal-inner-img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+                .modal-board {
+                    padding: 12px;
+
+                    .header__title {
+                        margin-bottom: 22px;
+                        margin-left: 100px;
+                        .header-line {
+                            font-weight: 700;
+                        }
+                    }
+
+                    .modal-description {
+                        margin-bottom: 12px;
+                    }
+
+                    .form-row {
+                        display: flex;
+                        width: 354px;
+                        margin-bottom: 20px;
+                        border: 1px solid #ededed;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        background-color: #fafafa;
+                        .region-text {
+                            min-width: 56.6px;
+                            align-items: center;
+                            display: flex;
+                            padding-right: 16px;
+                            margin: 8px 0 9px 10px;
+                            border-right: 1px solid #ededed;
+                        }
+                        .vietnam-icon {
+                            vertical-align: middle;
+                            padding-right: 2px;
+                            width: 25px;
+                            height: 20px;
+                            font-weight: 400;
+                        }
+                        .phone-input {
+                            flex: 1;
+                            padding: 10px 16px;
+                            border: 1px;
+                            background-color: #fafafa;
+                            outline: none;
+                        }
+                    }
+                    .login-btn {
+                        cursor: pointer;
+                        width: 100%;
+                        padding: 6px 22px;
+                        border: 1px solid #ededed;
+                        border-radius: 100px;
+                        color: white;
+                        background-color: $--text-hover;
+                    }
+                }
+            }
+        }
+    }
 }

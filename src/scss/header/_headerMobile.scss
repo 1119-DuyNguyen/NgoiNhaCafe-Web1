@@ -169,6 +169,34 @@ $--primary-color: #fff2d9;
 .board__item {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
+
+.board__item {
+    position: relative;
+    .icon-mug,
+    .icon-leaf,
+    .icon-info,
+    .icon-user,
+    .icon-cart,
+    .icon-circle-down {
+        position: absolute;
+        right: 20px;
+        top: 16px;
+        font-size: 8px;
+        //
+        text-align: center;
+        opacity: 1;
+        padding: 3px 3px 4px 3px;
+        border-radius: 50%;
+        border: 1.6px solid black;
+    }
+    .icon-info,
+    .icon-circle-down {
+        border: none;
+        right: 17px;
+        font-size: 17px;
+    }
+}
+
 .board-body > ul > li a {
     text-decoration: none;
     padding: 17px 16px;
