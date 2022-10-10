@@ -1,15 +1,15 @@
 function runCSR() {
     // CSR Init
 
+    // Lấy data từ URL
     let queryString = window.location.search;
+    // convert sang URL parameters
     let urlParams = new URLSearchParams(queryString);
 
     let currentPage = '';
-    if (urlParams.get("page") === null) {
+    if (urlParams.get("page") === null) { // nếu param page chưa định nghĩa
         currentPage = 'home';
     } else currentPage = urlParams.get("page");
-
-    let mainSection = document.getElementById("main");
 
     let availablePages = ['home',
     'users',
@@ -24,8 +24,10 @@ function runCSR() {
             element.classList.add("--hidden");
         })
 
+        // lấy phần tử
         let elem = document.querySelector(`.admin-container[data-csr='${currentPage}']`);
 
+        // nếu không tìm thấy trong arr và elem đã định nghĩa
         if (availablePages.indexOf(currentPage) != -1 && elem !== null)
             elem.classList.remove("--hidden");
         else
