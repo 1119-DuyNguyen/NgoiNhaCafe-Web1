@@ -10,12 +10,14 @@ a {
 html {
     font-family: sans-serif;
 }
-body {
+html, body {
     min-height: 100%;
 }
 h1, h2, h3, h4, h5, h6 {
     margin: 20px 0;
 }
+
+$active-color: #e57905;
 
 // Colors
 
@@ -162,15 +164,23 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-// Quản lý user
+#main {
+    height: 79vh;
+    .table-container {
+        overflow-y: auto;
+    }
+}
 
 #managerment {
+    user-select: none;
     & > * {
         display: inline-block;
     }
     margin: 5px;
-    #select-all {
-        vertical-align: middle;
+    .select-all {
+        label {
+            vertical-align: text-bottom;
+        }
     }
 }
 
@@ -180,8 +190,9 @@ h1, h2, h3, h4, h5, h6 {
         width: 100%;
         border-collapse: collapse;
         tr {
-            &:nth-of-type(even) {
-                background: #eee;
+            &:first-of-type {
+                background: $active-color;
+                color: white;
             }
             border-bottom: 1px solid gray;
             &:last-child {
@@ -193,8 +204,13 @@ h1, h2, h3, h4, h5, h6 {
                 }
             }
             td {
-                &:nth-child(2) {
-                    text-align: center;
+                text-align: center;
+                & > div {
+                    display:inline-block;
+                    width: 20vw;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
                 }
             }
             th,
@@ -207,7 +223,6 @@ h1, h2, h3, h4, h5, h6 {
                     text-align: center;
                 }
                 padding: 10px;
-                border-right: 1px solid gray;
                 &:last-child {
                     border-right: none;
                 }
@@ -227,8 +242,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #footer {
-    position: absolute;
-    bottom: 0;
     background-color: white;
     text-transform: uppercase;
     font-weight: bold;
@@ -237,7 +250,6 @@ h1, h2, h3, h4, h5, h6 {
     padding: 15px;
     box-sizing: border-box;
 }
-
 // Responsive - desktop
 
 @media only screen and (min-width: 768px) {
@@ -270,8 +282,10 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     #main {
-        height: max-content;
         clear: both;
         margin: 10px 40px;
+        .table-container {
+            height: 60vh;
+        }
     }
 }

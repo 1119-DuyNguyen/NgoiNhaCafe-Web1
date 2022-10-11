@@ -52,14 +52,14 @@
             <div class="admin-container --hidden" data-csr="users">
                 <h2>Người dùng <button class="btn btn-success">Thêm mới</button></h2>
                 <div id="managerment">
-                    <div id="select-all">
-                        <input type="checkbox" id="check-all" />
-                        <label for="check-all">Chọn tất cả</label>
+                    <div class="select-all">
+                        <input type="checkbox" class="check-all" />
+                        <label>Chọn tất cả</label>
                     </div>
                     <div id="actions">
                         <select id="decisions">
                             <option value="undone" selected>-- Hành động --</option>
-                            <option value="delete"><i class="icon-bin"></i></option>
+                            <option value="delete">Xóa</option>
                         </select>
                         <button class="btn btn-info">Thực hiện</button>
                     </div>
@@ -190,11 +190,11 @@
                 <h2 class="product-text">
                     Danh mục sản phẩm
     
-                    <button class="btn btn-success add-product-tag">Add new</button>
+                    <button class="btn btn-success add-product-tag">Thêm mới</button>
                 </h2>
                 <div id="managerment">
-                    <div id="select-all">
-                        <input type="checkbox" id="check-all" />
+                    <div class="select-all">
+                        <input type="checkbox" class="check-all" />
                         <label for="check-all">Chọn tất cả</label>
                     </div>
                     <div id="actions">
@@ -210,10 +210,12 @@
                         <tr>
                             <!-- Quy tắc là: khi add thì sản phẩm đầu tiên phải nằm phía dưới-->
                             <th></th>
-                            <th>Stt</th>
-                            <th>Title</th>
-                            <th>Price</th>
-                            <th>Actions</th>
+                            <th>STT</th>
+                            <th>Ảnh</th>
+                            <th>Tiêu đề</th>
+                            <th>Mô tả</th>
+                            <th>Giá</th>
+                            <th>Hành động</th>
                         </tr>
                         <tr>
                             <td>
@@ -224,7 +226,13 @@
                                 />
                             </td>
                             <td>1</td>
+                            <td><img src="https://via.placeholder.com/120"></td>
                             <td>Sản phẩm A</td>
+                            <td>
+                                <div>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
+                                </div>
+                            </td>
                             <td>Amin</td>
                             <td>
                                 <button class="btn btn-info">
@@ -247,7 +255,13 @@
                                 />
                             </td>
                             <td>2</td>
+                            <td><img src="https://via.placeholder.com/120"></td>
                             <td>Sản phẩm B</td>
+                            <td>
+                                <div>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
+                                </div>
+                            </td>
                             <td>Amin</td>
     
                             <td>
@@ -271,7 +285,13 @@
                                 />
                             </td>
                             <td>3</td>
+                            <td><img src="https://via.placeholder.com/120"></td>
                             <td>Sản phẩm C</td>
+                            <td>
+                                <div>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
+                                </div>
+                            </td>
                             <td>Amin</td>
     
                             <td>
@@ -295,7 +315,13 @@
                                 />
                             </td>
                             <td>4</td>
+                            <td><img src="https://via.placeholder.com/120"></td>
                             <td>Sản phẩm D</td>
+                            <td>
+                                <div>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
+                                </div>
+                            </td>
                             <td>Amin</td>
     
                             <td>
@@ -319,9 +345,73 @@
                                 />
                             </td>
                             <td>5</td>
+                            <td><img src="https://via.placeholder.com/120"></td>
                             <td>Sản phẩm E</td>
+                            <td>
+                                <div>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
+                                </div>
+                            </td>
                             <td>Amin</td>
     
+                            <td>
+                                <button class="btn btn-info">
+                                    <span class="icon-pencil"></span>
+                                </button>
+                                <button class="btn btn-info">
+                                    <span class="icon-info"></span>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <span class="icon-bin"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="admin-container --hidden" data-csr="orders">
+                <h2 class="product-text">
+                    Đơn hàng
+                    <button class="btn btn-success add-product-tag">Thêm mới</button>
+                </h2>
+                <div id="managerment">
+                    <div class="select-all">
+                        <input type="checkbox" class="check-all"/>
+                        <label for="check-all">Chọn tất cả</label>
+                    </div>
+                    <div id="actions">
+                        <select id="decisions">
+                            <option value="undone" selected>-- Hành động --</option>
+                            <option value="delete">Xóa</option>
+                        </select>
+                        <button class="btn btn-info">Thực hiện</button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table id="users">
+                        <tr>
+                            <th></th>
+                            <th>STT</th>
+                            <th>Ngày</th>
+                            <th>Khách hàng</th>
+                            <th>Giá</th>
+                            <th>Trạng thái</th>
+                            <th>Hành động</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input
+                                    type="checkbox"
+                                    value="1"
+                                    class="user-checkbox"
+                                />
+                            </td>
+                            <td>1</td>
+                            <td>01/01/1970</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>0đ</td>
+                            <td>Đang chờ</td>
                             <td>
                                 <button class="btn btn-info">
                                     <span class="icon-pencil"></span>

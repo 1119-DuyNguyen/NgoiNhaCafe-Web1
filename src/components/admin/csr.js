@@ -48,22 +48,48 @@ function runCSR() {
         });
     })
 
-    // Quản lý user
+    // Chức năng chọn tất cả cho từng trang
 
-    let select_all = document.querySelector("#check-all");
-    let checkboxes = document.querySelectorAll(".user-checkbox");
+    availablePages.forEach(elem => {
+        let select_all = document.querySelector(`[data-csr='${elem}'] .select-all`);
+        let check_all = document.querySelector(`[data-csr='${elem}'] .check-all`);
+        let checkboxes = document.querySelectorAll(`[data-csr='${elem}'] .user-checkbox`);
 
-    select_all.addEventListener('change', e => {
-        if (select_all.checked) {
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = true;
+        if (select_all !== null) { // tồn tại
+            function checkAllCheckbox() {
+                if (check_all.checked) {
+                    checkboxes.forEach(checkbox => {
+                        checkbox.checked = false;
+                    })
+                    check_all.checked = false;
+                } else {
+                    checkboxes.forEach(checkbox => {
+                        checkbox.checked = true;
+                    })
+                    check_all.checked = true;
+                }
+            }
+            select_all.addEventListener('click', e => {
+                checkAllCheckbox();
             })
-        } else {
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = false;
+
+            check_all.addEventListener('click', e => {
+                checkAllCheckbox();
+            })
+
+            checkboxes.forEach(checkbox => { // nếu check tất cả checkbox hoặc bỏ check 1 trong tất cả checkbox đã check
+                checkbox.addEventListener('change', e => {
+                    let checkboxs_checked = document.querySelectorAll(`[data-csr='${elem}'] .user-checkbox:checked`)
+                    if (checkbox.checked) {
+                        if (checkboxs_checked.length == checkboxes.length) check_all.checked = true;
+                    } else {
+                        check_all.checked = false;
+                    }
+                })
             })
         }
     })
+    
 }
 
 export default runCSR;
