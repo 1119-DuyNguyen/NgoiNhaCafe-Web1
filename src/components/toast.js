@@ -12,8 +12,7 @@ export function toast({ title = '', message = '', type = '', duration = '' }) {
         const delay = duration / 1000;
         var toast = document.createElement('div');
 
-        toast.style.animation =
-            'slideInLeft ease 0.3s, fadeOut linear 3s forwards';
+        toast.style.animation = `slideInLeft ease 0.3s, fadeOut linear ${delay}s forwards`;
 
         toast.classList.add('toast');
         toast.classList.add('toast--' + type);
@@ -36,7 +35,7 @@ export function toast({ title = '', message = '', type = '', duration = '' }) {
         toastList.appendChild(toast);
         setTimeout(function () {
             toastList.removeChild(toast);
-        }, duration + 1000);
+        }, duration + 500);
     }
 }
 

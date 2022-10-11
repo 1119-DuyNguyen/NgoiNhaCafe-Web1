@@ -1,0 +1,514 @@
+html {
+    scroll-behavior: smooth;
+}
+.product-container {
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-size: 16px;
+    line-height: 1;
+    padding: 25px;
+    ul {
+        list-style-type: none;
+    }
+    a {
+        text-decoration: none;
+    }
+    .left-list {
+        left: 32px;
+        top: 64px;
+        width: 25%;
+        height: 100%;
+        position: fixed;
+        z-index: 2;
+        .left-container {
+            margin-right: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+            .icon-circle-down {
+                float: right;
+                display: none;
+            }
+            .list-item {
+                margin: 10px;
+                .icon-circle-down {
+                    float: right;
+                    display: block !important;
+                }
+                .list-lv2 {
+                    display: none;
+                }
+            }
+            li {
+                list-style-type: none;
+                padding-left: 10px;
+                margin: 10px;
+            }
+            p:hover {
+                cursor: pointer;
+            }
+
+            .active {
+                color: red;
+                display: block;
+            }
+        }
+    }
+    .show-product {
+        margin-left: 25%;
+        .image-container-LP {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+            align-content: space-around;
+            margin-top: 30px;
+            .cf-container {
+                margin-bottom: 50px;
+                t {
+                    font-size: 20px;
+                    font-weight: 700;
+                    padding: 20px;
+                }
+                .cfvn-txt,
+                .cfMay-txt,
+                .cold-brew-txt,
+                .tra-trai-cay-txt,
+                .tra-sua-macchiato-txt,
+                .hi-tea-tra-txt,
+                .hi-tea-da-tuyet-txt,
+                .hi-tea-bling-bling-txt {
+                    display: flex;
+                    flex-wrap: wrap;
+                    .image-item {
+                        padding: 15px;
+                        position: relative;
+                        max-height: 450px;
+                        max-width: 300px;
+                        .image-pack {
+                            img {
+                                max-height: 270px;
+                                border-radius: 15px;
+                                box-shadow: 5px 10px 8px #888888;
+                                opacity: 1;
+                                display: block;
+                                width: 100%;
+                                height: auto;
+                                transition: 0.5s ease;
+                                backface-visibility: hidden;
+                            }
+                            .buy-now {
+                                transition: 0.5s ease;
+                                opacity: 1;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                -ms-transform: translate(-50%, -50%);
+                                .text-buy {
+                                    background-color: #fa8c16;
+                                    color: white;
+                                    font-size: 16px;
+                                    padding: 16px 32px;
+                                    display: none;
+                                }
+                            }
+                        }
+                        .image-pack:hover {
+                            img {
+                                opacity: 0.3;
+                                cursor: pointer;
+                            }
+                            .text-buy {
+                                opacity: 1;
+                                cursor: pointer;
+                                display: block;
+                            }
+                        }
+                        n {
+                            font-weight: 600;
+                            font-size: 16px;
+                        }
+                        n:hover {
+                            cursor: pointer;
+                            color: #fa8c16;
+                        }
+                        p {
+                            opacity: 0.7;
+                        }
+                        .icon-plus {
+                            float: right;
+                            right: 57px;
+                            left: 36px;
+                            transform: translate(-12px, -20px);
+                            font-size: 16px;
+                            color: white;
+                            border-radius: 50%;
+                            width: 32px;
+                            height: 32px;
+                            background-color: #fa8c16;
+                            align-items: center;
+                            justify-content: center;
+                            display: flex;
+                        }
+                        .icon-plus:hover {
+                            cursor: pointer;
+                            opacity: 0.5;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 651px) and (max-width: 849px) {
+    .product-container {
+        display: block;
+        flex-direction: column;
+        //align-items: center;
+        justify-content: center;
+        .left-list {
+            box-shadow: 0px 8px 36px 0px #0000002b;
+            top: 60px !important;
+            padding: 0px !important;
+            margin-bottom: 0px;
+            background: #fff;
+            width: 92% !important;
+            height: fit-content !important;
+            z-index: 2;
+            .icon-circle-down {
+                float: right;
+                display: block !important;
+            }
+            .list-lv2 {
+                display: none;
+            }
+            .list-lv2.active {
+                display: none !important;
+            }
+            .mobile-mid {
+                display: none;
+            }
+            .mobile-menu-on {
+                display: block;
+            }
+        }
+        .show-product {
+            padding-top: 50px;
+            width: 100%;
+            margin-left: 0px;
+            .image-container-LP {
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                margin-top: 50px !important;
+                .cfvn-txt,
+                .cfMay-txt,
+                .cold-brew-txt,
+                .tra-trai-cay-txt,
+                .tra-sua-macchiato-txt,
+                .hi-tea-tra-txt,
+                .hi-tea-da-tuyet-txt,
+                .hi-tea-bling-bling-txt {
+                    align-items: center;
+                    justify-content: center;
+                    .image-item {
+                        max-width: 270px !important;
+                        padding: 10px;
+                    }
+                    img {
+                        max-height: 340px !important;
+                        display: block;
+                        cursor: pointer;
+                        width: 100%;
+                    }
+                    .text-buy {
+                        padding: 6px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 591px) and (max-width: 650px) {
+    .product-container {
+        display: block;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .left-list {
+            box-shadow: 0px 8px 36px 0px #0000002b;
+            top: 60px !important;
+            padding: 0px !important;
+            margin-bottom: 12px;
+            background: #fff;
+            width: 91% !important;
+            height: fit-content !important;
+            z-index: 2;
+            .icon-circle-down {
+                float: right;
+                display: block !important;
+            }
+            .list-lv2 {
+                display: none;
+            }
+            .list-lv2.active {
+                display: none !important;
+            }
+            .mobile-mid {
+                display: none;
+            }
+            .mobile-menu-on {
+                display: block;
+            }
+        }
+        .show-product {
+            padding-top: 50px;
+            width: 100%;
+            margin-top: 50px !important;
+            margin-left: 0px;
+            .image-container-LP {
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                .cfvn-txt,
+                .cfMay-txt,
+                .cold-brew-txt,
+                .tra-trai-cay-txt,
+                .tra-sua-macchiato-txt,
+                .hi-tea-tra-txt,
+                .hi-tea-da-tuyet-txt,
+                .hi-tea-bling-bling-txt {
+                    align-items: center;
+                    justify-content: center;
+                    .image-item {
+                        max-width: 270px !important;
+                        padding: 10px;
+                        height: 380px;
+                    }
+                    img {
+                        max-height: 340px !important;
+                        display: block;
+                        cursor: pointer;
+                        width: 100%;
+                    }
+                    .text-buy {
+                        padding: 6px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 461px) and (max-width: 590px) {
+    .product-container {
+        display: block;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .left-list {
+            box-shadow: 0px 8px 36px 0px #0000002b;
+            top: 60px !important;
+            padding: 0px !important;
+            margin-bottom: 12px;
+            background: #fff;
+            width: 90% !important;
+            height: fit-content !important;
+            z-index: 2;
+            .icon-circle-down {
+                float: right;
+                display: block !important;
+            }
+            .list-lv2 {
+                display: none;
+            }
+            .list-lv2.active {
+                display: none !important;
+            }
+            .mobile-mid {
+                display: none;
+            }
+            .mobile-menu-on {
+                display: block;
+            }
+        }
+        .show-product {
+            padding-top: 50px;
+            width: 100%;
+            margin-top: 50px !important;
+            margin-left: 0px;
+            .image-container-LP {
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                .cfvn-txt,
+                .cfMay-txt,
+                .cold-brew-txt,
+                .tra-trai-cay-txt,
+                .tra-sua-macchiato-txt,
+                .hi-tea-tra-txt,
+                .hi-tea-da-tuyet-txt,
+                .hi-tea-bling-bling-txt {
+                    align-items: center;
+                    justify-content: center;
+                    .image-item {
+                        max-width: 200px !important;
+                        padding: 10px;
+                        height: 300px;
+                    }
+                    img {
+                        max-height: 340px !important;
+                        display: block;
+                        cursor: pointer;
+                        width: 100%;
+                    }
+                    .text-buy {
+                        padding: 6px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 400px) and (max-width: 460px) {
+    .product-container {
+        display: block;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .left-list {
+            box-shadow: 0px 8px 36px 0px #0000002b;
+            top: 60px !important;
+            padding: 0px !important;
+            margin-bottom: 12px;
+            background: #fff;
+            width: 86% !important;
+            height: fit-content !important;
+            z-index: 2;
+            .icon-circle-down {
+                float: right;
+                display: block !important;
+            }
+            .list-lv2 {
+                display: none;
+            }
+            .list-lv2.active {
+                display: none !important;
+            }
+            .mobile-mid {
+                display: none;
+            }
+            .mobile-menu-on {
+                display: block;
+            }
+        }
+        .show-product {
+            padding-top: 50px;
+            width: 100%;
+            margin-top: 50px !important;
+            margin-left: 0px;
+            .image-container-LP {
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                .cfvn-txt,
+                .cfMay-txt,
+                .cold-brew-txt,
+                .tra-trai-cay-txt,
+                .tra-sua-macchiato-txt,
+                .hi-tea-tra-txt,
+                .hi-tea-da-tuyet-txt,
+                .hi-tea-bling-bling-txt {
+                    align-items: center;
+                    justify-content: center;
+                    .image-item {
+                        max-width: 170px !important;
+                        padding: 10px;
+                        height: 280px;
+                    }
+                    img {
+                        max-height: 340px !important;
+                        display: block;
+                        cursor: pointer;
+                        width: 100%;
+                    }
+                    .text-buy {
+                        padding: 6px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 399px) {
+    .product-container {
+        display: block;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .left-list {
+            box-shadow: 0px 8px 36px 0px #0000002b;
+            top: 60px !important;
+            padding: 0px !important;
+            margin-bottom: 12px;
+            background: #fff;
+            width: 85% !important;
+            height: fit-content !important;
+            z-index: 2;
+            .icon-circle-down {
+                float: right;
+                display: block !important;
+            }
+            .list-lv2 {
+                display: none;
+            }
+            .list-lv2.active {
+                display: none !important;
+            }
+            .mobile-mid {
+                display: none;
+            }
+            .mobile-menu-on {
+                display: block;
+            }
+        }
+        .show-product {
+            padding-top: 50px;
+            width: 100%;
+            margin-top: 50px !important;
+            margin-left: 0px;
+            .image-container-LP {
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                .cfvn-txt,
+                .cfMay-txt,
+                .cold-brew-txt,
+                .tra-trai-cay-txt,
+                .tra-sua-macchiato-txt,
+                .hi-tea-tra-txt,
+                .hi-tea-da-tuyet-txt,
+                .hi-tea-bling-bling-txt {
+                    align-items: center;
+                    justify-content: center;
+                    .image-item {
+                        max-width: 230px !important;
+                        padding: 10px;
+                    }
+                    img {
+                        max-height: 340px !important;
+                        display: block;
+                        cursor: pointer;
+                        width: 100%;
+                    }
+                    .text-buy {
+                        padding: 6px !important;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -54,12 +54,17 @@
                                     class="font-family text-color"
                                     href="#"
                                     title=""
-                                    >Thực đơn</a
-                                >
+                                    >Thực đơn
+
+                                    <span
+                                        class="size-small icon-circle-down"
+                                    ></span>
+                                </a>
 
                                 <span class="icon-circle-down"></span>
 
                                 <!-- Phần bên trong thực đơn -->
+
                                 <div class="board__item-inside --disappear">
                                     <ul class="board__item-all">
                                         <li class="board__item-all-list">
@@ -391,10 +396,13 @@
                             >
                             <span class="size-normal icon-phone"></span>
                         </li>
+
+                        <div class="form__log-in-out"></div>
                     </ul>
                 </div>
 
                 <div class="header__acount">
+
                     <div id="User-icon" class="icon border-square user-icon">
                         <span class="icon-user"></span>       
                         
@@ -437,6 +445,7 @@
                     </div>
                     
                     <div class="icon border-square cart-icon">
+
                         <span class="icon-btn-badge"></span>
                         <a href=""></a>
                         <span class="icon-cart"></span>
@@ -448,34 +457,14 @@
                         <span class="icon-search"></span>
                     </div>
                 </div>
+                <!-- <a class="user-line text-color" href="#">Tài khoản</a> -->
             </div>
         </div>
         <div id="main">
-            <div class="container">
-                <div class="slider">
-                <span class="icl icon-circle-left"></span>
-                <ul class="slider-dots">
-                    <div class="icon-minus active" data-index="0"></div>
-                    <div class="icon-minus " data-index="1"></div>
-                    <div class="icon-minus " data-index="2"></div>
-                </ul>
-                <div class="slider-pictures">
-                    <div class="slider-main">
-                        <div class="slider-picture-item">
-                            <img src="./public/img/slider_1.webp" alt="" />
-                        </div>
-                        <div class="slider-picture-item">
-                            <img src="./public/img/slider_2.webp" alt="" />
-                        </div>
-                        <div class="slider-picture-item">
-                            <img src="./public/img/slider_3.webp" alt="" />
-                        </div>
-                    </div>
-                </div>
-                <span class="icl icon-circle-right"></span>
+            <div class="container --hide">
+                <div id="slider"></div>
             </div>
-            <div class="container">
-            
+            <div class="container --hide">
                 <div id="preview">
                     <div class="p-item"></div>
                     <div class="p-item"></div>
@@ -503,126 +492,273 @@
                     </ul>
                 </div>
             </div>
-            <!-- chi tiet san pham -->
-            <div class="product --hide">
-                <div class="product-about">
-                    <div class="product_visual">
-                        <div class="product_visual_img">
-                            <img
-                                src="./public/img/capheda.jpg"
-                                alt="cà phê đá"
-                            />
-                        </div>
-                    </div>
-                    <div class="product_shopping">
-                        <div class="info">
-                            <h2 class="h2">Cà Phê Sữa Đá</h2>
-                            <div class="info_sale">
-                                <div class="info_sale_price info_sale_item">
-                                    29.000 đ
-                                </div>
-                                <del
-                                    class="info_sale_original info_sale_item --hide"
-                                    >0 đ</del
-                                >
-                                <div
-                                    class="info_sale_percent info_sale_item --hide"
-                                >
-                                    Giảm 0 %
-                                </div>
-                            </div>
-                        </div>
-                        <div class="option-size">
-                            <div class="h4">Chọn size (bắt buộc)</div>
-                            <ul class="option-size_selections">
-                                <li class="option-size_selections_item">
-                                    <p class="size-content">
-                                        <span
-                                            class="icon-mug icon-small"
-                                        ></span>
-                                        Nhỏ + 0 đ
-                                    </p>
+            <!-- chi tiet san pham render trang chu -->
+            <div class="home-product --hide">
+                <div class="image-container"></div>
+            </div>
+            <!-- danh muc san pham -->
+            <div class="product-container">
+                <div class="left-list">
+                    <ul class="left-container">
+                        <li class="all-product mobile-top">
+                            <p class="left-item active">
+                                Tất cả <span class="icon-circle-down"></span>
+                            </p>
+                        </li>
+                        <li class="list-item coffee-product mobile-mid">
+                            <p class="left-item left-cfvn">Cà Phê</p>
+                            <ul class="list-lv2">
+                                <li class="left-item left-cfvn">
+                                    <p>Cà Phê Việt Nam</p>
                                 </li>
-                                <li class="option-size_selections_item">
-                                    <p class="size-content">
-                                        <span
-                                            class="icon-mug icon-medium"
-                                        ></span>
-                                        Vừa + 6.000 đ
-                                    </p>
+                                <li class="left-item left-cfMay">
+                                    <p>Cà Phê Máy</p>
                                 </li>
-                                <li class="option-size_selections_item">
-                                    <p class="size-content">
-                                        <span
-                                            class="icon-mug icon-large"
-                                        ></span>
-                                        Lớn + 10.000 đ
-                                    </p>
+                                <li class="left-item left-cold-brew">
+                                    <p>Cold Brew</p>
                                 </li>
                             </ul>
-                        </div>
-                        <div class="option-topping">
-                            <div class="h4">Topping</div>
-                            <ul class="option-topping_selections">
-                                <li class="option-topping_selections_item">
-                                    <p>Kem Phô Mai Macchiato + 10.000 đ</p>
+                        </li>
+                        <li class="list-item tea-product mobile-mid">
+                            <p class="left-item left-tra-trai-cay">Trà</p>
+                            <ul class="list-lv2">
+                                <li class="left-item left-tra-trai-cay">
+                                    <p>Trà Trái Cây</p>
                                 </li>
-                                <li class="option-topping_selections_item">
-                                    <p>Shot Espresso + 10.000</p>
-                                </li>
-                                <li class="option-topping_selections_item">
-                                    <p>Trân châu trắng + 10.000 đ</p>
-                                </li>
-                                <li class="option-topping_selections_item">
-                                    <p>Sốt Caramel + 10.000 đ</p>
+                                <li class="left-item left-tra-sua-macchiato">
+                                    <p>Trà Sữa Macchiato</p>
                                 </li>
                             </ul>
+                        </li>
+                        <li class="list-item hitea-product mobile-mid">
+                            <p class="left-item left-hi-tea-tra">
+                                Hi-Tea Healthy
+                            </p>
+                            <ul class="list-lv2">
+                                <li class="left-item left-hi-tea-tra">
+                                    <p>Hi-Tea Trà</p>
+                                </li>
+                                <li class="left-item left-hi-tea-da-tuyet">
+                                    <p>Hi-Tea Đá Tuyết</p>
+                                </li>
+                                <li class="left-item left-hi-tea-bling-bling">
+                                    <p>Hi-Tea Bling Bling</p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="show-product">
+                    <div class="image-container-LP">
+                        <div id="cfvn" class="cf-container">
+                            <t>Cà phê Việt Nam</t>
+                            <div class="cfvn-txt"></div>
                         </div>
-                        <div class="product_shopping_cart">
-                            <span class="icon-cart icon"></span>
-                            <div class="h4">Đặt giao tận nơi</div>
+                        <div id="cfMay" class="cf-container">
+                            <t>Cà phê Máy</t>
+                            <div class="cfMay-txt"></div>
+                        </div>
+                        <div id="cold-brew" class="cf-container">
+                            <t>Cold Brew</t>
+                            <div class="cold-brew-txt"></div>
+                        </div>
+                        <div id="tra-trai-cay" class="cf-container">
+                            <t>Trà Trái Cây</t>
+                            <div class="tra-trai-cay-txt"></div>
+                        </div>
+                        <div id="tra-sua-macchiato" class="cf-container">
+                            <t>Trà Sữa Macchiato</t>
+                            <div class="tra-sua-macchiato-txt"></div>
+                        </div>
+                        <div id="hi-tea-tra" class="cf-container">
+                            <t>Hi-Tea Trà</t>
+                            <div class="hi-tea-tra-txt"></div>
+                        </div>
+                        <div id="hi-tea-da-tuyet" class="cf-container">
+                            <t>Hi-Tea Đá Tuyết</t>
+                            <div class="hi-tea-da-tuyet-txt"></div>
+                        </div>
+                        <div id="hi-tea-bling-bling" class="cf-container">
+                            <t>Hi-Tea Bling Bling</t>
+                            <div class="hi-tea-bling-bling-txt"></div>
                         </div>
                     </div>
-                </div>
-                <div class="product-description">
-                    <hr />
-                    <h2 class="h2">Mô tả sản phẩm</h2>
-                    <p>
-                        Cà phê Đắk Lắk nguyên chất được pha phin truyền thống
-                        kết hợp với sữa đặc tạo nên hương vị đậm đà, hài hòa
-                        giữa vị ngọt đầu lưỡi và vị đắng thanh thoát nơi hậu vị.
-                    </p>
-                    <hr />
-                </div>
-                <div class="product-related">
-                    <h2 class="h2">Sản phẩm liên quan</h2>
-                    //Item-lấy từ menu
                 </div>
             </div>
-        </div>
+            <!-- chi tiet san pham -->
+            <div id="detail-product" class="--hide">
+                <div class="container">
+                    <div class="content">
+                        <div class="close">
+                            <i class="icon-cross icon"></i>
+                        </div>
+                        <div class="product-about">
+                            <div class="product_visual">
+                                <div class="product_visual_img">
+                                    <img
+                                        src="./public/img/capheda.jpg"
+                                        alt="cà phê đá"
+                                    />
+                                </div>
+                            </div>
+                            <div class="product_shopping">
+                                <div class="info">
+                                    <h2 class="h2">Cà Phê Sữa Đá</h2>
+                                    <div class="info_price">
+                                        <div class="price">29.000 đ</div>
+                                        <div class="info-count">
+                                            <div class="icon minus --gray">
+                                                <i class="icon-minus"></i>
+                                            </div>
+                                            <div class="info-count_num">1</div>
 
+                                            <div class="icon">
+                                                <i class="icon-plus plus"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-description">
+                                    <hr />
+                                    <p>
+                                        Cà phê Đắk Lắk nguyên chất được pha phin
+                                        truyền thống kết hợp với sữa đặc tạo nên
+                                        hương vị đậm đà, hài hòa giữa vị ngọt
+                                        đầu lưỡi và vị đắng thanh thoát nơi hậu
+                                        vị.
+                                    </p>
+                                    <hr />
+                                </div>
+                                <div class="option-size">
+                                    <div class="h4">Chọn size (bắt buộc)</div>
+                                    <ul class="option_selections">
+                                        <li class="option_selections_item">
+                                            <p class="size-content">
+                                                <i
+                                                    class="icon-mug icon-small"
+                                                ></i>
+                                                Nhỏ + 0 đ
+                                            </p>
+                                        </li>
+                                        <li class="option_selections_item">
+                                            <p class="size-content">
+                                                <i
+                                                    class="icon-mug icon-medium"
+                                                ></i>
+                                                Vừa + 6.000 đ
+                                            </p>
+                                        </li>
+                                        <li class="option_selections_item">
+                                            <p class="size-content">
+                                                <i
+                                                    class="icon-mug icon-large"
+                                                ></i>
+                                                Lớn + 10.000 đ
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- <div class="option-topping">
+                                    <div class="h4">Topping</div>
+                                    <ul class="option_selections">
+                                        <li class="option_selections_item">
+                                            <p>
+                                                Kem Phô Mai Macchiato + 10.000 đ
+                                            </p>
+                                        </li>
+                                        <li class="option_selections_item">
+                                            <p>Shot Espresso + 10.000</p>
+                                        </li>
+                                        <li class="option_selections_item">
+                                            <p>Trân châu trắng + 10.000 đ</p>
+                                        </li>
+                                        <li class="option_selections_item">
+                                            <p>Sốt Caramel + 10.000 đ</p>
+                                        </li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <div class="product-related">
+                            <h2 class="h2">Sản phẩm liên quan</h2>
+                            <ul class="option_selections">
+                                <li class="option_selections_item">
+                                    <img src="./public/img/capheda.jpg" />
+                                </li>
+                                <li class="option_selections_item">
+                                    <img src="./public/img/capheda.jpg" />
+                                </li>
+                                <li class="option_selections_item">
+                                    <img src="./public/img/capheda.jpg" />
+                                </li>
+                                <li class="option_selections_item">
+                                    <img src="./public/img/capheda.jpg" />
+                                </li>
+                                <li class="option_selections_item">
+                                    <img src="./public/img/capheda.jpg" />
+                                </li>
+                                <li class="option_selections_item">
+                                    <img src="./public/img/capheda.jpg" />
+                                </li>
+                                <li class="option_selections_item">
+                                    <img src="./public/img/capheda.jpg" />
+                                </li>
+                                <li class="option_selections_item">
+                                    <img src="./public/img/capheda.jpg" />
+                                </li>
+                                <li class="option_selections_item">
+                                    <img src="./public/img/capheda.jpg" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cart">
+                        <div class="product_shopping_cart">
+                            <i class="icon-cart icon"></i>
+                            <div class="h4">Thêm vào giỏ hàng</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- toast -->
+            <div id="toast"></div>
+        </div>
         <div id="footer">
             <div class="container">
                 <div class="col">
-                    <h2>Giới thiệu</h2>
+                    <p class="col-head">Giới thiệu</p>
                     <p>Về chúng tôi</p>
                     <p>Sản phẩm</p>
                     <p>Khuyến mãi</p>
                 </div>
-                <div class="col"><h2>Thông tin</h2></div>
                 <div class="col">
-                    <h3><i class="icon-phone"></i> Đặt hàng: 1800 1234</h3>
-                    <p>Liên hệ</p>
-                    <p>273 An Dương Vương, phường 3, quận 5, TP.Hồ Chí Minh</p>
+                    <p class="col-head">Thông tin</p>
+                    <p>Cửa hàng</p>
+                    <p>Quy tắc bảo mật</p>
+                    <p>Điều khoản sử dụng</p>
                 </div>
                 <div class="col">
-                    <h2>Mạng xã hội</h2>
+                    <p class="col-head"><i class="icon-phone"></i>1800 1234</p>
+                    <p class="col-head">
+                        <i class="icon-location"></i> Liên hệ
+                    </p>
+                    <p>
+                        Trụ sở: 273 An Dương Vương, phường 3, quận 5, TP.Hồ Chí
+                        Minh
+                    </p>
+                </div>
+                <div class="col">
+                    <p class="col-head">Mạng xã hội</p>
                     <i class="icon-facebook"></i>
+                    <i class="icon-instagram"></i>
+                    <i class="icon-youtube"></i>
+                    <i class="icon-twitter"></i>
                 </div>
             </div>
         </div>
-        <!-- toast -->
-        <div id="toast"></div>
     </body>
     <script type="module" src="./src/index.js"></script>
 </html>
