@@ -1,12 +1,14 @@
-//alo sao?
-let header = document.getElementById('header');
 let closeBtn = document.getElementById('close-btn');
 let menuBarBackground = document.querySelector('.layout-dark');
 let menuBtn = document.getElementById('menu-btn');
 let menuList = document.querySelectorAll('.board__item');
+//
+let userIcon = document.getElementById('User-icon');
+let crossBtnPC = document.getElementById('cross-btn');
+console.log(userIcon);
+console.log(crossBtnPC);
+
 export const run = function () {
-    //console.log('hi');
-    //console.log(header);
     //close-btn
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
@@ -26,6 +28,7 @@ export const run = function () {
                 menuBar.classList.add('--disappear');
         });
     }
+    // console.log(menuBarBackground);
 
     //menu-btn
     if (menuBtn) {
@@ -48,6 +51,27 @@ export const run = function () {
                     else subMenu.classList.add('--disappear');
                 });
             }
+        });
+    }
+
+    //form-change-dir
+
+    if (userIcon) {
+        userIcon.addEventListener('click', () => {
+            let formChange = document.querySelector('.form-change-dir');
+            if (formChange.classList.contains('--disappear'))
+                formChange.classList.remove('--disappear');
+            else formChange.classList.add('--disappear');
+        });
+    }
+
+    if (crossBtnPC) {
+        crossBtnPC.addEventListener('click', () => {
+            console.log(123);
+            let formChange = document.querySelector('.form-change-dir');
+            if (formChange.classList.contains('--disappear'))
+                formChange.classList.remove('--disappear');
+            else formChange.classList.add('--disappear');
         });
     }
 };
