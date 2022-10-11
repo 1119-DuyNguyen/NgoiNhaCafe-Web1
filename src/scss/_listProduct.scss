@@ -2,6 +2,7 @@ html {
     scroll-behavior: smooth;
 }
 .product-container {
+    z-index: 9;
     font-family: Verdana, Geneva, Tahoma, sans-serif !important;
     font-size: 16px;
     line-height: 1;
@@ -174,7 +175,6 @@ html {
             background: #fff;
             width: 92% !important;
             height: fit-content !important;
-            z-index: 2;
             .icon-circle-down {
                 float: right;
                 display: block !important;
@@ -244,7 +244,6 @@ html {
             background: #fff;
             width: 91% !important;
             height: fit-content !important;
-            z-index: 2;
             .icon-circle-down {
                 float: right;
                 display: block !important;
@@ -315,7 +314,6 @@ html {
             background: #fff;
             width: 90% !important;
             height: fit-content !important;
-            z-index: 2;
             .icon-circle-down {
                 float: right;
                 display: block !important;
@@ -386,7 +384,6 @@ html {
             background: #fff;
             width: 86% !important;
             height: fit-content !important;
-            z-index: 2;
             .icon-circle-down {
                 float: right;
                 display: block !important;
@@ -457,7 +454,6 @@ html {
             background: #fff;
             width: 85% !important;
             height: fit-content !important;
-            z-index: 2;
             .icon-circle-down {
                 float: right;
                 display: block !important;

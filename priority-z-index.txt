@@ -1,4 +1,6 @@
 z-index:
+listProduct: 9
+slider: 9
 header : 10
 detailProduct : 20
 +cart : 21
