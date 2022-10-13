@@ -31,11 +31,10 @@
     .header__menu-mobile {
         display: none;
     }
-
     .size-small {
         margin-left: 4px;
         color: $--text-color;
-        font-size: 8px;
+        font-size: 10px;
         cursor: pointer;
     }
 
@@ -43,7 +42,7 @@
         cursor: pointer;
         margin-left: 4px;
         color: $--text-color;
-        font-size: 11px;
+        font-size: 12px;
     }
 
     .text-color {
@@ -76,6 +75,7 @@
     }
 
     .header__title {
+        padding: 3px;
         margin-left: 54px;
         display: flex;
         text-align: center;
@@ -86,11 +86,10 @@
     }
 
     .header__desktop-list {
-        position: absolute;
+        height: 58px;
         display: flex;
         justify-content: space-around;
         width: 100%;
-        height: 100%;
     }
 
     .header__selection {
@@ -98,6 +97,7 @@
     }
 
     .header__selection-all {
+        height: 58px;
         display: flex;
         height: 100%;
         margin: 0;
@@ -106,11 +106,12 @@
 
     .header__selection-all-item {
         list-style: none;
-        padding: 0 19px;
+        padding: 0 28px;
         padding-top: 15px;
     }
 
     .header__selection-all-item > a {
+        font-size: 18px;
         font-weight: 600;
     }
 
@@ -124,7 +125,7 @@
         position: fixed;
         width: 100%;
         height: 260px;
-        top: 3.57em;
+        top: 6.37em;
         right: 0;
     }
 
@@ -135,7 +136,7 @@
 
     .header__menu-modal {
         margin: auto;
-        z-index: 11;
+        z-index: 10;
     }
 
     .header__inside-menu-modal {
@@ -183,14 +184,6 @@
 
     .header__selection-all > li > a {
         text-decoration: none;
-    }
-
-    .header__acount {
-        display: flex;
-        padding-top: 5px;
-        .search-icon {
-            cursor: pointer;
-        }
     }
 
     // .icon-profile:hover {
@@ -278,7 +271,7 @@
         //
         .icon-btn-badge {
             //
-            display: none;
+            // display: none;
             position: absolute;
             top: -10px;
             right: -10px;
@@ -289,104 +282,100 @@
             justify-items: center;
             align-items: center;
             border-radius: 50%;
-            z-index: 12;
+            z-index: 11;
         }
     }
 
     //form chuyển hướng sang form đăng nhập
-    .change-dir-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        // canh giữa hay lên trên cao tí
-        // display: flex;
+    // .change-dir-modal {
+    //     display: none;
+    //     position: fixed;
+    //     top: 0;
+    //     left: 0;
+    //     right: 0;
+    //     bottom: 0;
+    //     .layout-dark {
+    //         position: absolute;
+    //         width: 100%;
+    //         height: 100%;
+    //         background-color: rgba($color: #000, $alpha: 0.5);
+    //     }
 
-        //layout-dark PC
-        .layout-dark {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: rgba($color: #000, $alpha: 0.5);
-        }
+    //     .modal-body {
+    //         position: relative;
+    //         width: 380px;
+    //         height: 430px;
+    //         background-color: white;
+    //         // canh giữa hay là trên cao xíu?
+    //         // margin: auto;
+    //         top: 41%;
+    //         left: 50%;
+    //         transform: translate(-50%, -50%);
+    //         z-index: 1;
+    //         border-radius: 5px;
+    //         .modal-inner {
+    //             border-radius: 8px;
+    //             .modal-inner-img {
+    //                 width: 100%;
+    //                 object-fit: cover;
+    //             }
+    //             .modal-board {
+    //                 padding: 12px;
 
-        .modal-body {
-            position: relative;
-            width: 380px;
-            height: 430px;
-            background-color: white;
-            // canh giữa hay là trên cao xíu?
-            // margin: auto;
-            top: 41%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 11;
-            border-radius: 5px;
-            .modal-inner {
-                border-radius: 8px;
-                .modal-inner-img {
-                    width: 100%;
-                    object-fit: cover;
-                }
-                .modal-board {
-                    padding: 12px;
+    //                 .header__title {
+    //                     margin-bottom: 22px;
+    //                     margin-left: 100px;
+    //                     .header-line {
+    //                         font-weight: 700;
+    //                     }
+    //                 }
 
-                    .header__title {
-                        margin-bottom: 22px;
-                        margin-left: 100px;
-                        .header-line {
-                            font-weight: 700;
-                        }
-                    }
+    //                 .modal-description {
+    //                     margin-bottom: 12px;
+    //                 }
 
-                    .modal-description {
-                        margin-bottom: 12px;
-                    }
-
-                    .form-row {
-                        display: flex;
-                        width: 354px;
-                        margin-bottom: 20px;
-                        border: 1px solid #ededed;
-                        border-radius: 10px;
-                        overflow: hidden;
-                        background-color: #fafafa;
-                        .region-text {
-                            min-width: 56.6px;
-                            align-items: center;
-                            display: flex;
-                            padding-right: 16px;
-                            margin: 8px 0 9px 10px;
-                            border-right: 1px solid #ededed;
-                        }
-                        .vietnam-icon {
-                            vertical-align: middle;
-                            padding-right: 2px;
-                            width: 25px;
-                            height: 20px;
-                            font-weight: 400;
-                        }
-                        .phone-input {
-                            flex: 1;
-                            padding: 10px 16px;
-                            border: 1px;
-                            background-color: #fafafa;
-                            outline: none;
-                        }
-                    }
-                    .login-btn {
-                        cursor: pointer;
-                        width: 100%;
-                        padding: 6px 22px;
-                        border: 1px solid #ededed;
-                        border-radius: 100px;
-                        color: white;
-                        background-color: $--text-hover;
-                    }
-                }
-            }
-        }
-    }
+    //                 .form-row {
+    //                     display: flex;
+    //                     width: 354px;
+    //                     margin-bottom: 20px;
+    //                     border: 1px solid #ededed;
+    //                     border-radius: 10px;
+    //                     overflow: hidden;
+    //                     background-color: #fafafa;
+    //                     .region-text {
+    //                         min-width: 56.6px;
+    //                         align-items: center;
+    //                         display: flex;
+    //                         padding-right: 16px;
+    //                         margin: 8px 0 9px 10px;
+    //                         border-right: 1px solid #ededed;
+    //                     }
+    //                     .vietnam-icon {
+    //                         vertical-align: middle;
+    //                         padding-right: 2px;
+    //                         width: 25px;
+    //                         height: 20px;
+    //                         font-weight: 400;
+    //                     }
+    //                     .phone-input {
+    //                         flex: 1;
+    //                         padding: 10px 16px;
+    //                         border: 1px;
+    //                         background-color: #fafafa;
+    //                         outline: none;
+    //                     }
+    //                 }
+    //                 .login-btn {
+    //                     cursor: pointer;
+    //                     width: 100%;
+    //                     padding: 6px 22px;
+    //                     border: 1px solid #ededed;
+    //                     border-radius: 100px;
+    //                     color: white;
+    //                     background-color: $--text-hover;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 }
