@@ -8,43 +8,53 @@ a {
 }
 
 html {
+    min-height: 100%;
     font-family: sans-serif;
 }
 body {
-    min-height: 100%;
+    min-height: 100vh;
+    position: relative;
 }
-h1 {
-    margin: 5px 0;
+h1, h2, h3, h4, h5, h6 {
+    margin: 20px 0;
 }
+
+$active-color: #e57905;
 
 // Colors
 
 .yellow {
-    background-color: #FFC107;
+    background-color: #ffc107;
     .card-btn {
-        background-color: darken(#FFC107, 5%);
+        background-color: darken(#ffc107, 5%);
         .icon-arrow-right {
-            color: darken(#FFC107, 5%);
+            color: darken(#ffc107, 5%);
         }
     }
 }
 .blue {
-    background-color: #17A2B8;
+    background-color: #17a2b8;
     .card-btn {
-        background-color: darken(#17A2B8, 5%);
+        background-color: darken(#17a2b8, 5%);
         .icon-arrow-right {
-            color: darken(#17A2B8, 5%);
+            color: darken(#17a2b8, 5%);
         }
     }
 }
 
-// 
+//
+
+.admin-container {
+    &.--hidden {
+        display: none;
+    }
+}
 
 .opened_nav {
     left: 0 !important;
 }
 
-#header {
+#header-admin {
     width: 100%;
     border-bottom: 1px solid gray;
     margin-bottom: 10px;
@@ -57,7 +67,7 @@ h1 {
     #nav {
         position: fixed;
         top: 0;
-        transition: left .5s ease-in-out;
+        transition: left 0.5s ease-in-out;
         left: -60%;
         background-color: #fff;
         height: 100%;
@@ -67,7 +77,7 @@ h1 {
             li {
                 list-style: none;
                 a {
-                    transition: all .2s ease-in-out;
+                    transition: all 0.2s ease-in-out;
                     display: block;
                     padding: 15px;
                     color: black;
@@ -84,15 +94,36 @@ h1 {
             }
         }
     }
+    #under-nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        z-index: 8;
+        opacity: .8;
+        background-color: #000;
+    }
 }
-
 
 .btn {
     padding: 5px;
     border: none;
     color: white;
-    transition: background-color .2s ease-in-out;
     cursor: pointer;
+    span,
+    i {
+        vertical-align: middle;
+    }
+    transition: background-color .2s ease-in-out;
+    padding: 5px;
+    border-radius: 4px;
+    &.btn-success {
+        background-color: #12d600;
+        &:active {
+            background-color: darken(#12d600, 10%);
+        }
+    }
     &.btn-danger {
         background-color: #d60000;
         &:active {
@@ -104,6 +135,9 @@ h1 {
         &:active {
             background-color: darken(#1fb8ff, 10%);
         }
+    }
+    i {
+        vertical-align: middle;
     }
 }
 
@@ -142,15 +176,24 @@ h1 {
     }
 }
 
-// Quản lý user
+#main {
+    min-height: 78vh;
+    .table-container {
+        overflow-y: auto;
+        min-height: 44vh;
+    }
+}
 
 #managerment {
+    user-select: none;
     & > * {
         display: inline-block;
     }
     margin: 5px;
-    #select-all {
-        vertical-align: middle;
+    .select-all {
+        label {
+            vertical-align: text-bottom;
+        }
     }
 }
 
@@ -160,19 +203,43 @@ h1 {
         width: 100%;
         border-collapse: collapse;
         tr {
-            &:nth-of-type(even) { 
-                background: #eee; 
+            &:first-of-type {
+                background: $active-color;
+                color: white;
             }
             border-bottom: 1px solid gray;
             &:last-child {
                 border-bottom: none;
             }
-            th, td {
+            th {
+                &:nth-child(2) {
+                    width: 2%;
+                }
+            }
+            td {
+                img {
+                    width: 120px;
+                    height: 120px;
+                }
+                text-align: center;
+                & > div {
+                    display:inline-block;
+                    width: 20vw;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+            }
+            th,
+            td {
                 &:first-child {
                     text-align: center;
                 }
+                &:nth-child(2) {
+                    width: 2%;
+                    text-align: center;
+                }
                 padding: 10px;
-                border-right: 1px solid gray;
                 &:last-child {
                     border-right: none;
                 }
@@ -181,9 +248,33 @@ h1 {
     }
 }
 
+.paginator {
+    text-align: center;
+    .paginator_items {
+        display: inline-block;
+        button {
+            cursor: pointer;
+            background-color: $active-color;
+            padding: 5px 10px;
+            border: none;
+            color: white;
+            margin-left: 2px;
+        }
+        margin: 15px auto;
+    }
+}
+
+//quản lý sản phẩm text CODE:của HuyLe
+.product-text {
+    .add-product-tag {
+        width: auto;
+        padding: 4px 8px;
+        font-size: 14px;
+        vertical-align: middle;
+    }
+}
+
 #footer {
-    position: absolute;
-    bottom: 0;
     background-color: white;
     text-transform: uppercase;
     font-weight: bold;
@@ -191,13 +282,12 @@ h1 {
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
+    min-height: 50px;
 }
-
 // Responsive - desktop
 
 @media only screen and (min-width: 768px) {
-
-    #header {
+    #header-admin {
         display: inline-block;
         & > h1 {
             display: inline-block;
@@ -223,13 +313,26 @@ h1 {
                 }
             }
         }
+        #under-nav {
+            left: -100%;
+            display: none;
+        }
     }
 
     #main {
-        height: max-content;
         clear: both;
         margin: 10px 40px;
+        margin-bottom: 0;
+        .table-container {
+            min-height: 58vh;
+        }
     }
+}
 
-    
+@media only screen and (max-width: 425px) and (orientation: landscape) {
+    #main {
+        .table-container {
+            min-height: 49vh;
+        }
+    }
 }
