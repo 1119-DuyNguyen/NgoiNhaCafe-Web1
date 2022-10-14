@@ -5,8 +5,16 @@ import * as listProduct from './components/listProduct.js';
 import * as homeProduct from './components/homeProduct.js';
 import { toast } from './components/toast.js';
 import { productInfo } from './components/productInfo.js';
+import * as display from './library/display.js';
 
+//------------dành cho trang user
+
+//---- comment dòng display sẽ hiện trang để làm việc
+display.closeDisplay(document.getElementById('user-page'));
 header.run();
 slider.onLoad();
 listProduct.run(dataImgs);
 homeProduct.run(dataImgs);
+
+//-----------dành cho trang admin
+display.closeDisplay(document.getElementById('admin-page'));
