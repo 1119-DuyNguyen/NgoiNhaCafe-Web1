@@ -1,7 +1,8 @@
 @use 'app';
-@use "./header/header";
+@use './header/header';
 @use 'slider';
 @use 'toast';
 @use 'productInfo';
+@use 'listProduct';
+@use 'homeProduct';
 @use 'footer';
-
