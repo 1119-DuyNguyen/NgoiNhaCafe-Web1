@@ -1,3 +1,6 @@
+import { dataImgs } from '../database/data.js';
+import { openFormSearch } from './formSearch.js';
+
 let closeBtn = document.getElementById('close-btn');
 let menuBarBackground = document.querySelector('.layout-dark');
 let menuBtn = document.getElementById('menu-btn');
@@ -5,6 +8,8 @@ let menuList = document.querySelectorAll('.board__item');
 //
 let userIcon = document.getElementById('User-icon');
 let crossBtnPC = document.getElementById('cross-btn');
+const searchIcon = document.querySelector('#header .search-icon');
+
 console.log(userIcon);
 console.log(crossBtnPC);
 
@@ -74,4 +79,8 @@ export const run = function () {
             else formChange.classList.add('--disappear');
         });
     }
+    searchIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        openFormSearch(dataImgs);
+    });
 };

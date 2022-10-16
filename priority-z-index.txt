@@ -3,6 +3,7 @@ listProduct: 9
 slider: 9
 header : 10
 +Child : 11, 12; //các con header có z-index tầm đó
+formSearch : 16
 detailProduct : 20
 +cart : 21
 toast :30

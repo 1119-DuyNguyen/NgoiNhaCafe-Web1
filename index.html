@@ -530,8 +530,94 @@
                         </div>
                     </div>
                 </div>
+                <!-- search san pham -->
+                <div id="form-search" class="modal">
+                    <div class="container">
+                        <div class="content">
+                            <div class="close">
+                                <i class="icon-cross icon"></i>
+                            </div>
+                            <div class="title">
+                                <span>Tìm kiếm</span>
+                            </div>
+                            <div class="search-content">
+                                <div class="search-input">
+                                    <div class="icon">
+                                        <i class="icon-search"></i>
+                                    </div>
+                                    <input
+                                        type="text"
+                                        placeholder="Tìm theo tên sản phẩm"
+                                    />
+                                </div>
+                                <div class="advanced-input">
+                                    <select name="tag" id="cars">
+                                        <option value="all">Tất cả</option>
+                                        <option value="cafe">Cà phê</option>
+                                        <option value="tra">Mercedes</option>
+                                        <option value="Hi-Tea Healthy">
+                                            Hi-Tea Healthy
+                                        </option>
+                                    </select>
+                                    <div class="price">
+                                        <label name="range">Giá:</label>
+                                        <input
+                                            name="minPrice"
+                                            type="number"
+                                            placeholder="Từ"
+                                            step="1000"
+                                            min="0"
+                                            max="500000"
+                                        />
+                                        <span> - </span>
+                                        <input
+                                            name="maxPrice"
+                                            type="number"
+                                            placeholder="Đến"
+                                            step="1000"
+                                            min="0"
+                                            max="500000"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="search-response">
+                                    <div class="product-related">
+                                        <ul class="option_selections">
+                                            <li
+                                                class="option_selections_item --hide"
+                                            >
+                                                <div class="image-pack">
+                                                    <img
+                                                        class="product-image"
+                                                        src="public/img/ngoiNhaCafe/CPhSa.jpg"
+                                                        alt=""
+                                                    />
+                                                    <div class="buy-now">
+                                                        <span class="text-buy">
+                                                            Mua ngay!
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="overview">
+                                                    <p class="overview_title">
+                                                        Cà Phê Sữa Đá
+                                                    </p>
+                                                    <p>29000 đ</p>
+                                                </div>
+
+                                                <span
+                                                    class="icon-plus icon"
+                                                ></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- chi tiet san pham -->
-                <div id="detail-product" class="--hide">
+                <div id="detail-product" class="modal --hide">
                     <div class="container">
                         <div class="content">
                             <div class="close">
@@ -632,34 +718,54 @@
                             </div>
 
                             <div class="product-related">
-                                <h2 class="h2">Sản phẩm liên quan</h2>
+                                <h2 class="product-related_title">
+                                    Sản phẩm liên quan
+                                </h2>
                                 <ul class="option_selections">
                                     <li class="option_selections_item">
-                                        <img src="./public/img/capheda.jpg" />
+                                        <div class="image-pack">
+                                            <img
+                                                class="product-image"
+                                                src="public/img/ngoiNhaCafe/CPhSa.jpg"
+                                                alt=""
+                                            />
+                                        </div>
+                                        <div class="overview">
+                                            <p class="overview_title">
+                                                Cà Phê Sữa Đá
+                                            </p>
+                                            <p>29000 đ</p>
+                                        </div>
                                     </li>
                                     <li class="option_selections_item">
-                                        <img src="./public/img/capheda.jpg" />
+                                        <div class="image-pack">
+                                            <img
+                                                class="product-image"
+                                                src="public/img/ngoiNhaCafe/CPhSa.jpg"
+                                                alt=""
+                                            />
+                                        </div>
+                                        <div class="overview">
+                                            <p class="overview_title">
+                                                Cà Phê Sữa Đá
+                                            </p>
+                                            <p>29000 đ</p>
+                                        </div>
                                     </li>
                                     <li class="option_selections_item">
-                                        <img src="./public/img/capheda.jpg" />
-                                    </li>
-                                    <li class="option_selections_item">
-                                        <img src="./public/img/capheda.jpg" />
-                                    </li>
-                                    <li class="option_selections_item">
-                                        <img src="./public/img/capheda.jpg" />
-                                    </li>
-                                    <li class="option_selections_item">
-                                        <img src="./public/img/capheda.jpg" />
-                                    </li>
-                                    <li class="option_selections_item">
-                                        <img src="./public/img/capheda.jpg" />
-                                    </li>
-                                    <li class="option_selections_item">
-                                        <img src="./public/img/capheda.jpg" />
-                                    </li>
-                                    <li class="option_selections_item">
-                                        <img src="./public/img/capheda.jpg" />
+                                        <div class="image-pack">
+                                            <img
+                                                class="product-image"
+                                                src="public/img/ngoiNhaCafe/CPhSa.jpg"
+                                                alt=""
+                                            />
+                                        </div>
+                                        <div class="overview">
+                                            <p class="overview_title">
+                                                Cà Phê Sữa Đá
+                                            </p>
+                                            <p>29000 đ</p>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>

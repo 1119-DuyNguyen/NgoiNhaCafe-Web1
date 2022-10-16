@@ -1,5 +1,6 @@
 //import dataToppings from '../database/topping.json' assert { type: 'json' };
 import { toast } from './toast.js';
+import { closeDisplay, openDisplay, btnCloseId } from '../library/display.js';
 const detailProduct = document.getElementById('detail-product');
 const dataProduct = {};
 function initDataProduct(price, quantity = 1, size = 'medium') {
@@ -34,7 +35,11 @@ function createRelatedHTML(dataImg = { tag: '', title: {} }, dataImgs) {
     let randomItems = []; //link
     if (items) {
         for (let i of items) {
-            randomItems.push({ image: i.image, title: i.title });
+            randomItems.push({
+                image: i.image,
+                title: i.title,
+                price: i.price,
+            });
         }
 
         //randomItems 4 item
@@ -48,31 +53,27 @@ function createRelatedHTML(dataImg = { tag: '', title: {} }, dataImgs) {
         for (var i = 0; i < randomItems.length; ++i) {
             const li = document.createElement('li');
             li.classList.add('option_selections_item');
-            li.innerHTML = `  <img src="./${randomItems[i].image}" data-title="${randomItems[i].title}"/>`;
+            li.innerHTML = `
+              <div class="image-pack">
+                <img
+                    class="product-image"
+                    src="./${randomItems[i].image}"
+                    alt=""
+                />
+                </div>
+                <div class="overview">
+                <p class="overview_title">${randomItems[i].title}</p>
+                <p>${randomItems[i].price} đ</p>
+                </div>
+              `;
+            li.setAttribute('data-title', randomItems[i].title);
             relatedHTML.appendChild(li);
         }
     }
 
     return relatedHTML;
 }
-function createOptionSize() {}
-function toggleDisplay(element) {
-    if (element.classList.contains('--hide')) {
-        element.classList.remove('--hide');
-    } else {
-        element.classList.add('--hide');
-    }
-}
-function openDisplay(element) {
-    if (element.classList.contains('--hide')) {
-        element.classList.remove('--hide');
-    }
-}
-export function closeDisplay(element) {
-    if (!element.classList.contains('--hide')) {
-        element.classList.add('--hide');
-    }
-}
+
 export function productInfo(title, dataImgs) {
     const data = dataImgs.find((item) => item.title === title);
     if (!data || !detailProduct) {
@@ -112,7 +113,9 @@ export function productInfo(title, dataImgs) {
                 <div class="info">
                     <h2 class="h2">${data.title}</h2>
                     <div class="info_price">
-                        <div class="price" data-price="${data.price}">${data.price}đ</div>
+                        <div class="price" data-price="${data.price}">${
+        data.price
+    }đ</div>
                         <div class="info-count">
                             <div class="icon minus --gray">
                             <i class="icon-minus"></i>
@@ -127,10 +130,15 @@ export function productInfo(title, dataImgs) {
                     </div>
                 </div>
                 <div class="product-description">
-                    <hr />
+                    ${
+                        data.description
+                            ? `<hr />
                     <p>
                        ${data.description}
                     </p>
+                    `
+                            : ''
+                    }  
                     <hr />
                 </div>
                 <div class="option-size">
@@ -166,7 +174,9 @@ export function productInfo(title, dataImgs) {
         </div>
 
         <div class="product-related">
-            <h2 class="h2">Sản phẩm liên quan</h2>
+                <h2 class="product-related_title">
+                Sản phẩm liên quan
+            </h2>
             ${relatedHTML.outerHTML}
         </div>
     </div>
@@ -181,8 +191,8 @@ export function productInfo(title, dataImgs) {
     detailProduct.innerHTML = html;
 
     //tới sản phẩm liên quan
-    const imgs = detailProduct.querySelectorAll('li img[data-title]');
-    imgs.forEach((img) => {
+    const liImgs = detailProduct.querySelectorAll('li[data-title]');
+    liImgs.forEach((img) => {
         img.addEventListener('click', (e) => {
             e.preventDefault();
             if (!img.dataset.title) return;
@@ -212,9 +222,8 @@ export function productInfo(title, dataImgs) {
     });
     //submit data
     initSubmitProduct();
-    // close icon
-    const closeBtn = detailProduct.querySelector('.close');
-    closeBtn.addEventListener('click', () => closeDisplay(detailProduct));
+    // close button
+    btnCloseId(detailProduct);
 }
 function calcQuantity(btn) {
     const textQuantity = btn.parentElement.querySelector('.info-count_num');
@@ -275,6 +284,6 @@ function successMessageAddCart() {
         title: ' Đã thêm vào giỏ hàng ',
         message: '',
         type: 'Success',
-        duration: 3000,
+        duration: 2000,
     });
 }
