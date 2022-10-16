@@ -52,7 +52,7 @@
     
             <div class="admin-container --hidden" data-csr="users">
                 <h2>Người dùng <button class="btn btn-success">Thêm mới</button></h2>
-                <div id="managerment">
+                <div class="managerment">
                     <div class="select-all">
                         <input type="checkbox" class="check-all" />
                         <label>Chọn tất cả</label>
@@ -197,7 +197,7 @@
     
                     <button class="btn btn-success add-product-tag">Thêm mới</button>
                 </h2>
-                <div id="managerment">
+                <div class="managerment">
                     <div class="select-all">
                         <input type="checkbox" class="check-all" />
                         <label for="check-all">Chọn tất cả</label>
@@ -377,6 +377,31 @@
                     <div class="paginator_items">
                     </div>
                 </div>
+                <div id="add-product">
+                    <h3>Thêm sản phẩm</h3>
+                    <form action="">
+                        <div>
+                            <label for="product-name">Tên sản phẩm</label>
+                            <input type="text" id="product-name">
+                        </div>
+                        <div>
+                            <label for="product-type">Phân loại</label>
+                            <input type="text" id="product-type">
+                        </div>
+                        <div>
+                            <label for="product-price">Giá</label>
+                            <input type="text" id="product-price">
+                        </div>
+                        <div>
+                            <label for="product-image">Ảnh</label>
+                            <input type="file" name="product-image" id="product-image">
+                        </div>
+                        <div>
+                            <button class="btn btn-danger">Xóa</button>
+                            <button class="btn btn-info">Thêm</button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <div class="admin-container --hidden" data-csr="orders">
@@ -384,7 +409,7 @@
                     Đơn hàng
                     <button class="btn btn-success add-product-tag">Thêm mới</button>
                 </h2>
-                <div id="managerment">
+                <div class="managerment">
                     <div class="select-all">
                         <input type="checkbox" class="check-all"/>
                         <label for="check-all">Chọn tất cả</label>

@@ -184,7 +184,7 @@ $active-color: #e57905;
     }
 }
 
-#managerment {
+.managerment {
     user-select: none;
     & > * {
         display: inline-block;
@@ -271,6 +271,30 @@ $active-color: #e57905;
         padding: 4px 8px;
         font-size: 14px;
         vertical-align: middle;
+    }
+}
+
+// Form thêm sản phẩm
+
+#add-product {
+    margin: 10px auto;
+    width: 300px;
+    h3 {
+        text-align: center;
+    }
+    form {
+        padding: 10px 50px;
+        margin: 0 auto;
+        border: 1px solid gray;
+        & > div {
+            padding-bottom: 15px;
+            label {
+                display: block;
+            }
+            input {
+                padding: 5px;
+            }
+        }
     }
 }
 
