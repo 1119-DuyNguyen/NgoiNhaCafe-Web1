@@ -1,11 +1,8 @@
 import { productInfo } from './productInfo.js';
 import { closeDisplay, openDisplay, btnCloseId } from '../library/display.js';
 import { toast } from './toast.js';
-import { dataImgs } from '../database/data.js';
 const searchIcons = document.querySelectorAll('search-icon');
 const formSearch = document.getElementById('form-search');
-
-const tag = '';
 
 export function openFormSearch(dataImgs) {
     openDisplay(formSearch);

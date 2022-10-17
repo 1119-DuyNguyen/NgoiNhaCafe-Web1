@@ -1,4 +1,3 @@
-import { dataImgs } from '../database/data.js';
 import { openFormSearch } from './formSearch.js';
 
 let closeBtn = document.getElementById('close-btn');
@@ -13,7 +12,7 @@ const searchIcon = document.querySelector('#header .search-icon');
 console.log(userIcon);
 console.log(crossBtnPC);
 
-export const run = function () {
+export const run = function (dataImgs) {
     //close-btn
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
@@ -79,8 +78,10 @@ export const run = function () {
             else formChange.classList.add('--disappear');
         });
     }
-    searchIcon.addEventListener('click', (e) => {
-        e.preventDefault();
-        openFormSearch(dataImgs);
-    });
+    if (searchIcon) {
+        searchIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            openFormSearch(dataImgs);
+        });
+    }
 };

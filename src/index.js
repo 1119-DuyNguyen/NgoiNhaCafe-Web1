@@ -1,4 +1,4 @@
-import { dataImgs, dataUsers } from './database/data.js';
+import { Data } from './database/data.js';
 import * as slider from './components/slider.js';
 import * as header from './components/header.js';
 import * as listProduct from './components/listProduct.js';
@@ -12,10 +12,12 @@ import * as formSearch from './components/formSearch.js';
 
 //---- comment dòng display sẽ hiện trang để làm việc
 //display.closeDisplay(document.getElementById('user-page'));
-header.run();
+var data = new Data();
+data.initData();
+header.run(data.getDataImgs());
 slider.onLoad();
-listProduct.run(dataImgs);
-homeProduct.run(dataImgs);
-formSearch.openFormSearch(dataImgs);
+listProduct.run(data.getDataImgs());
+homeProduct.run(data.getDataImgs());
+formSearch.openFormSearch(data.getDataImgs());
 //-----------dành cho trang admin
 display.closeDisplay(document.getElementById('admin-page'));
