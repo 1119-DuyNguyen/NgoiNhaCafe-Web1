@@ -16,9 +16,10 @@ function renderData(page = 1, type = '') {
             </select>
             <button class="btn btn-info">Thực hiện</button>
         </div>`;
-    })
+    }) // render checkbox check_all
 
     function applyCheckboxFeature(page) {
+        // Hàm render chức năng check all checkbox
         function checkAllCheckbox() {
             if (check_all.checked) {
                 checkboxes.forEach(checkbox => {
@@ -161,6 +162,7 @@ function renderData(page = 1, type = '') {
 }
 
 function renderPaginator() {
+    // Render paginator cho từng trang
     let html, num;
     let s_users = document.querySelector(".admin-container[data-csr='users'] .paginator_items");
     
@@ -170,8 +172,6 @@ function renderPaginator() {
         html += `<button data-page="${i}">${i}</button>`;
     }
     s_users.innerHTML = html;
-
-    // 
 
     let s_products = document.querySelector(".admin-container[data-csr='products'] .paginator_items");
 
@@ -253,49 +253,6 @@ function runCSR() {
             renderPage(currentPage);
         });
     })
-
-    // Chức năng chọn tất cả cho từng trang
-
-    // availablePages.forEach(elem => {
-    //     let select_all = document.querySelector(`[data-csr='${elem}'] .select-all`);
-    //     let check_all = document.querySelector(`[data-csr='${elem}'] .check-all`);
-    //     let checkboxes = document.querySelectorAll(`[data-csr='${elem}'] .user-checkbox`);
-
-    //     if (select_all !== null) { // tồn tại
-    //         function checkAllCheckbox() {
-    //             if (check_all.checked) {
-    //                 checkboxes.forEach(checkbox => {
-    //                     checkbox.checked = false;
-    //                 })
-    //                 check_all.checked = false;
-    //             } else {
-    //                 checkboxes.forEach(checkbox => {
-    //                     checkbox.checked = true;
-    //                 })
-    //                 check_all.checked = true;
-    //             }
-    //         }
-    //         select_all.addEventListener('click', e => {
-    //             checkAllCheckbox();
-    //         })
-
-    //         check_all.addEventListener('click', e => {
-    //             checkAllCheckbox();
-    //         })
-
-    //         checkboxes.forEach(checkbox => { // nếu check tất cả checkbox hoặc bỏ check 1 trong tất cả checkbox đã check
-    //             checkbox.addEventListener('change', e => {
-    //                 let checkboxs_checked = document.querySelectorAll(`[data-csr='${elem}'] .user-checkbox:checked`)
-    //                 if (checkbox.checked) {
-    //                     if (checkboxs_checked.length == checkboxes.length) check_all.checked = true;
-    //                 } else {
-    //                     check_all.checked = false;
-    //                 }
-    //             })
-    //         })
-    //     }
-    // })
-    
 }
 
 export default runCSR;
