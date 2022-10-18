@@ -1,3 +1,5 @@
+import { openFormSearch } from './formSearch.js';
+
 let closeBtn = document.getElementById('close-btn');
 let menuBarBackground = document.querySelector('.layout-dark');
 let menuBtn = document.getElementById('menu-btn');
@@ -5,10 +7,9 @@ let menuList = document.querySelectorAll('.board__item');
 //
 let userIcon = document.getElementById('User-icon');
 let crossBtnPC = document.getElementById('cross-btn');
-console.log(userIcon);
-console.log(crossBtnPC);
+const searchIcon = document.querySelector('#header .search-icon');
 
-export const run = function () {
+export const run = function (dataImgs) {
     //close-btn
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
@@ -72,6 +73,12 @@ export const run = function () {
             if (formChange.classList.contains('--disappear'))
                 formChange.classList.remove('--disappear');
             else formChange.classList.add('--disappear');
+        });
+    }
+    if (searchIcon) {
+        searchIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            openFormSearch(dataImgs);
         });
     }
 };
