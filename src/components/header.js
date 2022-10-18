@@ -9,9 +9,6 @@ let userIcon = document.getElementById('User-icon');
 let crossBtnPC = document.getElementById('cross-btn');
 const searchIcon = document.querySelector('#header .search-icon');
 
-console.log(userIcon);
-console.log(crossBtnPC);
-
 export const run = function (dataImgs) {
     //close-btn
     if (closeBtn) {

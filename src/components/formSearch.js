@@ -1,7 +1,6 @@
 import { productInfo } from './productInfo.js';
 import { closeDisplay, openDisplay, btnCloseId } from '../library/display.js';
 import { toast } from './toast.js';
-const searchIcons = document.querySelectorAll('search-icon');
 const formSearch = document.getElementById('form-search');
 
 export function openFormSearch(dataImgs) {
@@ -29,6 +28,10 @@ export function openFormSearch(dataImgs) {
     const adVancedInput = formSearch.querySelectorAll(
         '.advanced-input input[type=number]'
     );
+    adVancedSelect.addEventListener('change', (e) => {
+        optionAdvanced.tag = e.target.value.toLowerCase();
+        searchProduct(currentDataSearch.data, input.value, optionAdvanced);
+    });
     //min max range
     adVancedInput.forEach((input) => {
         input.value = '';
@@ -43,7 +46,6 @@ export function openFormSearch(dataImgs) {
                         currentDataSearch.keyword,
                         optionAdvanced
                     );
-                    console.log('headerHeight');
                 } else {
                     e.target.value = optionAdvanced.minPrice;
                 }
@@ -62,6 +64,11 @@ export function openFormSearch(dataImgs) {
     searchProduct(null, null, null);
 
     btnCloseId(formSearch);
+    formSearch.addEventListener('click', (e) => {
+        if (e.target === formSearch) {
+            closeDisplay(formSearch);
+        }
+    });
 }
 
 function filterTitleProduct(dataImg, keyword, optionAdvanced) {
