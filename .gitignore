@@ -1,7 +1,7 @@
 public/css/style.css
 public/css/style.css.map
-public/css/admin/admin.css
-public/css/admin/admin.css.map
+public/css/admin.css
+public/css/admin.css.map
 src/database/*.php
 src/database/php.ini
 node_modules/
