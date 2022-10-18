@@ -21,6 +21,9 @@ h1, h2, h3, h4, h5, h6 {
 
 $active-color: #e57905;
 
+
+$active-color: #e57905;
+
 // Colors
 
 .yellow {
@@ -101,7 +104,9 @@ $active-color: #e57905;
         width: 100%;
         height: 100%;
         z-index: 8;
-        opacity: .8;
+
+        opacity: 0.8;
+
         background-color: #000;
     }
 }
@@ -115,7 +120,9 @@ $active-color: #e57905;
     i {
         vertical-align: middle;
     }
-    transition: background-color .2s ease-in-out;
+
+    transition: background-color 0.2s ease-in-out;
+
     padding: 5px;
     border-radius: 4px;
     &.btn-success {
@@ -184,7 +191,9 @@ $active-color: #e57905;
     }
 }
 
+
 .managerment {
+
     user-select: none;
     & > * {
         display: inline-block;
@@ -223,7 +232,9 @@ $active-color: #e57905;
                 }
                 text-align: center;
                 & > div {
+
                     display:inline-block;
+
                     width: 20vw;
                     white-space: nowrap;
                     text-overflow: ellipsis;
@@ -359,4 +370,6 @@ $active-color: #e57905;
             min-height: 49vh;
         }
     }
+
 }
+

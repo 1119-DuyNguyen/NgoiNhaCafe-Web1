@@ -54,6 +54,7 @@ function renderData(page = 1, type = '') {
         }
     }
 
+
     function renderUsers(page) {
         let s_users = document.querySelector(".admin-container[data-csr='users'] table");
         html = `<tr>
@@ -144,25 +145,32 @@ function renderData(page = 1, type = '') {
     switch (type) {
         case 'users':
             renderUsers(page);
+
             applyCheckboxFeature('users');
+
             break;
 
         case 'products':
             renderProducts(page);
+
             applyCheckboxFeature('products');
+
             break;
     
         default:
             renderUsers(page);
             renderProducts(page);
+
             applyCheckboxFeature('users');
             applyCheckboxFeature('products');
+
             break;
     }
 }
 
 function renderPaginator() {
     // Render paginator cho từng trang
+
     let html, num;
     let s_users = document.querySelector(".admin-container[data-csr='users'] .paginator_items");
     
@@ -172,6 +180,8 @@ function renderPaginator() {
         html += `<button data-page="${i}">${i}</button>`;
     }
     s_users.innerHTML = html;
+
+
 
     let s_products = document.querySelector(".admin-container[data-csr='products'] .paginator_items");
 
