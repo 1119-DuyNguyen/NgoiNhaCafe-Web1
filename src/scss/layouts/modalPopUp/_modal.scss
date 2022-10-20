@@ -1,11 +1,4 @@
 //đây là những class chung dùng cho popup
-@import './variables';
-.--bold {
-    font-weight: 700 !important;
-}
-.--fade-in {
-    animation: fadeIn 2s ease-in;
-}
 .modal {
     z-index: 20;
     position: fixed;
