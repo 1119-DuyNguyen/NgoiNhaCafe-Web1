@@ -6,7 +6,6 @@ import * as homeProduct from './components/homeProduct.js';
 import { toast } from './components/toast.js';
 import { productInfo } from './components/productInfo.js';
 import * as display from './library/display.js';
-import * as formSearch from './components/formSearch.js';
 
 //------------dành cho trang user
 
@@ -14,10 +13,10 @@ import * as formSearch from './components/formSearch.js';
 //display.closeDisplay(document.getElementById('user-page'));
 var data = new Data();
 data.initData();
+
 header.run(data.getDataImgs());
 slider.onLoad();
 listProduct.run(data.getDataImgs());
 homeProduct.run(data.getDataImgs());
-formSearch.openFormSearch(data.getDataImgs());
 //-----------dành cho trang admin
 display.closeDisplay(document.getElementById('admin-page'));

@@ -435,6 +435,147 @@
                 <div class="home-product --hide">
                     <div class="image-container"></div>
                 </div>
+                <div id="form-login" class="modal --hide">
+                    <div class="container">
+                        <div class="content">
+                            <div class="close">
+                                <i class="icon-cross icon"></i>
+                            </div>
+                            <div class="title">
+                                <span> ĐĂNG NHẬP </span>
+                            </div>
+
+                            <form class="">
+                                <div class="login-info">
+                                    <div class="row">
+                                        <label for="usernameLogin"
+                                            >Tên đăng nhập:</label
+                                        >
+                                        <input
+                                            name="username"
+                                            type="text"
+                                            id="usernameLogin"
+                                        />
+                                        <div id="usernameerror" class="--hide">
+                                            Bạn chưa nhập tên đăng nhập
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="passwordLogin"
+                                            >Mật khẩu:</label
+                                        >
+                                        <input
+                                            name="password"
+                                            type="password"
+                                            id="passwordLogin"
+                                        />
+                                        <div
+                                            id="passwordloginerror"
+                                            class="--hide"
+                                        >
+                                            Bạn chưa nhập mật khẩu
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" id="btnlogin" class="row">
+                                    Login
+                                </button>
+                                <div class="login-link-signin row">
+                                    <p class="row">Bạn chưa có tài khoản?</p>
+
+                                    <a href="#" class="row">Đăng ký</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="form-signup" class="modal --hide">
+                    <div class="container">
+                        <div class="content">
+                            <form id="signupform">
+                                <div class="close">
+                                    <i class="icon-cross icon"></i>
+                                </div>
+                                <div class="title">ĐĂNG KÝ</div>
+                                <div class="signupinfo">
+                                    <div class="row">
+                                        <label for="fullname"
+                                            >Họ và tên:
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="fullname"
+                                            name="fullname"
+                                        />
+                                        <div id="fullnameerror" class="--hide">
+                                            Bạn chưa nhập họ tên
+                                        </div>
+                                        <label for="address">Địa chỉ: </label>
+                                        <input
+                                            type="text"
+                                            id="address"
+                                            name="address"
+                                        />
+                                        <div id="addresserror" class="--hide">
+                                            Bạn chưa địa chỉ
+                                        </div>
+                                        <label for="phone"
+                                            >Số điện thoại:
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="phone"
+                                            name="phone"
+                                        />
+                                        <div id="phoneerror" class="--hide">
+                                            Bạn chưa nhập số điện thoại
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="usernameSignUp"
+                                            >Tên đăng nhập:
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="usernameSignUp"
+                                            name="tendangnhap"
+                                        />
+                                        <div id="usererror" class="--hide">
+                                            Bạn chưa nhập tên đăng nhập
+                                        </div>
+                                        <label for="passwordSignUp"
+                                            >Mật khẩu:
+                                        </label>
+                                        <input
+                                            name="matkhau"
+                                            type="password"
+                                            id="passwordSignUp"
+                                        />
+                                        <div id="passworderror" class="--hide">
+                                            Bạn chưa nhập mật khẩu
+                                        </div>
+                                        <label for="passwordSignUp2"
+                                            >Nhập lại mật khẩu:
+                                        </label>
+                                        <input
+                                            type="password"
+                                            id="passwordSignUp2"
+                                            name="nhaplaimatkhau"
+                                        />
+                                        <div id="password2error" class="--hide">
+                                            Mật khẩu không trùng khớp
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" id="btnsignup">
+                                    Đăng ký
+                                </button>
+
+                                <a href="#">Đăng nhập</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <!-- danh muc san pham -->
                 <div class="product-container">
                     <div class="left-list">
@@ -531,7 +672,7 @@
                     </div>
                 </div>
                 <!-- search san pham -->
-                <div id="form-search" class="modal">
+                <div id="form-search" class="modal --hide">
                     <div class="container">
                         <div class="content">
                             <div class="close">

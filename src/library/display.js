@@ -23,3 +23,10 @@ export function btnCloseId(parentElement, classBtn = '.close') {
         closeBtn.addEventListener('click', () => closeDisplay(parentElement));
     });
 }
+export function closeModal(element) {
+    element.addEventListener('click', (e) => {
+        if (e.target === element) {
+            closeDisplay(element);
+        }
+    });
+}

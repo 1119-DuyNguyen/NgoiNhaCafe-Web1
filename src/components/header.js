@@ -1,5 +1,5 @@
 import { openFormSearch } from './formSearch.js';
-
+import { openformAccount } from './accountPopup.js';
 let closeBtn = document.getElementById('close-btn');
 let menuBarBackground = document.querySelector('.layout-dark');
 let menuBtn = document.getElementById('menu-btn');
@@ -59,10 +59,7 @@ export const run = function (dataImgs) {
 
     if (userIcon) {
         userIcon.addEventListener('click', () => {
-            let formChange = document.querySelector('.form-change-dir');
-            if (formChange.classList.contains('--disappear'))
-                formChange.classList.remove('--disappear');
-            else formChange.classList.add('--disappear');
+            openformAccount(dataImgs);
         });
     }
 

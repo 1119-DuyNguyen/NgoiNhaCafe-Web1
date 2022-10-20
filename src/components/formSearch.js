@@ -1,10 +1,16 @@
 import { productInfo } from './productInfo.js';
-import { closeDisplay, openDisplay, btnCloseId } from '../library/display.js';
+import {
+    closeDisplay,
+    openDisplay,
+    btnCloseId,
+    closeModal,
+} from '../library/display.js';
 import { toast } from './toast.js';
 const formSearch = document.getElementById('form-search');
 
 export function openFormSearch(dataImgs) {
     openDisplay(formSearch);
+    closeModal(formSearch);
     const currentDataSearch = {
         data: dataImgs,
         keyword: undefined,
