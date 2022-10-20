@@ -1,6 +1,11 @@
 //import dataToppings from '../database/topping.json' assert { type: 'json' };
 import { toast } from './toast.js';
-import { closeDisplay, openDisplay, btnCloseId } from '../library/display.js';
+import {
+    closeDisplay,
+    openDisplay,
+    btnCloseId,
+    closeModal,
+} from '../library/display.js';
 const detailProduct = document.getElementById('detail-product');
 const dataProduct = {};
 function initDataProduct(price, quantity = 1, size = 'medium') {
@@ -80,11 +85,7 @@ export function productInfo(title, dataImgs) {
         return;
     }
     initDataProduct(data.price);
-    detailProduct.addEventListener('click', (e) => {
-        if (e.target === detailProduct) {
-            closeDisplay(detailProduct);
-        }
-    });
+    closeModal(detailProduct);
 
     openDisplay(detailProduct);
 
@@ -199,11 +200,11 @@ export function productInfo(title, dataImgs) {
             productInfo(img.dataset.title, dataImgs);
             detailProduct.scrollIntoView(true);
             //tránh header che kh thấy product
-            var scrolledY = window.scrollY;
-            const headerHeight = document.getElementById('header').offsetHeight;
-            if (scrolledY) {
-                window.scroll(0, scrolledY - headerHeight);
-            }
+            // var scrolledY = window.scrollY;
+            // const headerHeight = document.getElementById('header').offsetHeight;
+            // if (scrolledY) {
+            //     window.scroll(0, scrolledY - headerHeight);
+            // }
         });
     });
     // tăng / giảm số ly mua
