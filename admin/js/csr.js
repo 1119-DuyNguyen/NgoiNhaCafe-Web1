@@ -1,4 +1,5 @@
 import { Data } from "../../../src/database/data.js";
+import display, { openDisplay } from "../../src/library/display";
 
 var data = new Data();
 data.initData();
