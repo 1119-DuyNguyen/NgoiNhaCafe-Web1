@@ -5,19 +5,16 @@
 @import './base/normalize';
 @import './base/fonts';
 @import './base/animation';
-@import './layouts/header';
+@import './layouts/header/header';
 @import './layouts/footer';
-@import './layouts/formPopUp';
+@import './layouts/modal';
 @import './components/toast';
+@import './components/productInfo';
+@import './components/accountPopup';
+@import './components/formSearch';
+@import './components/slider';
 @import './pages/home';
 @import './pages/lists';
 @import './pages/order';
 @import './pages/about';
 @import './pages/contact';
-
-//-------------
-@import './header/header';
-@import 'slider';
-@import 'listProduct';
-@import 'homeProduct';
-@import 'footer';
