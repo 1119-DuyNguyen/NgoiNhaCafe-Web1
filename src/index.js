@@ -13,7 +13,6 @@ import * as display from './library/display.js';
 //display.closeDisplay(document.getElementById('user-page'));
 var data = new Data();
 data.initData();
-
 header.run(data.getDataImgs());
 slider.onLoad();
 listProduct.run(data.getDataImgs());
