@@ -42,8 +42,8 @@ $--text-color: #000;
 // phần code
 
 #header {
-    height: 50px;
-    background-color: rgba($color: rgb(255, 255, 255), $alpha: 0.8);
+    height: auto;
+    background-color: rgba($color: rgb(255, 255, 255), $alpha: 1);
     width: 100%;
     position: fixed;
 }
