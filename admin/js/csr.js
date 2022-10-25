@@ -1,5 +1,5 @@
 import { Data } from "../../../src/database/data.js";
-import display, { openDisplay } from "../../src/library/display";
+import { closeDisplay, openDisplay,btnCloseId } from "../../src/library/display.js";
 
 var data = new Data();
 data.initData();
@@ -220,12 +220,21 @@ function renderPaginator() {
     s_products.innerHTML = html;
 }
 
+function renderAddForm() {
+    let add_product = document.querySelector('#add-product');
+    openDisplay(add_product);
+    btnCloseId(add_product)
+    console.log(add_product)
+    
+}
+
 function runCSR() {
 
     // Render data
 
     renderData();
     renderPaginator();
+    renderAddForm();
 
     let p_users = document.querySelectorAll(".admin-container[data-csr='users'] .paginator_items button");
     let p_products = document.querySelectorAll(".admin-container[data-csr='products'] .paginator_items button");

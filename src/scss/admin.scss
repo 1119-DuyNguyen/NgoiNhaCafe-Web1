@@ -1,7 +1,10 @@
-* {
-    margin: 0;
-    padding: 0;
-}
+@import './abstracts/variables';
+@import './abstracts/functions';
+@import './abstracts/_mixins';
+@import './base/normalize';
+@import './base/fonts';
+@import './base/animation';
+@import './layouts/modal';
 
 a {
     text-decoration: none;
@@ -290,27 +293,27 @@ $active-color: #e57905;
 
 // Form thêm sản phẩm
 
-#add-product {
-    margin: 10px auto;
-    width: 300px;
-    h3 {
-        text-align: center;
-    }
-    form {
-        padding: 10px 50px;
-        margin: 0 auto;
-        border: 1px solid gray;
-        & > div {
-            padding-bottom: 15px;
-            label {
-                display: block;
-            }
-            input {
-                padding: 5px;
-            }
-        }
-    }
-}
+// #add-product {
+//     margin: 10px auto;
+//     width: 300px;
+//     h3 {
+//         text-align: center;
+//     }
+//     form {
+//         padding: 10px 50px;
+//         margin: 0 auto;
+//         border: 1px solid gray;
+//         & > div {
+//             padding-bottom: 15px;
+//             label {
+//                 display: block;
+//             }
+//             input {
+//                 padding: 5px;
+//             }
+//         }
+//     }
+// }
 
 #footer {
     background-color: white;

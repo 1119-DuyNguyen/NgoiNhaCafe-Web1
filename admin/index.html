@@ -386,31 +386,39 @@
                         <div class="paginator_items">
                         </div>
                     </div>
-    
-                    <div id="add-product">
-                        <h3>Thêm sản phẩm</h3>
-                        <form action="">
-                            <div>
-                                <label for="product-name">Tên sản phẩm</label>
-                                <input type="text" id="product-name">
+                    <div id="add-product" class="modal">
+                        <div class="container">
+                            <div class="content">
+                                <div class="close">
+                                    <i class="icon-cross icon"></i>
+                                </div>
+                                <div class="title">
+                                    <span>Thêm sản phẩm</span>
+                                </div>
+                                <form action="">
+                                    <div>
+                                        <label for="product-name">Tên sản phẩm</label>
+                                        <input type="text" id="product-name">
+                                    </div>
+                                    <div>
+                                        <label for="product-type">Phân loại</label>
+                                        <input type="text" id="product-type">
+                                    </div>
+                                    <div>
+                                        <label for="product-price">Giá</label>
+                                        <input type="text" id="product-price">
+                                    </div>
+                                    <div>
+                                        <label for="product-image">Ảnh</label>
+                                        <input type="file" name="product-image" id="product-image">
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-danger">Xóa</button>
+                                        <button class="btn btn-info">Thêm</button>
+                                    </div>
+                                </form>
                             </div>
-                            <div>
-                                <label for="product-type">Phân loại</label>
-                                <input type="text" id="product-type">
-                            </div>
-                            <div>
-                                <label for="product-price">Giá</label>
-                                <input type="text" id="product-price">
-                            </div>
-                            <div>
-                                <label for="product-image">Ảnh</label>
-                                <input type="file" name="product-image" id="product-image">
-                            </div>
-                            <div>
-                                <button class="btn btn-danger">Xóa</button>
-                                <button class="btn btn-info">Thêm</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
     
                 </div>
