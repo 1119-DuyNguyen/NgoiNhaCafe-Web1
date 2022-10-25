@@ -1,4 +1,9 @@
 //đây là những class chung dùng cho popup
+
+.--hide {
+    display: none !important;
+}
+
 .modal {
     z-index: 20;
     position: fixed;
