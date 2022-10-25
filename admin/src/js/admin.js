@@ -1,6 +1,9 @@
 import runCSR from "./csr.js";
 
 document.addEventListener('DOMContentLoaded', e => {
+
+    document.querySelector('#body-content').classList.remove('d-none');
+
     let nav_open = document.querySelector("#nav_open");
     let nav_close = document.querySelector("#nav_close");
     let nav = document.querySelector("#nav");

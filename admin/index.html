@@ -10,478 +10,480 @@
         <link rel="stylesheet" href="../public/css/admin.css" />
     </head>
     <body>
-        <div id="header-admin">
-            <h1><i class="icon-menu" id="nav_open"></i> Quản trị</h1>
-            <div id="nav">
-                <h1><i class="icon-cross" id="nav_close"></i></h1>
-                <ul>
-                    <li><a href="" class="csr-toggle" data-csr="home"><i class="icon-home"></i> Trang chủ</a></li>
-                    <li><a href="" class="csr-toggle" data-csr="users"><i class="icon-users"></i> Người dùng</a></li>
-                    <li><a href="" class="csr-toggle" data-csr="products"><i class="icon-cup"></i> Sản phẩm</a></li>
-                    <li><a href="" class="csr-toggle" data-csr="orders"><i class="icon-file-text2"></i> Đơn hàng</a></li>
-                    <li><a href=""><i class="icon-exit"></i> Đăng xuất</a></li>
-                </ul>
+        <noscript>Vui lòng bật Javascript!</noscript>
+        <div class="d-none" id="body-content">
+            <div id="header-admin">
+                <h1><i class="icon-menu" id="nav_open"></i> Quản trị</h1>
+                <div id="nav">
+                    <h1><i class="icon-cross" id="nav_close"></i></h1>
+                    <ul>
+                        <li><a href="" class="csr-toggle" data-csr="home"><i class="icon-home"></i> Trang chủ</a></li>
+                        <li><a href="" class="csr-toggle" data-csr="users"><i class="icon-users"></i> Người dùng</a></li>
+                        <li><a href="" class="csr-toggle" data-csr="products"><i class="icon-cup"></i> Sản phẩm</a></li>
+                        <li><a href="" class="csr-toggle" data-csr="orders"><i class="icon-file-text2"></i> Đơn hàng</a></li>
+                        <li><a href=""><i class="icon-exit"></i> Đăng xuất</a></li>
+                    </ul>
+                </div>
+                <div id="under-nav"></div>
             </div>
-            <div id="under-nav"></div>
+            <div id="main">
+                
+                <div data-csr="home" class="admin-container --hidden">
+                    <h1>Bảng điều khiển</h1>
+                    <div class="card-container">
+                        <div class="card yellow">
+                            <div class="card-info">
+                                <span class="number">150</span>
+                                <p>Người đăng ký</p>
+                            </div>
+                            <a href="" class="card-btn"
+                                >Chi tiết <i class="icon-arrow-right"></i
+                            ></a>
+                        </div>
+                        <div class="card blue">
+                            <div class="card-info">
+                                <span class="number">150</span>
+                                <p>Đơn đặt hàng mới</p>
+                            </div>
+                            <a href="" class="card-btn"
+                                >Chi tiết <i class="icon-arrow-right"></i
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="admin-container --hidden" data-csr="users">
+                    <h2>Người dùng <button class="btn btn-success">Thêm mới</button></h2>
+                    <div class="managerment">
+    
+                        <div class="select-all">
+                            <input type="checkbox" class="check-all" />
+                            <label>Chọn tất cả</label>
+                        </div>
+    
+                        <div class="actions">
+                            <select class="decisions">
+    
+                                <option value="undone" selected>-- Hành động --</option>
+                                <option value="delete">Xóa</option>
+                            </select>
+                            <button class="btn btn-info">Thực hiện</button>
+                        </div>
+    
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <!-- <tr>
+                                <th></th>
+                                <th>STT</th>
+                                <th>Họ tên</th>
+                                <th>Tên đăng nhập</th>
+                                <th>Địa chỉ email</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="1"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>1</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>anv</td>
+                                <td>
+                                    <a href="mailto:anguyen@example.com"
+                                        >anguyen@example.com</a
+                                    >
+                                </td>
+                                <td>
+                                    <button class="btn btn-info"><i class="icon-pencil"></i></button>
+                                    <button class="btn btn-info"><i class="icon-info"></i></button>
+                                    <button class="btn btn-danger"><i class="icon-bin"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="2"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>2</td>
+                                <td>Trần Quốc V</td>
+                                <td>vtq</td>
+                                <td>
+                                    <a href="mailto:vquoc@example.com"
+                                        >vquoc@example.com</a
+                                    >
+                                </td>
+                                <td>
+                                    <button class="btn btn-info"><i class="icon-pencil"></i></button>
+                                    <button class="btn btn-info"><i class="icon-info"></i></button>
+                                    <button class="btn btn-danger"><i class="icon-bin"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="3"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>3</td>
+                                <td>Nguyễn Văn C</td>
+                                <td>anv</td>
+                                <td>
+                                    <a href="mailto:cvan@example.com"
+                                        >cvan@example.com</a
+                                    >
+                                </td>
+                                <td>
+                                    <button class="btn btn-info"><i class="icon-pencil"></i></button>
+                                    <button class="btn btn-info"><i class="icon-info"></i></button>
+                                    <button class="btn btn-danger"><i class="icon-bin"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="4"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>4</td>
+                                <td>Trần Hà D</td>
+                                <td>vtq</td>
+                                <td>
+                                    <a href="mailto:had@example.com">had@example.com</a>
+                                </td>
+                                <td>
+                                    <button class="btn btn-info"><i class="icon-pencil"></i></button>
+                                    <button class="btn btn-info"><i class="icon-info"></i></button>
+                                    <button class="btn btn-danger"><i class="icon-bin"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="5"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>5</td>
+                                <td>Đặng Văn E</td>
+                                <td>vtq</td>
+                                <td>
+                                    <a href="mailto:edang@example.com"
+                                        >edang@example.com</a
+                                    >
+                                </td>
+                                <td>
+                                    <button class="btn btn-info"><i class="icon-pencil"></i></button>
+                                    <button class="btn btn-info"><i class="icon-info"></i></button>
+                                    <button class="btn btn-danger"><i class="icon-bin"></i></button>
+                                </td>
+                            </tr> -->
+                        </table>
+                    </div>
+                    <div class="paginator">
+                        <div class="paginator_items">
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="admin-container --hidden" data-csr="products">
+                    <h2 class="product-text">
+                        Danh mục sản phẩm
+        
+                        <button class="btn btn-success add-product-tag">Thêm mới</button>
+                    </h2>
+    
+                    <div class="managerment">
+    
+                        <div class="select-all">
+                            <input type="checkbox" class="check-all" />
+                            <label for="check-all">Chọn tất cả</label>
+                        </div>
+    
+                        <div class="actions">
+                            <select class="decisions">
+    
+                                <option value="undone" selected>-- Hành động --</option>
+                                <option value="delete">Xóa</option>
+                            </select>
+                            <button class="btn btn-info">Thực hiện</button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <!-- <tr>
+                                <th></th>
+                                <th>STT</th>
+                                <th>Ảnh</th>
+                                <th>Tiêu đề</th>
+                                <th>Mô tả</th>
+                                <th>Giá</th>
+                                <th>Hành động</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="1"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>1</td>
+                                <td><img src="https://via.placeholder.com/120"></td>
+                                <td>Sản phẩm A</td>
+                                <td>
+                                    <div>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
+                                    </div>
+                                </td>
+                                <td>Amin</td>
+                                <td>
+                                    <button class="btn btn-info">
+                                        <span class="icon-pencil"></span>
+                                    </button>
+                                    <button class="btn btn-info">
+                                        <span class="icon-info"></span>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <span class="icon-bin"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="2"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>2</td>
+                                <td><img src="https://via.placeholder.com/120"></td>
+                                <td>Sản phẩm B</td>
+                                <td>
+                                    <div>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
+                                    </div>
+                                </td>
+                                <td>Amin</td>
+        
+                                <td>
+                                    <button class="btn btn-info">
+                                        <span class="icon-pencil"></span>
+                                    </button>
+                                    <button class="btn btn-info">
+                                        <span class="icon-info"></span>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <span class="icon-bin"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="3"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>3</td>
+                                <td><img src="https://via.placeholder.com/120"></td>
+                                <td>Sản phẩm C</td>
+                                <td>
+                                    <div>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
+                                    </div>
+                                </td>
+                                <td>Amin</td>
+        
+                                <td>
+                                    <button class="btn btn-info">
+                                        <span class="icon-pencil"></span>
+                                    </button>
+                                    <button class="btn btn-info">
+                                        <span class="icon-info"></span>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <span class="icon-bin"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="4"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>4</td>
+                                <td><img src="https://via.placeholder.com/120"></td>
+                                <td>Sản phẩm D</td>
+                                <td>
+                                    <div>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
+                                    </div>
+                                </td>
+                                <td>Amin</td>
+        
+                                <td>
+                                    <button class="btn btn-info">
+                                        <span class="icon-pencil"></span>
+                                    </button>
+                                    <button class="btn btn-info">
+                                        <span class="icon-info"></span>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <span class="icon-bin"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="5"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>5</td>
+                                <td><img src="https://via.placeholder.com/120"></td>
+                                <td>Sản phẩm E</td>
+                                <td>
+                                    <div>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
+                                    </div>
+                                </td>
+                                <td>Amin</td>
+        
+                                <td>
+                                    <button class="btn btn-info">
+                                        <span class="icon-pencil"></span>
+                                    </button>
+                                    <button class="btn btn-info">
+                                        <span class="icon-info"></span>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <span class="icon-bin"></span>
+                                    </button>
+                                </td>
+                            </tr> -->
+                        </table>
+                    </div>
+                    <div class="paginator">
+                        <div class="paginator_items">
+                        </div>
+                    </div>
+    
+                    <div id="add-product">
+                        <h3>Thêm sản phẩm</h3>
+                        <form action="">
+                            <div>
+                                <label for="product-name">Tên sản phẩm</label>
+                                <input type="text" id="product-name">
+                            </div>
+                            <div>
+                                <label for="product-type">Phân loại</label>
+                                <input type="text" id="product-type">
+                            </div>
+                            <div>
+                                <label for="product-price">Giá</label>
+                                <input type="text" id="product-price">
+                            </div>
+                            <div>
+                                <label for="product-image">Ảnh</label>
+                                <input type="file" name="product-image" id="product-image">
+                            </div>
+                            <div>
+                                <button class="btn btn-danger">Xóa</button>
+                                <button class="btn btn-info">Thêm</button>
+                            </div>
+                        </form>
+                    </div>
+    
+                </div>
+    
+                <div class="admin-container --hidden" data-csr="orders">
+                    <h2 class="product-text">
+                        Đơn hàng
+                        <button class="btn btn-success add-product-tag">Thêm mới</button>
+                    </h2>
+    
+                    <div class="managerment">
+    
+                        <div class="select-all">
+                            <input type="checkbox" class="check-all"/>
+                            <label for="check-all">Chọn tất cả</label>
+                        </div>
+    
+                        <div class="actions">
+                            <select class="decisions">
+    
+                                <option value="undone" selected>-- Hành động --</option>
+                                <option value="delete">Xóa</option>
+                            </select>
+                            <button class="btn btn-info">Thực hiện</button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>STT</th>
+                                <th>Ngày</th>
+                                <th>Khách hàng</th>
+                                <th>Giá</th>
+                                <th>Trạng thái</th>
+                                <th>Hành động</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="1"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>1</td>
+                                <td>01/01/1970</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>0đ</td>
+                                <td>Đang chờ</td>
+                                <td>
+                                    <button class="btn btn-info">
+                                        <span class="icon-pencil"></span>
+                                    </button>
+                                    <button class="btn btn-info">
+                                        <span class="icon-info"></span>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <span class="icon-bin"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="paginator">
+                        <div class="paginator_items">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div id="footer">Copyright &copy; 2022 Ngôi nhà Cafe</div>
         </div>
-        <div id="main">
-            
-            <div data-csr="home" class="admin-container --hidden">
-                <h1>Bảng điều khiển</h1>
-                <div class="card-container">
-                    <div class="card yellow">
-                        <div class="card-info">
-                            <span class="number">150</span>
-                            <p>Người đăng ký</p>
-                        </div>
-                        <a href="" class="card-btn"
-                            >Chi tiết <i class="icon-arrow-right"></i
-                        ></a>
-                    </div>
-                    <div class="card blue">
-                        <div class="card-info">
-                            <span class="number">150</span>
-                            <p>Đơn đặt hàng mới</p>
-                        </div>
-                        <a href="" class="card-btn"
-                            >Chi tiết <i class="icon-arrow-right"></i
-                        ></a>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="admin-container --hidden" data-csr="users">
-                <h2>Người dùng <button class="btn btn-success">Thêm mới</button></h2>
-                <div class="managerment">
-
-                    <div class="select-all">
-                        <input type="checkbox" class="check-all" />
-                        <label>Chọn tất cả</label>
-                    </div>
-
-                    <div class="actions">
-                        <select class="decisions">
-
-                            <option value="undone" selected>-- Hành động --</option>
-                            <option value="delete">Xóa</option>
-                        </select>
-                        <button class="btn btn-info">Thực hiện</button>
-                    </div>
-
-                </div>
-                <div class="table-container">
-                    <table>
-                        <tr>
-                            <th></th>
-                            <th>STT</th>
-                            <th>Họ tên</th>
-                            <th>Tên đăng nhập</th>
-                            <th>Địa chỉ email</th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input
-                                    type="checkbox"
-                                    value="1"
-                                    class="user-checkbox"
-                                />
-                            </td>
-                            <td>1</td>
-                            <td>Nguyễn Văn A</td>
-                            <td>anv</td>
-                            <td>
-                                <a href="mailto:anguyen@example.com"
-                                    >anguyen@example.com</a
-                                >
-                            </td>
-                            <td>
-                                <button class="btn btn-info"><i class="icon-pencil"></i></button>
-                                <button class="btn btn-info"><i class="icon-info"></i></button>
-                                <button class="btn btn-danger"><i class="icon-bin"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input
-                                    type="checkbox"
-                                    value="2"
-                                    class="user-checkbox"
-                                />
-                            </td>
-                            <td>2</td>
-                            <td>Trần Quốc V</td>
-                            <td>vtq</td>
-                            <td>
-                                <a href="mailto:vquoc@example.com"
-                                    >vquoc@example.com</a
-                                >
-                            </td>
-                            <td>
-                                <button class="btn btn-info"><i class="icon-pencil"></i></button>
-                                <button class="btn btn-info"><i class="icon-info"></i></button>
-                                <button class="btn btn-danger"><i class="icon-bin"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input
-                                    type="checkbox"
-                                    value="3"
-                                    class="user-checkbox"
-                                />
-                            </td>
-                            <td>3</td>
-                            <td>Nguyễn Văn C</td>
-                            <td>anv</td>
-                            <td>
-                                <a href="mailto:cvan@example.com"
-                                    >cvan@example.com</a
-                                >
-                            </td>
-                            <td>
-                                <button class="btn btn-info"><i class="icon-pencil"></i></button>
-                                <button class="btn btn-info"><i class="icon-info"></i></button>
-                                <button class="btn btn-danger"><i class="icon-bin"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input
-                                    type="checkbox"
-                                    value="4"
-                                    class="user-checkbox"
-                                />
-                            </td>
-                            <td>4</td>
-                            <td>Trần Hà D</td>
-                            <td>vtq</td>
-                            <td>
-                                <a href="mailto:had@example.com">had@example.com</a>
-                            </td>
-                            <td>
-                                <button class="btn btn-info"><i class="icon-pencil"></i></button>
-                                <button class="btn btn-info"><i class="icon-info"></i></button>
-                                <button class="btn btn-danger"><i class="icon-bin"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input
-                                    type="checkbox"
-                                    value="5"
-                                    class="user-checkbox"
-                                />
-                            </td>
-                            <td>5</td>
-                            <td>Đặng Văn E</td>
-                            <td>vtq</td>
-                            <td>
-                                <a href="mailto:edang@example.com"
-                                    >edang@example.com</a
-                                >
-                            </td>
-                            <td>
-                                <button class="btn btn-info"><i class="icon-pencil"></i></button>
-                                <button class="btn btn-info"><i class="icon-info"></i></button>
-                                <button class="btn btn-danger"><i class="icon-bin"></i></button>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="paginator">
-                    <div class="paginator_items">
-                    </div>
-                </div>
-            </div>
-
-            <div class="admin-container --hidden" data-csr="products">
-                <h2 class="product-text">
-                    Danh mục sản phẩm
-    
-                    <button class="btn btn-success add-product-tag">Thêm mới</button>
-                </h2>
-
-                <div class="managerment">
-
-                    <div class="select-all">
-                        <input type="checkbox" class="check-all" />
-                        <label for="check-all">Chọn tất cả</label>
-                    </div>
-
-                    <div class="actions">
-                        <select class="decisions">
-
-                            <option value="undone" selected>-- Hành động --</option>
-                            <option value="delete">Xóa</option>
-                        </select>
-                        <button class="btn btn-info">Thực hiện</button>
-                    </div>
-                </div>
-                <div class="table-container">
-                    <table>
-                        <tr>
-                            <!-- Quy tắc là: khi add thì sản phẩm đầu tiên phải nằm phía dưới-->
-                            <th></th>
-                            <th>STT</th>
-                            <th>Ảnh</th>
-                            <th>Tiêu đề</th>
-                            <th>Mô tả</th>
-                            <th>Giá</th>
-                            <th>Hành động</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input
-                                    type="checkbox"
-                                    value="1"
-                                    class="user-checkbox"
-                                />
-                            </td>
-                            <td>1</td>
-                            <td><img src="https://via.placeholder.com/120"></td>
-                            <td>Sản phẩm A</td>
-                            <td>
-                                <div>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
-                                </div>
-                            </td>
-                            <td>Amin</td>
-                            <td>
-                                <button class="btn btn-info">
-                                    <span class="icon-pencil"></span>
-                                </button>
-                                <button class="btn btn-info">
-                                    <span class="icon-info"></span>
-                                </button>
-                                <button class="btn btn-danger">
-                                    <span class="icon-bin"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input
-                                    type="checkbox"
-                                    value="2"
-                                    class="user-checkbox"
-                                />
-                            </td>
-                            <td>2</td>
-                            <td><img src="https://via.placeholder.com/120"></td>
-                            <td>Sản phẩm B</td>
-                            <td>
-                                <div>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
-                                </div>
-                            </td>
-                            <td>Amin</td>
-    
-                            <td>
-                                <button class="btn btn-info">
-                                    <span class="icon-pencil"></span>
-                                </button>
-                                <button class="btn btn-info">
-                                    <span class="icon-info"></span>
-                                </button>
-                                <button class="btn btn-danger">
-                                    <span class="icon-bin"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input
-                                    type="checkbox"
-                                    value="3"
-                                    class="user-checkbox"
-                                />
-                            </td>
-                            <td>3</td>
-                            <td><img src="https://via.placeholder.com/120"></td>
-                            <td>Sản phẩm C</td>
-                            <td>
-                                <div>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
-                                </div>
-                            </td>
-                            <td>Amin</td>
-    
-                            <td>
-                                <button class="btn btn-info">
-                                    <span class="icon-pencil"></span>
-                                </button>
-                                <button class="btn btn-info">
-                                    <span class="icon-info"></span>
-                                </button>
-                                <button class="btn btn-danger">
-                                    <span class="icon-bin"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input
-                                    type="checkbox"
-                                    value="4"
-                                    class="user-checkbox"
-                                />
-                            </td>
-                            <td>4</td>
-                            <td><img src="https://via.placeholder.com/120"></td>
-                            <td>Sản phẩm D</td>
-                            <td>
-                                <div>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
-                                </div>
-                            </td>
-                            <td>Amin</td>
-    
-                            <td>
-                                <button class="btn btn-info">
-                                    <span class="icon-pencil"></span>
-                                </button>
-                                <button class="btn btn-info">
-                                    <span class="icon-info"></span>
-                                </button>
-                                <button class="btn btn-danger">
-                                    <span class="icon-bin"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input
-                                    type="checkbox"
-                                    value="5"
-                                    class="user-checkbox"
-                                />
-                            </td>
-                            <td>5</td>
-                            <td><img src="https://via.placeholder.com/120"></td>
-                            <td>Sản phẩm E</td>
-                            <td>
-                                <div>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
-                                </div>
-                            </td>
-                            <td>Amin</td>
-    
-                            <td>
-                                <button class="btn btn-info">
-                                    <span class="icon-pencil"></span>
-                                </button>
-                                <button class="btn btn-info">
-                                    <span class="icon-info"></span>
-                                </button>
-                                <button class="btn btn-danger">
-                                    <span class="icon-bin"></span>
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="paginator">
-                    <div class="paginator_items">
-                    </div>
-                </div>
-
-                <div id="add-product">
-                    <h3>Thêm sản phẩm</h3>
-                    <form action="">
-                        <div>
-                            <label for="product-name">Tên sản phẩm</label>
-                            <input type="text" id="product-name">
-                        </div>
-                        <div>
-                            <label for="product-type">Phân loại</label>
-                            <input type="text" id="product-type">
-                        </div>
-                        <div>
-                            <label for="product-price">Giá</label>
-                            <input type="text" id="product-price">
-                        </div>
-                        <div>
-                            <label for="product-image">Ảnh</label>
-                            <input type="file" name="product-image" id="product-image">
-                        </div>
-                        <div>
-                            <button class="btn btn-danger">Xóa</button>
-                            <button class="btn btn-info">Thêm</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-
-            <div class="admin-container --hidden" data-csr="orders">
-                <h2 class="product-text">
-                    Đơn hàng
-                    <button class="btn btn-success add-product-tag">Thêm mới</button>
-                </h2>
-
-                <div class="managerment">
-
-                    <div class="select-all">
-                        <input type="checkbox" class="check-all"/>
-                        <label for="check-all">Chọn tất cả</label>
-                    </div>
-
-                    <div class="actions">
-                        <select class="decisions">
-
-                            <option value="undone" selected>-- Hành động --</option>
-                            <option value="delete">Xóa</option>
-                        </select>
-                        <button class="btn btn-info">Thực hiện</button>
-                    </div>
-                </div>
-                <div class="table-container">
-                    <table>
-                        <tr>
-                            <th></th>
-                            <th>STT</th>
-                            <th>Ngày</th>
-                            <th>Khách hàng</th>
-                            <th>Giá</th>
-                            <th>Trạng thái</th>
-                            <th>Hành động</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input
-                                    type="checkbox"
-                                    value="1"
-                                    class="user-checkbox"
-                                />
-                            </td>
-                            <td>1</td>
-                            <td>01/01/1970</td>
-                            <td>Nguyễn Văn A</td>
-                            <td>0đ</td>
-                            <td>Đang chờ</td>
-                            <td>
-                                <button class="btn btn-info">
-                                    <span class="icon-pencil"></span>
-                                </button>
-                                <button class="btn btn-info">
-                                    <span class="icon-info"></span>
-                                </button>
-                                <button class="btn btn-danger">
-                                    <span class="icon-bin"></span>
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="paginator">
-                    <div class="paginator_items">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="footer">Copyright &copy; 2022 Ngôi nhà Cafe</div>
         <script type="module" src="./src/js/admin.js"></script>
     </body>
 </html>

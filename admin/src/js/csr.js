@@ -1,4 +1,10 @@
-import { dataUsers, dataImgs } from "./temp_data.js";
+import { Data } from "../../../src/database/data.js";
+
+var data = new Data();
+data.initData();
+
+let dataUsers = data.getDataUsers();
+let dataImgs = data.getDataImgs();
 
 function renderData(page = 1, type = '') {
     let html, first, last;
@@ -7,7 +13,6 @@ function renderData(page = 1, type = '') {
     managerments.forEach(elem => {
         elem.innerHTML = `<div class="select-all">
             <input type="checkbox" class="check-all" />
-            <label for="check-all">Chọn tất cả</label>
         </div>
         <div id="actions">
             <select id="decisions">
@@ -142,7 +147,27 @@ function renderData(page = 1, type = '') {
         s_products.innerHTML = html;
     }
 
+    function renderHome() {
+        let s_home = document.querySelector(".admin-container[data-csr='home'] .card-container");
+
+        let nOfUsers = dataUsers.length;
+
+        s_home.innerHTML = `<div class="card yellow">
+            <div class="card-info">
+                <span class="number">${nOfUsers}</span>
+                <p>Người đăng ký</p>
+            </div>
+            <a href="?page=users" class="card-btn"
+                >Chi tiết <i class="icon-arrow-right"></i
+            ></a>
+        </div>`
+        
+    }
+
     switch (type) {
+        case 'home':
+            renderHome();
+            break;
         case 'users':
             renderUsers(page);
 
@@ -158,6 +183,7 @@ function renderData(page = 1, type = '') {
             break;
     
         default:
+            renderHome();
             renderUsers(page);
             renderProducts(page);
 
