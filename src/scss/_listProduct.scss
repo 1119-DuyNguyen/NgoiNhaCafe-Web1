@@ -14,7 +14,7 @@
     }
     .left-list {
         left: 32px;
-        top: 125px;
+        top: 110px;
         width: 25%;
         height: 100%;
         position: fixed;
@@ -55,94 +55,99 @@
     .show-product {
         margin-left: 25%;
         .image-container-LP {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: flex-start;
-            align-content: space-around;
+            display: block;
             margin-top: 30px;
             .cf-container {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: flex-start;
+                align-content: space-around;
+                margin-top: 30px;
                 margin-bottom: 50px;
                 t {
+                    display: block;
+                    width: 100%;
                     font-size: 20px;
                     font-weight: 700;
                     padding: 20px;
                 }
-            }
-            .image-item {
-                padding: 15px;
-                position: relative;
-                max-height: 450px;
-                max-width: 300px;
-                .image-pack {
-                    img {
-                        max-height: 270px;
-                        border-radius: 15px;
-                        box-shadow: 5px 10px 8px #888888;
-                        opacity: 1;
-                        display: block;
-                        width: 100%;
-                        height: auto;
-                        transition: 0.5s ease;
-                        backface-visibility: hidden;
-                    }
-                    .buy-now {
-                        transition: 0.5s ease;
-                        opacity: 1;
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        -ms-transform: translate(-50%, -50%);
-                        .text-buy {
-                            background-color: #fa8c16;
-                            color: white;
-                            font-size: 16px;
-                            padding: 16px 32px;
-                            display: none;
+
+                .image-item {
+                    padding: 15px;
+                    position: relative;
+                    max-height: 450px;
+                    max-width: 300px;
+                    .image-pack {
+                        img {
+                            max-height: 270px;
+                            border-radius: 15px;
+                            box-shadow: 5px 10px 8px #888888;
+                            opacity: 1;
+                            display: block;
+                            width: 100%;
+                            height: auto;
+                            transition: 0.5s ease;
+                            backface-visibility: hidden;
+                        }
+                        .buy-now {
+                            transition: 0.5s ease;
+                            opacity: 1;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            -ms-transform: translate(-50%, -50%);
+                            .text-buy {
+                                background-color: #fa8c16;
+                                color: white;
+                                font-size: 16px;
+                                padding: 16px 32px;
+                                display: none;
+                            }
                         }
                     }
-                }
-                .image-pack:hover {
-                    img {
-                        opacity: 0.3;
-                        cursor: pointer;
+                    .image-pack:hover {
+                        img {
+                            opacity: 0.3;
+                            cursor: pointer;
+                        }
+                        .text-buy {
+                            opacity: 1;
+                            cursor: pointer;
+                            display: block;
+                        }
                     }
-                    .text-buy {
-                        opacity: 1;
-                        cursor: pointer;
-                        display: block;
+                    n {
+                        font-weight: 600;
+                        font-size: 16px;
                     }
-                }
-                n {
-                    font-weight: 600;
-                    font-size: 16px;
-                }
-                n:hover {
-                    cursor: pointer;
-                    color: #fa8c16;
-                }
-                p {
-                    opacity: 0.7;
-                }
-                .icon-plus {
-                    float: right;
-                    right: 57px;
-                    left: 36px;
-                    transform: translate(-12px, -20px);
-                    font-size: 16px;
-                    color: white;
-                    border-radius: 50%;
-                    width: 32px;
-                    height: 32px;
-                    background-color: #fa8c16;
-                    align-items: center;
-                    justify-content: center;
-                    display: flex;
-                }
-                .icon-plus:hover {
-                    cursor: pointer;
-                    opacity: 0.5;
+                    n:hover {
+                        cursor: pointer;
+                        color: #fa8c16;
+                    }
+                    p {
+                        opacity: 0.7;
+                    }
+                    .icon-plus {
+                        float: right;
+                        right: 57px;
+                        left: 36px;
+                        transform: translate(-12px, -20px);
+                        font-size: 16px;
+                        color: white;
+                        border-radius: 50%;
+                        width: 32px;
+                        height: 32px;
+                        background-color: #fa8c16;
+                        align-items: center;
+                        justify-content: center;
+                        display: flex;
+                    }
+                    .icon-plus:hover {
+                        cursor: pointer;
+                        opacity: 0.5;
+                    }
                 }
             }
         }
@@ -189,14 +194,7 @@
                 align-items: center;
                 justify-content: center;
                 margin-top: 50px !important;
-                .cfvn-txt,
-                .cfMay-txt,
-                .cold-brew-txt,
-                .tra-trai-cay-txt,
-                .tra-sua-macchiato-txt,
-                .hi-tea-tra-txt,
-                .hi-tea-da-tuyet-txt,
-                .hi-tea-bling-bling-txt {
+                .cf-container {
                     align-items: center;
                     justify-content: center;
                     .image-item {
@@ -258,14 +256,7 @@
                 width: 100%;
                 align-items: center;
                 justify-content: center;
-                .cfvn-txt,
-                .cfMay-txt,
-                .cold-brew-txt,
-                .tra-trai-cay-txt,
-                .tra-sua-macchiato-txt,
-                .hi-tea-tra-txt,
-                .hi-tea-da-tuyet-txt,
-                .hi-tea-bling-bling-txt {
+                .cf-container {
                     align-items: center;
                     justify-content: center;
                     .image-item {
@@ -328,14 +319,7 @@
                 width: 100%;
                 align-items: center;
                 justify-content: center;
-                .cfvn-txt,
-                .cfMay-txt,
-                .cold-brew-txt,
-                .tra-trai-cay-txt,
-                .tra-sua-macchiato-txt,
-                .hi-tea-tra-txt,
-                .hi-tea-da-tuyet-txt,
-                .hi-tea-bling-bling-txt {
+                .cf-container {
                     align-items: center;
                     justify-content: center;
                     .image-item {
@@ -398,14 +382,7 @@
                 width: 100%;
                 align-items: center;
                 justify-content: center;
-                .cfvn-txt,
-                .cfMay-txt,
-                .cold-brew-txt,
-                .tra-trai-cay-txt,
-                .tra-sua-macchiato-txt,
-                .hi-tea-tra-txt,
-                .hi-tea-da-tuyet-txt,
-                .hi-tea-bling-bling-txt {
+                .cf-container {
                     align-items: center;
                     justify-content: center;
                     .image-item {
@@ -468,14 +445,7 @@
                 width: 100%;
                 align-items: center;
                 justify-content: center;
-                .cfvn-txt,
-                .cfMay-txt,
-                .cold-brew-txt,
-                .tra-trai-cay-txt,
-                .tra-sua-macchiato-txt,
-                .hi-tea-tra-txt,
-                .hi-tea-da-tuyet-txt,
-                .hi-tea-bling-bling-txt {
+                .cf-container {
                     align-items: center;
                     justify-content: center;
                     .image-item {

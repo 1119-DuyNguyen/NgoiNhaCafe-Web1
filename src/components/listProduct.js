@@ -37,37 +37,15 @@ export function run(dataImgs) {
     }
     list();
     const leftItem = document.querySelectorAll('.left-item');
-    const listItem = document.querySelectorAll('.left-list .list-item');
     const listLv2 = document.querySelectorAll('.list-lv2');
     const mobileMenuAll = document.querySelector('.mobile-top');
     const mobileMenuTxt = document.querySelector('.mobile-top p');
 
     const imageContainer = document.querySelector('.image-container-LP');
 
-    const leftCfvn = document.querySelectorAll('.left-cfvn');
-    const leftCfMay = document.querySelector('.left-cfMay');
-    const leftColdbrew = document.querySelector('.left-cold-brew');
-    const leftTraTraiCay = document.querySelectorAll('.left-tra-trai-cay');
-    const leftTraSuaMacchiato = document.querySelector(
-        '.left-tra-sua-macchiato'
-    );
-    const leftHiTeaTra = document.querySelectorAll('.left-hi-tea-tra');
-    const leftHiTeaDaTuyet = document.querySelector('.left-hi-tea-da-tuyet');
-    const leftHiTeaBlingBling = document.querySelector(
-        '.left-hi-tea-bling-bling'
-    );
-    const cfvn = document.querySelector('.cfvn-txt');
-    const cfMay = document.querySelector('.cfMay-txt');
-    const coldBrew = document.querySelector('.cold-brew-txt');
-    const traTraiCay = document.querySelector('.tra-trai-cay-txt');
-    const traSuaMacchiato = document.querySelector('.tra-sua-macchiato-txt');
-    const hiTeaTra = document.querySelector('.hi-tea-tra-txt');
-    const hiTeaDaTuyet = document.querySelector('.hi-tea-da-tuyet-txt');
-    const hiTeaBlingBling = document.querySelector('.hi-tea-bling-bling-txt');
-
     //xử lý active
 
-    if (leftItem && listLv2) {
+    if (leftItem) {
         leftItem.forEach(function (item) {
             if (screen.width > 849) {
                 item.addEventListener('click', function (e) {
@@ -76,40 +54,47 @@ export function run(dataImgs) {
                         item.nextElementSibling.style = 'display:block;';
                     }
                 });
+            } else {
+                item.addEventListener('click', function (e) {
+                    item.classList.add('active');
+                    if (item.nextElementSibling) {
+                        item.nextElementSibling.style = 'display:none;';
+                    }
+                });
             }
         });
     }
 
-    if (mobileMenuAll) {
-        var menuMobileOn = false;
-        if (menuMobileOn === true) {
-            listItem.forEach(function (item1) {
-                item1.classList.remove('mobile-menu-on');
-            });
-            mobileMenuAll = false;
-        }
-        mobileMenuAll.onclick = function (e) {
-            if (menuMobileOn === false) {
-                menuMobileOn = true;
-                listItem.forEach(function (item) {
-                    item.classList.add('mobile-menu-on');
-                    item.classList.remove('active');
-                    item.onclick = function (e) {
-                        menuMobileOn = false;
-                        listItem.forEach(function (item1) {
-                            item1.classList.remove('mobile-menu-on');
-                        });
-                    };
-                });
-            } else {
-                menuMobileOn = false;
-                listItem.forEach(function (item) {
-                    item.classList.remove('mobile-menu-on');
-                    item.classList.remove('active');
-                });
-            }
-        };
-    }
+    // if (mobileMenuAll) {
+    //     var menuMobileOn = false;
+    //     if (menuMobileOn === true) {
+    //         listItem.forEach(function (item1) {
+    //             item1.classList.remove('mobile-menu-on');
+    //         });
+    //         mobileMenuAll = false;
+    //     }
+    //     mobileMenuAll.onclick = function (e) {
+    //         if (menuMobileOn === false) {
+    //             menuMobileOn = true;
+    //             listItem.forEach(function (item) {
+    //                 item.classList.add('mobile-menu-on');
+    //                 item.classList.remove('active');
+    //                 item.onclick = function (e) {
+    //                     menuMobileOn = false;
+    //                     listItem.forEach(function (item1) {
+    //                         item1.classList.remove('mobile-menu-on');
+    //                     });
+    //                 };
+    //             });
+    //         } else {
+    //             menuMobileOn = false;
+    //             listItem.forEach(function (item) {
+    //                 item.classList.remove('mobile-menu-on');
+    //                 item.classList.remove('active');
+    //             });
+    //         }
+    //     };
+    // }
 
     //render danh mục sản phẩm
     function rightTag(data) {
@@ -122,12 +107,23 @@ export function run(dataImgs) {
         }
         return false;
     }
+
     function showProduct() {
         let showProductHtml = '';
+        let currentTag = '';
+        let count = 0;
         for (let element of dataImgs) {
             if (rightTag(element.tag)) {
+                if (!(currentTag === element.tag)) {
+                    if (count > 0) showProductHtml += `</div>`;
+                    currentTag = element.tag;
+                    showProductHtml += `<div class="cf-container">
+                    <t>${element.tag}</t>
+                `;
+                    ++count;
+                }
                 showProductHtml += `
-                <div class="image-item" id="${element.id}">
+            <div class="image-item" id="${element.id}">
                 <div class="image-pack">
                     <img
                         class="product-image"
@@ -137,7 +133,6 @@ export function run(dataImgs) {
                         />
                     <div class="buy-now">
                         <div class="text-buy">Mua ngay!</div>
-                            </div>
                     </div>
                         <n>${element.title}</n>
                         <p style="margin-top: 15px">${element.price} đ</p>
@@ -146,238 +141,70 @@ export function run(dataImgs) {
             </div>`;
             }
         }
+        showProductHtml += '</div>';
         imageContainer.innerHTML = showProductHtml;
     }
-
-    // const cfMayhtml = dataImgs.map(function (element) {
-    //     if (element.tag === 'Cà Phê Máy') {
-    //         return `
-    //             <div class="image-item" id="${element.id}">
-    //             <div class="image-pack">
-    //                 <img
-    //                     class="product-image"
-    //                     style="margin-bottom: 15px"
-    //                     src="${element.image}"
-    //                     alt=""
-    //                     />
-    //                 <div class="buy-now">
-    //                     <div class="text-buy">Mua ngay!</div>
-    //                         </div>
-    //                 </div>
-    //                     <n>${element.title}</n>
-    //                     <p style="margin-top: 15px">${element.price} đ</p>
-    //                     <span class="icon-plus"></span>
-    //             </div>
-    //         </div>`;
-    //     }
-    // });
-    // const coldBrewhtml = dataImgs.map(function (element) {
-    //     if (element.tag === 'Cold Brew') {
-    //         return `
-    //             <div class="image-item" id="${element.id}">
-    //             <div class="image-pack">
-    //                 <img
-    //                     class="product-image"
-    //                     style="margin-bottom: 15px"
-    //                     src="${element.image}"
-    //                     alt=""
-    //                     />
-    //                 <div class="buy-now">
-    //                     <div class="text-buy">Mua ngay!</div>
-    //                         </div>
-    //                 </div>
-    //                     <n>${element.title}</n>
-    //                     <p style="margin-top: 15px">${element.price} đ</p>
-    //                     <span class="icon-plus"></span>
-    //             </div>
-    //         </div>`;
-    //     }
-    // });
-    // const traTraiCayhtml = dataImgs.map(function (element) {
-    //     if (element.tag === 'Trà trái cây') {
-    //         return `
-    //             <div class="image-item" id="${element.id}">
-    //             <div class="image-pack">
-    //                 <img
-    //                     class="product-image"
-    //                     style="margin-bottom: 15px"
-    //                     src="${element.image}"
-    //                     alt=""
-    //                     />
-    //                 <div class="buy-now">
-    //                     <div class="text-buy">Mua ngay!</div>
-    //                         </div>
-    //                 </div>
-    //                     <n>${element.title}</n>
-    //                     <p style="margin-top: 15px">${element.price} đ</p>
-    //                     <span class="icon-plus"></span>
-    //             </div>
-    //         </div>`;
-    //     }
-    // });
-    // const traSuaMacchiatohtml = dataImgs.map(function (element) {
-    //     if (element.tag === 'Trà sữa Macchiato') {
-    //         return `
-    //             <div class="image-item" id="${element.id}">
-    //             <div class="image-pack">
-    //                 <img
-    //                     class="product-image"
-    //                     style="margin-bottom: 15px"
-    //                     src="${element.image}"
-    //                     alt=""
-    //                     />
-    //                 <div class="buy-now">
-    //                     <div class="text-buy">Mua ngay!</div>
-    //                         </div>
-    //                 </div>
-    //                     <n>${element.title}</n>
-    //                     <p style="margin-top: 15px">${element.price} đ</p>
-    //                     <span class="icon-plus"></span>
-    //             </div>
-    //         </div>`;
-    //     }
-    // });
-    // const hiTeaTrahtml = dataImgs.map(function (element) {
-    //     if (element.tag === 'Hi-Tea Trà') {
-    //         return `
-    //             <div class="image-item" id="${element.id}">
-    //             <div class="image-pack">
-    //                 <img
-    //                     class="product-image"
-    //                     style="margin-bottom: 15px"
-    //                     src="${element.image}"
-    //                     alt=""
-    //                     />
-    //                 <div class="buy-now">
-    //                     <div class="text-buy">Mua ngay!</div>
-    //                         </div>
-    //                 </div>
-    //                     <n>${element.title}</n>
-    //                     <p style="margin-top: 15px">${element.price} đ</p>
-    //                     <span class="icon-plus"></span>
-    //             </div>
-    //         </div>`;
-    //     }
-    // });
-    // const hiTeaDaTuyethtml = dataImgs.map(function (element) {
-    //     if (element.tag === 'Hi-Tea Đá Tuyết') {
-    //         return `
-    //             <div class="image-item" id="${element.id}">
-    //             <div class="image-pack">
-    //                 <img
-    //                     class="product-image"
-    //                     style="margin-bottom: 15px"
-    //                     src="${element.image}"
-    //                     alt=""
-    //                     />
-    //                 <div class="buy-now">
-    //                     <div class="text-buy">Mua ngay!</div>
-    //                         </div>
-    //                 </div>
-    //                     <n>${element.title}</n>
-    //                     <p style="margin-top: 15px">${element.price} đ</p>
-    //                     <span class="icon-plus"></span>
-    //             </div>
-    //         </div>`;
-    //     }
-    // });
-    // const hiTeaBlingBlinghtml = dataImgs.map(function (element) {
-    //     if (element.tag === 'Hi-Tea Bling Bling') {
-    //         return `
-    //             <div class="image-item" id="${element.id}">
-    //             <div class="image-pack">
-    //                 <img
-    //                     class="product-image"
-    //                     style="margin-bottom: 15px"
-    //                     src="${element.image}"
-    //                     alt=""
-    //                     />
-    //                 <div class="buy-now">
-    //                     <div class="text-buy">Mua ngay!</div>
-    //                         </div>
-    //                 </div>
-    //                     <n>${element.title}</n>
-    //                     <p style="margin-top: 15px">${element.price} đ</p>
-    //                     <span class="icon-plus"></span>
-    //             </div>
-    //         </div>`;
-    //     }
-    // });
-    // cfMay.innerHTML = cfMayhtml.join('');
-    // coldBrew.innerHTML = coldBrewhtml.join('');
-    // traTraiCay.innerHTML = traTraiCayhtml.join('');
-    // traSuaMacchiato.innerHTML = traSuaMacchiatohtml.join('');
-    // hiTeaTra.innerHTML = hiTeaTrahtml.join('');
-    // hiTeaDaTuyet.innerHTML = hiTeaDaTuyethtml.join('');
-    // hiTeaBlingBling.innerHTML = hiTeaBlingBlinghtml.join('');
 
     showProduct();
 
     //tránh header che kh thấy product
 
-    // if (screen.width > 849) {
-    //     leftCfvn.forEach(function (element) {
-    //         element.onclick = function () {
-    //             scrollTo(0, cfvn.offsetTop - 130);
-    //         };
-    //     });
-    //     leftCfMay.onclick = function () {
-    //         scrollTo(0, cfMay.offsetTop - 130);
-    //     };
-    //     leftColdbrew.onclick = function () {
-    //         scrollTo(0, coldBrew.offsetTop - 130);
-    //     };
-    //     leftTraTraiCay.forEach(function (element) {
-    //         element.onclick = function () {
-    //             scrollTo(0, traTraiCay.offsetTop - 130);
-    //         };
-    //     });
-    //     leftTraSuaMacchiato.onclick = function () {
-    //         scrollTo(0, traSuaMacchiato.offsetTop - 130);
-    //     };
-    //     leftHiTeaTra.forEach(function (element) {
-    //         element.onclick = function () {
-    //             scrollTo(0, hiTeaTra.offsetTop - 130);
-    //         };
-    //     });
-    //     leftHiTeaDaTuyet.onclick = function () {
-    //         scrollTo(0, hiTeaDaTuyet.offsetTop - 130);
-    //     };
-    //     leftHiTeaBlingBling.onclick = function () {
-    //         scrollTo(0, hiTeaBlingBling.offsetTop - 130);
-    //     };
-    // } else {
-    //     leftCfvn.forEach(function (element) {
-    //         element.addEventListener('click', function () {
-    //             scrollTo(0, cfvn.offsetTop - 150);
-    //             const newNode = document.createTextNode('Cà Phê');
-    //             mobileMenuTxt.replaceChild(
-    //                 newNode,
-    //                 mobileMenuTxt.childNodes[0]
-    //             );
-    //         });
-    //     });
-    //     leftTraTraiCay.forEach(function (element) {
-    //         element.addEventListener('click', function () {
-    //             scrollTo(0, traTraiCay.offsetTop - 150);
-    //             const newNode = document.createTextNode('Trà');
-    //             mobileMenuTxt.replaceChild(
-    //                 newNode,
-    //                 mobileMenuTxt.childNodes[0]
-    //             );
-    //         });
-    //     });
-    //     leftHiTeaTra.forEach(function (element) {
-    //         element.addEventListener('click', function () {
-    //             scrollTo(0, hiTeaTra.offsetTop - 150);
-    //             const newNode = document.createTextNode('Hi-Tea Healthy');
-    //             mobileMenuTxt.replaceChild(
-    //                 newNode,
-    //                 mobileMenuTxt.childNodes[0]
-    //             );
-    //         });
-    //     });
-    // }
+    const cfContainer = document.querySelectorAll('.cf-container');
+
+    if (screen.width > 849) {
+        leftItem[0].onclick = function () {
+            scrollTo(0, cfContainer[0].offsetTop - 110);
+        };
+        leftItem[1].onclick = function () {
+            scrollTo(0, cfContainer[0].offsetTop - 110);
+        };
+        leftItem[2].onclick = function () {
+            scrollTo(0, cfContainer[1].offsetTop - 110);
+        };
+        leftItem[3].onclick = function () {
+            scrollTo(0, cfContainer[2].offsetTop - 110);
+        };
+        leftItem[4].onclick = function () {
+            scrollTo(0, cfContainer[3].offsetTop - 110);
+        };
+        leftItem[5].onclick = function () {
+            scrollTo(0, cfContainer[3].offsetTop - 110);
+        };
+        leftItem[6].onclick = function () {
+            scrollTo(0, cfContainer[4].offsetTop - 110);
+        };
+        leftItem[7].onclick = function () {
+            scrollTo(0, cfContainer[5].offsetTop - 110);
+        };
+        leftItem[8].onclick = function () {
+            scrollTo(0, cfContainer[5].offsetTop - 110);
+        };
+        leftItem[9].onclick = function () {
+            scrollTo(0, cfContainer[6].offsetTop - 110);
+        };
+        leftItem[10].onclick = function () {
+            scrollTo(0, cfContainer[7].offsetTop - 110);
+        };
+    } else {
+        // leftItem[0].addEventListener('click', function () {
+        //     scrollTo(0, cfContainer[0].offsetTop - 150);
+        //     const newNode = document.createTextNode('Cà Phê');
+        //     mobileMenuTxt.replaceChild(newNode, cfContainer[0].childNodes[0]);
+        // });
+        // leftItem[4].addEventListener('click', function () {
+        //     scrollTo(0, cfContainer[3].offsetTop - 150);
+        //     const newNode = document.createTextNode('Trà');
+        //     mobileMenuTxt.replaceChild(newNode, mobileMenuTxt.childNodes[0]);
+        // });
+        // leftItem[7].addEventListener('click', function () {
+        //     scrollTo(0, cfContainer[5].offsetTop - 150);
+        //     const newNode = document.createTextNode('Hi-Tea Healthy');
+        //     mobileMenuTxt.replaceChild(newNode, mobileMenuTxt.childNodes[0]);
+        // });
+        const leftList = document.querySelector('.left-list');
+        leftList.style = 'display: none';
+        imageContainer.style = 'transform: translate(0px, -160px)';
+    }
 
     //render product info
     const productList = document.querySelectorAll('.image-item');
