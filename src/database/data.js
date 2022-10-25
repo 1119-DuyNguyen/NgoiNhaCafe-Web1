@@ -1196,8 +1196,17 @@ export function Data() {
     const keyUsers = 'dataUsers';
     this.addUser = function (user) {};
     this.removeUser = function (id) {};
-    this.addImgs = function () {};
-    this.removeImgs = function (id) {};
+    this.addImgs = function (obj) {
+        let data = this.getDataImgs();
+        obj.currency = 'đ';
+        data.push(obj);
+        setDataImgs(data);
+    };
+    this.removeImgs = function (id) {
+        let data = this.getDataImgs();
+        data.splice(id, 1);
+        setDataImgs(data);
+    };
     function setDataImgs(data) {
         window.localStorage.setItem(keyImgs, JSON.stringify(data));
     }

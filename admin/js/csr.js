@@ -1,5 +1,5 @@
-import { Data } from "../../../src/database/data.js";
-import { closeDisplay, openDisplay,btnCloseId } from "../../src/library/display.js";
+import { Data } from "../../src/database/data.js";
+import { closeDisplay, openDisplay,btnCloseId, toggleDisplay } from "../../src/library/display.js";
 
 var data = new Data();
 data.initData();
@@ -111,12 +111,13 @@ function renderData(page = 1, type = '') {
             <th>Tag</th>
             <th>Hành động</th>
         </tr>`;
-    
-        first = page * 10 - 10;
-        last = page * 10 - 1;
-    
-        if (last > dataImgs.length) last = dataImgs.length-1;
-        for (let i = first; i <= last; i++) {
+        // 100 99 98 97 96 95 94 93 92 91
+        let maxSize = dataImgs.length - 1;
+        first = maxSize - (page-1) * 10;
+        last = maxSize - page * 10;
+        
+        for (let i = first; i > last; i--) {
+            if (typeof dataImgs[i] == 'undefined') break;
             html += `<tr>
                 <td>
                     <input type="checkbox" value="1" class="user-checkbox"/>
@@ -138,7 +139,7 @@ function renderData(page = 1, type = '') {
                     <button class="btn btn-info">
                         <span class="icon-info"></span>
                     </button>
-                    <button class="btn btn-danger">
+                    <button class="btn btn-danger delete-product" data-id="${i}">
                         <span class="icon-bin"></span>
                     </button>
                 </td>
@@ -146,6 +147,16 @@ function renderData(page = 1, type = '') {
         }
     
         s_products.innerHTML = html;
+        
+        document.querySelectorAll(".delete-product").forEach(elem => {
+            elem.addEventListener('click', e => {
+                let deleteConfirm = confirm("Bạn có muốn xóa sản phẩm này không?");
+                if (deleteConfirm) {
+                    data.removeImgs(elem.dataset.id);
+                    window.location.href = "";
+                }
+            })
+        })
     }
 
     function renderHome() {
@@ -220,12 +231,35 @@ function renderPaginator() {
     s_products.innerHTML = html;
 }
 
-function renderAddForm() {
-    let add_product = document.querySelector('#add-product');
-    openDisplay(add_product);
-    btnCloseId(add_product)
-    console.log(add_product)
-    
+function renderAddForm(element_id) {
+    let add_product = document.querySelector(element_id);
+    btnCloseId(add_product);
+
+    document.querySelector(element_id+'-tag').addEventListener('click', () => {
+        openDisplay(add_product);
+    })
+
+    let removeBtn = document.querySelector(element_id+" .remove");
+    let submitBtn = document.querySelector(element_id+" .submit");
+
+    removeBtn.addEventListener('click', e => {
+        e.preventDefault();
+        
+        document.querySelectorAll(element_id + " div input, "+element_id + " div textarea").forEach(e => {
+            e.value = "";
+            e.blur();
+        })
+    })
+
+    submitBtn.addEventListener('click', e => {
+        e.preventDefault();
+        let obj = {};
+        document.querySelectorAll(element_id + " div input, "+element_id + " div textarea").forEach(e => {
+            obj[e.dataset.name] = e.value;
+        })
+        data.addImgs(obj);
+        window.location.href = "";
+    })
 }
 
 function runCSR() {
@@ -234,7 +268,8 @@ function runCSR() {
 
     renderData();
     renderPaginator();
-    renderAddForm();
+    renderAddForm('#add-product');
+    // renderAddForm('#add-product');
 
     let p_users = document.querySelectorAll(".admin-container[data-csr='users'] .paginator_items button");
     let p_products = document.querySelectorAll(".admin-container[data-csr='products'] .paginator_items button");

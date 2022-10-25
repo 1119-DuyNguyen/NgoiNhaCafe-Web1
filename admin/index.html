@@ -201,7 +201,7 @@
                     <h2 class="product-text">
                         Danh mục sản phẩm
         
-                        <button class="btn btn-success add-product-tag">Thêm mới</button>
+                        <button id="add-product-tag" class="btn btn-success">Thêm mới</button>
                     </h2>
     
                     <div class="managerment">
@@ -386,7 +386,7 @@
                         <div class="paginator_items">
                         </div>
                     </div>
-                    <div id="add-product" class="modal">
+                    <div id="add-product" class="modal --hide">
                         <div class="container">
                             <div class="content">
                                 <div class="close">
@@ -398,23 +398,27 @@
                                 <form action="">
                                     <div>
                                         <label for="product-name">Tên sản phẩm</label>
-                                        <input type="text" id="product-name">
+                                        <input type="text" id="product-name" data-name="title">
                                     </div>
                                     <div>
-                                        <label for="product-type">Phân loại</label>
-                                        <input type="text" id="product-type">
+                                        <label for="product-type">Tag</label>
+                                        <input type="text" id="product-type" data-name="tag">
                                     </div>
                                     <div>
                                         <label for="product-price">Giá</label>
-                                        <input type="text" id="product-price">
+                                        <input type="text" id="product-price" data-name="price">
+                                    </div>
+                                    <div>
+                                        <label for="product-desc">Mô tả</label>
+                                        <textarea id="product-desc" data-name="description"></textarea>
                                     </div>
                                     <div>
                                         <label for="product-image">Ảnh</label>
-                                        <input type="file" name="product-image" id="product-image">
+                                        <input type="file" data-name="image" id="product-image">
                                     </div>
                                     <div>
-                                        <button class="btn btn-danger">Xóa</button>
-                                        <button class="btn btn-info">Thêm</button>
+                                        <button class="btn btn-danger remove">Đặt lại</button>
+                                        <button class="btn btn-info submit">Thêm</button>
                                     </div>
                                 </form>
                             </div>
