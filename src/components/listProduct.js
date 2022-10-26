@@ -18,6 +18,19 @@ export function run(dataImgs) {
                 break;
         }
     }
+    function switchTranslate2(data) {
+        switch (data) {
+            case 'Tra':
+                return 'tra';
+                break;
+            case 'HiTea':
+                return 'hitea';
+                break;
+            case 'Cafe':
+                return 'cafe';
+                break;
+        }
+    }
     const leftContainer = document.querySelector('.left-container');
     function list() {
         let html = '';
@@ -37,10 +50,6 @@ export function run(dataImgs) {
     }
     list();
     const leftItem = document.querySelectorAll('.left-item');
-    const listLv2 = document.querySelectorAll('.list-lv2');
-    const mobileMenuAll = document.querySelector('.mobile-top');
-    const mobileMenuTxt = document.querySelector('.mobile-top p');
-
     const imageContainer = document.querySelector('.image-container-LP');
 
     //xử lý active
@@ -65,43 +74,12 @@ export function run(dataImgs) {
         });
     }
 
-    // if (mobileMenuAll) {
-    //     var menuMobileOn = false;
-    //     if (menuMobileOn === true) {
-    //         listItem.forEach(function (item1) {
-    //             item1.classList.remove('mobile-menu-on');
-    //         });
-    //         mobileMenuAll = false;
-    //     }
-    //     mobileMenuAll.onclick = function (e) {
-    //         if (menuMobileOn === false) {
-    //             menuMobileOn = true;
-    //             listItem.forEach(function (item) {
-    //                 item.classList.add('mobile-menu-on');
-    //                 item.classList.remove('active');
-    //                 item.onclick = function (e) {
-    //                     menuMobileOn = false;
-    //                     listItem.forEach(function (item1) {
-    //                         item1.classList.remove('mobile-menu-on');
-    //                     });
-    //                 };
-    //             });
-    //         } else {
-    //             menuMobileOn = false;
-    //             listItem.forEach(function (item) {
-    //                 item.classList.remove('mobile-menu-on');
-    //                 item.classList.remove('active');
-    //             });
-    //         }
-    //     };
-    // }
-
     //render danh mục sản phẩm
     function rightTag(data) {
         for (let i in parentTag) {
             for (let key of parentTag[i]) {
                 if (data == key) {
-                    return true;
+                    return switchTranslate2(i);
                 }
             }
         }
@@ -113,11 +91,12 @@ export function run(dataImgs) {
         let currentTag = '';
         let count = 0;
         for (let element of dataImgs) {
-            if (rightTag(element.tag)) {
+            const pTag = rightTag(element.tag);
+            if (pTag) {
                 if (!(currentTag === element.tag)) {
                     if (count > 0) showProductHtml += `</div>`;
                     currentTag = element.tag;
-                    showProductHtml += `<div class="cf-container">
+                    showProductHtml += `<div class="cf-container ${pTag}">
                     <t>${element.tag}</t>
                 `;
                     ++count;
@@ -145,11 +124,56 @@ export function run(dataImgs) {
         imageContainer.innerHTML = showProductHtml;
     }
 
-    showProduct();
+    //render product info
+
+    function renderProductInfo() {
+        const productList = document.querySelectorAll('.image-item');
+
+        productList.forEach(function (product) {
+            product.addEventListener('click', function () {
+                const dataID = product.id;
+                productInfo(dataImgs[dataID - 1].title, dataImgs);
+            });
+        });
+    }
+
+    //header on click
+
+    const headerBtn = document.querySelectorAll('.header-btn');
+    const menuBtn = document.querySelectorAll('.menu-btn');
+    const menuList = ['tatca', 'cafe', 'tra', 'hitea'];
+    console.log(headerBtn);
+
+    function callMenu(index) {
+        showProduct();
+        const cfContainer = document.querySelectorAll('.cf-container');
+        cfContainer.forEach(function (item) {
+            if (!item.classList.contains(menuList[index])) {
+                item.classList.add('--hide');
+            }
+        });
+        renderProductInfo();
+    }
+
+    headerBtn.forEach(function (element, index) {
+        element.addEventListener('click', function () {
+            callMenu(index + 1);
+        });
+    });
+
+    menuBtn[0].addEventListener('click', function (e) {
+        showProduct();
+        renderProductInfo();
+    });
+    menuBtn.forEach(function (element, index) {
+        if (index != 0) {
+            element.addEventListener('click', function () {
+                callMenu(index);
+            });
+        }
+    });
 
     //tránh header che kh thấy product
-
-    const cfContainer = document.querySelectorAll('.cf-container');
 
     if (screen.width > 849) {
         leftItem[0].onclick = function () {
@@ -203,16 +227,6 @@ export function run(dataImgs) {
         // });
         const leftList = document.querySelector('.left-list');
         leftList.style = 'display: none';
-        imageContainer.style = 'transform: translate(0px, -160px)';
+        imageContainer.style = 'transform: translate(0px, -130px)';
     }
-
-    //render product info
-    const productList = document.querySelectorAll('.image-item');
-
-    productList.forEach(function (product) {
-        product.addEventListener('click', function () {
-            const dataID = product.id;
-            productInfo(dataImgs[dataID - 1].title, dataImgs);
-        });
-    });
 }
