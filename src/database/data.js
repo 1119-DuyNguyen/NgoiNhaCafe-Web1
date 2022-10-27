@@ -1194,8 +1194,16 @@ export function Data() {
     ];
     const keyImgs = 'dataImgs';
     const keyUsers = 'dataUsers';
-    this.addUser = function (user) {};
-    this.removeUser = function (id) {};
+    this.addUser = function (user) {
+        let data = this.getDataUsers();
+        data.push(user);
+        setDataUsers(data);
+    };
+    this.removeUser = function (id) {
+        let data = this.getDataUsers();
+        data.splice(id, 1);
+        setDataUsers(data);
+    };
     this.addImgs = function (obj) {
         let data = this.getDataImgs();
         obj.currency = 'đ';
