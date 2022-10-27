@@ -94,9 +94,9 @@ function renderData(page = 1, type = '') {
                 <td></td>
                 <td>${dataUsers[i].phone}</td>
                 <td>
-                    <button class="btn btn-info"><i class="icon-pencil"></i></button>
+                    <button class="btn btn-info edit-user" data-id="${i}"><i class="icon-pencil"></i></button>
                     <button class="btn btn-info"><i class="icon-info"></i></button>
-                    <button class="btn btn-danger delete-user"><i class="icon-bin"></i></button>
+                    <button class="btn btn-danger delete-user" data-id="${i}"><i class="icon-bin"></i></button>
                 </td>
             </tr>`
         }
@@ -112,6 +112,13 @@ function renderData(page = 1, type = '') {
                     alert("Xóa người dùng thành công!");
                     window.location.href = "";
                 }
+            })
+        })
+
+        // Chỉnh sửa người dùng
+        document.querySelectorAll(".edit-user").forEach(elem => {
+            elem.addEventListener('click', e => {
+                renderEditForm(elem.dataset.id, 2);
             })
         })
     }
@@ -153,7 +160,7 @@ function renderData(page = 1, type = '') {
                 <td>${dataImgs[i].price}${dataImgs[i].currency}</td>
                 <td>${dataImgs[i].tag}</td>
                 <td>
-                    <button class="btn btn-info">
+                    <button class="btn btn-info edit-product" data-id="${i}">
                         <span class="icon-pencil"></span>
                     </button>
                     <button class="btn btn-info">
@@ -177,6 +184,13 @@ function renderData(page = 1, type = '') {
                     alert("Xóa sản phẩm thành công!");
                     window.location.href = "";
                 }
+            })
+        })
+
+        // Chỉnh sửa sản phẩm
+        document.querySelectorAll(".edit-product").forEach(elem => {
+            elem.addEventListener('click', e => {
+                renderEditForm(elem.dataset.id);
             })
         })
     }
@@ -253,14 +267,18 @@ function renderPaginator() {
     s_products.innerHTML = html;
 }
 
-function renderAddForm(element_id, type=1) {
+function renderForm(element_id, type=1, formType = 1, id=0) {
     // render form thêm phần tử với elem_id
-    let add_elem = document.querySelector(element_id);
-    btnCloseId(add_elem); // gán nút đóng
+    let form_elem = document.querySelector(element_id);
+    btnCloseId(form_elem); // gán nút đóng
 
-    document.querySelector(element_id+'-tag').addEventListener('click', () => {
-        openDisplay(add_elem); // nút thêm mới - > mở popup
-    })
+    if (formType == 1) { // add
+        document.querySelector(element_id+'-tag').addEventListener('click', () => {
+            openDisplay(form_elem); // nút thêm mới - > mở popup
+        })
+    } else if (formType == 2) {
+        openDisplay(form_elem);
+    }
 
     let removeBtn = document.querySelector(element_id+" .remove");
     let submitBtn = document.querySelector(element_id+" .submit");
@@ -283,19 +301,58 @@ function renderAddForm(element_id, type=1) {
         document.querySelectorAll(element_id + " div input, "+element_id + " div textarea").forEach(e => {
             obj[e.dataset.name] = e.value;
         })
-        switch (type) {
-            case 1:
-                data.addImgs(obj);
-                alert("Thêm sản phẩm thành công!");
-                break;
-        
-            case 2:
-                data.addUser(obj);
-                alert("Thêm người dùng thành công!");
-                break;
+        if (formType == 1) { // add
+            switch (type) {
+                case 1:
+                    data.addImgs(obj);
+                    alert("Thêm sản phẩm thành công!");
+                    break;
+            
+                case 2:
+                    data.addUser(obj);
+                    alert("Thêm người dùng thành công!");
+                    break;
+            }
+        } else if (formType == 2) {
+            // edit
+            switch (type) {
+                case 1:
+                    data.editImg(obj, id);
+                    alert("Chỉnh sửa sản phẩm thành công!");
+                    break;
+            
+                case 2:
+                    data.editUser(obj, id);
+                    alert("Chỉnh sửa người dùng thành công!");
+                    break;
+            }
         }
         window.location.href = "";
     })
+
+    if (formType == 2) {
+        switch (type) {
+            case 1:
+                document.querySelector("#user-name-edit").value;
+                break;
+        
+            default:
+                break;
+        }
+    }
+}
+
+function renderEditForm(id, type=1) {
+
+    switch (type) {
+        case 1:
+            renderForm("#edit-product", 1, 2, id);
+            break;
+    
+        case 2:
+            renderForm("#edit-user", 2, 2, id);
+            break;
+    }
 }
 
 function runCSR() {
@@ -304,8 +361,8 @@ function runCSR() {
 
     renderData();
     renderPaginator();
-    renderAddForm('#add-product');
-    renderAddForm('#add-user', 2);
+    renderForm('#add-product');
+    renderForm('#add-user', 2);
 
     let p_users = document.querySelectorAll(".admin-container[data-csr='users'] .paginator_items button");
     let p_products = document.querySelectorAll(".admin-container[data-csr='products'] .paginator_items button");

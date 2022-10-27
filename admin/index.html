@@ -241,6 +241,52 @@
                             </div>
                         </div>
                     </div>
+
+                    <div id="edit-user" class="modal --hide">
+                        <div class="container">
+                            <div class="content">
+                                <div class="close">
+                                    <i class="icon-cross icon"></i>
+                                </div>
+                                <div class="title">
+                                    <span>Chỉnh sửa người dùng</span>
+                                </div>
+                                <form>
+                                    <div>
+                                        <label for="user-name-edit">Tên đăng nhập</label>
+                                        <input type="text" id="user-name-edit" data-name="username">
+                                    </div>
+                                    <div>
+                                        <label for="user-email-edit">Email</label>
+                                        <input type="text" id="user-email-edit" data-name="email">
+                                    </div>
+                                    <div>
+                                        <label for="user-address-edit">Địa chỉ</label>
+                                        <input type="text" id="user-address-edit" data-name="address">
+                                    </div>
+                                    <div>
+                                        <label for="user-password-edit">Mật khẩu</label>
+                                        <input type="password" id="user-password-edit" data-name="price">
+                                    </div>
+                                    <div>
+                                        <label for="user-phonenum-edit">Số điện thoại</label>
+                                        <input type="text" id="user-phonenum-edit" data-name="phone">
+                                    </div>
+                                    <div>
+                                        <label for="user-permission-edit">Loại người dùng</label>
+                                        <select data-name="type" id="user-permission-edit">
+                                            <option value="user" selected>Người dùng cuối</option>
+                                            <option value="admin">Quản trị viên</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-danger remove">Đặt lại</button>
+                                        <button class="btn btn-info submit">Thêm</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
     
                 <div class="admin-container --hidden" data-csr="products">
@@ -461,6 +507,45 @@
                                     <div>
                                         <label for="product-image">Ảnh</label>
                                         <input type="file" data-name="image" id="product-image">
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-danger remove">Đặt lại</button>
+                                        <button class="btn btn-info submit">Thêm</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="edit-product" class="modal --hide">
+                        <div class="container">
+                            <div class="content">
+                                <div class="close">
+                                    <i class="icon-cross icon"></i>
+                                </div>
+                                <div class="title">
+                                    <span>Chỉnh sửa sản phẩm</span>
+                                </div>
+                                <form action="">
+                                    <div>
+                                        <label for="product-name-edit">Tên sản phẩm</label>
+                                        <input type="text" id="product-name-edit" data-name="title">
+                                    </div>
+                                    <div>
+                                        <label for="product-type-edit">Tag</label>
+                                        <input type="text" id="product-type-edit" data-name="tag">
+                                    </div>
+                                    <div>
+                                        <label for="product-price-edit">Giá</label>
+                                        <input type="text" id="product-price-edit" data-name="price">
+                                    </div>
+                                    <div>
+                                        <label for="product-desc-edit">Mô tả</label>
+                                        <textarea id="product-desc-edit" data-name="description"></textarea>
+                                    </div>
+                                    <div>
+                                        <label for="product-image-edit">Ảnh</label>
+                                        <input type="file" data-name="image" id="product-image-edit">
                                     </div>
                                     <div>
                                         <button class="btn btn-danger remove">Đặt lại</button>
