@@ -1,0 +1,101 @@
+html {
+  height: 2000px;
+}
+
+.sub-slider {
+  height: 663px;
+  background-color: red;
+}
+
+#story-main {
+  position: relative;
+  top: -80px;
+  left: 0;
+}
+#story-main .story-container {
+  box-shadow: 0 0 35px 5px rgba(0, 0, 0, 0.8);
+  background-color: #fff;
+  width: 1200px;
+  margin: 0 auto;
+}
+#story-main .story-contact {
+  width: 100%;
+  padding: 280px 0;
+}
+#story-main .story-contact .page-header {
+  margin: 32px 0 38px;
+}
+#story-main .story-contact .page-header .page-container {
+  width: 1200px;
+}
+#story-main .story-contact .page-header .page-container > h1 {
+  text-align: center;
+  color: #000;
+  font-size: 28px;
+  position: relative;
+  margin-bottom: 8px;
+  padding-bottom: 12px;
+}
+#story-main .story-contact .page-header .page-container .page-content {
+  width: 588px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 24px;
+}
+#story-main .story-contact .page-header .page-container .page-tabs {
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+}
+#story-main .story-contact .page-header .page-container .page-tabs li {
+  padding: 0 12px;
+}
+#story-main .story-contact .page-header .page-container .page-tabs li > a {
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  width: 120px;
+  height: 40px;
+  transition: unset;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 30px;
+  line-height: 40px;
+}
+#story-main .story-contact .page-header .page-container .page-tabs li .active {
+  background: #fff7e6;
+  color: #e57905;
+  border-color: transparent;
+}
+
+#story-mail {
+  width: 100%;
+  height: 400px;
+  background-color: #f1f1f1;
+  padding-top: 180px;
+  text-align: center;
+  margin-top: -160px;
+}
+#story-mail p {
+  padding: 30px;
+}
+#story-mail #customer-mail {
+  outline: none;
+  border: 2px solid #000;
+  font-size: 14pt;
+  width: 200px;
+  height: 30px;
+  padding-left: 5px;
+}
+#story-mail > button {
+  outline: none;
+  border: 2px solid #000;
+  font-size: 14pt;
+  height: 30px;
+  background-color: #000;
+  color: #fff;
+  margin-left: -5px;
+  padding: 0 10px;
+  cursor: pointer;
+}

@@ -4,19 +4,33 @@ let closeBtn = document.getElementById('close-btn');
 let menuBarBackground = document.querySelector('.layout-dark');
 let menuBtn = document.getElementById('menu-btn');
 let menuList = document.querySelectorAll('.board__item');
-//
+let menuInner = document.getElementsByClassName('board__item')[2];
+// console.log(typeof menuInner);
 let userIcon = document.getElementById('User-icon');
 let crossBtnPC = document.getElementById('cross-btn');
 const searchIcon = document.querySelector('#header .search-icon');
 
 export const run = function (dataImgs) {
+    if (menuInner) {
+        menuInner.addEventListener('click', (e) => {
+            let headerModal = document.querySelector('.header__modal');
+            console.log(headerModal);
+            if (headerModal.classList.contains('--disappear'))
+                headerModal.classList.remove('--disappear');
+            else {
+                headerModal.classList.add('--disappear');
+            }
+        });
+    }
     //close-btn
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
             let menuBar = document.querySelector('.menu__board');
             if (menuBar.classList.contains('--disappear'))
                 menuBar.classList.remove('--disappear');
-            else menuBar.classList.add('--disappear');
+            else {
+                menuBar.classList.add('--disappear');
+            }
         });
     }
 
@@ -37,7 +51,9 @@ export const run = function (dataImgs) {
             let menuBar = document.querySelector('.menu__board');
             if (menuBar.classList.contains('--disappear'))
                 menuBar.classList.remove('--disappear');
-            else menuBar.classList.add('--disappear');
+            else {
+                menuBar.classList.add('--disappear');
+            }
         });
     }
     //menuList
@@ -49,20 +65,24 @@ export const run = function (dataImgs) {
                     //console.log('hear');
                     if (subMenu.classList.contains('--disappear'))
                         subMenu.classList.remove('--disappear');
-                    else subMenu.classList.add('--disappear');
+                    else {
+                        subMenu.classList.add('--disappear');
+                    }
                 });
             }
         });
     }
 
-    //form-change-dir
+    //form - change - dir;
 
     if (userIcon) {
         userIcon.addEventListener('click', () => {
             let formChange = document.querySelector('.form-change-dir');
             if (formChange.classList.contains('--disappear'))
                 formChange.classList.remove('--disappear');
-            else formChange.classList.add('--disappear');
+            else {
+                formChange.classList.add('--disappear');
+            }
         });
     }
 
@@ -72,7 +92,9 @@ export const run = function (dataImgs) {
             let formChange = document.querySelector('.form-change-dir');
             if (formChange.classList.contains('--disappear'))
                 formChange.classList.remove('--disappear');
-            else formChange.classList.add('--disappear');
+            else {
+                formChange.classList.add('--disappear');
+            }
         });
     }
     if (searchIcon) {
