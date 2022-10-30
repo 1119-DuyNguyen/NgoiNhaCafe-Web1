@@ -16,6 +16,8 @@ function initDataProduct(dataImg) {
     dataProduct.price = dataImg.price;
     dataProduct.quantity = 1;
     dataProduct.size = 'medium';
+    dataProduct.priceTotal =
+        dataProduct.quantity * priceOption[dataProduct.size];
 }
 const priceOption = {
     small: 0,
@@ -187,15 +189,16 @@ export function productInfo(title, dataImgs) {
     </div>
     <div class="cart">
         <div class="product_shopping_cart">
-            <i class="icon-cart icon"></i>
-            <div class="h4">Thêm vào giỏ hàng</div>
+
         </div>
     </div>
 </div>`;
 
     detailProduct.innerHTML = html;
 
-    //tới sản phẩm liên quan
+    //hiện tổng giá tiền
+    priceTotalMessage();
+    //dẫn tới sản phẩm liên quan
     const liImgs = detailProduct.querySelectorAll('li[data-title]');
     liImgs.forEach((img) => {
         img.addEventListener('click', (e) => {
@@ -223,6 +226,7 @@ export function productInfo(title, dataImgs) {
             removeOptionActive(optionsSize);
             option.classList.add('--active');
             dataProduct.size = option.dataset.optionSize;
+            priceTotalMessage();
         });
     });
     //submit data
@@ -250,7 +254,8 @@ function calcQuantity(btn) {
             }
 
             textQuantity.textContent = dataProduct.quantity;
-            //          textQuantity.setAttribute('data-quantity', dataProduct.quantity);
+            //update giá
+            priceTotalMessage();
         }
     });
 }
@@ -292,4 +297,13 @@ function successMessageAddCart() {
         type: 'Success',
         duration: 2000,
     });
+}
+function priceTotalMessage() {
+    var shoppingCart = detailProduct.querySelector('.product_shopping_cart');
+    dataProduct.priceTotal =
+        dataProduct.price * dataProduct.quantity +
+        priceOption[dataProduct.size];
+    shoppingCart.innerHTML = ` <div class="h4">
+    <span> ${dataProduct.priceTotal}đ - Thêm vào giỏ hàng </span>
+    </div>`;
 }
