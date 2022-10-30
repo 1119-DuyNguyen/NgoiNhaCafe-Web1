@@ -1,17 +1,21 @@
 //import dataToppings from '../database/topping.json' assert { type: 'json' };
 import { toast } from './toast.js';
+import { Data } from '../database/data.js';
 import {
     closeDisplay,
     openDisplay,
     btnCloseId,
     closeModal,
 } from '../library/display.js';
+var dataController = new Data();
 const detailProduct = document.getElementById('detail-product');
 const dataProduct = {};
-function initDataProduct(price, quantity = 1, size = 'medium') {
-    dataProduct.price = price;
-    dataProduct.quantity = quantity;
-    dataProduct.size = size;
+function initDataProduct(dataImg) {
+    dataProduct.title = dataImg.title;
+    dataProduct.image = dataImg.image;
+    dataProduct.price = dataImg.price;
+    dataProduct.quantity = 1;
+    dataProduct.size = 'medium';
 }
 const priceOption = {
     small: 0,
@@ -80,11 +84,11 @@ function createRelatedHTML(dataImg = { tag: '', title: {} }, dataImgs) {
 }
 
 export function productInfo(title, dataImgs) {
-    const data = dataImgs.find((item) => item.title === title);
-    if (!data || !detailProduct) {
+    const dataImg = dataImgs.find((item) => item.title === title);
+    if (!dataImg || !detailProduct) {
         return;
     }
-    initDataProduct(data.price);
+    initDataProduct(dataImg);
     closeModal(detailProduct);
 
     openDisplay(detailProduct);
@@ -92,7 +96,7 @@ export function productInfo(title, dataImgs) {
     // const toppingHTML = createToppingHTML(data.tag);
 
     const relatedHTML = createRelatedHTML(
-        { tag: data.tag, title: data.title },
+        { tag: dataImg.tag, title: dataImg.title },
         dataImgs
     );
     const html = `                
@@ -105,17 +109,17 @@ export function productInfo(title, dataImgs) {
             <div class="product_visual">
                 <div class="product_visual_img">
                     <img
-                        src="./${data.image}"
+                        src="./${dataImg.image}"
                         alt="cà phê đá"
                     />
                 </div>
             </div>
             <div class="product_shopping">
                 <div class="info">
-                    <h2 class="h2">${data.title}</h2>
+                    <h2 class="h2">${dataImg.title}</h2>
                     <div class="info_price">
-                        <div class="price" data-price="${data.price}">${
-        data.price
+                        <div class="price" data-price="${dataImg.price}">${
+        dataImg.price
     }đ</div>
                         <div class="info-count">
                             <div class="icon minus --gray">
@@ -132,10 +136,10 @@ export function productInfo(title, dataImgs) {
                 </div>
                 <div class="product-description">
                     ${
-                        data.description
+                        dataImg.description
                             ? `<hr />
                     <p>
-                       ${data.description}
+                       ${dataImg.description}
                     </p>
                     `
                             : ''
@@ -222,7 +226,7 @@ export function productInfo(title, dataImgs) {
         });
     });
     //submit data
-    initSubmitProduct();
+    initSubmitProduct(dataImg);
     // close button
     btnCloseId(detailProduct);
 }
@@ -256,7 +260,7 @@ function removeOptionActive(options) {
             option.classList.remove('--active');
     });
 }
-function initSubmitProduct() {
+function initSubmitProduct(dataImg) {
     const cart = detailProduct.querySelector('.product_shopping_cart');
     cart.addEventListener('click', () => {
         for (const data in dataProduct) {
@@ -269,7 +273,8 @@ function initSubmitProduct() {
         // closeDisplay(detailProduct);
         successMessageAddCart();
         //return data
-        console.log(dataProduct);
+        //console.log(dataProduct);
+        dataController.pushCart(dataProduct);
     });
 }
 function errorMessageNullProduct() {
