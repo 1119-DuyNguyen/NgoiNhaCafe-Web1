@@ -1194,7 +1194,16 @@ export function Data() {
     ];
     const keyImgs = 'dataImgs';
     const keyUsers = 'dataUsers';
-    this.addUser = function (user) {};
+    this.addUser = function (user) {
+        if (!user) return;
+        var today = new Date();
+        user.dateCreate = today;
+        console.log(user);
+        dataUsers.push(user);
+        console.log(dataUsers);
+        setDataUsers(dataUsers);
+        console.log('add user thành công');
+    };
     this.removeUser = function (id) {};
     this.addImgs = function () {};
     this.removeImgs = function (id) {};
@@ -1220,4 +1229,11 @@ export function Data() {
         if (!this.getDataUsers()) setDataUsers(dataUsers);
         if (!this.getDataImgs()) setDataImgs(dataImgs);
     };
+    this.updateData = function () {
+        var users = this.getDataUsers();
+        var imgs = this.getDataImgs();
+        if (users) dataUsers = users;
+        if (imgs) dataImgs = imgs;
+    };
+    this.updateData();
 }
