@@ -42,18 +42,6 @@ function init() {
     //signup----------------
     const inputsSignup = formSignup.querySelectorAll('input');
 
-    btnSignup.addEventListener('click', (e) => {
-        e.preventDefault();
-        const dataSignUp = {};
-
-        inputsSignup.forEach((input) => {
-            dataSignUp[input.name] = input.value;
-        });
-        console.log(dataSignUp);
-
-        closeDisplay(formSignup);
-        openDisplay(formLogin);
-    });
     const linkLogin = formSignup.querySelector('a');
     linkLogin.addEventListener('click', (e) => {
         e.preventDefault();
