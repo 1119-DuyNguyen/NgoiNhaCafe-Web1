@@ -6,8 +6,9 @@
     align-items: center;
     justify-content: center;
     .container {
-        height: auto;
         width: 100%;
+        height: auto;
+        max-height: 90%;
         top: 0;
         bottom: 0;
         right: 0;
@@ -19,8 +20,15 @@
             padding-bottom: 8px;
         }
         .content {
+            //clear fix
+            &::after {
+                //mặc định after là inline-block
+                display: block;
+                content: '';
+                clear: both;
+            }
             padding: 16px;
-            display: block;
+            display: inline-block;
             color: #000;
             overflow-y: auto;
             font-size: 16px;
@@ -31,8 +39,8 @@
                 background-color: #fafafa;
                 border: 1px solid #ededee;
                 display: inline-block;
-                height: 26px;
-                padding: 0 8px;
+                padding: 8px;
+                min-height: 26px;
             }
             .row {
                 display: block;
@@ -79,7 +87,7 @@
 @media screen and (min-width: 720px) {
     #form-login {
         .container {
-            width: 80%;
+            width: 40%;
             .content {
                 input {
                 }
@@ -89,13 +97,14 @@
     #form-signup {
         .container {
             width: 80%;
+            height: auto;
 
             .content {
                 .row {
-                    display: inline-block;
-
-                    width: calc(50% - 64px);
-                    margin-left: 64px;
+                    float: left;
+                    width: calc(50% - 32px);
+                    margin-left: 32px;
+                    height: 96px;
                     &:nth-child(odd) {
                         margin-left: 0;
                     }

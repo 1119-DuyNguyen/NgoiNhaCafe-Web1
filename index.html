@@ -492,81 +492,102 @@
                 <div id="form-signup" class="modal --hide">
                     <div class="container">
                         <div class="content">
-                            <form id="signupform">
-                                <div class="close">
-                                    <i class="icon-cross icon"></i>
+                            <div class="close">
+                                <i class="icon-cross icon"></i>
+                            </div>
+                            <div class="title">ĐĂNG KÝ</div>
+                            <form action="#" class="form" id="signupform">
+                                <div class="form-group row">
+                                    <label for="fullname" class="form-label"
+                                        >Họ và tên</label
+                                    >
+                                    <input
+                                        id="fullname"
+                                        name="fullname"
+                                        rules="required"
+                                        type="text"
+                                        placeholder=""
+                                        class="form-control"
+                                    />
+                                    <span class="form-message"></span>
                                 </div>
-                                <div class="title">ĐĂNG KÝ</div>
-                                <div class="signupinfo">
-                                    <div class="row">
-                                        <label for="fullname"
-                                            >Họ và tên:
-                                        </label>
-                                        <input
-                                            type="text"
-                                            id="fullname"
-                                            name="fullname"
-                                        />
-                                        <div id="fullnameerror" class="--hide">
-                                            Bạn chưa nhập họ tên
-                                        </div>
-                                        <label for="address">Địa chỉ: </label>
-                                        <input
-                                            type="text"
-                                            id="address"
-                                            name="address"
-                                        />
-                                        <div id="addresserror" class="--hide">
-                                            Bạn chưa địa chỉ
-                                        </div>
-                                        <label for="phone"
-                                            >Số điện thoại:
-                                        </label>
-                                        <input
-                                            type="text"
-                                            id="phone"
-                                            name="phone"
-                                        />
-                                        <div id="phoneerror" class="--hide">
-                                            Bạn chưa nhập số điện thoại
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label for="usernameSignUp"
-                                            >Tên đăng nhập:
-                                        </label>
-                                        <input
-                                            type="text"
-                                            id="usernameSignUp"
-                                            name="tendangnhap"
-                                        />
-                                        <div id="usererror" class="--hide">
-                                            Bạn chưa nhập tên đăng nhập
-                                        </div>
-                                        <label for="passwordSignUp"
-                                            >Mật khẩu:
-                                        </label>
-                                        <input
-                                            name="matkhau"
-                                            type="password"
-                                            id="passwordSignUp"
-                                        />
-                                        <div id="passworderror" class="--hide">
-                                            Bạn chưa nhập mật khẩu
-                                        </div>
-                                        <label for="passwordSignUp2"
-                                            >Nhập lại mật khẩu:
-                                        </label>
-                                        <input
-                                            type="password"
-                                            id="passwordSignUp2"
-                                            name="nhaplaimatkhau"
-                                        />
-                                        <div id="password2error" class="--hide">
-                                            Mật khẩu không trùng khớp
-                                        </div>
-                                    </div>
+                                <div class="form-group row">
+                                    <label
+                                        for="userNameRegister"
+                                        class="form-label"
+                                        >Tài khoản</label
+                                    >
+                                    <input
+                                        id="userNameRegister"
+                                        name="username"
+                                        rules="required|username"
+                                        type="text"
+                                        placeholder=""
+                                        class="form-control"
+                                    />
+                                    <span class="form-message"></span>
                                 </div>
+                                <div class="form-group row">
+                                    <label for="passRegister" class="form-label"
+                                        >Mật khẩu</label
+                                    >
+                                    <input
+                                        id="passRegister"
+                                        name="password"
+                                        rules="password"
+                                        type="password"
+                                        placeholder=""
+                                        class="form-control"
+                                    />
+                                    <span class="form-message"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label
+                                        for="repeatPassRegister"
+                                        class="form-label"
+                                        >Nhập lại mật khẩu</label
+                                    >
+                                    <input
+                                        id="repeatPassRegister"
+                                        name="repeatPassRegister"
+                                        rules="repeatPassword"
+                                        type="password"
+                                        placeholder=""
+                                        class="form-control"
+                                    />
+                                    <span class="form-message"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="fullname" class="form-label"
+                                        >Địa chỉ</label
+                                    >
+                                    <input
+                                        id="address"
+                                        name="address"
+                                        rules="required"
+                                        type="text"
+                                        placeholder=""
+                                        class="form-control"
+                                    />
+                                    <span class="form-message"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label
+                                        for="phoneRegister"
+                                        class="form-label"
+                                        >Số điện thoại</label
+                                    >
+                                    <input
+                                        id="phoneRegister"
+                                        name="phone"
+                                        rules="required|phone"
+                                        type="text"
+                                        placeholder="0123456789"
+                                        class="form-control"
+                                    />
+                                    <span class="form-message"></span>
+                                </div>
+
                                 <button type="submit" id="btnsignup">
                                     Đăng ký
                                 </button>
