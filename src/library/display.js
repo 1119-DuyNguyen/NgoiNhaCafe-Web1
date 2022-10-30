@@ -35,3 +35,9 @@ export function formatDateDDMMYYYY(date) {
         date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear()
     );
 }
+export function resetInputs(inputs) {
+    inputs.forEach((input) => {
+        input.value = '';
+        input.blur();
+    });
+}

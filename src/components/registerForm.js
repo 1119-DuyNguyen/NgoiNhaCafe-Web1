@@ -1,8 +1,9 @@
 import { Validator } from '../library/Validator.js';
 import { Data } from '../database/data.js';
-var isInit = false;
-var form;
 var data = new Data();
+var isInit = false;
+
+var form;
 
 export function init(selector) {
     if (isInit) return;

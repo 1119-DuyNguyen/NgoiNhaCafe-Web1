@@ -5,7 +5,6 @@ import * as listProduct from './components/listProduct.js';
 import * as homeProduct from './components/homeProduct.js';
 import { toast } from './components/toast.js';
 import { productInfo } from './components/productInfo.js';
-import * as registerForm from './components/registerForm.js';
 import * as display from './library/display.js';
 //------------dành cho trang user
 
@@ -13,7 +12,6 @@ import * as display from './library/display.js';
 //display.closeDisplay(document.getElementById('user-page'));
 var data = new Data();
 data.initData();
-registerForm.init('#signupform');
 header.run(data.getDataImgs());
 slider.onLoad();
 listProduct.run(data.getDataImgs());

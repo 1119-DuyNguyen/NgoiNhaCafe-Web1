@@ -75,6 +75,7 @@ export function Validator(formSelector, dataUsers = undefined) {
         },
     };
     var formElement = document.querySelector(formSelector);
+    _this.formElement = formElement;
     if (formElement) {
         var inputs = formElement.querySelectorAll('[name][rules]');
 
