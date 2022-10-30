@@ -30,11 +30,7 @@ export function closeModal(element) {
         }
     });
 }
-export function formatDateDDMMYYYY(date) {
-    return (
-        date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear()
-    );
-}
+
 export function resetInputs(inputs) {
     inputs.forEach((input) => {
         input.value = '';
