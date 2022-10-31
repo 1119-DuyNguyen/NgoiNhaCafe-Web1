@@ -31,24 +31,24 @@ export function run(dataImgs) {
                 break;
         }
     }
-    const leftContainer = document.querySelector('.left-container');
-    function list() {
-        let html = '';
-        let k = 0;
-        for (let i in parentTag) {
-            html += `<p class="left-item">${switchTranslate(i)}</p>
-            <ul class="list-lv2">`;
-            for (let j of parentTag[i]) {
-                html += ` <li class="left-item item[${k}]">
-                    <p>${j}</p>
-            `;
-                k++;
-            }
-            html += '</ul>';
-        }
-        leftContainer.innerHTML = html;
-    }
-    list();
+    // const leftContainer = document.querySelector('.left-container');
+    // function list() {
+    //     let html = '';
+    //     let k = 0;
+    //     for (let i in parentTag) {
+    //         html += `<p class="left-item">${switchTranslate(i)}</p>
+    //         <ul class="list-lv2">`;
+    //         for (let j of parentTag[i]) {
+    //             html += ` <li class="left-item item[${k}]">
+    //                 <p>${j}</p>
+    //         `;
+    //             k++;
+    //         }
+    //         html += '</ul>';
+    //     }
+    //     leftContainer.innerHTML = html;
+    // }
+    // list();
     const leftItem = document.querySelectorAll('.left-item');
     const imageContainer = document.querySelector('.image-container-LP');
 
@@ -138,6 +138,7 @@ export function run(dataImgs) {
     }
 
     //header on click
+    const cfContainer = document.querySelectorAll('.cf-container');
 
     const headerBtn = document.querySelectorAll('.header-btn');
     const menuBtn = document.querySelectorAll('.menu-btn');
@@ -172,61 +173,4 @@ export function run(dataImgs) {
             });
         }
     });
-
-    //tránh header che kh thấy product
-
-    if (screen.width > 849) {
-        leftItem[0].onclick = function () {
-            scrollTo(0, cfContainer[0].offsetTop - 110);
-        };
-        leftItem[1].onclick = function () {
-            scrollTo(0, cfContainer[0].offsetTop - 110);
-        };
-        leftItem[2].onclick = function () {
-            scrollTo(0, cfContainer[1].offsetTop - 110);
-        };
-        leftItem[3].onclick = function () {
-            scrollTo(0, cfContainer[2].offsetTop - 110);
-        };
-        leftItem[4].onclick = function () {
-            scrollTo(0, cfContainer[3].offsetTop - 110);
-        };
-        leftItem[5].onclick = function () {
-            scrollTo(0, cfContainer[3].offsetTop - 110);
-        };
-        leftItem[6].onclick = function () {
-            scrollTo(0, cfContainer[4].offsetTop - 110);
-        };
-        leftItem[7].onclick = function () {
-            scrollTo(0, cfContainer[5].offsetTop - 110);
-        };
-        leftItem[8].onclick = function () {
-            scrollTo(0, cfContainer[5].offsetTop - 110);
-        };
-        leftItem[9].onclick = function () {
-            scrollTo(0, cfContainer[6].offsetTop - 110);
-        };
-        leftItem[10].onclick = function () {
-            scrollTo(0, cfContainer[7].offsetTop - 110);
-        };
-    } else {
-        // leftItem[0].addEventListener('click', function () {
-        //     scrollTo(0, cfContainer[0].offsetTop - 150);
-        //     const newNode = document.createTextNode('Cà Phê');
-        //     mobileMenuTxt.replaceChild(newNode, cfContainer[0].childNodes[0]);
-        // });
-        // leftItem[4].addEventListener('click', function () {
-        //     scrollTo(0, cfContainer[3].offsetTop - 150);
-        //     const newNode = document.createTextNode('Trà');
-        //     mobileMenuTxt.replaceChild(newNode, mobileMenuTxt.childNodes[0]);
-        // });
-        // leftItem[7].addEventListener('click', function () {
-        //     scrollTo(0, cfContainer[5].offsetTop - 150);
-        //     const newNode = document.createTextNode('Hi-Tea Healthy');
-        //     mobileMenuTxt.replaceChild(newNode, mobileMenuTxt.childNodes[0]);
-        // });
-        const leftList = document.querySelector('.left-list');
-        leftList.style = 'display: none';
-        imageContainer.style = 'transform: translate(0px, -130px)';
-    }
 }

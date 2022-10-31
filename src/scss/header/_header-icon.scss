@@ -1,7 +1,7 @@
 @media screen and (min-width: 1024px) {
     .header__icon {
         background-color: white;
-        padding: 10px 11.4% 10px 0;
+        padding: 10px 13% 10px 0;
         justify-content: end;
         display: flex;
         .user-icon,
@@ -16,7 +16,7 @@
     }
 }
 
-@media screen and (max-width: 1023.5px) {
+@media screen and (max-width: 1024px) {
     .menu__mobile {
         position: relative;
     }
