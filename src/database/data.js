@@ -1258,4 +1258,11 @@ export function Data() {
         if (!this.getDataUsers()) setDataUsers(dataUsers);
         if (!this.getDataImgs()) setDataImgs(dataImgs);
     };
+    this.updateData = function () {
+        var users = this.getDataUsers();
+        var imgs = this.getDataImgs();
+        if (users) dataUsers = users;
+        if (imgs) dataImgs = imgs;
+    };
+    updateData();
 }
