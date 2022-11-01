@@ -21,39 +21,52 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
     // Ứng với mỗi phần tử có class managerment
     renderManagerment();
 
-    function applyCheckboxFeature(page) {
+    function applyCheckboxFeature(type) {
         // Hàm render chức năng check all checkbox cho từng trang
-        function checkAllCheckbox() {
-            if (check_all.checked) {
-                checkboxes.forEach(checkbox => {
-                    checkbox.checked = false;
+        function f1(type) {
+            function checkAllCheckbox() {
+                if (check_all.checked) {
+                    checkboxes.forEach(checkbox => {
+                        checkbox.checked = false;
+                    })
+                    check_all.checked = false;
+                } else {
+                    checkboxes.forEach(checkbox => {
+                        checkbox.checked = true;
+                    })
+                    check_all.checked = true;
+                }
+            }
+            let select_all = document.querySelector(`[data-csr='${type}'] .select-all`);
+            let check_all = document.querySelector(`[data-csr='${type}'] .check-all`);
+            let checkboxes = document.querySelectorAll(`[data-csr='${type}'] .checkbox`);
+    
+            if (select_all !== null) { // tồn tại
+                select_all.addEventListener('click', checkAllCheckbox, true);
+                check_all.addEventListener('click', checkAllCheckbox, true);
+    
+                checkboxes.forEach(checkbox => { // nếu check tất cả checkbox hoặc bỏ check 1 trong tất cả checkbox đã check
+                    checkbox.addEventListener('change', e => {
+                        let checkboxs_checked = document.querySelectorAll(`[data-csr='${type}'] .checkbox:checked`)
+                        if (checkbox.checked) {
+                            if (checkboxs_checked.length == checkboxes.length) check_all.checked = true;
+                        } else {
+                            check_all.checked = false;
+                        }
+                    })
                 })
-                check_all.checked = false;
-            } else {
-                checkboxes.forEach(checkbox => {
-                    checkbox.checked = true;
-                })
-                check_all.checked = true;
             }
         }
-        let select_all = document.querySelector(`[data-csr='${page}'] .select-all`);
-        let check_all = document.querySelector(`[data-csr='${page}'] .check-all`);
-        let checkboxes = document.querySelectorAll(`[data-csr='${page}'] .user-checkbox`);
 
-        if (select_all !== null) { // tồn tại
-            select_all.addEventListener('click', checkAllCheckbox, true);
-            check_all.addEventListener('click', checkAllCheckbox, true);
-
-            checkboxes.forEach(checkbox => { // nếu check tất cả checkbox hoặc bỏ check 1 trong tất cả checkbox đã check
-                checkbox.addEventListener('change', e => {
-                    let checkboxs_checked = document.querySelectorAll(`[data-csr='${page}'] .user-checkbox:checked`)
-                    if (checkbox.checked) {
-                        if (checkboxs_checked.length == checkboxes.length) check_all.checked = true;
-                    } else {
-                        check_all.checked = false;
-                    }
-                })
-            })
+        switch (type) {
+            case 'users', 'products':
+                f1(type);
+                break;
+        
+            default:
+                f1('users');
+                f1('products');
+                break;
         }
     }
 
@@ -79,7 +92,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             // template string
             html += `<tr>
                 <td>
-                    <input type="checkbox" value="${dataUsers[i].id}" class="user-checkbox"/>
+                    <input type="checkbox" value="${i}" class="checkbox" data-type="user"/>
                 </td>
                 <td>${i+1}</td>
                 <td>${dataUsers[i].username}</td>
@@ -145,7 +158,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         while (typeof dataImgs[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) {
             html += `<tr>
                 <td>
-                    <input type="checkbox" value="1" class="user-checkbox"/>
+                    <input type="checkbox" value="${i}" class="checkbox" data-type="product"/>
                 </td>
                 <td>${i+1}</td>
                 <td><img src="../${dataImgs[i].image}"></td>
@@ -180,7 +193,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             elem.addEventListener('click', e => {
                 let deleteConfirm = confirm("Bạn có muốn xóa sản phẩm này không?");
                 if (deleteConfirm) {
-                    data.removeImgs(elem.dataset.id);
+                    data.removeImg(elem.dataset.id);
                     alert("Xóa sản phẩm thành công!");
                     window.location.href = "";
                 }
@@ -218,25 +231,23 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             break;
         case 'users':
             renderUsers(page);
-
             applyCheckboxFeature('users');
-
+            actionsAndDecisions('users')
             break;
 
         case 'products':
             renderProducts(page);
-
             applyCheckboxFeature('products');
-
+            actionsAndDecisions('products');
             break;
     
         default:
             renderHome();
             renderUsers(page);
             renderProducts(page);
-
-            applyCheckboxFeature('users');
-            applyCheckboxFeature('products');
+            
+            applyCheckboxFeature();
+            actionsAndDecisions();
 
             break;
     }
@@ -267,6 +278,7 @@ function renderPaginator(numOfItemsOnPage = 9, type = '') {
                 break;
         }
 
+        // render
         num = Math.ceil(arrToProcess.length/numOfItemsOnPage);
         html = '';
         for (let i = 1; i <= num; i++) {
@@ -274,13 +286,21 @@ function renderPaginator(numOfItemsOnPage = 9, type = '') {
         }
         elem.innerHTML = html;
 
+        
         let elem_btns = document.querySelectorAll(selector+" .paginator_items button");
-            
-        elem_btns.forEach(btn => {
-            btn.addEventListener('click', e => {
-                renderData(btn.dataset.page, numOfItemsPerPage, type);
+
+        // Với mỗi button
+        for (let i = 0; i < elem_btns.length; i++) {
+            if (i == 0) elem_btns[i].classList.add("active"); // chọn btn đầu tiên
+            elem_btns[i].addEventListener('click', e => { // nếu click vào 1 btn
+                elem_btns.forEach(btn => {
+                    btn.classList.remove('active'); // reset toàn bộ
+                });
+                // click btn nào thì render trang đó
+                renderData(elem_btns[i].dataset.page, numOfItemsPerPage, type);
+                elem_btns[i].classList.add("active"); // chọn btn
             })
-        });
+        }
     }
     
     
@@ -414,7 +434,7 @@ function renderManagerment() {
 
     <div class="actions">
         <select class="decisions">
-            <option selected>-- Hành động --</option>
+            <option value="notSelectYet" selected>-- Hành động --</option>
             <option value="delete">Xóa</option>
         </select>
         <button class="btn btn-info">Thực hiện</button>
@@ -444,6 +464,53 @@ function renderManagerment() {
                 window.location.href = "";
             }
         });
+    }
+}
+
+/**
+ * Tính năng thực thi hàng loạt (xoá)
+ * @param {string} type loại phần tử
+ */
+function actionsAndDecisions(type = '') {
+
+    function f1(selector, type) {
+        // Chọn
+        let btnAction = document.querySelector(selector+" .actions button");
+        let decisions = document.querySelector(selector+" .decisions");
+        
+        btnAction.addEventListener('click', e => { // sự kiện click
+            if (decisions.value == 'notSelectYet') alert("Chọn một hành động để thực thi!"); // chưa chọn sự kiện
+            else if (decisions.value == 'delete') { // sự kiện delete
+                let checkedCheckboxes = document.querySelectorAll(".checkbox:checked"); // chọn checkbox đã check
+                if (checkedCheckboxes.length == 0) alert("Chọn ít nhất 1 phần tử để xoá!");
+                else if (confirm("Bạn có muốn xoá toàn bộ phần tử đã chọn?")) {
+                    // Ứng với mỗi checkbox đã chọn
+                    for (let i = 0; i < checkedCheckboxes.length; i++) {
+                        switch (type) {
+                            case 'users':
+                                data.removeUser(parseInt(checkedCheckboxes[i].value));
+                                break;
+                            case 'products':
+                                data.removeImg(parseInt(checkedCheckboxes[i].value));
+                                break;
+                        }
+                    }
+                    alert("Xoá các phần tử đã chọn thành công!"); // thông báo và reload lại trang
+                    window.location.href = "";
+                }
+            }
+        })
+    }
+    // Ứng với mỗi trang
+    switch (type) {
+        case 'users', 'products':
+            f1(".admin-container[data-csr='"+type+"']", type);
+            break;
+    
+        default:
+            f1(".admin-container[data-csr='users']", 'users');
+            f1(".admin-container[data-csr='products']", 'products');
+            break;
     }
 }
 

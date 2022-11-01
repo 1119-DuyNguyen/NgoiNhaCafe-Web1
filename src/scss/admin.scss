@@ -278,6 +278,9 @@ $active-color: #e57905;
             margin-left: 2px;
         }
         margin: 15px auto;
+        .active {
+            background-color: darken($active-color, 10%);
+        }
     }
 }
 

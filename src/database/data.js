@@ -1225,7 +1225,7 @@ export function Data() {
     };
     this.removeUser = function (id) {
         let data = this.getDataUsers();
-        data.splice(id, 1);
+        data.splice(this.getUser(id), 1);
         setDataUsers(data);
     };
     this.addImgs = function (obj) {
@@ -1234,9 +1234,9 @@ export function Data() {
         data.push(obj);
         setDataImgs(data);
     };
-    this.removeImgs = function (id) {
+    this.removeImg = function (id) {
         let data = this.getDataImgs();
-        data.splice(id, 1);
+        data.splice(this.getImg(id), 1);
         setDataImgs(data);
     };
     function setDataImgs(data) {
