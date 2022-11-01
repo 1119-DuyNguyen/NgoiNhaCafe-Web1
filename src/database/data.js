@@ -1195,7 +1195,7 @@ export function Data() {
     const keyImgs = 'dataImgs';
     const keyUsers = 'dataUsers';
     this.getDataUsers = function(id) {
-        return this.getDataUsers()[];
+        return this.getDataUsers()[id];
     }
     this.editUser = function (user, id) {
         let data = this.getDataUsers();
