@@ -1194,16 +1194,19 @@ export function Data() {
     ];
     const keyImgs = 'dataImgs';
     const keyUsers = 'dataUsers';
-    this.getDataUsers = function(id) {
+    this.getUser = function(id) {
         return this.getDataUsers()[id];
+    }
+    this.getImg = function(id) {
+        return this.getDataImgs()[id];
     }
     this.editUser = function (user, id) {
         let data = this.getDataUsers();
 
-        data[id].username = obj.username;
-        data[id].email = obj.email;
-        data[id].address = obj.address;
-        data[id].phone = obj.phone;
+        data[id].username = user.username;
+        data[id].email = user.email;
+        data[id].address = user.address;
+        data[id].phone = user.phone;
         setDataUsers(data);
     }
     this.editImg = function (obj, id) {
@@ -1264,5 +1267,5 @@ export function Data() {
         if (users) dataUsers = users;
         if (imgs) dataImgs = imgs;
     };
-    updateData();
+    this.updateData();
 }

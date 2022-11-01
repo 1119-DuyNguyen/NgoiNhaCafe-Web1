@@ -276,23 +276,11 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
         document.querySelector(element_id+'-tag').addEventListener('click', () => {
             openDisplay(form_elem); // nút thêm mới - > mở popup
         })
-    } else if (formType == 2) {
+    } else if (formType == 2) { // edit
         openDisplay(form_elem);
     }
 
-    let removeBtn = document.querySelector(element_id+" .remove");
     let submitBtn = document.querySelector(element_id+" .submit");
-
-    // nút reset
-    removeBtn.addEventListener('click', e => {
-        e.preventDefault();
-        
-        document.querySelectorAll(element_id + " div input, "+element_id + " div textarea").forEach(e => {
-            e.value = "";
-            e.blur();
-        })
-    })
-
 
     // nút gửi
     submitBtn.addEventListener('click', e => {
@@ -301,6 +289,7 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
         document.querySelectorAll(element_id + " div input, "+element_id + " div textarea").forEach(e => {
             obj[e.dataset.name] = e.value;
         })
+        console.log(obj);
         if (formType == 1) { // add
             switch (type) {
                 case 1:
@@ -330,10 +319,29 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
         window.location.href = "";
     })
 
-    if (formType == 2) {
+    document.querySelector(element_id+' form').addEventListener('submit', e => {
+        e.preventDefault();
+        submitBtn.click();
+    });
+
+    // thêm nội dung vào các trường có sẵn ở form chỉnh sửa
+    let obj = {};
+    if (formType == 2) { // edit
         switch (type) {
-            case 1:
-                document.querySelector("#user-name-edit").value;
+            case 1: // product
+                obj = data.getImg(id);
+                document.querySelector("#product-name-edit").value = obj.title;
+                document.querySelector("#product-type-edit").value = obj.tag;
+                document.querySelector("#product-price-edit").value = obj.price;
+                document.querySelector("#product-desc-edit").value = obj.description;
+                break;
+            case 2: // user
+                obj = data.getUser(id);
+                document.querySelector("#user-name-edit").value = obj.username;
+                document.querySelector("#user-email-edit").value = obj.email;
+                document.querySelector("#user-address-edit").value = obj.address;
+                document.querySelector("#user-phonenum-edit").value = obj.phone;
+                document.querySelector("#user-permission-edit").value = obj.type;
                 break;
         
             default:
