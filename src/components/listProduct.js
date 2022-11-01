@@ -1,4 +1,5 @@
 import { productInfo } from './productInfo.js';
+import * as display from '../library/display.js';
 export function run(dataImgs) {
     const parentTag = {
         Cafe: ['Cà Phê Việt Nam', 'Cà Phê Máy', 'Cold Brew'],
@@ -143,7 +144,6 @@ export function run(dataImgs) {
     const headerBtn = document.querySelectorAll('.header-btn');
     const menuBtn = document.querySelectorAll('.menu-btn');
     const menuList = ['tatca', 'cafe', 'tra', 'hitea'];
-    console.log(headerBtn);
 
     function callMenu(index) {
         showProduct();
@@ -159,6 +159,9 @@ export function run(dataImgs) {
     headerBtn.forEach(function (element, index) {
         element.addEventListener('click', function () {
             callMenu(index + 1);
+            display.openDisplay(document.querySelector('#product-container'));
+            display.closeDisplay(document.querySelector('#home'));
+            display.closeDisplay(document.querySelector('#home-product'));
         });
     });
 
@@ -167,10 +170,15 @@ export function run(dataImgs) {
         renderProductInfo();
     });
     menuBtn.forEach(function (element, index) {
-        if (index != 0) {
-            element.addEventListener('click', function () {
+        element.addEventListener('click', function () {
+            if (index != 0) {
+                display.openDisplay(
+                    document.querySelector('#product-container')
+                );
                 callMenu(index);
-            });
-        }
+            }
+            display.closeDisplay(document.querySelector('#home'));
+            display.closeDisplay(document.querySelector('#home-product'));
+        });
     });
 }

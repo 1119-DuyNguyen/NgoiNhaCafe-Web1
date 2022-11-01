@@ -3,9 +3,10 @@ export function run(dataImgs) {
     const imageContainer = document.querySelector(
         '.home-product .image-container'
     );
-    const htmls = dataImgs.map((element, index) => {
+    let htmls = ``;
+    dataImgs.forEach((element, index) => {
         if (index < 8) {
-            return `
+            htmls += `
             <div class="image-item" id="${element.id}">
             <div class="image-pack">
                 <img
@@ -25,7 +26,7 @@ export function run(dataImgs) {
         </div>`;
         }
     });
-    imageContainer.innerHTML = htmls.join('');
+    imageContainer.innerHTML = htmls;
 
     const productList = document.querySelectorAll('.image-item');
 

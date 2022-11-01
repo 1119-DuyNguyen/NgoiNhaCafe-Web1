@@ -363,6 +363,7 @@
         display: flex;
         text-align: center;
         padding: 3px;
+        cursor: pointer;
     }
 
     .header__menu-mobile-line {
@@ -449,6 +450,7 @@
             line-height: 0px;
         }
         & > span {
+            cursor: pointer;
             display: block;
             position: relative;
             font-size: 16px;

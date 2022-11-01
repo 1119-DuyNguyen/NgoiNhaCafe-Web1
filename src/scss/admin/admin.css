@@ -1,0 +1,300 @@
+.yellow {
+  background-color: #ffc107;
+}
+.yellow .card-btn {
+  background-color: #edb100;
+}
+.yellow .card-btn .icon-arrow-right {
+  color: #edb100;
+}
+
+.blue {
+  background-color: #17a2b8;
+}
+.blue .card-btn {
+  background-color: #148ea1;
+}
+.blue .card-btn .icon-arrow-right {
+  color: #148ea1;
+}
+
+.admin-container.--hidden {
+  display: none;
+}
+
+.opened_nav {
+  left: 0 !important;
+}
+
+#header-admin {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  margin-bottom: 10px;
+}
+#header-admin h1 {
+  margin: 5px 10px;
+}
+#header-admin h1 i {
+  padding-right: 20vw;
+}
+#header-admin #nav {
+  position: fixed;
+  top: 0;
+  transition: left 0.5s ease-in-out;
+  left: -60%;
+  background-color: #fff;
+  height: 100%;
+  z-index: 9;
+  width: 60%;
+}
+#header-admin #nav ul li {
+  list-style: none;
+}
+#header-admin #nav ul li a {
+  transition: all 0.2s ease-in-out;
+  display: block;
+  padding: 15px;
+  color: black;
+  border-bottom: 1px solid gray;
+}
+#header-admin #nav ul li a:first-child {
+  border-top: 1px solid gray;
+  border-bottom: none;
+}
+#header-admin #nav ul li a:hover {
+  background-color: #cdcdcd;
+  color: white;
+}
+#header-admin #under-nav {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  z-index: 8;
+  opacity: 0.8;
+  background-color: #000;
+}
+
+.btn {
+  padding: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  padding: 5px;
+  border-radius: 4px;
+}
+.btn span,
+.btn i {
+  vertical-align: middle;
+}
+.btn.btn-success {
+  background-color: #12d600;
+}
+.btn.btn-success:active {
+  background-color: #0ea300;
+}
+.btn.btn-danger {
+  background-color: #d60000;
+}
+.btn.btn-danger:active {
+  background-color: #a30000;
+}
+.btn.btn-info {
+  background-color: #1fb8ff;
+}
+.btn.btn-info:active {
+  background-color: #00a1eb;
+}
+.btn i {
+  vertical-align: middle;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+}
+.card-container .card {
+  margin: 0 auto;
+  text-align: center;
+  width: 95vw;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  padding-top: 5px;
+}
+.card-container .card .card-info .number {
+  font-size: x-large;
+}
+.card-container .card .card-btn {
+  margin-top: 50px;
+  color: black;
+  display: block;
+  text-align: center;
+  padding: 5px;
+}
+.card-container .card .card-btn .icon-arrow-right {
+  background-color: black;
+  border-radius: 50px;
+  padding: 3px;
+}
+@media only screen and (min-width: 768px) {
+  .card-container {
+    flex-direction: row;
+  }
+}
+
+#main {
+  min-height: 78vh;
+}
+#main .table-container {
+  overflow-y: auto;
+  min-height: 44vh;
+}
+
+#managerment {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 5px;
+}
+#managerment > * {
+  display: inline-block;
+}
+#managerment .select-all label {
+  vertical-align: text-bottom;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-container table tr {
+  border-bottom: 1px solid gray;
+}
+.table-container table tr:first-of-type {
+  background: #e57905;
+  color: white;
+}
+.table-container table tr:last-child {
+  border-bottom: none;
+}
+.table-container table tr th:nth-child(2) {
+  width: 2%;
+}
+.table-container table tr td {
+  text-align: center;
+}
+.table-container table tr td img {
+  width: 120px;
+  height: 120px;
+}
+.table-container table tr td > div {
+  display: inline-block;
+  width: 20vw;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.table-container table tr th,
+.table-container table tr td {
+  padding: 10px;
+}
+.table-container table tr th:first-child,
+.table-container table tr td:first-child {
+  text-align: center;
+}
+.table-container table tr th:nth-child(2),
+.table-container table tr td:nth-child(2) {
+  width: 2%;
+  text-align: center;
+}
+.table-container table tr th:last-child,
+.table-container table tr td:last-child {
+  border-right: none;
+}
+
+.paginator {
+  text-align: center;
+}
+.paginator .paginator_items {
+  display: inline-block;
+  margin: 15px auto;
+}
+.paginator .paginator_items button {
+  cursor: pointer;
+  background-color: #e57905;
+  padding: 5px 10px;
+  border: none;
+  color: white;
+  margin-left: 2px;
+}
+
+.product-text .add-product-tag {
+  width: auto;
+  padding: 4px 8px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+#footer {
+  background-color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-top: 1px solid gray;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  min-height: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+  #header-admin {
+    display: inline-block;
+  }
+  #header-admin > h1 {
+    display: inline-block;
+  }
+  #header-admin > h1 .icon-menu {
+    display: none;
+  }
+  #header-admin #nav {
+    width: initial;
+    background-color: initial;
+    display: block;
+    position: initial;
+    left: 0;
+    float: right;
+  }
+  #header-admin #nav > h1 {
+    display: none;
+  }
+  #header-admin #nav ul {
+    display: inline-flex;
+    float: right;
+  }
+  #header-admin #nav ul li a {
+    border: none !important;
+  }
+  #header-admin #under-nav {
+    left: -100%;
+    display: none;
+  }
+  #main {
+    clear: both;
+    margin: 10px 40px;
+    margin-bottom: 0;
+  }
+  #main .table-container {
+    min-height: 58vh;
+  }
+}
+@media only screen and (max-width: 425px) and (orientation: landscape) {
+  #main .table-container {
+    min-height: 49vh;
+  }
+}/*# sourceMappingURL=admin.css.map */

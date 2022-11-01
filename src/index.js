@@ -7,6 +7,7 @@ import { toast } from './components/toast.js';
 import { productInfo } from './components/productInfo.js';
 import * as display from './library/display.js';
 import * as formSearch from './components/formSearch.js';
+import * as navigation from './components/navigation.js';
 
 //------------dành cho trang user
 
@@ -17,5 +18,7 @@ slider.onLoad();
 listProduct.run(dataImgs);
 homeProduct.run(dataImgs);
 formSearch.openFormSearch(dataImgs);
+
+navigation.run();
 //-----------dành cho trang admin
 display.closeDisplay(document.getElementById('admin-page'));
