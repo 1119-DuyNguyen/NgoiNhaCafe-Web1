@@ -1268,4 +1268,11 @@ export function Data() {
         if (imgs) dataImgs = imgs;
     };
     this.updateData();
+    this.setAdminNumOfItemsPerPage = function (num) {
+        window.localStorage.setItem('admin_itemsPerPage', num);
+    }
+    this.getAdminNumOfItemsPerPage = function () {
+        let num = window.localStorage.getItem('admin_itemsPerPage');
+        return num;
+    }
 }

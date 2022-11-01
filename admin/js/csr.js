@@ -7,27 +7,22 @@ data.initData();
 let dataUsers = data.getDataUsers();
 let dataImgs = data.getDataImgs();
 
-function renderData(page = 1, type = '') {
-    let html, first, last;
+let numOfItemsPerPage = (data.getAdminNumOfItemsPerPage() === null) ? 9 : parseInt(data.getAdminNumOfItemsPerPage());
+
+/**
+ * 
+ * @param {int} page trang thứ mấy
+ * @param {int} numOfItemsPerPage số lượng phần tử trên 1 trang
+ * @param {string} type loại trang
+ */
+function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
+    let html, first, i, count;
 
     // Ứng với mỗi phần tử có class managerment
-    let managerments = document.querySelectorAll('.managerment');
-    managerments.forEach(elem => {
-        // thêm nội dung vào từng phần tử
-        elem.innerHTML = `<div class="select-all">
-            <input type="checkbox" class="check-all" />
-        </div>
-        <div id="actions">
-            <select id="decisions">
-                <option value="undone" selected>-- Hành động --</option>
-                <option value="delete">Xóa</option>
-            </select>
-            <button class="btn btn-info">Thực hiện</button>
-        </div>`;
-    }) // render checkbox check_all
+    renderManagerment();
 
     function applyCheckboxFeature(page) {
-        // Hàm render chức năng check all checkbox
+        // Hàm render chức năng check all checkbox cho từng trang
         function checkAllCheckbox() {
             if (check_all.checked) {
                 checkboxes.forEach(checkbox => {
@@ -75,12 +70,12 @@ function renderData(page = 1, type = '') {
             <th>Số điện thoại</th>
             <th></th>
         </tr>`;
-        // tính toán số phần tử để lặp trong vòng lặp for
-        first = page * 10 - 10; // nếu page = 1 -> first = 0
-        last = page * 10 - 1; // nếu page = 1 -> last = 9 => lặp từ 0->9
-        // nếu last > số lượng người dùng -> last = index người dùng cuối danh sách
-        if (last > dataUsers.length) last = dataUsers.length-1;
-        for (let i = first; i <= last; i++) { // thêm hàng cho bảng
+        // tính toán số phần tử để lặp trong vòng lặp for - numOfItemsPerPage = 9
+        first = (page-1) * (numOfItemsPerPage); // nếu page = 1 -> first = 0
+        // page = 2 => first = 2-1 * (9+1)
+        i = first;
+        count = 0;
+        while (typeof dataUsers[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) { // thêm hàng cho bảng
             // template string
             html += `<tr>
                 <td>
@@ -99,6 +94,8 @@ function renderData(page = 1, type = '') {
                     <button class="btn btn-danger delete-user" data-id="${i}"><i class="icon-bin"></i></button>
                 </td>
             </tr>`
+            i++;
+            count++;
         }
     
         s_users.innerHTML = html;
@@ -137,14 +134,15 @@ function renderData(page = 1, type = '') {
             <th>Hành động</th>
         </tr>`;
         // 100 99 98 97 96 95 94 93 92 91
-        // tính toán số phần tử để lặp trong vòng lặp for
+        // tính toán số phần tử để lặp trong vòng lặp for - numOfItemsPerPage = 9
         // do lặp từ cuối lên đầu danh sách ->
-        let maxSize = dataImgs.length - 1; // số lượng phần tử tối đa 
-        first = maxSize - (page-1) * 10; // nếu sl = 99, trang 1 -> first = 99 - 0 * 10 = 99
-        last = maxSize - page * 10; // -> last = 99 - 10 = 89
-        
-        for (let i = first; i > last; i--) { // lặp từ first -> last-1
-            if (typeof dataImgs[i] == 'undefined') break; // nếu phần tử chưa được định nghĩa -> thoát
+        let maxSize = dataImgs.length-1; // số lượng phần tử tối đa
+        first = maxSize - (page-1) * numOfItemsPerPage; // nếu sl = 90, trang 1 -> first = 90 - 0 * 9 = 90
+        // 90 - 0 * 9 = 90 89 88 87 86 85 84 83 82
+        // 90 - 1 * 9 = 81 80 79 88 77 76 75 74 73
+        i = first;
+        count = 0;
+        while (typeof dataImgs[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) {
             html += `<tr>
                 <td>
                     <input type="checkbox" value="1" class="user-checkbox"/>
@@ -171,6 +169,8 @@ function renderData(page = 1, type = '') {
                     </button>
                 </td>
             </tr>`
+            i--;
+            count++;
         }
     
         s_products.innerHTML = html;
@@ -242,41 +242,78 @@ function renderData(page = 1, type = '') {
     }
 }
 
-function renderPaginator() {
+/**
+ * Hàm render phân trang
+ * @param {int} numOfItemsOnPage số lượng phần tử mỗi trang
+ * @param {int} type loại (users - người dùng, products - sản phẩm, để trống - mặc định)
+ * @return void
+ */
+function renderPaginator(numOfItemsOnPage = 9, type = '') {
     // Render paginator cho từng trang
 
     let html, num;
-    let s_users = document.querySelector(".admin-container[data-csr='users'] .paginator_items");
+    function render(selector, type) {
+        // Lấy phần tử DOM thanh các trang
+        let elem = document.querySelector(selector+" .paginator_items");
+        
+        // Ứng với mỗi loại (type)
+        let arrToProcess;
+        switch (type) {
+            case 'users':
+                arrToProcess = dataUsers;
+                break;
+            case 'products':
+                arrToProcess = dataImgs;
+                break;
+        }
+
+        num = Math.ceil(arrToProcess.length/numOfItemsOnPage);
+        html = '';
+        for (let i = 1; i <= num; i++) {
+            html += `<button data-page="${i}">${i}</button>`;
+        }
+        elem.innerHTML = html;
+
+        let elem_btns = document.querySelectorAll(selector+" .paginator_items button");
+            
+        elem_btns.forEach(btn => {
+            btn.addEventListener('click', e => {
+                renderData(btn.dataset.page, numOfItemsPerPage, type);
+            })
+        });
+    }
     
-    num = Math.ceil(dataUsers.length/10);
-    html = '';
-    for (let i = 1; i <= num; i++) {
-        html += `<button data-page="${i}">${i}</button>`;
+    
+    switch (type) {
+        case 'users', 'products':
+            render(".admin-container[data-csr='"+type+"']", type);
+            break;
+    
+        default:
+            render(".admin-container[data-csr='users']", 'users');
+            render(".admin-container[data-csr='products']", 'products');
+            break;
     }
-    s_users.innerHTML = html;
-
-
-
-    let s_products = document.querySelector(".admin-container[data-csr='products'] .paginator_items");
-
-    num = Math.ceil(dataImgs.length/10);
-    html = '';
-    for (let i = 1; i <= num; i++) {
-        html += `<button data-page="${i}">${i}</button>`;
-    }
-    s_products.innerHTML = html;
 }
 
+/**
+ * Hàm render form (thêm, chỉnh sửa)
+ * @param {string} element_id id phần tử của form
+ * @param {int} type loại danh sách, mặc định là 1 (1 - người dùng, 2 - sản phẩm)
+ * @param {int} formType loại form, mặc định là 1 (1 - thêm, 2 - chỉnh sửa)
+ * @param {int} id id người dùng || sản phẩm (chỉ yêu cầu khi render form chỉnh sửa)
+ * @return void
+ */
 function renderForm(element_id, type=1, formType = 1, id=0) {
     // render form thêm phần tử với elem_id
     let form_elem = document.querySelector(element_id);
     btnCloseId(form_elem); // gán nút đóng
 
-    if (formType == 1) { // add
+    if (formType == 1) { // thêm
         document.querySelector(element_id+'-tag').addEventListener('click', () => {
             openDisplay(form_elem); // nút thêm mới - > mở popup
         })
-    } else if (formType == 2) { // edit
+    } else if (formType == 2) { // chỉnh sửa
         openDisplay(form_elem);
     }
 
@@ -289,7 +326,6 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
         document.querySelectorAll(element_id + " div input, "+element_id + " div textarea").forEach(e => {
             obj[e.dataset.name] = e.value;
         })
-        console.log(obj);
         if (formType == 1) { // add
             switch (type) {
                 case 1:
@@ -350,6 +386,11 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
     }
 }
 
+/**
+ * Hàm render form chỉnh sửa phần tử của danh sách
+ * @param {int} id id của phần tử
+ * @param {int} type loại phần tử, mặc định là 1 (1 - sản phẩm, 2 - người dùng)
+ */
 function renderEditForm(id, type=1) {
 
     switch (type) {
@@ -362,30 +403,58 @@ function renderEditForm(id, type=1) {
             break;
     }
 }
+/**
+ * Render class managerment cho toàn bộ trang
+ */
+function renderManagerment() {
+    document.querySelectorAll('.managerment').forEach(elem => {
+        elem.innerHTML = `<div class="select-all">
+        <input type="checkbox" class="check-all" />
+    </div>
+
+    <div class="actions">
+        <select class="decisions">
+            <option selected>-- Hành động --</option>
+            <option value="delete">Xóa</option>
+        </select>
+        <button class="btn btn-info">Thực hiện</button>
+    </div>
+    
+    <div>
+        <label>Số phần tử mỗi trang</label>
+        <input type="number" min=1 max=100 class="itemsPerPage">
+        <button class="btn btn-info itemsPerPage">Cập nhật</button>
+    </div>`;
+    })
+
+    // code lấy giá trị từ người dùng - số lượng phần tử trên 1 trang
+    let btnItemsPerPage = document.querySelectorAll('.managerment button.itemsPerPage');
+    let inputItemsPerPage = document.querySelectorAll('.managerment input.itemsPerPage');
+    let numOfItemsOnPage;
+    for (let i = 0; i < btnItemsPerPage.length; i++) { // với mỗi nút ở mỗi trang
+        inputItemsPerPage[i].value = numOfItemsPerPage; // lấy giá trị của input từng trang
+        btnItemsPerPage[i].addEventListener('click', e => { // xử lý sự kiện click
+            numOfItemsOnPage = parseInt(inputItemsPerPage[i].value);
+            if (isNaN(numOfItemsOnPage)) alert("Phải là giá trị số nguyên");
+            else if (numOfItemsOnPage < 5 || numOfItemsOnPage > 100)
+                alert("Vui lòng điền số trong khoảng từ 5 -> 100");
+            else {
+                data.setAdminNumOfItemsPerPage(numOfItemsOnPage);
+                alert("Cập nhật thành công!");
+                window.location.href = "";
+            }
+        });
+    }
+}
 
 function runCSR() {
 
-    // Render data
-
-    renderData();
-    renderPaginator();
+    // Render data khi load lần đầu
+    renderManagerment();
+    renderData(1, numOfItemsPerPage);
+    renderPaginator(numOfItemsPerPage);
     renderForm('#add-product');
     renderForm('#add-user', 2);
-
-    let p_users = document.querySelectorAll(".admin-container[data-csr='users'] .paginator_items button");
-    let p_products = document.querySelectorAll(".admin-container[data-csr='products'] .paginator_items button");
-
-    p_users.forEach(elem => {
-        elem.addEventListener('click', e => {
-            renderData(elem.dataset.page, 'users');
-        })
-    });
-
-    p_products.forEach(elem => {
-        elem.addEventListener('click', e => {
-            renderData(elem.dataset.page, 'products');
-        })
-    });
 
     // CSR Init
 
@@ -404,7 +473,10 @@ function runCSR() {
     'products',
     'orders'];
 
-    // Render trang dựa theo url
+    /**
+     * Render trang dựa theo url (csr)
+     * @param {string} currentPage trang để render
+     */
     function renderPage(currentPage) {
 
         document.querySelectorAll(".admin-container[data-csr]").forEach(element => {
