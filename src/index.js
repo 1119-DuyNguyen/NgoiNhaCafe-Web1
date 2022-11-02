@@ -5,6 +5,7 @@ import * as listProduct from './components/listProduct.js';
 import * as homeProduct from './components/homeProduct.js';
 import { toast } from './components/toast.js';
 import { productInfo } from './components/productInfo.js';
+import * as order from './components/order.js';
 import * as display from './library/display.js';
 
 //------------dành cho trang user
@@ -13,10 +14,11 @@ import * as display from './library/display.js';
 //display.closeDisplay(document.getElementById('user-page'));
 var data = new Data();
 data.initData();
-
+order.init(data.getDataImgs()); // nayf la dang keu roi, coi f8 module xong ! qua lam lai cai header
 header.run(data.getDataImgs());
 slider.onLoad();
 listProduct.run(data.getDataImgs());
 homeProduct.run(data.getDataImgs());
+
 //-----------dành cho trang admin
 display.closeDisplay(document.getElementById('admin-page'));
