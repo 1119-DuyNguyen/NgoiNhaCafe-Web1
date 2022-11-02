@@ -14,7 +14,7 @@ import * as display from './library/display.js';
 //display.closeDisplay(document.getElementById('user-page'));
 var data = new Data();
 data.initData();
-order.init(data.getDataImgs()); // nayf la dang keu roi, coi f8 module xong ! qua lam lai cai header
+order.init(data.getDataImgs());
 header.run(data.getDataImgs());
 slider.onLoad();
 listProduct.run(data.getDataImgs());

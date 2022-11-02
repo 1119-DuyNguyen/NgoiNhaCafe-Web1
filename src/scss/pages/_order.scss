@@ -39,6 +39,7 @@
         }
         .cart-table {
             th {
+                word-wrap: break-word;
                 border-bottom: 1px solid #000;
                 padding-bottom: 7px;
             }
@@ -89,6 +90,16 @@
                 }
             }
             td:not(:nth-child(2)) {
+                text-align: center;
+            }
+            td:nth-child(3) {
+                width: 73.5px;
+                min-width: 73.5px;
+                text-align: center;
+            }
+            td:nth-child(5) {
+                width: 163px;
+                min-width: 163px;
                 text-align: center;
             }
             width: 100%;
@@ -266,7 +277,7 @@
     .note {
         width: 100%;
     }
-    td:nth-child(3) {
+    td:nth-child(4) {
         width: 100%;
     }
     #order-page {
@@ -290,9 +301,14 @@
                     width: 200px;
                     text-align: center;
                 }
+                td:nth-child(3) {
+                    width: 73.5px;
+                    min-width: 73.5px;
+                    text-align: center;
+                }
                 td:nth-child(5) {
-                    width: 140px;
-                    min-width: 140px;
+                    width: 163px;
+                    min-width: 163px;
                     text-align: center;
                 }
                 td {
@@ -388,8 +404,7 @@
         overflow-y: scroll;
 
         display: block;
-        .order-container {
-        }
+
         .order-board-1 {
             margin: 18% auto 10px auto;
             height: auto;
@@ -408,9 +423,14 @@
                     width: 200px;
                     text-align: center;
                 }
+                td:nth-child(3) {
+                    width: 73.5px;
+                    min-width: 73.5px;
+                    text-align: center;
+                }
                 td:nth-child(5) {
-                    min-width: 140px;
-                    width: 140px;
+                    width: 163px;
+                    min-width: 163px;
                     text-align: center;
                 }
             }
