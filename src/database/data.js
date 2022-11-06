@@ -106,7 +106,28 @@ totalprice : 5700000
     //init data
     this.initData = function () {
         if (!this.getDataUsers()) {
+            //có nên bỏ email và id không ?
             var dataUsers = [
+                {
+                    id: 1,
+                    username: 'admin',
+                    password: 'admin',
+                    fullname: 'Duy2 Vy Huy',
+                    address: '273 An Dương Vương, P3, Quận 5, TPHCM',
+                    phone: '0566490523',
+                    dateCreate: '23-11-1999',
+                    type: 'admin',
+                },
+                {
+                    id: 1,
+                    username: 'user',
+                    password: 'user',
+                    fullname: 'user',
+                    address: '273 An Dương Vương, P3, Quận 5, TPHCM',
+                    phone: '0383202799',
+                    dateCreate: '8-10-2022',
+                    type: 'user',
+                },
                 {
                     id: 1,
                     username: 'Bret',
@@ -118,7 +139,7 @@ totalprice : 5700000
                     type: 'admin',
                 },
                 {
-                    id: 2,
+                    id: 1,
                     username: 'Antonette',
                     email: 'Shanna@melissa.tv',
                     address:
@@ -128,7 +149,7 @@ totalprice : 5700000
                     type: 'user',
                 },
                 {
-                    id: 3,
+                    id: 1,
                     username: 'Samantha',
                     email: 'Nathan@yesenia.net',
                     address:
@@ -138,72 +159,12 @@ totalprice : 5700000
                     type: 'user',
                 },
                 {
-                    id: 4,
+                    id: 1,
                     username: 'Karianne',
                     email: 'Julianne.OConner@kory.org',
                     address:
                         '215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam',
                     phone: '01261619',
-                    password: 'khongcopass',
-                    type: 'user',
-                },
-                {
-                    id: 5,
-                    username: 'Kamren',
-                    email: 'Lucio_Hettinger@annie.ca',
-                    address:
-                        '215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam',
-                    phone: '06242940',
-                    password: 'khongcopass',
-                    type: 'admin',
-                },
-                {
-                    id: 6,
-                    username: 'Leopoldo_Corkery',
-                    email: 'Karley_Dach@jasper.info',
-                    address:
-                        '215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam',
-                    phone: '01358817',
-                    password: 'khongcopass',
-                    type: 'admin',
-                },
-                {
-                    id: 7,
-                    username: 'Elwyn.Skiles',
-                    email: 'Telly.Hoeger@billy.biz',
-                    address:
-                        '215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam',
-                    phone: '09097100',
-                    password: 'khongcopass',
-                    type: 'user',
-                },
-                {
-                    id: 8,
-                    username: 'Maxime_Nienow',
-                    email: 'Sherwood@rosamond.me',
-                    address:
-                        '215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam',
-                    phone: '07079780',
-                    password: 'khongcopass',
-                    type: 'user',
-                },
-                {
-                    id: 9,
-                    username: 'Delphine',
-                    email: 'Chaim_McDermott@dana.io',
-                    address:
-                        '215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam',
-                    phone: '06698949',
-                    password: 'khongcopass',
-                    type: 'admin',
-                },
-                {
-                    id: 10,
-                    username: 'Moriah.Stanton',
-                    email: 'Rey.Padberg@karina.biz',
-                    address:
-                        '215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam',
-                    phone: '08437211',
                     password: 'khongcopass',
                     type: 'user',
                 },

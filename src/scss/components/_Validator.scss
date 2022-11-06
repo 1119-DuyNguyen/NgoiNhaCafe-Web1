@@ -1,7 +1,7 @@
-.form-group.invalid .form-control {
-    border-color: $error-color;
+.form-group.invalid input {
+    border-color: $error-color !important;
 }
 
 .form-group.invalid .form-message {
-    color: $error-color;
+    color: $error-color !important;
 }

@@ -81,6 +81,9 @@
                     cursor: pointer;
                 }
             }
+            .error-login {
+                color: $error-color;
+            }
         }
     }
 }

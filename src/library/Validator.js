@@ -1,11 +1,12 @@
 //input có name chứa "repeat" sẽ không láy data
-export function Validator(formSelector, dataUsers = undefined) {
+export function Validator(formSelector) {
     //tránh trỏ lung tung
     var _this = this;
     const formGroup = '.form-group';
     const errorSelector = '.form-message'; // thẻ span
     var currentLabelInput = '';
     var curPassword = '';
+
     function getParent(element, selector) {
         while (element.parentElement) {
             if (element.parentElement.matches(selector)) {
@@ -34,8 +35,9 @@ export function Validator(formSelector, dataUsers = undefined) {
     var rulesCollector = {};
     var validatorRules = {
         username: function (value) {
-            if (!dataUsers) return undefined;
-            for (var user of dataUsers) {
+            if (!_this.dataUsers) return undefined;
+
+            for (var user of _this.dataUsers) {
                 if (user.username === value) {
                     return 'Tài khoản đã tồn tại';
                 }
@@ -74,11 +76,20 @@ export function Validator(formSelector, dataUsers = undefined) {
                 : `Mật khẩu nhập lại không chính xác `;
         },
     };
+
     var formElement = document.querySelector(formSelector);
     _this.formElement = formElement;
     if (formElement) {
         var inputs = formElement.querySelectorAll('[name][rules]');
+        _this.resetForm = function () {
+            var isFormValid = true;
 
+            for (var input of inputs) {
+                removeErrorMessage(input);
+                input.value = '';
+                input.blur();
+            }
+        };
         for (var input of inputs) {
             var rules = input.getAttribute('rules').split('|');
             for (var rule of rules) {
@@ -106,9 +117,11 @@ export function Validator(formSelector, dataUsers = undefined) {
         }
         function handleError(event) {
             var input = event.target;
+            //remove special character and format string label
             currentLabelInput = getParent(input, formGroup)
                 .querySelector('label')
-                .textContent.toLowerCase();
+                .textContent.toLowerCase()
+                .replace(':', '');
             if (!currentLabelInput) currentLabelInput = '';
             var errorMessage;
             var rules = rulesCollector[input.name];
@@ -162,3 +175,4 @@ export function Validator(formSelector, dataUsers = undefined) {
         };
     }
 }
+Validator.prototype.dataUsers = [];

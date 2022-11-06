@@ -444,48 +444,38 @@
                             <div class="title">
                                 <span> ĐĂNG NHẬP </span>
                             </div>
-
-                            <form id="form-login" class="">
-                                <div class="login-info">
-                                    <div class="row">
-                                        <label for="usernameLogin"
-                                            >Tên đăng nhập:</label
-                                        >
-                                        <input
-                                            name="username"
-                                            type="text"
-                                            id="usernameLogin"
-                                        />
-                                        <div id="usernameerror" class="--hide">
-                                            Bạn chưa nhập tên đăng nhập
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label for="passwordLogin"
-                                            >Mật khẩu:</label
-                                        >
-                                        <input
-                                            name="password"
-                                            type="password"
-                                            id="passwordLogin"
-                                        />
-                                        <div
-                                            id="passwordloginerror"
-                                            class="--hide"
-                                        >
-                                            Bạn chưa nhập mật khẩu
-                                        </div>
-                                    </div>
+                            <form action="#" class="form" id="form-login">
+                                <div class="form-group row">
+                                    <label for="usernameLogin"
+                                        >Tên đăng nhập:</label
+                                    >
+                                    <input
+                                        name="username"
+                                        type="text"
+                                        rules="required"
+                                        id="usernameLogin"
+                                    />
+                                    <span class="form-message"></span>
                                 </div>
-                                <button type="submit" id="btnlogin" class="row">
-                                    Login
+                                <div class="form-group row">
+                                    <label for="passwordLogin">Mật khẩu:</label>
+                                    <input
+                                        name="password"
+                                        type="password"
+                                        rules="required"
+                                        id="passwordLogin"
+                                    />
+                                    <span class="form-message"></span>
+                                </div>
+                                <span class="error-login"></span>
+
+                                <button type="submit" id="btnlogin">
+                                    Đăng nhập
                                 </button>
-                                <div class="login-link-signin row">
-                                    <p class="row">Bạn chưa có tài khoản?</p>
-
-                                    <a href="#" class="row">Đăng ký</a>
-                                </div>
                             </form>
+                            <p class="row">Bạn chưa có tài khoản?</p>
+
+                            <a href="#" class="row">Đăng ký</a>
                         </div>
                     </div>
                 </div>
