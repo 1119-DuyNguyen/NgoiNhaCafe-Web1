@@ -1192,8 +1192,41 @@ export function Data() {
             priceTotal: 60500,
         },
     ];
+    var dataOrders = [{
+        maDH: 1,
+        maKH: 'abc',
+        gia: 30000,
+        soLuong: 2,
+        trangThai: "Chưa xử lý",
+        tongGia: 60000,
+        tag: "Cà phê",
+        ngayDK: 20000
+        }
+        ,
+        {
+        maDH: 2,
+        maKH: 'abcd',
+        gia: 30000,
+        soLuong: 1,
+        trangThai: "Chưa xử lý",
+        tongGia: 30000,
+        ngayDK: 30000,
+        tag: "Trà"
+        },
+        {
+        maDH: 3,
+        maKH: 'abcde',
+        gia: 30000,
+        soLuong: 1,
+        trangThai: "Chưa xử lý",
+        tongGia: 30000,
+        ngayDK: 30000,
+        tag: "Hi-Tea"
+        }
+    ];
     const keyImgs = 'dataImgs';
     const keyUsers = 'dataUsers';
+    const keyOrders = 'dataOrders';
     this.getUser = function(id) {
         return this.getDataUsers()[id];
     }
@@ -1223,9 +1256,14 @@ export function Data() {
         data.push(user);
         setDataUsers(data);
     };
-    this.removeUser = function (id) {
+    this.removeUser = function (idToRemove) {
         let data = this.getDataUsers();
-        data.splice(this.getUser(id), 1);
+        idToRemove.forEach(id => {
+            data[id] = {};
+        });
+        data = data.filter(item => {
+            return Object.keys(item).length != 0;
+        })
         setDataUsers(data);
     };
     this.addImgs = function (obj) {
@@ -1234,9 +1272,14 @@ export function Data() {
         data.push(obj);
         setDataImgs(data);
     };
-    this.removeImg = function (id) {
+    this.removeImg = function (idToRemove) {
         let data = this.getDataImgs();
-        data.splice(this.getImg(id), 1);
+        idToRemove.forEach(id => {
+            data[id] = {};
+        });
+        data = data.filter(item => {
+            return Object.keys(item).length != 0;
+        })
         setDataImgs(data);
     };
     function setDataImgs(data) {
@@ -1245,9 +1288,13 @@ export function Data() {
     function setDataUsers(data) {
         window.localStorage.setItem(keyUsers, JSON.stringify(data));
     }
+    function setDataOrders(data) {
+        window.localStorage.setItem(keyOrders, JSON.stringify(data));
+    }
     this.resetDefaut = function () {
         setDataUsers(dataUsers);
         setDataImgs(dataImgs);
+        setDataOrders(dataOrders);
     };
 
     this.getDataImgs = function () {
@@ -1257,15 +1304,21 @@ export function Data() {
     this.getDataUsers = function () {
         return JSON.parse(window.localStorage.getItem(keyUsers));
     };
+    this.getDataOrders = function () {
+        return JSON.parse(window.localStorage.getItem(keyOrders));
+    };
     this.initData = function () {
         if (!this.getDataUsers()) setDataUsers(dataUsers);
         if (!this.getDataImgs()) setDataImgs(dataImgs);
+        if (!this.getDataOrders()) setDataOrders(dataOrders);
     };
     this.updateData = function () {
         var users = this.getDataUsers();
         var imgs = this.getDataImgs();
+        var orders = this.getDataOrders();
         if (users) dataUsers = users;
         if (imgs) dataImgs = imgs;
+        if (orders) dataOrders = orders;
     };
     this.updateData();
     this.setAdminNumOfItemsPerPage = function (num) {

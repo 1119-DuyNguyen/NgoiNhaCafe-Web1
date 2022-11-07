@@ -6,6 +6,7 @@ data.initData();
 
 let dataUsers = data.getDataUsers();
 let dataImgs = data.getDataImgs();
+let dataOrders = data.getDataOrders();
 
 let numOfItemsPerPage = (data.getAdminNumOfItemsPerPage() === null) ? 9 : parseInt(data.getAdminNumOfItemsPerPage());
 
@@ -118,7 +119,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             elem.addEventListener('click', e => {
                 let deleteConfirm = confirm("Bạn có muốn xóa người dùng này không?");
                 if (deleteConfirm) {
-                    data.removeUser(elem.dataset.id);
+                    data.removeUser([elem.dataset.id]);
                     alert("Xóa người dùng thành công!");
                     window.location.href = "";
                 }
@@ -207,6 +208,74 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             })
         })
     }
+    function renderOrders(params) {
+        let s_orders = document.querySelector(".admin-container[data-csr='orders'] table");
+
+        html = `<tr>
+            <th></th>
+            <th>STT</th>
+            <th>Ngày</th>
+            <th>Khách hàng</th>
+            <th>Giá</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+        </tr>`;
+        // 100 99 98 97 96 95 94 93 92 91
+        // tính toán số phần tử để lặp trong vòng lặp for - numOfItemsPerPage = 9
+        // do lặp từ cuối lên đầu danh sách ->
+        let maxSize = dataOrders.length-1; // số lượng phần tử tối đa
+        first = maxSize - (page-1) * numOfItemsPerPage; // nếu sl = 90, trang 1 -> first = 90 - 0 * 9 = 90
+        // 90 - 0 * 9 = 90 89 88 87 86 85 84 83 82
+        // 90 - 1 * 9 = 81 80 79 88 77 76 75 74 73
+        i = first;
+        count = 0;
+        while (typeof dataOrders[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) {
+            html += `<tr>
+                <td>
+                    <input type="checkbox" value="${i}" class="checkbox" data-type="order"/>
+                </td>
+                <td>${i+1}</td>
+                <td>${dataOrders[i].ngayDK}</td>
+                <td>${dataOrders[i].maKH}</td>
+                <td>${dataOrders[i].price}${dataOrders[i].currency}</td>
+                <td>${dataOrders[i].trangThai}</td>
+                <td>
+                    <button class="btn btn-info edit-product" data-id="${i}">
+                        <span class="icon-pencil"></span>
+                    </button>
+                    <button class="btn btn-info">
+                        <span class="icon-info"></span>
+                    </button>
+                    <button class="btn btn-danger delete-product" data-id="${i}">
+                        <span class="icon-bin"></span>
+                    </button>
+                </td>
+            </tr>`
+            i--;
+            count++;
+        }
+    
+        s_orders.innerHTML = html;
+        
+        // // cảnh báo xóa sản phẩm
+        // document.querySelectorAll(".delete-product").forEach(elem => {
+        //     elem.addEventListener('click', e => {
+        //         let deleteConfirm = confirm("Bạn có muốn xóa sản phẩm này không?");
+        //         if (deleteConfirm) {
+        //             data.removeImg(elem.dataset.id);
+        //             alert("Xóa sản phẩm thành công!");
+        //             window.location.href = "";
+        //         }
+        //     })
+        // })
+
+        // // Chỉnh sửa sản phẩm
+        // document.querySelectorAll(".edit-product").forEach(elem => {
+        //     elem.addEventListener('click', e => {
+        //         renderEditForm(elem.dataset.id);
+        //     })
+        // })
+    }
 
     function renderHome() { // render trang home
         let s_home = document.querySelector(".admin-container[data-csr='home'] .card-container");
@@ -240,11 +309,17 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             applyCheckboxFeature('products');
             actionsAndDecisions('products');
             break;
+        case 'orders':
+            renderOrders(page);
+            applyCheckboxFeature('orders');
+            actionsAndDecisions('orders');
+            break;
     
         default:
             renderHome();
             renderUsers(page);
             renderProducts(page);
+            renderOrders(page);
             
             applyCheckboxFeature();
             actionsAndDecisions();
@@ -485,16 +560,19 @@ function actionsAndDecisions(type = '') {
                 if (checkedCheckboxes.length == 0) alert("Chọn ít nhất 1 phần tử để xoá!");
                 else if (confirm("Bạn có muốn xoá toàn bộ phần tử đã chọn?")) {
                     // Ứng với mỗi checkbox đã chọn
+                    let idToRemove = [];
                     for (let i = 0; i < checkedCheckboxes.length; i++) {
-                        switch (type) {
-                            case 'users':
-                                data.removeUser(parseInt(checkedCheckboxes[i].value));
-                                break;
-                            case 'products':
-                                data.removeImg(parseInt(checkedCheckboxes[i].value));
-                                break;
-                        }
+                        idToRemove.push(parseInt(checkedCheckboxes[i].value));
                     }
+                    switch (type) {
+                        case 'users':
+                            data.removeUser(idToRemove);
+                            break;
+                        case 'products':
+                            data.removeImg(idToRemove);
+                            break;
+                    }
+                    idToRemove = [];
                     alert("Xoá các phần tử đã chọn thành công!"); // thông báo và reload lại trang
                     window.location.href = "";
                 }
@@ -546,6 +624,7 @@ function runCSR() {
      */
     function renderPage(currentPage) {
 
+        // Thủ tục reset
         document.querySelectorAll(".admin-container[data-csr]").forEach(element => {
             element.classList.remove("--hidden");
             element.classList.add("--hidden");
@@ -571,6 +650,9 @@ function runCSR() {
             urlParams.set("page", currentPage);
             // Đổi URL nhưng không reload lại trang
             history.pushState({}, null, "?page="+currentPage);
+            // Bỏ chọn tất cả checkbox khi chuyển trang
+            let checkedCheckboxes = document.querySelectorAll(".checkbox:checked, .check-all");
+            checkedCheckboxes.forEach(checkbox => checkbox.checked = false);
             renderPage(currentPage);
         });
     })
