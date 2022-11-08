@@ -1,12 +1,13 @@
 //import dataToppings from '../database/topping.json' assert { type: 'json' };
 import { toast } from './toast.js';
 import { closeDisplay, openDisplay, btnCloseId } from '../library/display.js';
+import { Data } from '../database/data.js';
 const detailProduct = document.getElementById('detail-product');
-const dataProduct = {};
+const dataOption = {};
 function initDataProduct(price, quantity = 1, size = 'medium') {
-    dataProduct.price = price;
-    dataProduct.quantity = quantity;
-    dataProduct.size = size;
+    dataOption.price = price;
+    dataOption.quantity = quantity;
+    dataOption.size = size;
 }
 const priceOption = {
     small: 0,
@@ -217,11 +218,11 @@ export function productInfo(title, dataImgs) {
             e.preventDefault();
             removeOptionActive(optionsSize);
             option.classList.add('--active');
-            dataProduct.size = option.dataset.optionSize;
+            dataOption.size = option.dataset.optionSize;
         });
     });
     //submit data
-    initSubmitProduct();
+    initSubmitProduct(data);
     // close button
     btnCloseId(detailProduct);
 }
@@ -232,19 +233,19 @@ function calcQuantity(btn) {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
 
-        dataProduct.quantity += sign;
+        dataOption.quantity += sign;
 
-        if (dataProduct.quantity < 1) {
-            dataProduct.quantity = 1;
+        if (dataOption.quantity < 1) {
+            dataOption.quantity = 1;
         } else {
-            if (dataProduct.quantity == 1 && sign == -1) {
+            if (dataOption.quantity == 1 && sign == -1) {
                 if (!btnMinus.classList.contains('--gray'))
                     btnMinus.classList.add('--gray');
             } else if (btnMinus.classList.contains('--gray')) {
                 btnMinus.classList.remove('--gray');
             }
 
-            textQuantity.textContent = dataProduct.quantity;
+            textQuantity.textContent = dataOption.quantity;
             //          textQuantity.setAttribute('data-quantity', dataProduct.quantity);
         }
     });
@@ -255,11 +256,11 @@ function removeOptionActive(options) {
             option.classList.remove('--active');
     });
 }
-function initSubmitProduct() {
+function initSubmitProduct(dataImg) {
     const cart = detailProduct.querySelector('.product_shopping_cart');
     cart.addEventListener('click', () => {
-        for (const data in dataProduct) {
-            if (!dataProduct[data]) {
+        for (const data in dataOption) {
+            if (!dataOption[data]) {
                 errorMessageNullProduct();
                 return;
             }
@@ -268,7 +269,10 @@ function initSubmitProduct() {
         // closeDisplay(detailProduct);
         successMessageAddCart();
         //return data
-        console.log(dataProduct);
+        //console.log(dataProduct);
+        var dataController = new Data();
+        dataImg.dataOption = dataOption;
+        dataController.pushCart(dataImg);
     });
 }
 function errorMessageNullProduct() {
