@@ -1,4 +1,96 @@
 export function Data() {
+
+    var dataOrders = [{
+        maDH: 1,
+        maKH: 'abc',
+        gia: 30000,
+        soLuong: 2,
+        trangThai: "Chưa xử lý",
+        tongGia: 60000,
+        tag: "Cà phê",
+        ngayDK: 20000
+        }
+        ,
+        {
+        maDH: 2,
+        maKH: 'abcd',
+        gia: 30000,
+        soLuong: 1,
+        trangThai: "Chưa xử lý",
+        tongGia: 30000,
+        ngayDK: 30000,
+        tag: "Trà"
+        },
+        {
+        maDH: 3,
+        maKH: 'abcde',
+        gia: 30000,
+        soLuong: 1,
+        trangThai: "Chưa xử lý",
+        tongGia: 30000,
+        ngayDK: 30000,
+        tag: "Hi-Tea"
+        }
+    ];
+    const keyImgs = 'dataImgs';
+    const keyUsers = 'dataUsers';
+    const keyOrders = 'dataOrders';
+    this.getUser = function(id) {
+        return this.getDataUsers()[id];
+    }
+    this.getImg = function(id) {
+        return this.getDataImgs()[id];
+    }
+    this.editUser = function (user, id) {
+        let data = this.getDataUsers();
+
+        data[id].username = user.username;
+        data[id].email = user.email;
+        data[id].address = user.address;
+        data[id].phone = user.phone;
+        setDataUsers(data);
+    }
+    this.editImg = function (obj, id) {
+        let data = this.getDataImgs();
+
+        data[id].title = obj.title;
+        data[id].description = obj.description;
+        data[id].price = obj.price;
+        data[id].tag = obj.tag;
+        setDataImgs(data);
+    }
+    this.addUser = function (user) {
+        let data = this.getDataUsers();
+        data.push(user);
+        setDataUsers(data);
+    };
+    this.removeUser = function (idToRemove) {
+        let data = this.getDataUsers();
+        idToRemove.forEach(id => {
+            data[id] = {};
+        });
+        data = data.filter(item => {
+            return Object.keys(item).length != 0;
+        })
+        setDataUsers(data);
+    };
+    this.addImgs = function (obj) {
+        let data = this.getDataImgs();
+        obj.currency = 'đ';
+        data.push(obj);
+        setDataImgs(data);
+    };
+    this.removeImg = function (idToRemove) {
+        let data = this.getDataImgs();
+        idToRemove.forEach(id => {
+            data[id] = {};
+        });
+        data = data.filter(item => {
+            return Object.keys(item).length != 0;
+        })
+        setDataImgs(data);
+    };
+=======
     var _this = this;
     var dataUsers = [];
     var dataImgs = [];
@@ -84,6 +176,15 @@ totalprice : 5700000
     function setDataUsers(data) {
         window.localStorage.setItem(keyUsers, JSON.stringify(data));
     }
+
+    function setDataOrders(data) {
+        window.localStorage.setItem(keyOrders, JSON.stringify(data));
+    }
+    this.resetDefaut = function () {
+        setDataUsers(dataUsers);
+        setDataImgs(dataImgs);
+        setDataOrders(dataOrders);
+
     this.setDataCart = function (data) {
         window.localStorage.setItem(keyCart, JSON.stringify(data));
     };
@@ -104,6 +205,32 @@ totalprice : 5700000
     this.getDataUsers = function () {
         return JSON.parse(window.localStorage.getItem(keyUsers));
     };
+
+    this.getDataOrders = function () {
+        return JSON.parse(window.localStorage.getItem(keyOrders));
+    };
+    this.initData = function () {
+        if (!this.getDataUsers()) setDataUsers(dataUsers);
+        if (!this.getDataImgs()) setDataImgs(dataImgs);
+        if (!this.getDataOrders()) setDataOrders(dataOrders);
+    };
+    this.updateData = function () {
+        var users = this.getDataUsers();
+        var imgs = this.getDataImgs();
+        var orders = this.getDataOrders();
+        if (users) dataUsers = users;
+        if (imgs) dataImgs = imgs;
+        if (orders) dataOrders = orders;
+    };
+    this.updateData();
+    this.setAdminNumOfItemsPerPage = function (num) {
+        window.localStorage.setItem('admin_itemsPerPage', num);
+    }
+    this.getAdminNumOfItemsPerPage = function () {
+        let num = window.localStorage.getItem('admin_itemsPerPage');
+        return num;
+    }
+
     this.getDataCart = function () {
         return JSON.parse(window.localStorage.getItem(keyCart));
     };
@@ -1287,4 +1414,8 @@ function formatDateDDMMYYYY(date) {
     return (
         date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear()
     );
+
+
+
+
 }

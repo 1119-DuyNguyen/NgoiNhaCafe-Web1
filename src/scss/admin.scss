@@ -5,6 +5,7 @@
 @import './base/fonts';
 @import './base/animation';
 @import './layouts/modal';
+@import './components/toast';
 
 a {
     text-decoration: none;
@@ -18,7 +19,7 @@ body {
     min-height: 100vh;
     position: relative;
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h4, h5, h6 {
     margin: 20px 0;
 }
 
@@ -278,6 +279,9 @@ $active-color: #e57905;
             margin-left: 2px;
         }
         margin: 15px auto;
+        .active {
+            background-color: darken($active-color, 10%);
+        }
     }
 }
 
@@ -293,27 +297,41 @@ $active-color: #e57905;
 
 // Form thêm sản phẩm
 
-// #add-product {
-//     margin: 10px auto;
-//     width: 300px;
-//     h3 {
-//         text-align: center;
-//     }
-//     form {
-//         padding: 10px 50px;
-//         margin: 0 auto;
-//         border: 1px solid gray;
-//         & > div {
-//             padding-bottom: 15px;
-//             label {
-//                 display: block;
-//             }
-//             input {
-//                 padding: 5px;
-//             }
-//         }
-//     }
-// }
+#add-product, #add-user, #edit-product, #edit-user {
+    .container {
+        padding: 20px;
+        .content {
+            overflow-y: auto;
+            form {
+                display: block;
+                margin: 0 auto;
+                width: 50%;
+                div {
+                    margin: 10px 0;
+                }
+                label {
+                    display: block;
+                    margin: 10px 0;
+                }
+                input {
+                    width: 100%;
+                    padding: 5px;
+                    border-radius: 10px;
+                    border: 1px solid gray;
+                    &[type="file"] {
+                        border: none;
+                    }
+                }
+                textarea {
+                    resize: none;
+                    width: 100%;
+                    height: 100px;
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}
 
 #footer {
     background-color: white;

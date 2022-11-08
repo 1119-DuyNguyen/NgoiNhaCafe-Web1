@@ -2,6 +2,7 @@ import runCSR from "./csr.js";
 
 document.addEventListener('DOMContentLoaded', e => {
 
+    // Xoá class d-none (phải bật js mới có thể xử lý)
     document.querySelector('#body-content').classList.remove('d-none');
 
     let nav_open = document.querySelector("#nav_open");
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', e => {
     let nav = document.querySelector("#nav");
     let under_nav = document.querySelector("#under-nav");
 
+    // Sự kiện cho menu mobile
     let nav_lis = document.querySelectorAll("#nav li");
 
     nav_lis.forEach(elem => {
