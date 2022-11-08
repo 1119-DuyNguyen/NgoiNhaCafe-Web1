@@ -1,39 +1,7 @@
 export function Data() {
-
-    var dataOrders = [{
-        maDH: 1,
-        maKH: 'abc',
-        gia: 30000,
-        soLuong: 2,
-        trangThai: "Chưa xử lý",
-        tongGia: 60000,
-        tag: "Cà phê",
-        ngayDK: 20000
-        }
-        ,
-        {
-        maDH: 2,
-        maKH: 'abcd',
-        gia: 30000,
-        soLuong: 1,
-        trangThai: "Chưa xử lý",
-        tongGia: 30000,
-        ngayDK: 30000,
-        tag: "Trà"
-        },
-        {
-        maDH: 3,
-        maKH: 'abcde',
-        gia: 30000,
-        soLuong: 1,
-        trangThai: "Chưa xử lý",
-        tongGia: 30000,
-        ngayDK: 30000,
-        tag: "Hi-Tea"
-        }
-    ];
     const keyImgs = 'dataImgs';
     const keyUsers = 'dataUsers';
+    const keyOrders = 'dataOrders';
     const keyCart = 'dataCart';
     const keyBill = 'bill';
     const keyCurrentUser = 'currentUser';
@@ -61,11 +29,6 @@ export function Data() {
         data[id].tag = obj.tag;
         setDataImgs(data);
     }
-    this.addUser = function (user) {
-        let data = this.getDataUsers();
-        data.push(user);
-        setDataUsers(data);
-    };
     this.removeUser = function (idToRemove) {
         let data = this.getDataUsers();
         idToRemove.forEach(id => {
@@ -96,6 +59,7 @@ export function Data() {
     var _this = this;
     var dataUsers = [];
     var dataImgs = [];
+    var dataOrders = [];
     var bill = {
         user: 'a',
         date: '28-10-2022',
@@ -111,11 +75,6 @@ export function Data() {
         dataUsers.push(user);
         setDataUsers(dataUsers);
     };
-    this.removeUser = function (id) {};
-
-    //imgs
-    this.addImgs = function () {};
-    this.removeImgs = function (id) {};
     //cart
     this.pushCart = function (dataImg) {
         if (!dataImg) return;
@@ -181,7 +140,7 @@ totalprice : 5700000
         setDataUsers(dataUsers);
         setDataImgs(dataImgs);
         setDataOrders(dataOrders);
-
+    }
     this.setDataCart = function (data) {
         window.localStorage.setItem(keyCart, JSON.stringify(data));
     };
@@ -206,11 +165,6 @@ totalprice : 5700000
     this.getDataOrders = function () {
         return JSON.parse(window.localStorage.getItem(keyOrders));
     };
-    this.initData = function () {
-        if (!this.getDataUsers()) setDataUsers(dataUsers);
-        if (!this.getDataImgs()) setDataImgs(dataImgs);
-        if (!this.getDataOrders()) setDataOrders(dataOrders);
-    };
     this.updateData = function () {
         var users = this.getDataUsers();
         var imgs = this.getDataImgs();
@@ -219,7 +173,7 @@ totalprice : 5700000
         if (imgs) dataImgs = imgs;
         if (orders) dataOrders = orders;
     };
-    this.updateData();
+
     this.setAdminNumOfItemsPerPage = function (num) {
         window.localStorage.setItem('admin_itemsPerPage', num);
     }
@@ -1397,20 +1351,46 @@ totalprice : 5700000
             ];
             setDataImgs(dataImgs);
         }
-    };
-    this.updateData = function () {
-        var users = this.getDataUsers();
-        var imgs = this.getDataImgs();
-        if (users) dataUsers = users;
-        if (imgs) dataImgs = imgs;
+        if (!this.getDataOrders()) {
+            var dataOrders = [{
+                maDH: 1,
+                maKH: 'abc',
+                gia: 30000,
+                soLuong: 2,
+                trangThai: "Chưa xử lý",
+                tongGia: 60000,
+                tag: "Cà phê",
+                ngayDK: 20000
+                }
+                ,
+                {
+                maDH: 2,
+                maKH: 'abcd',
+                gia: 30000,
+                soLuong: 1,
+                trangThai: "Chưa xử lý",
+                tongGia: 30000,
+                ngayDK: 30000,
+                tag: "Trà"
+                },
+                {
+                maDH: 3,
+                maKH: 'abcde',
+                gia: 30000,
+                soLuong: 1,
+                trangThai: "Chưa xử lý",
+                tongGia: 30000,
+                ngayDK: 30000,
+                tag: "Hi-Tea"
+                }
+            ];
+            setDataOrders(dataOrders)
+        }
     };
     this.updateData();
 }
-Data.prototype.currentUser = '';
-    function formatDateDDMMYYYY(date) {
-        return (
-            date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear()
-        );
-    }
-
+function formatDateDDMMYYYY(date) {
+    return (
+        date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear()
+    );
 }

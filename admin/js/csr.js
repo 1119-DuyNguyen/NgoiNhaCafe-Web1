@@ -239,7 +239,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                 <td>${i+1}</td>
                 <td>${dataOrders[i].ngayDK}</td>
                 <td>${dataOrders[i].maKH}</td>
-                <td>${dataOrders[i].price}${dataOrders[i].currency}</td>
+                <td>${dataOrders[i].gia}đ</td>
                 <td>${dataOrders[i].trangThai}</td>
                 <td>
                     <button class="btn btn-info edit-product" data-id="${i}">
