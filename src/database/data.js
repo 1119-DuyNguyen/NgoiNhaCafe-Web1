@@ -34,7 +34,9 @@ export function Data() {
     ];
     const keyImgs = 'dataImgs';
     const keyUsers = 'dataUsers';
-    const keyOrders = 'dataOrders';
+    const keyCart = 'dataCart';
+    const keyBill = 'bill';
+    const keyCurrentUser = 'currentUser';
     this.getUser = function(id) {
         return this.getDataUsers()[id];
     }
@@ -90,7 +92,7 @@ export function Data() {
         })
         setDataImgs(data);
     };
-=======
+
     var _this = this;
     var dataUsers = [];
     var dataImgs = [];
@@ -102,11 +104,6 @@ export function Data() {
         status: 'Chưa xử lý',
         totalprice: 2100000,
     };
-    const keyImgs = 'dataImgs';
-    const keyUsers = 'dataUsers';
-    const keyCart = 'dataCart';
-    const keyBill = 'bill';
-    const keyCurrentUser = 'currentUser';
     //user
     this.addUser = function (user) {
         if (!user) return;
@@ -1410,12 +1407,10 @@ totalprice : 5700000
     this.updateData();
 }
 Data.prototype.currentUser = '';
-function formatDateDDMMYYYY(date) {
-    return (
-        date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear()
-    );
-
-
-
+    function formatDateDDMMYYYY(date) {
+        return (
+            date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear()
+        );
+    }
 
 }
