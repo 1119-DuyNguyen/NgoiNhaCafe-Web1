@@ -1,5 +1,7 @@
 import { Data } from "../../src/database/data.js";
 import { closeDisplay, openDisplay,btnCloseId, toggleDisplay } from "../../src/library/display.js";
+import { toast } from "../../src/components/toast.js";
+import toppingData from "../../src/database/topping.json" assert {type: 'json'};
 
 var data = new Data();
 data.initData();
@@ -208,7 +210,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             })
         })
     }
-    function renderOrders(params) {
+    function renderOrders(page) {
         let s_orders = document.querySelector(".admin-container[data-csr='orders'] table");
 
         html = `<tr>
@@ -256,25 +258,27 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         }
     
         s_orders.innerHTML = html;
+        //
         
-        // // cảnh báo xóa sản phẩm
-        // document.querySelectorAll(".delete-product").forEach(elem => {
-        //     elem.addEventListener('click', e => {
-        //         let deleteConfirm = confirm("Bạn có muốn xóa sản phẩm này không?");
-        //         if (deleteConfirm) {
-        //             data.removeImg(elem.dataset.id);
-        //             alert("Xóa sản phẩm thành công!");
-        //             window.location.href = "";
-        //         }
-        //     })
-        // })
+        document.querySelector(".admin-container[data-csr='orders'] .managerment").innerHTML += `<div class="filter">
+            <p><b>Lọc đơn hàng</b></p>
+            <div>
+                <span>Theo tag:</span>
+            </div>
+            <div>
+                <span>Theo thời gian</span> 
+                <label name="range">từ ngày:</label>
 
-        // // Chỉnh sửa sản phẩm
-        // document.querySelectorAll(".edit-product").forEach(elem => {
-        //     elem.addEventListener('click', e => {
-        //         renderEditForm(elem.dataset.id);
-        //     })
-        // })
+                <input
+                    name="fromDay"
+                    type="text" onfocus="(this.type = 'date')" onchange="((this.value) ? alert(this.value) : '')" />
+                <label name="range">đến ngày :</label>
+                <span> - </span>
+                <input
+                    name="toDay"
+                    type="text" onfocus="(this.type = 'date')"/>
+            </div>
+        </div>`;
     }
 
     function renderHome() { // render trang home
@@ -394,7 +398,7 @@ function renderPaginator(numOfItemsOnPage = 9, type = '') {
 /**
  * Hàm render form (thêm, chỉnh sửa)
  * @param {string} element_id id phần tử của form
- * @param {int} type loại danh sách, mặc định là 1 (1 - người dùng, 2 - sản phẩm)
+ * @param {int} type loại danh sách, mặc định là 1 (1 - sản phẩm, 2 - người dùng)
  * @param {int} formType loại form, mặc định là 1 (1 - thêm, 2 - chỉnh sửa)
  * @param {int} id id người dùng || sản phẩm (chỉ yêu cầu khi render form chỉnh sửa)
  * @return void
@@ -455,6 +459,30 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
         submitBtn.click();
     });
 
+    // 
+
+    if (type == 1) { // sản phẩm
+        let tag_field, elemToAdd; // chọn đúng phần tử
+        if (formType == 1) { // add
+            tag_field = document.querySelector("#product-type");
+        } else { // edit
+            tag_field = document.querySelector("#product-type-edit");
+        }
+
+        if (tag_field.length == 0) { // chỉ khởi tạo 1 lần duy nhất
+
+            // Thêm danh sách tag
+            let listOfTags = Object.keys(toppingData);
+
+            listOfTags.forEach(elem => {
+                elemToAdd = document.createElement('option');
+                elemToAdd.text = elem;
+                elemToAdd.value = elem;
+                tag_field.add(elemToAdd);
+            })
+        }
+    }
+
     // thêm nội dung vào các trường có sẵn ở form chỉnh sửa
     let obj = {};
     if (formType == 2) { // edit
@@ -478,6 +506,8 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
             default:
                 break;
         }
+    } else { // add
+        
     }
 }
 
@@ -535,8 +565,15 @@ function renderManagerment() {
                 alert("Vui lòng điền số trong khoảng từ 5 -> 100");
             else {
                 data.setAdminNumOfItemsPerPage(numOfItemsOnPage);
-                alert("Cập nhật thành công!");
-                window.location.href = "";
+                toast({
+                    title: 'Success',
+                    message: 'Cập nhật thành công, đang tải lại trang',
+                    type: 'success',
+                    duration: 1500,
+                });
+                setTimeout(() => {
+                    window.location.href = "";
+                }, 1500);
             }
         });
     }
@@ -544,7 +581,7 @@ function renderManagerment() {
 
 /**
  * Tính năng thực thi hàng loạt (xoá)
- * @param {string} type loại phần tử
+ * @param {string} type loại phần tử (users, products)
  */
 function actionsAndDecisions(type = '') {
 

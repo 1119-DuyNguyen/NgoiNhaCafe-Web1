@@ -305,7 +305,6 @@
     
                         <div class="actions">
                             <select class="decisions">
-    
                                 <option value="undone" selected>-- Hành động --</option>
                                 <option value="delete">Xóa</option>
                             </select>
@@ -494,7 +493,7 @@
                                     </div>
                                     <div>
                                         <label for="product-type">Tag</label>
-                                        <input type="text" id="product-type" data-name="tag">
+                                        <select type="text" id="product-type" data-name="tag"></select>
                                     </div>
                                     <div>
                                         <label for="product-price">Giá</label>
@@ -533,7 +532,7 @@
                                     </div>
                                     <div>
                                         <label for="product-type-edit">Tag</label>
-                                        <input type="text" id="product-type-edit" data-name="tag">
+                                        <select type="text" id="product-type-edit" data-name="tag"></select>
                                     </div>
                                     <div>
                                         <label for="product-price-edit">Giá</label>
@@ -573,12 +572,13 @@
     
                         <div class="actions">
                             <select class="decisions">
-    
                                 <option value="undone" selected>-- Hành động --</option>
                                 <option value="delete">Xóa</option>
                             </select>
                             <button class="btn btn-info">Thực hiện</button>
                         </div>
+
+                        
                     </div>
                     <div class="table-container">
                         <table>
@@ -625,6 +625,7 @@
                 </div>
             </div>
     
+            <div id="toast"></div>
             <div id="footer">Copyright &copy; 2022 Ngôi nhà Cafe</div>
         </div>
         <script type="module" src="./js/admin.js"></script>
