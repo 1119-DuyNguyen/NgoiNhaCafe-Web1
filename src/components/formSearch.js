@@ -1,4 +1,4 @@
-import { productInfo } from './productInfo.js';
+import { productInfo } from './productDetail.js';
 import {
     closeDisplay,
     openDisplay,

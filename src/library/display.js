@@ -30,3 +30,10 @@ export function closeModal(element) {
         }
     });
 }
+
+export function resetInputs(inputs) {
+    inputs.forEach((input) => {
+        input.value = '';
+        input.blur();
+    });
+}

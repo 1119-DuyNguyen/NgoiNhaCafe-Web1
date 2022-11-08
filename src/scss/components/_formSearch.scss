@@ -47,16 +47,17 @@
                 display: flex;
                 margin: 0 0 32px;
                 font-size: calc(0.625em + 1vw);
-
+                height: auto;
+                min-height: 40px;
                 & > * {
                     margin-top: 16px;
+                    height: 40px;
                 }
                 select {
                     flex: 1;
                     text-align: center;
                 }
                 .price {
-                    height: 100%;
                     flex: 5;
                     margin-left: 24px;
                     display: flex;
@@ -77,6 +78,7 @@
                     }
                     input {
                         text-align: center;
+                        height: 100%;
                     }
                 }
 
@@ -97,19 +99,21 @@
             height: 90%;
             width: 100%;
             .content {
+                .search-input {
+                    input {
+                        font-size: 16px;
+                    }
+                }
                 .advanced-input {
                     display: block;
                     select {
-                        width: 100px;
-                        text-align: left;
+                        width: 100%;
                     }
                     .price {
-                        display: block;
+                        display: flex;
                         margin-left: 0;
-                        text-align: left;
-
+                        justify-content: center;
                         & > * {
-                            margin-right: 8px;
                             margin-left: 0px;
                         }
                         label {
@@ -118,6 +122,7 @@
                             margin-bottom: 16px;
                         }
                         input {
+                            flex: 1;
                             text-align: center;
                         }
                     }

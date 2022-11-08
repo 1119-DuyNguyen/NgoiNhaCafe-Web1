@@ -1,4 +1,4 @@
-import { productInfo } from './productInfo.js';
+import { productInfo } from './productDetail.js';
 export function run(dataImgs) {
     const imageContainer = document.querySelector(
         '.home-product .image-container'

@@ -71,11 +71,17 @@
 
                     width: 100%;
                     display: inline-block;
-
+                    //clear fix
+                    &::after {
+                        //mặc định after là inline-block
+                        display: block;
+                        content: '';
+                        clear: both;
+                    }
                     .option_selections_item {
                         position: relative;
                         font-size: calc(0.625em + 0.5vw);
-                        display: inline-block;
+                        float: left;
                         cursor: pointer;
                         // margin-right: 32px;
                         // margin-bottom: 32px;
