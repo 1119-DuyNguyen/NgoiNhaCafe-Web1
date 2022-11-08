@@ -14,6 +14,7 @@ export function Data() {
     const keyUsers = 'dataUsers';
     const keyCart = 'dataCart';
     const keyBill = 'bill';
+    const keyCurrentUser = 'currentUser';
     //user
     this.addUser = function (user) {
         if (!user) return;
@@ -89,7 +90,13 @@ totalprice : 5700000
     this.setBill = function () {
         window.localStorage.setItem(keyBill, JSON.stringify(data));
     };
+    this.setCurrentUser = function (data) {
+        window.localStorage.setItem(keyCurrentUser, JSON.stringify(data));
+    };
     //getter
+    this.getCurrentUser = function () {
+        return JSON.parse(window.localStorage.getItem(keyCurrentUser));
+    };
     this.getDataImgs = function () {
         return JSON.parse(window.localStorage.getItem(keyImgs));
     };
@@ -103,6 +110,7 @@ totalprice : 5700000
     this.getDataBill = function () {
         return JSON.parse(window.localStorage.getItem(keyBill));
     };
+
     //init data
     this.initData = function () {
         if (!this.getDataUsers()) {

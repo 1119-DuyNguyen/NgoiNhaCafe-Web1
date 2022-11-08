@@ -53,13 +53,14 @@ function init(dataUsers) {
                             duration: 3000,
                         });
                         closeDisplay(userLogin);
-
+                        data.setCurrentUser(user);
                         break;
                     }
                     case 'admin': {
                         // từ admin quay lại trang chủ vẫn còn popup
                         //closeDisplay(userLogin);
                         window.location.replace('admin/index.html');
+                        data.setCurrentUser(user);
                         break;
                     }
                     default: {
@@ -103,6 +104,7 @@ function init(dataUsers) {
     });
 }
 export function openformAccount() {
+    if (data.getCurrentUser()) return;
     openDisplay(userLogin);
     formSignupValidator.resetForm();
     formLoginValidator.resetForm();
