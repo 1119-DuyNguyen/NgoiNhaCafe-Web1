@@ -13,7 +13,6 @@
     }
 }
 
-
 // .--animate-product {
 //     animation: topIn 1s ease-in;
 // }
@@ -117,7 +116,7 @@
                         display: flex;
                         font-size: 26px;
                         margin: 16px 0px;
-                        div {
+                        & > * {
                             margin-right: 8px;
                         }
                         .icon {

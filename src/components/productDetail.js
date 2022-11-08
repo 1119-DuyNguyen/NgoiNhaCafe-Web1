@@ -1,17 +1,23 @@
 //import dataToppings from '../database/topping.json' assert { type: 'json' };
 import { toast } from './toast.js';
+import { Data } from '../database/data.js';
 import {
     closeDisplay,
     openDisplay,
     btnCloseId,
     closeModal,
 } from '../library/display.js';
+var dataController = new Data();
 const detailProduct = document.getElementById('detail-product');
 const dataProduct = {};
-function initDataProduct(price, quantity = 1, size = 'medium') {
-    dataProduct.price = price;
-    dataProduct.quantity = quantity;
-    dataProduct.size = size;
+function initDataProduct(dataImg) {
+    dataProduct.title = dataImg.title;
+    dataProduct.image = dataImg.image;
+    dataProduct.price = dataImg.price;
+    dataProduct.quantity = 1;
+    dataProduct.size = 'medium';
+    dataProduct.priceTotal =
+        dataProduct.quantity * priceOption[dataProduct.size];
 }
 const priceOption = {
     small: 0,
@@ -80,11 +86,11 @@ function createRelatedHTML(dataImg = { tag: '', title: {} }, dataImgs) {
 }
 
 export function productInfo(title, dataImgs) {
-    const data = dataImgs.find((item) => item.title === title);
-    if (!data || !detailProduct) {
+    const dataImg = dataImgs.find((item) => item.title === title);
+    if (!dataImg || !detailProduct) {
         return;
     }
-    initDataProduct(data.price);
+    initDataProduct(dataImg);
     closeModal(detailProduct);
 
     openDisplay(detailProduct);
@@ -92,7 +98,7 @@ export function productInfo(title, dataImgs) {
     // const toppingHTML = createToppingHTML(data.tag);
 
     const relatedHTML = createRelatedHTML(
-        { tag: data.tag, title: data.title },
+        { tag: dataImg.tag, title: dataImg.title },
         dataImgs
     );
     const html = `                
@@ -105,17 +111,17 @@ export function productInfo(title, dataImgs) {
             <div class="product_visual">
                 <div class="product_visual_img">
                     <img
-                        src="./${data.image}"
+                        src="./${dataImg.image}"
                         alt="cà phê đá"
                     />
                 </div>
             </div>
             <div class="product_shopping">
                 <div class="info">
-                    <h2 class="h2">${data.title}</h2>
+                    <h2 class="h2">${dataImg.title}</h2>
                     <div class="info_price">
-                        <div class="price" data-price="${data.price}">${
-        data.price
+                        <div class="price" data-price="${dataImg.price}">${
+        dataImg.price
     }đ</div>
                         <div class="info-count">
                             <div class="icon minus --gray">
@@ -132,10 +138,10 @@ export function productInfo(title, dataImgs) {
                 </div>
                 <div class="product-description">
                     ${
-                        data.description
+                        dataImg.description
                             ? `<hr />
                     <p>
-                       ${data.description}
+                       ${dataImg.description}
                     </p>
                     `
                             : ''
@@ -183,15 +189,16 @@ export function productInfo(title, dataImgs) {
     </div>
     <div class="cart">
         <div class="product_shopping_cart">
-            <i class="icon-cart icon"></i>
-            <div class="h4">Thêm vào giỏ hàng</div>
+
         </div>
     </div>
 </div>`;
 
     detailProduct.innerHTML = html;
 
-    //tới sản phẩm liên quan
+    //hiện tổng giá tiền
+    priceTotalMessage();
+    //dẫn tới sản phẩm liên quan
     const liImgs = detailProduct.querySelectorAll('li[data-title]');
     liImgs.forEach((img) => {
         img.addEventListener('click', (e) => {
@@ -219,10 +226,11 @@ export function productInfo(title, dataImgs) {
             removeOptionActive(optionsSize);
             option.classList.add('--active');
             dataProduct.size = option.dataset.optionSize;
+            priceTotalMessage();
         });
     });
     //submit data
-    initSubmitProduct();
+    initSubmitProduct(dataImg);
     // close button
     btnCloseId(detailProduct);
 }
@@ -246,7 +254,8 @@ function calcQuantity(btn) {
             }
 
             textQuantity.textContent = dataProduct.quantity;
-            //          textQuantity.setAttribute('data-quantity', dataProduct.quantity);
+            //update giá
+            priceTotalMessage();
         }
     });
 }
@@ -256,7 +265,7 @@ function removeOptionActive(options) {
             option.classList.remove('--active');
     });
 }
-function initSubmitProduct() {
+function initSubmitProduct(dataImg) {
     const cart = detailProduct.querySelector('.product_shopping_cart');
     cart.addEventListener('click', () => {
         for (const data in dataProduct) {
@@ -269,7 +278,8 @@ function initSubmitProduct() {
         // closeDisplay(detailProduct);
         successMessageAddCart();
         //return data
-        console.log(dataProduct);
+        //console.log(dataProduct);
+        dataController.pushCart(dataProduct);
     });
 }
 function errorMessageNullProduct() {
@@ -287,4 +297,13 @@ function successMessageAddCart() {
         type: 'Success',
         duration: 2000,
     });
+}
+function priceTotalMessage() {
+    var shoppingCart = detailProduct.querySelector('.product_shopping_cart');
+    dataProduct.priceTotal =
+        dataProduct.price * dataProduct.quantity +
+        priceOption[dataProduct.size];
+    shoppingCart.innerHTML = ` <div class="h4">
+    <span> ${dataProduct.priceTotal}đ - Thêm vào giỏ hàng </span>
+    </div>`;
 }

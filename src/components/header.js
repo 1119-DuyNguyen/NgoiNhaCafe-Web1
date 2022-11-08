@@ -1,5 +1,5 @@
 import { openFormSearch } from './formSearch.js';
-import { openformAccount } from './accountPopup.js';
+import { openformAccount } from './formAccount.js';
 let closeBtn = document.getElementById('close-btn');
 let menuBarBackground = document.querySelector('.layout-dark');
 let menuBtn = document.getElementById('menu-btn');

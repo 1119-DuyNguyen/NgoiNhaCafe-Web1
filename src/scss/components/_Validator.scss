@@ -1,0 +1,7 @@
+.form-group.invalid input {
+    border-color: $error-color !important;
+}
+
+.form-group.invalid .form-message {
+    color: $error-color !important;
+}

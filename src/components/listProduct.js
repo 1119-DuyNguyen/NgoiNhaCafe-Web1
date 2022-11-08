@@ -1,4 +1,4 @@
-import { productInfo } from './productInfo.js';
+import { productInfo } from './productDetail.js';
 export function run(dataImgs) {
     const leftItem = document.querySelectorAll('.left-item');
     const listItem = document.querySelectorAll('.left-list .list-item');
