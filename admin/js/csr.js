@@ -258,7 +258,8 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         }
     
         s_orders.innerHTML = html;
-        //
+        
+        // Chức năng lọc
         
         document.querySelector(".admin-container[data-csr='orders'] .managerment").innerHTML += `<div class="filter">
             <p><b>Lọc đơn hàng</b></p>
@@ -629,6 +630,16 @@ function actionsAndDecisions(type = '') {
     }
 }
 
+/**
+ * Hàm đăng xuất
+ */
+function logout() {
+    document.querySelector("#logout").addEventListener('click', e => {
+        e.preventDefault();
+        window.location.href = "../";
+    })
+}
+
 function runCSR() {
 
     // Render data khi load lần đầu
@@ -637,6 +648,7 @@ function runCSR() {
     renderPaginator(numOfItemsPerPage);
     renderForm('#add-product');
     renderForm('#add-user', 2);
+    logout();
 
     // CSR Init
 
