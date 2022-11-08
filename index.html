@@ -15,17 +15,15 @@
                 <div id="header-icon" class="header__icon">
                     <div id="User-icon" class="border-square user-icon">
                         <span class="icon-user"></span>
-                        <!-- phần đăng kí đăng nhập đã bị bỏ -->
                     </div>
 
                     <div class="border-square cart-icon">
                         <span class="icon-btn-badge"></span>
-                        <a href=""></a>
+
                         <span class="icon-cart"></span>
                     </div>
 
                     <div class="border-square search-icon">
-                        <a href=""></a>
                         <span class="icon-search"></span>
                     </div>
                 </div>
@@ -33,7 +31,9 @@
                 <!-- mobile list -->
                 <div class="menu__mobile">
                     <div class="header__menu-mobile">
-                        <h3 class="header__menu-mobile-line">Ngôi nhà cafe</h3>
+                        <h3 class="header__menu-mobile-line not-flow">
+                            Ngôi nhà cafe
+                        </h3>
                         <!-- Khúc này là đợi có icon rồi thêm vô -->
                         <span
                             class="line-height-50 icon-large icon-home"
@@ -43,107 +43,114 @@
                     <div class="menu__board --disappear">
                         <div class="layout-dark"></div>
 
-                        <div class="board-body">
+                        <div class="text-hover board-body">
                             <div id="close-btn" class="close-btn-wrap">
                                 <span class="icon icon-cross"></span>
                             </div>
 
                             <ul class="text-hover board__list">
                                 <li class="board__item">
-                                    <a
-                                        class="font-family text-color"
-                                        href="#"
-                                        title=""
-                                        >Cà phê</a
-                                    >
-
-                                    <span class="icon-mug"></span>
+                                    <span
+                                        class="not-flow text-color header-btn"
+                                        style="width: 70px"
+                                        >Cà phê
+                                        <span
+                                            class="size-normal icon-mug"
+                                        ></span>
+                                    </span>
                                 </li>
 
                                 <li class="board__item">
-                                    <a
-                                        class="font-family text-color"
-                                        href="#"
-                                        title=""
-                                        >Trà</a
-                                    >
-
-                                    <span class="icon-leaf"></span>
+                                    <span
+                                        class="not-flow text-color header-btn"
+                                        style="width: 42px"
+                                        >Trà<span
+                                            class="size-normal icon-leaf"
+                                        ></span
+                                    ></span>
                                 </li>
 
-                                <li class="board__item">
-                                    <a
-                                        class="font-family text-color"
-                                        href="#"
-                                        title=""
-                                        >Thực đơn</a
-                                    >
-
-                                    <span class="icon-circle-down"></span>
+                                <li class="hover board__item">
+                                    <span
+                                        class="not-flow text-color"
+                                        style="width: 93px"
+                                        >Thực đơn<span
+                                            class="size-normal icon-circle-down"
+                                        ></span
+                                    ></span>
 
                                     <!-- Phần bên trong thực đơn -->
-                                    <div class="board__item-inside --disappear">
-                                        <ul class="board__item-all">
-                                            <li class="board__item-all-list">
-                                                <a
-                                                    class="font-family text-color"
-                                                    href="#"
-                                                    >Tất cả</a
-                                                >
-                                            </li>
+                                    <div class="header__modal --disappear">
+                                        <div class="flex-assist">
+                                            <div class="layout-white"></div>
 
-                                            <li class="board__item-all-list">
-                                                <a
-                                                    class="font-family text-color"
-                                                    href="#"
-                                                    >Cà phê</a
+                                            <div class="header__menu-modal">
+                                                <ul
+                                                    class="text-hover header__inside-menu-modal"
                                                 >
-                                            </li>
+                                                    <li
+                                                        class="header__inside-menu-item-1"
+                                                    >
+                                                        <a
+                                                            class="text-color menu-btn"
+                                                            href="#"
+                                                            >Tất cả</a
+                                                        >
+                                                    </li>
 
-                                            <li class="board__item-all-list">
-                                                <a
-                                                    class="font-family text-color"
-                                                    href="#"
-                                                    >Trà</a
-                                                >
-                                            </li>
+                                                    <li
+                                                        class="header__inside-menu-item-1"
+                                                    >
+                                                        <a
+                                                            class="text-color menu-btn"
+                                                            href="#"
+                                                            >Cà phê</a
+                                                        >
+                                                    </li>
 
-                                            <li class="board__item-all-list">
-                                                <a
-                                                    class="font-family text-color"
-                                                    href="#"
-                                                    >dfsdfds</a
-                                                >
-                                            </li>
+                                                    <li
+                                                        class="text-color header__inside-menu-item-1"
+                                                    >
+                                                        <a
+                                                            class="text-color menu-btn"
+                                                            href="#"
+                                                            >Trà</a
+                                                        >
+                                                    </li>
 
-                                            <li class="board__item-all-list">
-                                                <a
-                                                    class="font-family text-color"
-                                                    href="#"
-                                                    >fdsfdsfs</a
-                                                >
-                                            </li>
-
-                                            <li class="board__item-all-list">
-                                                <a
-                                                    class="font-family text-color"
-                                                    href="#"
-                                                    >dsfdsfs</a
-                                                >
-                                            </li>
-                                        </ul>
+                                                    <li
+                                                        class="header__inside-menu-item-1"
+                                                    >
+                                                        <a
+                                                            class="font-family text-color menu-btn"
+                                                            href="#"
+                                                            >Hi-Tea Healthy</a
+                                                        >
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </li>
 
                                 <li class="board__item">
-                                    <a
-                                        class="font-family text-color"
-                                        href="#"
-                                        title=""
-                                        >Về chúng tôi</a
-                                    >
+                                    <span
+                                        class="not-flow text-color"
+                                        style="width: 127px"
+                                        >Về chúng tôi<span
+                                            class="size-normal icon-info"
+                                        ></span
+                                    ></span>
+                                </li>
 
-                                    <span class="icon-info"></span>
+                                <li class="board__item">
+                                    <span
+                                        class="not-flow text-color"
+                                        style="width: 74px"
+                                        >Liên hệ<span
+                                            class="size-normal icon-phone"
+                                        ></span
+                                    ></span>
                                 </li>
 
                                 <div class="form__log-in-out"></div>
@@ -158,283 +165,26 @@
                         <span class="icon-large icon-menu"></span>
                     </div>
                 </div>
-
-                <!-- desktop-list -->
-                <div class="header__desktop-list">
-                    <div class="header__title">
-                        <h3 class="header-line">Ngôi nhà cafe</h3>
-                        <!-- Khúc này là đợi có icon rồi thêm vô -->
-                        <span
-                            class="line-height-50 icon-large icon-home"
-                        ></span>
-                    </div>
-
-                    <div class="text-hover header__selection">
-                        <ul class="header__selection-all">
-                            <li class="header__selection-all-item">
-                                <a class="text-color" href="#">Cà phê</a>
-
-                                <span class="size-normal icon-mug"></span>
-                            </li>
-
-                            <li class="header__selection-all-item">
-                                <a class="text-color" href="#">Trà</a>
-
-                                <span class="size-normal icon-leaf"></span>
-                            </li>
-
-                            <li class="hover header__selection-all-item">
-                                <a class="text-color" href="#">Thực đơn</a>
-
-                                <span
-                                    class="size-small icon-circle-down"
-                                ></span>
-
-                                <div class="header__modal">
-                                    <div class="flex-assist">
-                                        <div class="layout-white"></div>
-
-                                        <div class="header__menu-modal">
-                                            <ul
-                                                class="text-hover header__inside-menu-modal"
-                                            >
-                                                <li
-                                                    class="header__inside-menu-item-1"
-                                                >
-                                                    <a
-                                                        class="text-color"
-                                                        href="#"
-                                                        >Tất cả</a
-                                                    >
-                                                </li>
-
-                                                <li
-                                                    class="header__inside-menu-item-1"
-                                                >
-                                                    <a
-                                                        class="text-color"
-                                                        href="#"
-                                                        >Cà phê</a
-                                                    >
-
-                                                    <ul
-                                                        class="text-hover header__inside-menu-suggested"
-                                                    >
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="not-flow text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="not-flow text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="not-flow text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="not-flow text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-
-                                                <li
-                                                    class="text-color header__inside-menu-item-1"
-                                                >
-                                                    <a
-                                                        class="text-color"
-                                                        href="#"
-                                                        >Trà</a
-                                                    >
-
-                                                    <ul
-                                                        class="text-hover header__inside-menu-suggested"
-                                                    >
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-
-                                                <li
-                                                    class="header__inside-menu-item-1"
-                                                >
-                                                    <a
-                                                        class="font-family text-color"
-                                                        href="#"
-                                                        >Hi-Tea Healthy</a
-                                                    >
-
-                                                    <ul
-                                                        class="text-hover header__inside-menu-suggested"
-                                                    >
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="font-family text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="font-family text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="font-family text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="font-family text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="header__selection-all-item">
-                                <a class="font-family text-color" href="#"
-                                    >Về chúng tôi</a
-                                >
-                                <span class="size-normal icon-info"></span>
-                            </li>
-
-                            <li class="header__selection-all-item">
-                                <a class="font-family text-color" href="#"
-                                    >Liên hệ</a
-                                >
-                                <span class="size-normal icon-phone"></span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
             <div id="main">
-                <div class="container --hide">
-                    <div id="slider"></div>
+                <div id="home" class="container">
+                    <div style="padding-top: 100px" id="slider"></div>
                 </div>
-                <div class="container --hide">
-                    <div id="preview">
-                        <div class="p-item"></div>
-                        <div class="p-item"></div>
-                        <div class="p-item"></div>
-                        <div class="p-item"></div>
-                    </div>
-                    <div id="preview_mobile">
-                        <div class="p-item"></div>
-                        <div class="p-item"></div>
-                        <div class="p-item"></div>
-                        <div class="p-item"></div>
-                    </div>
-                    <div id="sidebar">
-                        <ul style="margin-top: 0">
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
-                    </div>
-                    <div id="sidebar_mobile">
-                        <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
-                    </div>
-                </div>
+
                 <!-- chi tiet san pham render trang chu -->
-                <div class="home-product --hide">
+                <div id="home-product" class="home-product">
+                    <h2
+                        style="
+                            margin: 30px 0px;
+                            padding-left: 25px;
+                            font-weight: 700;
+                        "
+                    >
+                        Thử ngay các món truyền thống!
+                    </h2>
                     <div class="image-container"></div>
                 </div>
+
                 <div id="user-login" class="modal --hide">
                     <div class="container">
                         <div class="content">
@@ -588,98 +338,9 @@
                     </div>
                 </div>
                 <!-- danh muc san pham -->
-                <div class="product-container">
-                    <div class="left-list">
-                        <ul class="left-container">
-                            <li class="all-product mobile-top">
-                                <p class="left-item active">
-                                    Tất cả
-                                    <span class="icon-circle-down"></span>
-                                </p>
-                            </li>
-                            <li class="list-item coffee-product mobile-mid">
-                                <p class="left-item left-cfvn">Cà Phê</p>
-                                <ul class="list-lv2">
-                                    <li class="left-item left-cfvn">
-                                        <p>Cà Phê Việt Nam</p>
-                                    </li>
-                                    <li class="left-item left-cfMay">
-                                        <p>Cà Phê Máy</p>
-                                    </li>
-                                    <li class="left-item left-cold-brew">
-                                        <p>Cold Brew</p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="list-item tea-product mobile-mid">
-                                <p class="left-item left-tra-trai-cay">Trà</p>
-                                <ul class="list-lv2">
-                                    <li class="left-item left-tra-trai-cay">
-                                        <p>Trà Trái Cây</p>
-                                    </li>
-                                    <li
-                                        class="left-item left-tra-sua-macchiato"
-                                    >
-                                        <p>Trà Sữa Macchiato</p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="list-item hitea-product mobile-mid">
-                                <p class="left-item left-hi-tea-tra">
-                                    Hi-Tea Healthy
-                                </p>
-                                <ul class="list-lv2">
-                                    <li class="left-item left-hi-tea-tra">
-                                        <p>Hi-Tea Trà</p>
-                                    </li>
-                                    <li class="left-item left-hi-tea-da-tuyet">
-                                        <p>Hi-Tea Đá Tuyết</p>
-                                    </li>
-                                    <li
-                                        class="left-item left-hi-tea-bling-bling"
-                                    >
-                                        <p>Hi-Tea Bling Bling</p>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-
+                <div id="product-container" class="product-container">
                     <div class="show-product">
-                        <div class="image-container-LP">
-                            <div id="cfvn" class="cf-container">
-                                <t>Cà phê Việt Nam</t>
-                                <div class="cfvn-txt"></div>
-                            </div>
-                            <div id="cfMay" class="cf-container">
-                                <t>Cà phê Máy</t>
-                                <div class="cfMay-txt"></div>
-                            </div>
-                            <div id="cold-brew" class="cf-container">
-                                <t>Cold Brew</t>
-                                <div class="cold-brew-txt"></div>
-                            </div>
-                            <div id="tra-trai-cay" class="cf-container">
-                                <t>Trà Trái Cây</t>
-                                <div class="tra-trai-cay-txt"></div>
-                            </div>
-                            <div id="tra-sua-macchiato" class="cf-container">
-                                <t>Trà Sữa Macchiato</t>
-                                <div class="tra-sua-macchiato-txt"></div>
-                            </div>
-                            <div id="hi-tea-tra" class="cf-container">
-                                <t>Hi-Tea Trà</t>
-                                <div class="hi-tea-tra-txt"></div>
-                            </div>
-                            <div id="hi-tea-da-tuyet" class="cf-container">
-                                <t>Hi-Tea Đá Tuyết</t>
-                                <div class="hi-tea-da-tuyet-txt"></div>
-                            </div>
-                            <div id="hi-tea-bling-bling" class="cf-container">
-                                <t>Hi-Tea Bling Bling</t>
-                                <div class="hi-tea-bling-bling-txt"></div>
-                            </div>
-                        </div>
+                        <div class="image-container-LP"></div>
                     </div>
                 </div>
                 <!-- search san pham -->
