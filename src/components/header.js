@@ -1,5 +1,5 @@
 import { openFormSearch } from './formSearch.js';
-
+import { openformAccount } from './formAccount.js';
 let closeBtn = document.getElementById('close-btn');
 let menuBarBackground = document.querySelector('.layout-dark');
 let menuBtn = document.getElementById('menu-btn');
@@ -8,8 +8,20 @@ let menuList = document.querySelectorAll('.board__item');
 let userIcon = document.getElementById('User-icon');
 let crossBtnPC = document.getElementById('cross-btn');
 const searchIcon = document.querySelector('#header .search-icon');
-
+let menuInner = document.getElementsByClassName('board__item')[2];
+// console.log(typeof menuInner);
 export const run = function (dataImgs) {
+    if (menuInner) {
+        menuInner.addEventListener('click', (e) => {
+            let headerModal = document.querySelector('.header__modal');
+            console.log(headerModal);
+            if (headerModal.classList.contains('--disappear'))
+                headerModal.classList.remove('--disappear');
+            else {
+                headerModal.classList.add('--disappear');
+            }
+        });
+    }
     //close-btn
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
@@ -59,20 +71,18 @@ export const run = function (dataImgs) {
 
     if (userIcon) {
         userIcon.addEventListener('click', () => {
-            let formChange = document.querySelector('.form-change-dir');
-            if (formChange.classList.contains('--disappear'))
-                formChange.classList.remove('--disappear');
-            else formChange.classList.add('--disappear');
+            openformAccount(dataImgs);
         });
     }
 
     if (crossBtnPC) {
         crossBtnPC.addEventListener('click', () => {
-            console.log(123);
             let formChange = document.querySelector('.form-change-dir');
             if (formChange.classList.contains('--disappear'))
                 formChange.classList.remove('--disappear');
-            else formChange.classList.add('--disappear');
+            else {
+                formChange.classList.add('--disappear');
+            }
         });
     }
     if (searchIcon) {

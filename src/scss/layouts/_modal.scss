@@ -1,11 +1,9 @@
 //đây là những class chung dùng cho popup
-@import './variables';
-.--bold {
-    font-weight: 700 !important;
+
+.--hide {
+    display: none !important;
 }
-.--fade-in {
-    animation: fadeIn 2s ease-in;
-}
+
 .modal {
     z-index: 20;
     position: fixed;
@@ -16,6 +14,7 @@
     right: 0;
     bottom: 0;
     padding: 0 16px;
+
     .container {
         border-radius: 10px;
         position: relative;
@@ -33,11 +32,11 @@
                 z-index: 21;
                 position: absolute;
                 top: 0;
-                left: 16px;
+                right: 16px;
                 color: #000;
                 height: auto;
                 .icon {
-                    font-size: calc(0.5vw + 1em);
+                    font-size: calc(0.25vw + 0.5em);
                     cursor: pointer;
                     display: inline-block;
                     line-height: 48px;
@@ -49,9 +48,10 @@
                 }
             }
             .title {
-                height: 46px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 width: 100%;
-                line-height: 46px;
                 position: relative;
                 @include productTitle();
                 text-align: center;
@@ -60,28 +60,37 @@
                 padding: 0 16px;
                 margin: 32px 0;
                 .product-related_title {
-                    @include productTitle();
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #000;
+                    margin-bottom: 16px;
+                    padding-bottom: 16px;
                 }
                 .option_selections {
                     @include optionContainer();
 
                     width: 100%;
                     display: inline-block;
-
+                    //clear fix
+                    &::after {
+                        //mặc định after là inline-block
+                        display: block;
+                        content: '';
+                        clear: both;
+                    }
                     .option_selections_item {
                         position: relative;
                         font-size: calc(0.625em + 0.5vw);
-                        display: inline-block;
+                        float: left;
                         cursor: pointer;
-                        // margin-right: 16px;
+                        // margin-right: 32px;
                         // margin-bottom: 32px;
                         // margin-top: 16px;
-                        margin: 16px 16px 32px 0;
-                        box-shadow: 0px 0px 8px 4px #00000040;
+                        margin: 16px 32px 32px 0;
+                        box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.2);
                         height: auto;
                         padding: 4px 4px 4px 0;
-
-                        /*16 margin right con */
+                        /*32/2 margin right con */
                         width: calc(50% - 16px);
                         & > * {
                             display: inline-block;

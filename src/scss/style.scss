@@ -1,11 +1,21 @@
-@use 'app';
-@use './header/header';
-@use 'slider';
-@use 'toast';
-//popup
-@use './modalPopUp/modal';
-@use './modalPopUp/formSearch';
-@use './modalPopUp/productInfo';
-@use 'listProduct';
-@use 'homeProduct';
-@use 'footer';
+// tổ chức lại thư mục
+@import './abstracts/variables';
+@import './abstracts/functions';
+@import './abstracts/_mixins';
+@import './base/normalize';
+@import './base/fonts';
+@import './base/animation';
+@import './layouts/header/header';
+@import './layouts/footer';
+@import './layouts/modal';
+@import './components/toast';
+@import './components/productInfo';
+@import './components/formAccount';
+@import './components/formSearch';
+@import './components/slider';
+@import './components/Validator';
+@import './pages/home';
+@import './pages/lists';
+@import './pages/order';
+@import './pages/about';
+@import './pages/contact';
