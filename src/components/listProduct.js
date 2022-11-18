@@ -1,37 +1,41 @@
 import { productInfo } from './productDetail.js';
-import * as display from '../library/display.js';
+import { Data } from '../database/data.js';
+const parentTag = {
+    Cafe: ['Cà Phê Việt Nam', 'Cà Phê Máy', 'Cold Brew'],
+    Tra: ['Trà trái cây', 'Trà sữa Macchiato'],
+    HiTea: ['Hi-Tea Trà', 'Hi-Tea Đá Tuyết', 'Hi-Tea Bling Bling'],
+};
+function switchTranslate(data) {
+    switch (data) {
+        case 'Tra':
+            return 'Trà';
+            break;
+        case 'HiTea':
+            return 'Hi-Tea';
+            break;
+        case 'Cafe':
+            return 'Cà Phê';
+            break;
+    }
+}
+function switchTranslate2(data) {
+    switch (data) {
+        case 'Tra':
+            return 'tra';
+            break;
+        case 'HiTea':
+            return 'hitea';
+            break;
+        case 'Cafe':
+            return 'cafe';
+            break;
+    }
+}
+const imageContainer = document.querySelector('.image-container-LP');
+const leftItem = document.querySelectorAll('.left-item');
+const data = new Data();
+const dataImgs = data.getDataImgs();
 export function run(dataImgs) {
-    const parentTag = {
-        Cafe: ['Cà Phê Việt Nam', 'Cà Phê Máy', 'Cold Brew'],
-        Tra: ['Trà trái cây', 'Trà sữa Macchiato'],
-        HiTea: ['Hi-Tea Trà', 'Hi-Tea Đá Tuyết', 'Hi-Tea Bling Bling'],
-    };
-    function switchTranslate(data) {
-        switch (data) {
-            case 'Tra':
-                return 'Trà';
-                break;
-            case 'HiTea':
-                return 'Hi-Tea';
-                break;
-            case 'Cafe':
-                return 'Cà Phê';
-                break;
-        }
-    }
-    function switchTranslate2(data) {
-        switch (data) {
-            case 'Tra':
-                return 'tra';
-                break;
-            case 'HiTea':
-                return 'hitea';
-                break;
-            case 'Cafe':
-                return 'cafe';
-                break;
-        }
-    }
     // const leftContainer = document.querySelector('.left-container');
     // function list() {
     //     let html = '';
@@ -50,59 +54,56 @@ export function run(dataImgs) {
     //     leftContainer.innerHTML = html;
     // }
     // list();
-    const leftItem = document.querySelectorAll('.left-item');
-    const imageContainer = document.querySelector('.image-container-LP');
-
     //xử lý active
+    // if (leftItem) {
+    //     leftItem.forEach(function (item) {
+    //         if (screen.width > 849) {
+    //             item.addEventListener('click', function (e) {
+    //                 item.classList.add('active');
+    //                 if (item.nextElementSibling) {
+    //                     item.nextElementSibling.style = 'display:block;';
+    //                 }
+    //             });
+    //         } else {
+    //             item.addEventListener('click', function (e) {
+    //                 item.classList.add('active');
+    //                 if (item.nextElementSibling) {
+    //                     item.nextElementSibling.style = 'display:none;';
+    //                 }
+    //             });
+    //         }
+    //     });
+    // }
+}
 
-    if (leftItem) {
-        leftItem.forEach(function (item) {
-            if (screen.width > 849) {
-                item.addEventListener('click', function (e) {
-                    item.classList.add('active');
-                    if (item.nextElementSibling) {
-                        item.nextElementSibling.style = 'display:block;';
-                    }
-                });
-            } else {
-                item.addEventListener('click', function (e) {
-                    item.classList.add('active');
-                    if (item.nextElementSibling) {
-                        item.nextElementSibling.style = 'display:none;';
-                    }
-                });
-            }
-        });
-    }
-
-    //render danh mục sản phẩm
-    function rightTag(data) {
-        for (let i in parentTag) {
-            for (let key of parentTag[i]) {
-                if (data == key) {
-                    return switchTranslate2(i);
-                }
+//render danh mục sản phẩm
+function rightTag(data) {
+    for (let i in parentTag) {
+        for (let key of parentTag[i]) {
+            if (data == key) {
+                return switchTranslate2(i);
             }
         }
-        return false;
     }
+    return false;
+}
 
-    function showProduct() {
-        let showProductHtml = '';
-        let currentTag = '';
-        let count = 0;
-        for (let element of dataImgs) {
-            const pTag = rightTag(element.tag);
-            if (pTag) {
-                if (!(currentTag === element.tag)) {
-                    if (count > 0) showProductHtml += `</div>`;
-                    currentTag = element.tag;
-                    showProductHtml += `<div class="cf-container ${pTag}">
+function showProduct() {
+    let showProductHtml = '';
+    let currentTag = '';
+    let count = 0;
+    for (let element of dataImgs) {
+        const pTag = rightTag(element.tag);
+        if (pTag) {
+            if (!(currentTag === element.tag)) {
+                if (count > 0) showProductHtml += `</div>`;
+                currentTag = element.tag;
+                showProductHtml += `<div class="cf-container ${pTag}">
                     <t>${element.tag}</t>
                 `;
-                    ++count;
-                }
-                showProductHtml += `
+                ++count;
+            }
+            showProductHtml += `
             <div class="image-item" id="${element.id}">
                 <div class="image-pack">
                     <img
@@ -119,66 +120,32 @@ export function run(dataImgs) {
                         <span class="icon-plus"></span>
                 </div>
             </div>`;
-            }
         }
-        showProductHtml += '</div>';
-        imageContainer.innerHTML = showProductHtml;
     }
+    showProductHtml += '</div>';
+    imageContainer.innerHTML = showProductHtml;
+}
 
-    //render product info
+//render product info
 
-    function renderProductInfo() {
-        const productList = document.querySelectorAll('.image-item');
+function renderProductInfo() {
+    const productList = document.querySelectorAll('.image-item');
 
-        productList.forEach(function (product) {
-            product.addEventListener('click', function () {
-                const dataID = product.id;
-                productInfo(dataImgs[dataID - 1].title, dataImgs);
-            });
+    productList.forEach(function (product) {
+        product.addEventListener('click', function () {
+            const dataID = product.id;
+            productInfo(dataImgs[dataID - 1].title, dataImgs);
         });
-    }
-
-    //header on click
+    });
+}
+const menuList = ['tatca', 'cafe', 'tra', 'hitea'];
+export function callMenu(index) {
+    showProduct();
     const cfContainer = document.querySelectorAll('.cf-container');
-
-    const headerBtn = document.querySelectorAll('.header-btn');
-    const menuBtn = document.querySelectorAll('.menu-btn');
-    const menuList = ['tatca', 'cafe', 'tra', 'hitea'];
-
-    function callMenu(index) {
-        showProduct();
-        const cfContainer = document.querySelectorAll('.cf-container');
-        cfContainer.forEach(function (item) {
-            if (!item.classList.contains(menuList[index])) {
-                item.classList.add('--hide');
-            }
-        });
-        renderProductInfo();
-    }
-
-    headerBtn.forEach(function (element, index) {
-        element.addEventListener('click', function () {
-            callMenu(index + 1);
-            display.openDisplay(document.querySelector('#product-container'));
-            display.closeDisplay(document.querySelector('#home'));
-            display.closeDisplay(document.querySelector('#home-product'));
-        });
+    cfContainer.forEach(function (item) {
+        if (!item.classList.contains(menuList[index])) {
+            item.classList.add('--hide');
+        }
     });
-
-    menuBtn[0].addEventListener('click', function (e) {
-        showProduct();
-        renderProductInfo();
-    });
-    menuBtn.forEach(function (element, index) {
-        element.addEventListener('click', function () {
-            if (index != 0) {
-                display.openDisplay(
-                    document.querySelector('#product-container')
-                );
-                callMenu(index);
-            }
-            display.closeDisplay(document.querySelector('#home'));
-            display.closeDisplay(document.querySelector('#home-product'));
-        });
-    });
+    renderProductInfo();
 }

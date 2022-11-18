@@ -5,6 +5,8 @@ import {
     closeModal,
     toggleDisplay,
 } from '../library/display.js';
+
+var orderPage = document.getElementById('order-page');
 export function init(dataImgs) {
     // // viết phần js thêm/ giảm món hàng
     //phần để cho trang HTML chạy trước rồi sau đó JS mới chạy
@@ -31,9 +33,7 @@ export function init(dataImgs) {
             .addEventListener('click', purchasedCLicked1);
 
         //viết hàm bật tắt trang order
-        document
-            .getElementsByClassName('cart-icon')[0]
-            .addEventListener('click', openOrderPage);
+
         updateTotalPrices();
     }
     //viết hàm click mua hàng(xóa hết items trong cart và cập nhật lại giá) có thông báo
@@ -162,7 +162,6 @@ export function init(dataImgs) {
     }
 
     function openOrderPage() {
-        var orderPage = document.getElementById('order-page');
         // console.log(orderPage);
         toggleDisplay(orderPage);
     }
