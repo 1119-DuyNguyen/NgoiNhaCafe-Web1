@@ -141,11 +141,13 @@ function renderProductInfo() {
 const menuList = ['tatca', 'cafe', 'tra', 'hitea'];
 export function callMenu(index) {
     showProduct();
-    const cfContainer = document.querySelectorAll('.cf-container');
-    cfContainer.forEach(function (item) {
-        if (!item.classList.contains(menuList[index])) {
-            item.classList.add('--hide');
-        }
-    });
+    if (index != 0) {
+        const cfContainer = document.querySelectorAll('.cf-container');
+        cfContainer.forEach(function (item) {
+            if (!item.classList.contains(menuList[index])) {
+                item.classList.add('--hide');
+            }
+        });
+    }
     renderProductInfo();
 }

@@ -13,10 +13,11 @@ import * as display from './library/display.js';
 //display.closeDisplay(document.getElementById('user-page'));
 var data = new Data();
 data.initData();
-order.init(data.getDataImgs());
+order.init(data.getDataCart());
+//order.init(data.getDataImgs());
 header.run(data.getDataImgs());
 slider.onLoad();
 homeProduct.run(data.getDataImgs());
 
 //-----------dành cho trang admin
-display.closeDisplay(document.getElementById('admin-page'));
+//display.closeDisplay(document.getElementById('admin-page'));

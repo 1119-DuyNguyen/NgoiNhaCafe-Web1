@@ -14,8 +14,8 @@ let menuList = document.querySelectorAll('.board__item');
 
 //popup icon
 let userIcon = document.getElementById('User-icon');
-const searchIcon = document.querySelector('#header .search-icon');
-let cartIcon = document.querySelector('#header .cart-icon');
+const searchIcon = document.querySelector('#header-icon .search-icon');
+let cartIcon = document.querySelector('#header-icon .cart-icon');
 
 //header button
 const home = document.querySelector('#home');
@@ -130,17 +130,11 @@ function menuProductList() {
         });
     });
 
-    menuBtn[0].addEventListener('click', function (e) {
-        showProduct();
-        renderProductInfo();
-    });
     menuBtn.forEach(function (element, index) {
         element.addEventListener('click', function () {
             closeAllPage();
-            if (index != 0) {
-                openDisplay(productContainer);
-                callMenu(index);
-            }
+            openDisplay(productContainer);
+            callMenu(index);
         });
     });
 }

@@ -20,24 +20,23 @@ export function init(dataImgs) {
         //thêm items vô giỏ hàng( gồm hàm xóa( bên trong xóa có cập nhật giá))
         addItemsToCart();
         //cập nhật lại giá
-        updateTotalPrices();
+        //  updateTotalPrices();
         // hàm tăng số lượng sản phẩm
-        quantity();
+        // quantity();
         //hàm click mua hàng
         document
             .getElementsByClassName('btn-all-deleted')[0]
-            .addEventListener('click', purchasedCLicked2);
+            .addEventListener('click', deleteBtnCarts);
         //hàm xóa tất cả đơn hàng
         document
             .getElementsByClassName('btn-purchased')[0]
-            .addEventListener('click', purchasedCLicked1);
+            .addEventListener('click', purchasedBtnCart);
 
         //viết hàm bật tắt trang order
-
-        updateTotalPrices();
+        // updateTotalPrices();
     }
     //viết hàm click mua hàng(xóa hết items trong cart và cập nhật lại giá) có thông báo
-    function purchasedCLicked1() {
+    function purchasedBtnCart() {
         var cartList =
             document.getElementsByClassName('cart-table')[0].children[0];
         // console.log(cartList);
@@ -53,15 +52,18 @@ export function init(dataImgs) {
     }
 
     //viết hàm click xóa all(xóa hết items trong cart và cập nhật lại giá)
-    function purchasedCLicked2() {
+    function deleteBtnCarts() {
         var cartList =
             document.getElementsByClassName('cart-table')[0].children[0];
         // console.log(cartList);
+
         if (cartList.childElementCount > 1) {
-            while (!(cartList.childElementCount == 1)) {
-                cartList.removeChild(cartList.lastChild);
+            if (confirm('Bạn có chắc chắn muốn xóa tất cả đơn hàng?')) {
+                while (!(cartList.childElementCount == 1)) {
+                    cartList.removeChild(cartList.lastChild);
+                }
+                updateTotalPrices();
             }
-            updateTotalPrices();
         } else {
             alert('Không có sản phẩm nào trong giỏ hàng');
         }
@@ -72,6 +74,7 @@ export function init(dataImgs) {
         var cartItemContainer =
             document.getElementsByClassName('cart-table')[0];
         var cartRows = cartItemContainer.children[0].children;
+        console.log(cartRows);
         var total = 0;
         var eachTotal;
         //tổng tất cả những sản phẩm
@@ -81,7 +84,7 @@ export function init(dataImgs) {
             var priceElement = cartRow.querySelectorAll('.cart-price')[0];
             // console.log(priceElement);
             var quantityElement =
-                cartRow.getElementsByClassName('info-count_num')[0];
+                cartRow.getElementsByClassName('info-count_num');
 
             var price = parseFloat(priceElement.innerText.replace('$', ''));
             // console.log(price);
@@ -96,8 +99,8 @@ export function init(dataImgs) {
         }
         // console.log(total);
         total = Math.round(total * 100) / 100;
-        document.getElementsByClassName('cart-total-price')[0].innerText =
-            '$' + total;
+        // document.getElementsByClassName('cart-total-price')[0].innerText =
+        //     '$' + total;
     }
 
     //tự viết hàm dấu cộng
@@ -160,57 +163,50 @@ export function init(dataImgs) {
             });
         }
     }
-
-    function openOrderPage() {
-        // console.log(orderPage);
-        toggleDisplay(orderPage);
-    }
-
     //hàm csr in sản phẩm
     function addItemsToCart() {
         var cartTable =
             //từ thẻ có table lấy tbody
-            document.getElementsByClassName('cart-table')[0].children[0];
+            document.querySelector('.cart-table tbody');
         // console.log(cartTable);
-        let html = `
-        <th></th>
-        <th>Sản phẩm</th>
-        <th>Kích cỡ</th>
-        <th>Giá</th>
-        <th>Số lượng</th>
-        <th>Tổng</th>
-        <th></th>
-        `;
-        dataImgs.forEach((elem) => {
-            html += `<tr>
-            <td>
-                <img src="${elem.image}" alt="" />
-            </td>
-            <td>
-                <div>${elem.title}</div>
-            </td>
-            <td class="cart-size">size</td>
+        let html = '';
+        if (dataImgs) {
+            dataImgs.forEach((elem, i) => {
+                html += `<tr>
+                <td>
+                <input type="checkbox" value="${i}" class="checkbox" data-type=""/>
+                </td>
+                <td>
+                    <img src="${elem.image}" alt="" />
+                </td>
+                <td>
+                    <div>${elem.title}</div>
+                </td>
+                <td class="cart-size">${upperFirstLetter(
+                    elem.dataOption.size
+                )}</td>
+    
+                <td class="cart-price">${elem.price}${elem.currency}</td>
+    
+                <td class="one-row">
 
-            <td class="cart-price">${elem.price}${elem.currency}</td>
-
-            <td>
-                <button class="icon plus">
-                    <i class="icon-plus"></i>
-                </button>
-
-                <div class="info-count_num">1</div>
-
-                <button class="icon minus --gray">
+                    <button class="icon minus --gray">
                     <i class="icon-minus "></i>
                 </button>
-            </td>
+                    <div class="info-count_num">1</div>
+                    <button class="icon plus">
+                    <i class="icon-plus"></i>
+                </button>
+ 
+                </td>
 
-            <td></td>
-            <td>
-                <button class="deleted-btn">x</button>
-            </td>
-        </tr>`;
-        });
+                <td>
+                    <button class="deleted-btn">x</button>
+                </td>
+            </tr>`;
+            });
+        }
+
         cartTable.innerHTML = html;
         // console.log(html);
         // console.log(cartTable);
@@ -229,4 +225,11 @@ export function init(dataImgs) {
             });
         }
     }
+}
+function upperFirstLetter(string) {
+    if (!string || typeof string !== 'string') {
+        return 'undefined';
+    }
+    string = string.toLowerCase();
+    return string.charAt(0).toUpperCase() + string.substring(1);
 }
