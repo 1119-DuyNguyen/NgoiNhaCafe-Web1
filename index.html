@@ -188,20 +188,20 @@
                 <div class="order-board-1">
                     <table class="cart-table">
                         <thead>
-                            <th>
-                                <input
-                                    type="checkbox"
-                                    value="all"
-                                    class="checkbox"
-                                    data-type=""
-                                />
-                            </th>
-                            <th>Sản phẩm</th>
-                            <th>Kích cỡ</th>
-                            <th>Giá</th>
-                            <th>Số lượng</th>
-                            <th>Tổng</th>
-                            <th></th>
+                            <tr>
+                                <th>
+                                    <input
+                                        type="checkbox"
+                                        value="all"
+                                        class="checkbox"
+                                    />
+                                </th>
+                                <th style="width: 78px"></th>
+                                <th>Sản phẩm</th>
+                                <th>Kích cỡ</th>
+                                <th>Số lượng</th>
+                                <th>Giá</th>
+                            </tr>
                         </thead>
                         <tbody>
                             <tr>
@@ -248,7 +248,9 @@
                     >
                 </div>
                 <div class="btn-handle">
-                    <button class="btn-diff btn-all-deleted">Xóa tất cả</button>
+                    <button class="btn-diff btn-deleted" data-count="0">
+                        Xóa (0)
+                    </button>
                     <button class="btn-diff btn-purchased">Thanh toán</button>
                 </div>
                 <!-- <div class="order-board-2">

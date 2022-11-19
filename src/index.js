@@ -13,7 +13,7 @@ import * as display from './library/display.js';
 //display.closeDisplay(document.getElementById('user-page'));
 var data = new Data();
 data.initData();
-order.init(data.getDataCart());
+order.openCartPage(data.getDataCart());
 //order.init(data.getDataImgs());
 header.run(data.getDataImgs());
 slider.onLoad();
