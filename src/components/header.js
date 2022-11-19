@@ -7,6 +7,7 @@ import {
 } from '../library/display.js';
 import { callMenu } from './listProduct.js';
 import { Data } from '../database/data.js';
+import { openCartPage } from './order.js';
 
 var data = new Data();
 
@@ -107,6 +108,7 @@ export const run = function (dataImgs) {
         cartIcon.addEventListener('click', () => {
             closeAllPage();
             openDisplay(orderPage);
+            openCartPage();
         });
     }
     if (data.getCurrentUser()) {
