@@ -1,21 +1,25 @@
 import { openFormSearch } from './formSearch.js';
-import { openformAccount } from './formAccount.js';
+import { openformAccount, logoutAccount } from './formAccount.js';
 import {
     closeDisplay,
     openDisplay,
     toggleDisplay,
 } from '../library/display.js';
 import { callMenu } from './listProduct.js';
+import { Data } from '../database/data.js';
+
+var data = new Data();
 
 let closeBtn = document.getElementById('close-btn');
 let menuBarBackground = document.querySelector('.layout-dark');
 let menuBtn = document.getElementById('menu-btn');
 let menuList = document.querySelectorAll('.board__item');
 
-//popup icon
-let userIcon = document.getElementById('User-icon');
+// icon
+const userIcon = document.getElementById('User-icon');
+const logoutIcon = document.getElementById('user-icon-logout');
 const searchIcon = document.querySelector('#header-icon .search-icon');
-let cartIcon = document.querySelector('#header-icon .cart-icon');
+const cartIcon = document.querySelector('#header-icon .cart-icon');
 
 //header button
 const home = document.querySelector('#home');
@@ -93,11 +97,6 @@ export const run = function (dataImgs) {
     }
     //modal popup icon
 
-    if (userIcon) {
-        userIcon.addEventListener('click', () => {
-            openformAccount(dataImgs);
-        });
-    }
     if (searchIcon) {
         searchIcon.addEventListener('click', (e) => {
             e.preventDefault();
@@ -108,6 +107,26 @@ export const run = function (dataImgs) {
         cartIcon.addEventListener('click', () => {
             closeAllPage();
             openDisplay(orderPage);
+        });
+    }
+    if (data.getCurrentUser()) {
+        closeDisplay(userIcon);
+        openDisplay(logoutIcon);
+    } else {
+        closeDisplay(logoutIcon);
+        openDisplay(userIcon);
+    }
+    if (userIcon) {
+        userIcon.addEventListener('click', () => {
+            openformAccount(dataImgs);
+        });
+    }
+    if (logoutIcon) {
+        logoutIcon.addEventListener('click', () => {
+            if (confirm('Bạn có muốn đăng xuất')) {
+                logoutAccount();
+                location.reload();
+            }
         });
     }
     menuProductList();
