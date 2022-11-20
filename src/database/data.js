@@ -106,13 +106,13 @@ totalprice : 5700000
     */
     this.pushBill = function (bill) {
         if (!bill) return;
-        var bills = _this.getDataBill();
 
-        if (!Array.isArray(bill)) bills = [];
+        var bills = _this.getDataBill();
+        if (!Array.isArray(bills)) bills = [];
+
         bill.status = 'Đang xử lý';
         bill.dateCreate = formatDateDDMMYYYY(new Date());
         bill.customer = _this.getCurrentUser();
-        console.log(bill);
         bills.push(bill);
         _this.setDataBill(bills);
     };

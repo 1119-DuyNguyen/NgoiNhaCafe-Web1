@@ -40,6 +40,7 @@ function resetDefaultSelectAll() {
         var btnSelectAll = checkboxBtns[0];
         btnSelectAll.click();
     } else {
+        var btnSelectAll = checkboxBtns[0];
         btnSelectAll.checked = false;
     }
 }
