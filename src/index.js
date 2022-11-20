@@ -7,6 +7,7 @@ import { toast } from './components/toast.js';
 import * as order from './components/order.js';
 import { productInfo } from './components/productDetail.js';
 import * as display from './library/display.js';
+import * as footer from './components/footer.js';
 //------------dành cho trang user
 
 //---- comment dòng display sẽ hiện trang để làm việc
@@ -18,6 +19,6 @@ order.init(data.getDataCart());
 header.run(data.getDataImgs());
 slider.onLoad();
 homeProduct.run(data.getDataImgs());
-
+footer.run();
 //-----------dành cho trang admin
 //display.closeDisplay(document.getElementById('admin-page'));
