@@ -10,187 +10,56 @@
         <link rel="stylesheet" href="./public/css/style.css" />
     </head>
     <body>
-        <div id="user-page">
-            <div id="header">
-                <div id="header-icon" class="header__icon">
-                    <div id="User-icon" class="border-square user-icon">
-                        <span class="icon-user"></span>
-                        <!-- phần đăng kí đăng nhập đã bị bỏ -->
-                    </div>
-
-                    <div class="border-square cart-icon">
-                        <span class="icon-btn-badge"></span>
-                        <a href=""></a>
-                        <span class="icon-cart"></span>
-                    </div>
-
-                    <div class="border-square search-icon">
-                        <a href=""></a>
-                        <span class="icon-search"></span>
-                    </div>
+        <div id="header">
+            <!-- mobile list -->
+            <div class="menu__mobile">
+                <div class="header__menu-mobile">
+                    <h3 class="header__menu-mobile-line not-flow">
+                        Ngôi nhà cafe
+                    </h3>
+                    <!-- Khúc này là đợi có icon rồi thêm vô -->
+                    <span class="line-height-50 icon-large icon-home"></span>
                 </div>
 
-                <!-- mobile list -->
-                <div class="menu__mobile">
-                    <div class="header__menu-mobile">
-                        <h3 class="header__menu-mobile-line">Ngôi nhà cafe</h3>
-                        <!-- Khúc này là đợi có icon rồi thêm vô -->
-                        <span
-                            class="line-height-50 icon-large icon-home"
-                        ></span>
-                    </div>
+                <div class="menu__board --disappear">
+                    <div class="layout-dark"></div>
 
-                    <div class="menu__board --disappear">
-                        <div class="layout-dark"></div>
-
-                        <div class="board-body">
-                            <div id="close-btn" class="close-btn-wrap">
-                                <span class="icon icon-cross"></span>
-                            </div>
-
-                            <ul class="text-hover board__list">
-                                <li class="board__item">
-                                    <a
-                                        class="font-family text-color"
-                                        href="#"
-                                        title=""
-                                        >Cà phê</a
-                                    >
-
-                                    <span class="icon-mug"></span>
-                                </li>
-
-                                <li class="board__item">
-                                    <a
-                                        class="font-family text-color"
-                                        href="#"
-                                        title=""
-                                        >Trà</a
-                                    >
-
-                                    <span class="icon-leaf"></span>
-                                </li>
-
-                                <li class="board__item">
-                                    <a
-                                        class="font-family text-color"
-                                        href="#"
-                                        title=""
-                                        >Thực đơn</a
-                                    >
-
-                                    <span class="icon-circle-down"></span>
-
-                                    <!-- Phần bên trong thực đơn -->
-                                    <div class="board__item-inside --disappear">
-                                        <ul class="board__item-all">
-                                            <li class="board__item-all-list">
-                                                <a
-                                                    class="font-family text-color"
-                                                    href="#"
-                                                    >Tất cả</a
-                                                >
-                                            </li>
-
-                                            <li class="board__item-all-list">
-                                                <a
-                                                    class="font-family text-color"
-                                                    href="#"
-                                                    >Cà phê</a
-                                                >
-                                            </li>
-
-                                            <li class="board__item-all-list">
-                                                <a
-                                                    class="font-family text-color"
-                                                    href="#"
-                                                    >Trà</a
-                                                >
-                                            </li>
-
-                                            <li class="board__item-all-list">
-                                                <a
-                                                    class="font-family text-color"
-                                                    href="#"
-                                                    >dfsdfds</a
-                                                >
-                                            </li>
-
-                                            <li class="board__item-all-list">
-                                                <a
-                                                    class="font-family text-color"
-                                                    href="#"
-                                                    >fdsfdsfs</a
-                                                >
-                                            </li>
-
-                                            <li class="board__item-all-list">
-                                                <a
-                                                    class="font-family text-color"
-                                                    href="#"
-                                                    >dsfdsfs</a
-                                                >
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li class="board__item">
-                                    <a
-                                        class="font-family text-color"
-                                        href="#"
-                                        title=""
-                                        >Về chúng tôi</a
-                                    >
-
-                                    <span class="icon-info"></span>
-                                </li>
-
-                                <div class="form__log-in-out"></div>
-                            </ul>
+                    <div class="text-hover board-body">
+                        <div id="close-btn" class="close-btn-wrap">
+                            <span class="icon icon-cross"></span>
                         </div>
-                    </div>
 
-                    <div
-                        id="menu-btn"
-                        class="line-height-50 header__icon-menu-btn"
-                    >
-                        <span class="icon-large icon-menu"></span>
-                    </div>
-                </div>
-
-                <!-- desktop-list -->
-                <div class="header__desktop-list">
-                    <div class="header__title">
-                        <h3 class="header-line">Ngôi nhà cafe</h3>
-                        <!-- Khúc này là đợi có icon rồi thêm vô -->
-                        <span
-                            class="line-height-50 icon-large icon-home"
-                        ></span>
-                    </div>
-
-                    <div class="text-hover header__selection">
-                        <ul class="header__selection-all">
-                            <li class="header__selection-all-item">
-                                <a class="text-color" href="#">Cà phê</a>
-
-                                <span class="size-normal icon-mug"></span>
-                            </li>
-
-                            <li class="header__selection-all-item">
-                                <a class="text-color" href="#">Trà</a>
-
-                                <span class="size-normal icon-leaf"></span>
-                            </li>
-
-                            <li class="hover header__selection-all-item">
-                                <a class="text-color" href="#">Thực đơn</a>
-
+                        <ul class="text-hover board__list">
+                            <li class="board__item">
                                 <span
-                                    class="size-small icon-circle-down"
+                                    class="not-flow text-color header-btn"
+                                    style="width: 70px"
+                                    >Cà phê
+                                    <span class="size-normal icon-mug"></span>
+                                </span>
+                            </li>
+
+                            <li class="board__item">
+                                <span
+                                    class="not-flow text-color header-btn"
+                                    style="width: 42px"
+                                    >Trà<span
+                                        class="size-normal icon-leaf"
+                                    ></span
+                                ></span>
+                            </li>
+
+                            <li class="hover board__item">
+                                <span
+                                    class="not-flow text-color"
+                                    style="width: 93px"
+                                    >Thực đơn<span
+                                        class="size-normal icon-circle-down"
+                                    ></span
                                 ></span>
 
-                                <div class="header__modal">
+                                <!-- Phần bên trong thực đơn -->
+                                <div class="header__modal --disappear">
                                     <div class="flex-assist">
                                         <div class="layout-white"></div>
 
@@ -202,7 +71,7 @@
                                                     class="header__inside-menu-item-1"
                                                 >
                                                     <a
-                                                        class="text-color"
+                                                        class="text-color menu-btn"
                                                         href="#"
                                                         >Tất cả</a
                                                     >
@@ -212,169 +81,30 @@
                                                     class="header__inside-menu-item-1"
                                                 >
                                                     <a
-                                                        class="text-color"
+                                                        class="text-color menu-btn"
                                                         href="#"
                                                         >Cà phê</a
                                                     >
-
-                                                    <ul
-                                                        class="text-hover header__inside-menu-suggested"
-                                                    >
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="not-flow text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="not-flow text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="not-flow text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="not-flow text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                    </ul>
                                                 </li>
 
                                                 <li
                                                     class="text-color header__inside-menu-item-1"
                                                 >
                                                     <a
-                                                        class="text-color"
+                                                        class="text-color menu-btn"
                                                         href="#"
                                                         >Trà</a
                                                     >
-
-                                                    <ul
-                                                        class="text-hover header__inside-menu-suggested"
-                                                    >
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                    </ul>
                                                 </li>
 
                                                 <li
                                                     class="header__inside-menu-item-1"
                                                 >
                                                     <a
-                                                        class="font-family text-color"
+                                                        class="font-family text-color menu-btn"
                                                         href="#"
                                                         >Hi-Tea Healthy</a
                                                     >
-
-                                                    <ul
-                                                        class="text-hover header__inside-menu-suggested"
-                                                    >
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="font-family text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="font-family text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="font-family text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                        <li
-                                                            class="header__inside-menu-item-2"
-                                                        >
-                                                            <a
-                                                                class="font-family text-color"
-                                                                href="#"
-                                                            >
-                                                                gggggggggg
-                                                            </a>
-                                                        </li>
-                                                    </ul>
                                                 </li>
                                             </ul>
                                         </div>
@@ -382,581 +112,661 @@
                                 </div>
                             </li>
 
-                            <li class="header__selection-all-item">
-                                <a class="font-family text-color" href="#"
-                                    >Về chúng tôi</a
-                                >
-                                <span class="size-normal icon-info"></span>
+                            <li class="board__item">
+                                <span
+                                    class="not-flow text-color"
+                                    style="width: 127px"
+                                    >Về chúng tôi<span
+                                        class="size-normal icon-info"
+                                    ></span
+                                ></span>
                             </li>
 
-                            <li class="header__selection-all-item">
-                                <a class="font-family text-color" href="#"
-                                    >Liên hệ</a
-                                >
-                                <span class="size-normal icon-phone"></span>
+                            <li class="board__item">
+                                <span
+                                    class="not-flow text-color"
+                                    style="width: 74px"
+                                    >Liên hệ<span
+                                        class="size-normal icon-phone"
+                                    ></span
+                                ></span>
                             </li>
+
+                            <div class="form__log-in-out"></div>
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div id="main">
-                <div class="container --hide">
-                    <div id="slider"></div>
+
+                <div id="menu-btn" class="line-height-50 header__icon-menu-btn">
+                    <span class="icon-large icon-menu"></span>
                 </div>
-                <div class="container --hide">
-                    <div id="preview">
-                        <div class="p-item"></div>
-                        <div class="p-item"></div>
-                        <div class="p-item"></div>
-                        <div class="p-item"></div>
-                    </div>
-                    <div id="preview_mobile">
-                        <div class="p-item"></div>
-                        <div class="p-item"></div>
-                        <div class="p-item"></div>
-                        <div class="p-item"></div>
-                    </div>
-                    <div id="sidebar">
-                        <ul style="margin-top: 0">
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
-                    </div>
-                    <div id="sidebar_mobile">
-                        <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- chi tiet san pham render trang chu -->
-                <div class="home-product --hide">
-                    <div class="image-container"></div>
-                </div>
-                <div id="user-login" class="modal --hide">
-                    <div class="container">
-                        <div class="content">
-                            <div class="close">
-                                <i class="icon-cross icon"></i>
-                            </div>
-                            <div class="title">
-                                <span> ĐĂNG NHẬP </span>
-                            </div>
-                            <form action="#" class="form" id="form-login">
-                                <div class="form-group row">
-                                    <label for="usernameLogin"
-                                        >Tên đăng nhập:</label
-                                    >
-                                    <input
-                                        name="username"
-                                        type="text"
-                                        rules="required"
-                                        id="usernameLogin"
-                                    />
-                                    <span class="form-message"></span>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="passwordLogin">Mật khẩu:</label>
-                                    <input
-                                        name="password"
-                                        type="password"
-                                        rules="required"
-                                        id="passwordLogin"
-                                    />
-                                    <span class="form-message"></span>
-                                </div>
-                                <span class="error-login"></span>
-
-                                <button type="submit" id="btnlogin">
-                                    Đăng nhập
-                                </button>
-                            </form>
-                            <p class="row">Bạn chưa có tài khoản?</p>
-
-                            <a href="#" class="row">Đăng ký</a>
-                        </div>
-                    </div>
-                </div>
-                <div id="user-register" class="modal --hide">
-                    <div class="container">
-                        <div class="content">
-                            <div class="close">
-                                <i class="icon-cross icon"></i>
-                            </div>
-                            <div class="title">ĐĂNG KÝ</div>
-                            <form action="#" class="form" id="form-register">
-                                <div class="form-group row">
-                                    <label for="fullname" class="form-label"
-                                        >Họ và tên</label
-                                    >
-                                    <input
-                                        id="fullname"
-                                        name="fullname"
-                                        rules="required"
-                                        type="text"
-                                        placeholder=""
-                                        class="form-control"
-                                    />
-                                    <span class="form-message"></span>
-                                </div>
-                                <div class="form-group row">
-                                    <label
-                                        for="userNameRegister"
-                                        class="form-label"
-                                        >Tài khoản</label
-                                    >
-                                    <input
-                                        id="userNameRegister"
-                                        name="username"
-                                        rules="required|username"
-                                        type="text"
-                                        placeholder=""
-                                        class="form-control"
-                                    />
-                                    <span class="form-message"></span>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="passRegister" class="form-label"
-                                        >Mật khẩu</label
-                                    >
-                                    <input
-                                        id="passRegister"
-                                        name="password"
-                                        rules="password"
-                                        type="password"
-                                        placeholder=""
-                                        class="form-control"
-                                    />
-                                    <span class="form-message"></span>
-                                </div>
-                                <div class="form-group row">
-                                    <label
-                                        for="repeatPassRegister"
-                                        class="form-label"
-                                        >Nhập lại mật khẩu</label
-                                    >
-                                    <input
-                                        id="repeatPassRegister"
-                                        name="repeatPassRegister"
-                                        rules="repeatPassword"
-                                        type="password"
-                                        placeholder=""
-                                        class="form-control"
-                                    />
-                                    <span class="form-message"></span>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="fullname" class="form-label"
-                                        >Địa chỉ</label
-                                    >
-                                    <input
-                                        id="address"
-                                        name="address"
-                                        rules="required"
-                                        type="text"
-                                        placeholder=""
-                                        class="form-control"
-                                    />
-                                    <span class="form-message"></span>
-                                </div>
-                                <div class="form-group row">
-                                    <label
-                                        for="phoneRegister"
-                                        class="form-label"
-                                        >Số điện thoại</label
-                                    >
-                                    <input
-                                        id="phoneRegister"
-                                        name="phone"
-                                        rules="required|phone"
-                                        type="text"
-                                        placeholder="0123456789"
-                                        class="form-control"
-                                    />
-                                    <span class="form-message"></span>
-                                </div>
-
-                                <button type="submit" id="btnsignup">
-                                    Đăng ký
-                                </button>
-                            </form>
-
-                            <a href="#">Đăng nhập</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- danh muc san pham -->
-                <div class="product-container">
-                    <div class="left-list">
-                        <ul class="left-container">
-                            <li class="all-product mobile-top">
-                                <p class="left-item active">
-                                    Tất cả
-                                    <span class="icon-circle-down"></span>
-                                </p>
-                            </li>
-                            <li class="list-item coffee-product mobile-mid">
-                                <p class="left-item left-cfvn">Cà Phê</p>
-                                <ul class="list-lv2">
-                                    <li class="left-item left-cfvn">
-                                        <p>Cà Phê Việt Nam</p>
-                                    </li>
-                                    <li class="left-item left-cfMay">
-                                        <p>Cà Phê Máy</p>
-                                    </li>
-                                    <li class="left-item left-cold-brew">
-                                        <p>Cold Brew</p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="list-item tea-product mobile-mid">
-                                <p class="left-item left-tra-trai-cay">Trà</p>
-                                <ul class="list-lv2">
-                                    <li class="left-item left-tra-trai-cay">
-                                        <p>Trà Trái Cây</p>
-                                    </li>
-                                    <li
-                                        class="left-item left-tra-sua-macchiato"
-                                    >
-                                        <p>Trà Sữa Macchiato</p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="list-item hitea-product mobile-mid">
-                                <p class="left-item left-hi-tea-tra">
-                                    Hi-Tea Healthy
-                                </p>
-                                <ul class="list-lv2">
-                                    <li class="left-item left-hi-tea-tra">
-                                        <p>Hi-Tea Trà</p>
-                                    </li>
-                                    <li class="left-item left-hi-tea-da-tuyet">
-                                        <p>Hi-Tea Đá Tuyết</p>
-                                    </li>
-                                    <li
-                                        class="left-item left-hi-tea-bling-bling"
-                                    >
-                                        <p>Hi-Tea Bling Bling</p>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="show-product">
-                        <div class="image-container-LP">
-                            <div id="cfvn" class="cf-container">
-                                <t>Cà phê Việt Nam</t>
-                                <div class="cfvn-txt"></div>
-                            </div>
-                            <div id="cfMay" class="cf-container">
-                                <t>Cà phê Máy</t>
-                                <div class="cfMay-txt"></div>
-                            </div>
-                            <div id="cold-brew" class="cf-container">
-                                <t>Cold Brew</t>
-                                <div class="cold-brew-txt"></div>
-                            </div>
-                            <div id="tra-trai-cay" class="cf-container">
-                                <t>Trà Trái Cây</t>
-                                <div class="tra-trai-cay-txt"></div>
-                            </div>
-                            <div id="tra-sua-macchiato" class="cf-container">
-                                <t>Trà Sữa Macchiato</t>
-                                <div class="tra-sua-macchiato-txt"></div>
-                            </div>
-                            <div id="hi-tea-tra" class="cf-container">
-                                <t>Hi-Tea Trà</t>
-                                <div class="hi-tea-tra-txt"></div>
-                            </div>
-                            <div id="hi-tea-da-tuyet" class="cf-container">
-                                <t>Hi-Tea Đá Tuyết</t>
-                                <div class="hi-tea-da-tuyet-txt"></div>
-                            </div>
-                            <div id="hi-tea-bling-bling" class="cf-container">
-                                <t>Hi-Tea Bling Bling</t>
-                                <div class="hi-tea-bling-bling-txt"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- search san pham -->
-                <div id="form-search" class="modal --hide">
-                    <div class="container">
-                        <div class="content">
-                            <div class="close">
-                                <i class="icon-cross icon"></i>
-                            </div>
-                            <div class="title">
-                                <span>Tìm kiếm</span>
-                            </div>
-                            <div class="search-content">
-                                <div class="search-input">
-                                    <div class="icon">
-                                        <i class="icon-search"></i>
-                                    </div>
-                                    <input
-                                        type="text"
-                                        placeholder="Tìm theo tên sản phẩm"
-                                    />
-                                </div>
-                                <div class="advanced-input">
-                                    <select name="tag">
-                                        <option value="">Tất cả</option>
-                                        <option value="Cà phê">Cà phê</option>
-                                        <option value="Trà">Trà</option>
-                                        <option value="Hi-Tea">Hi-Tea</option>
-                                    </select>
-                                    <div class="price">
-                                        <!-- <label name="range">Giá:</label> -->
-                                        <input
-                                            name="minPrice"
-                                            type="number"
-                                            placeholder="Giá từ"
-                                            step="1000"
-                                            min="0"
-                                            max="500000"
-                                        />
-                                        <span> - </span>
-                                        <input
-                                            name="maxPrice"
-                                            type="number"
-                                            placeholder="Đến"
-                                            step="1000"
-                                            min="0"
-                                            max="500000"
-                                        />
-                                    </div>
-                                </div>
-                                <div class="search-response">
-                                    <div class="product-related">
-                                        <ul class="option_selections">
-                                            <li
-                                                class="option_selections_item --hide"
-                                            >
-                                                <div class="image-pack">
-                                                    <img
-                                                        class="product-image"
-                                                        src="public/img/ngoiNhaCafe/CPhSa.jpg"
-                                                        alt=""
-                                                    />
-                                                    <div class="buy-now">
-                                                        <span class="text-buy">
-                                                            Mua ngay!
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="overview">
-                                                    <p class="overview_title">
-                                                        Cà Phê Sữa Đá
-                                                    </p>
-                                                    <p>29000 đ</p>
-                                                </div>
-
-                                                <span
-                                                    class="icon-plus icon"
-                                                ></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- chi tiet san pham -->
-                <div id="detail-product" class="modal --hide">
-                    <div class="container">
-                        <div class="content">
-                            <div class="close">
-                                <i class="icon-cross icon"></i>
-                            </div>
-                            <div class="product-about">
-                                <div class="product_visual">
-                                    <div class="product_visual_img">
-                                        <img
-                                            src="./public/img/ngoiNhaCafe/CPhSa.jpg"
-                                            alt="cà phê đá"
-                                        />
-                                    </div>
-                                </div>
-                                <div class="product_shopping">
-                                    <div class="info">
-                                        <h2 class="h2">Cà Phê Sữa Đá</h2>
-                                        <div class="info_price">
-                                            <div
-                                                class="price"
-                                                data-price="29000"
-                                            >
-                                                29000đ
-                                            </div>
-                                            <div class="info-count">
-                                                <div class="icon minus --gray">
-                                                    <i class="icon-minus"></i>
-                                                </div>
-                                                <div
-                                                    class="info-count_num"
-                                                    data-quantity="1"
-                                                >
-                                                    1
-                                                </div>
-                                                <div class="icon plus">
-                                                    <i class="icon-plus"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-description">
-                                        <hr />
-                                        <p>
-                                            Cà phê Đắk Lắk nguyên chất được pha
-                                            phin truyền thống kết hợp với sữa
-                                            đặc tạo nên hương vị đậm đà, hài hòa
-                                            giữa vị ngọt đầu lưỡi và vị đắng
-                                            thanh thoát nơi hậu vị.
-                                        </p>
-
-                                        <hr />
-                                    </div>
-                                    <div class="option-size">
-                                        <div class="h4">
-                                            Chọn size (bắt buộc)
-                                        </div>
-                                        <ul class="option_selections">
-                                            <li
-                                                class="option_selections_item"
-                                                data-option-size="small"
-                                            >
-                                                <p class="size-content">
-                                                    <i
-                                                        class="icon-mug icon-small"
-                                                    ></i>
-                                                    Nhỏ + 0 đ
-                                                </p>
-                                            </li>
-                                            <li
-                                                class="option_selections_item --active"
-                                                data-option-size="medium"
-                                            >
-                                                <p class="size-content">
-                                                    <i
-                                                        class="icon-mug icon-medium"
-                                                    ></i>
-                                                    Vừa + 6.000 đ
-                                                </p>
-                                            </li>
-                                            <li
-                                                class="option_selections_item"
-                                                data-option-size="large"
-                                            >
-                                                <p class="size-content">
-                                                    <i
-                                                        class="icon-mug icon-large"
-                                                    ></i>
-                                                    Lớn + 10.000 đ
-                                                </p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-related">
-                                <h2 class="product-related_title">
-                                    Sản phẩm liên quan
-                                </h2>
-                                <ul class="option_selections">
-                                    <li
-                                        class="option_selections_item"
-                                        data-title="Cà Phê Sữa Nóng"
-                                    >
-                                        <div class="image-pack">
-                                            <img
-                                                class="product-image"
-                                                src="./public/img/ngoiNhaCafe/CPhSaNng.jpg"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div class="overview">
-                                            <p class="overview_title">
-                                                Cà Phê Sữa Nóng
-                                            </p>
-                                            <p>35000 đ</p>
-                                        </div>
-                                    </li>
-                                    <li
-                                        class="option_selections_item"
-                                        data-title="Bạc Sỉu"
-                                    >
-                                        <div class="image-pack">
-                                            <img
-                                                class="product-image"
-                                                src="./public/img/ngoiNhaCafe/BcSu.jpg"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div class="overview">
-                                            <p class="overview_title">
-                                                Bạc Sỉu
-                                            </p>
-                                            <p>29000 đ</p>
-                                        </div>
-                                    </li>
-                                    <li
-                                        class="option_selections_item"
-                                        data-title="Cà Phê Đen Đá"
-                                    >
-                                        <div class="image-pack">
-                                            <img
-                                                class="product-image"
-                                                src="./public/img/ngoiNhaCafe/CPhen.jpg"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div class="overview">
-                                            <p class="overview_title">
-                                                Cà Phê Đen Đá
-                                            </p>
-                                            <p>29000 đ</p>
-                                        </div>
-                                    </li>
-                                    <li
-                                        class="option_selections_item"
-                                        data-title="Cà Phê Sữa Đá Chai Fresh 250ML"
-                                    >
-                                        <div class="image-pack">
-                                            <img
-                                                class="product-image"
-                                                src="./public/img/ngoiNhaCafe/CPhSaChaiFresh250ML.jpg"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div class="overview">
-                                            <p class="overview_title">
-                                                Cà Phê Sữa Đá Chai Fresh 250ML
-                                            </p>
-                                            <p>75000 đ</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="cart">
-                            <div class="product_shopping_cart">
-                                <i class="icon-cart icon"></i>
-                                <div class="h4">Thêm vào giỏ hàng</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- toast -->
-                <div id="toast"></div>
             </div>
         </div>
-        <div id="admin-page"></div>
+        <div id="header-icon" class="header__icon">
+            <div id="User-icon" class="border-square user-icon">
+                <span class="icon-user"></span>
+            </div>
+
+            <div class="border-square cart-icon">
+                <span class="icon-btn-badge"></span>
+
+                <span class="icon-cart"></span>
+            </div>
+
+            <div class="border-square search-icon">
+                <span class="icon-search"></span>
+            </div>
+        </div>
+        <div id="main">
+            <div id="home-page" class="container">
+                <div style="padding-top: 100px" id="slider"></div>
+                <!-- chi tiet san pham render trang chu -->
+                <div id="home-product" class="home-product">
+                    <h2
+                        style="
+                            margin: 30px 0px;
+                            padding-left: 25px;
+                            font-weight: 700;
+                        "
+                    >
+                        Thử ngay các món truyền thống!
+                    </h2>
+                    <div class="image-container"></div>
+                </div>
+            </div>
+            <!-- danh muc san pham -->
+            <div id="product-container" class="product-container">
+                <div class="show-product">
+                    <div class="image-container-LP"></div>
+                </div>
+            </div>
+            <!--order-page    -->
+            <div id="order-page" class="--hide">
+                <div class="order-history">
+                    <a>Lịch sử mua hàng</a>
+                </div>
+                <div class="order-board-1">
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input
+                                        type="checkbox"
+                                        value="all"
+                                        class="checkbox"
+                                    />
+                                </th>
+                                <th style="width: 78px"></th>
+                                <th>Sản phẩm</th>
+                                <th>Kích cỡ</th>
+                                <th>Số lượng</th>
+                                <th>Giá</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="./public/img/cf.jpg" alt="" />
+                                </td>
+                                <td>
+                                    <div>fdsfsdfdsfsdfsdfsdfdsfsd</div>
+                                </td>
+                                <td class="cart-size">size</td>
+
+                                <td class="cart-price">$9.99</td>
+
+                                <td>
+                                    <button class="icon plus">
+                                        <i class="icon-plus"></i>
+                                    </button>
+
+                                    <div class="info-count_num">1</div>
+
+                                    <button class="icon minus">
+                                        <i class="icon-minus"></i>
+                                    </button>
+                                </td>
+
+                                <td>fdsfsdfsdfsdfsdfs</td>
+                                <td>
+                                    <button class="deleted-btn">x</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="order-total">
+                    <span>Tổng giá:</span>
+                    <span
+                        style="
+                            padding-left: 5px;
+                            font-size: 18px;
+                            font-weight: 600;
+                        "
+                        class="cart-total-price"
+                        >0đ</span
+                    >
+                </div>
+                <div class="btn-handle">
+                    <button class="btn-diff btn-deleted" data-count="0">
+                        Xóa (0)
+                    </button>
+                    <button class="btn-diff btn-purchased">Thanh toán</button>
+                </div>
+                <!-- <div class="order-board-2">
+                        <div class="order-container">
+                            <div class="order-header-2"></div>
+
+                            <div class="order-content-2">
+                                <div class="order-summary">
+                                    
+
+                                    <div class="sub-text">
+                                        <span
+                                            >Tính toán giá giao & thuế tại thủ
+                                            tục thanh toán</span
+                                        >
+                                    </div>
+
+                                    <label class="checkbox" for="CheckboxID">
+                                        <input
+                                            checked
+                                            class="checkbox-input"
+                                            type="checkbox"
+                                            id="CheckboxID"
+                                        />
+                                        <div class="checkbox-box">
+                                            <span class="icon-checkmark"></span>
+                                        </div>
+                                        Tính toán giá tiền & thuế tại giao
+                                        dịchdfdsfsdfds
+                                    </label>
+                                </div>
+
+                                <div class="order-address">
+                                    
+                                    <form action="" class="form-delivery">
+                                        <div class="form-header">
+                                            <span>Giao hàng</span>
+                                            <button>Gói phương thức</button>
+                                        </div>
+                                        <div class="address-form">
+                                            <div style="width: 28%">
+                                                <img
+                                                    class="delivery-img"
+                                                    src="./public/img/delivery.png"
+                                                    alt=""
+                                                />
+                                            </div>
+
+                                            <div
+                                                style="
+                                                    width: 72%;
+                                                    font-size: 19px;
+                                                "
+                                                class="fill-in-form"
+                                            >
+                                                <div class="form-adress-in4">
+                                                    <p>215/39 Bonghs sau</p>
+                                                    <p>
+                                                        fdwsfdsfsdfsdfsdfsdfsdfsdfsd
+                                                    </p>
+                                                    <p>sdfsdfsdfsdfsdfsad</p>
+                                                    <span
+                                                        class="icon-circle-right"
+                                                    ></span>
+                                                </div>
+
+                                                <div class="form-adress-in4">
+                                                    <p>gfsdfasdfsdfsdf</p>
+                                                    <p>asdfsadfsfsdafasdf</p>
+                                                    <span
+                                                        class="icon-circle-right"
+                                                    ></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-3-input">
+                                            <input
+                                                placeholder="Tên người nhận"
+                                                type="text"
+                                            />
+                                            <input
+                                                placeholder="số điện thoại"
+                                                type="tel"
+                                            />
+
+                                            <input
+                                                placeholder="thêm hướng dẫn giao hàng"
+                                                type="text"
+                                            />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="order-footer-2">
+                                
+                                <button class="long-btn">
+                                    thủ tục thanh toán
+                                    <span class="icon-credit-card"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div> -->
+            </div>
+            <div id="order-page-v2"></div>
+            <div id="user-login" class="modal --hide">
+                <div class="container">
+                    <div class="content">
+                        <div class="close">
+                            <i class="icon-cross icon"></i>
+                        </div>
+                        <div class="title">
+                            <span> ĐĂNG NHẬP </span>
+                        </div>
+                        <form action="#" class="form" id="form-login">
+                            <div class="form-group row">
+                                <label for="usernameLogin"
+                                    >Tên đăng nhập:</label
+                                >
+                                <input
+                                    name="username"
+                                    type="text"
+                                    rules="required"
+                                    id="usernameLogin"
+                                />
+                                <span class="form-message"></span>
+                            </div>
+                            <div class="form-group row">
+                                <label for="passwordLogin">Mật khẩu:</label>
+                                <input
+                                    name="password"
+                                    type="password"
+                                    rules="required"
+                                    id="passwordLogin"
+                                />
+                                <span class="form-message"></span>
+                            </div>
+                            <span class="error-login"></span>
+
+                            <button type="submit" id="btnlogin">
+                                Đăng nhập
+                            </button>
+                        </form>
+                        <p class="row">Bạn chưa có tài khoản?</p>
+
+                        <a href="#" class="row">Đăng ký</a>
+                    </div>
+                </div>
+            </div>
+            <div id="user-register" class="modal --hide">
+                <div class="container">
+                    <div class="content">
+                        <div class="close">
+                            <i class="icon-cross icon"></i>
+                        </div>
+                        <div class="title">ĐĂNG KÝ</div>
+                        <form action="#" class="form" id="form-register">
+                            <div class="form-group row">
+                                <label for="fullname" class="form-label"
+                                    >Họ và tên</label
+                                >
+                                <input
+                                    id="fullname"
+                                    name="fullname"
+                                    rules="required"
+                                    type="text"
+                                    placeholder=""
+                                    class="form-control"
+                                />
+                                <span class="form-message"></span>
+                            </div>
+                            <div class="form-group row">
+                                <label for="userNameRegister" class="form-label"
+                                    >Tài khoản</label
+                                >
+                                <input
+                                    id="userNameRegister"
+                                    name="username"
+                                    rules="required|username"
+                                    type="text"
+                                    placeholder=""
+                                    class="form-control"
+                                />
+                                <span class="form-message"></span>
+                            </div>
+                            <div class="form-group row">
+                                <label for="passRegister" class="form-label"
+                                    >Mật khẩu</label
+                                >
+                                <input
+                                    id="passRegister"
+                                    name="password"
+                                    rules="password"
+                                    type="password"
+                                    placeholder=""
+                                    class="form-control"
+                                />
+                                <span class="form-message"></span>
+                            </div>
+                            <div class="form-group row">
+                                <label
+                                    for="repeatPassRegister"
+                                    class="form-label"
+                                    >Nhập lại mật khẩu</label
+                                >
+                                <input
+                                    id="repeatPassRegister"
+                                    name="repeatPassRegister"
+                                    rules="repeatPassword"
+                                    type="password"
+                                    placeholder=""
+                                    class="form-control"
+                                />
+                                <span class="form-message"></span>
+                            </div>
+                            <div class="form-group row">
+                                <label for="fullname" class="form-label"
+                                    >Địa chỉ</label
+                                >
+                                <input
+                                    id="address"
+                                    name="address"
+                                    rules="required"
+                                    type="text"
+                                    placeholder=""
+                                    class="form-control"
+                                />
+                                <span class="form-message"></span>
+                            </div>
+                            <div class="form-group row">
+                                <label for="phoneRegister" class="form-label"
+                                    >Số điện thoại</label
+                                >
+                                <input
+                                    id="phoneRegister"
+                                    name="phone"
+                                    rules="required|phone"
+                                    type="text"
+                                    placeholder="0123456789"
+                                    class="form-control"
+                                />
+                                <span class="form-message"></span>
+                            </div>
+
+                            <button type="submit" id="btnsignup">
+                                Đăng ký
+                            </button>
+                        </form>
+
+                        <a href="#">Đăng nhập</a>
+                    </div>
+                </div>
+            </div>
+            <!-- search san pham -->
+            <div id="form-search" class="modal --hide">
+                <div class="container">
+                    <div class="content">
+                        <div class="close">
+                            <i class="icon-cross icon"></i>
+                        </div>
+                        <div class="title">
+                            <span>Tìm kiếm</span>
+                        </div>
+                        <div class="search-content">
+                            <div class="search-input">
+                                <div class="icon">
+                                    <i class="icon-search"></i>
+                                </div>
+                                <input
+                                    type="text"
+                                    placeholder="Tìm theo tên sản phẩm"
+                                />
+                            </div>
+                            <div class="advanced-input">
+                                <select name="tag">
+                                    <option value="">Tất cả</option>
+                                    <option value="Cà phê">Cà phê</option>
+                                    <option value="Trà">Trà</option>
+                                    <option value="Hi-Tea">Hi-Tea</option>
+                                </select>
+                                <div class="price">
+                                    <!-- <label name="range">Giá:</label> -->
+                                    <input
+                                        name="minPrice"
+                                        type="number"
+                                        placeholder="Giá từ"
+                                        step="1000"
+                                        min="0"
+                                        max="500000"
+                                    />
+                                    <span> - </span>
+                                    <input
+                                        name="maxPrice"
+                                        type="number"
+                                        placeholder="Đến"
+                                        step="1000"
+                                        min="0"
+                                        max="500000"
+                                    />
+                                </div>
+                            </div>
+                            <div class="search-response">
+                                <div class="product-related">
+                                    <ul class="option_selections">
+                                        <li
+                                            class="option_selections_item --hide"
+                                        >
+                                            <div class="image-pack">
+                                                <img
+                                                    class="product-image"
+                                                    src="public/img/ngoiNhaCafe/CPhSa.jpg"
+                                                    alt=""
+                                                />
+                                                <div class="buy-now">
+                                                    <span class="text-buy">
+                                                        Mua ngay!
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="overview">
+                                                <p class="overview_title">
+                                                    Cà Phê Sữa Đá
+                                                </p>
+                                                <p>29000 đ</p>
+                                            </div>
+
+                                            <span class="icon-plus icon"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- chi tiet san pham -->
+            <div id="detail-product" class="modal --hide">
+                <div class="container">
+                    <div class="content">
+                        <div class="close">
+                            <i class="icon-cross icon"></i>
+                        </div>
+                        <div class="product-about">
+                            <div class="product_visual">
+                                <div class="product_visual_img">
+                                    <img
+                                        src="./public/img/ngoiNhaCafe/CPhSa.jpg"
+                                        alt="cà phê đá"
+                                    />
+                                </div>
+                            </div>
+                            <div class="product_shopping">
+                                <div class="info">
+                                    <h2 class="h2">Cà Phê Sữa Đá</h2>
+                                    <div class="info_price">
+                                        <div class="price" data-price="29000">
+                                            29000đ
+                                        </div>
+                                        <div class="info-count">
+                                            <div class="icon minus --gray">
+                                                <i class="icon-minus"></i>
+                                            </div>
+                                            <div
+                                                class="info-count_num"
+                                                data-quantity="1"
+                                            >
+                                                1
+                                            </div>
+                                            <div class="icon plus">
+                                                <i class="icon-plus"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-description">
+                                    <hr />
+                                    <p>
+                                        Cà phê Đắk Lắk nguyên chất được pha phin
+                                        truyền thống kết hợp với sữa đặc tạo nên
+                                        hương vị đậm đà, hài hòa giữa vị ngọt
+                                        đầu lưỡi và vị đắng thanh thoát nơi hậu
+                                        vị.
+                                    </p>
+
+                                    <hr />
+                                </div>
+                                <div class="option-size">
+                                    <div class="h4">Chọn size (bắt buộc)</div>
+                                    <ul class="option_selections">
+                                        <li
+                                            class="option_selections_item"
+                                            data-option-size="small"
+                                        >
+                                            <p class="size-content">
+                                                <i
+                                                    class="icon-mug icon-small"
+                                                ></i>
+                                                Nhỏ + 0 đ
+                                            </p>
+                                        </li>
+                                        <li
+                                            class="option_selections_item --active"
+                                            data-option-size="medium"
+                                        >
+                                            <p class="size-content">
+                                                <i
+                                                    class="icon-mug icon-medium"
+                                                ></i>
+                                                Vừa + 6.000 đ
+                                            </p>
+                                        </li>
+                                        <li
+                                            class="option_selections_item"
+                                            data-option-size="large"
+                                        >
+                                            <p class="size-content">
+                                                <i
+                                                    class="icon-mug icon-large"
+                                                ></i>
+                                                Lớn + 10.000 đ
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-related">
+                            <h2 class="product-related_title">
+                                Sản phẩm liên quan
+                            </h2>
+                            <ul class="option_selections">
+                                <li
+                                    class="option_selections_item"
+                                    data-title="Cà Phê Sữa Nóng"
+                                >
+                                    <div class="image-pack">
+                                        <img
+                                            class="product-image"
+                                            src="./public/img/ngoiNhaCafe/CPhSaNng.jpg"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="overview">
+                                        <p class="overview_title">
+                                            Cà Phê Sữa Nóng
+                                        </p>
+                                        <p>35000 đ</p>
+                                    </div>
+                                </li>
+                                <li
+                                    class="option_selections_item"
+                                    data-title="Bạc Sỉu"
+                                >
+                                    <div class="image-pack">
+                                        <img
+                                            class="product-image"
+                                            src="./public/img/ngoiNhaCafe/BcSu.jpg"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="overview">
+                                        <p class="overview_title">Bạc Sỉu</p>
+                                        <p>29000 đ</p>
+                                    </div>
+                                </li>
+                                <li
+                                    class="option_selections_item"
+                                    data-title="Cà Phê Đen Đá"
+                                >
+                                    <div class="image-pack">
+                                        <img
+                                            class="product-image"
+                                            src="./public/img/ngoiNhaCafe/CPhen.jpg"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="overview">
+                                        <p class="overview_title">
+                                            Cà Phê Đen Đá
+                                        </p>
+                                        <p>29000 đ</p>
+                                    </div>
+                                </li>
+                                <li
+                                    class="option_selections_item"
+                                    data-title="Cà Phê Sữa Đá Chai Fresh 250ML"
+                                >
+                                    <div class="image-pack">
+                                        <img
+                                            class="product-image"
+                                            src="./public/img/ngoiNhaCafe/CPhSaChaiFresh250ML.jpg"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="overview">
+                                        <p class="overview_title">
+                                            Cà Phê Sữa Đá Chai Fresh 250ML
+                                        </p>
+                                        <p>75000 đ</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cart">
+                        <div class="product_shopping_cart">
+                            <i class="icon-cart icon"></i>
+                            <div class="h4">Thêm vào giỏ hàng</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- toast -->
+            <div id="toast"></div>
+        </div>
         <div id="footer">
             <div class="container">
                 <div class="col">

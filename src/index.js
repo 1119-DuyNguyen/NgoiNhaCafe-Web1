@@ -4,6 +4,7 @@ import * as header from './components/header.js';
 import * as listProduct from './components/listProduct.js';
 import * as homeProduct from './components/homeProduct.js';
 import { toast } from './components/toast.js';
+import * as order from './components/order.js';
 import { productInfo } from './components/productDetail.js';
 import * as display from './library/display.js';
 //------------dành cho trang user
@@ -12,9 +13,11 @@ import * as display from './library/display.js';
 //display.closeDisplay(document.getElementById('user-page'));
 var data = new Data();
 data.initData();
+order.openCartPage(data.getDataCart());
+//order.init(data.getDataImgs());
 header.run(data.getDataImgs());
 slider.onLoad();
-listProduct.run(data.getDataImgs());
 homeProduct.run(data.getDataImgs());
+
 //-----------dành cho trang admin
-display.closeDisplay(document.getElementById('admin-page'));
+//display.closeDisplay(document.getElementById('admin-page'));
