@@ -3,14 +3,14 @@ export function Data() {
     const keyUsers = 'dataUsers';
     const keyOrders = 'dataOrders';
     const keyCart = 'dataCart';
-    const keyBill = 'bill';
+    const keyBill = 'dataBill';
     const keyCurrentUser = 'currentUser';
-    this.getUser = function(id) {
+    this.getUser = function (id) {
         return this.getDataUsers()[id];
-    }
-    this.getImg = function(id) {
+    };
+    this.getImg = function (id) {
         return this.getDataImgs()[id];
-    }
+    };
     this.editUser = function (user, id) {
         let data = this.getDataUsers();
 
@@ -19,7 +19,7 @@ export function Data() {
         data[id].address = user.address;
         data[id].phone = user.phone;
         setDataUsers(data);
-    }
+    };
     this.editImg = function (obj, id) {
         let data = this.getDataImgs();
 
@@ -28,15 +28,15 @@ export function Data() {
         data[id].price = obj.price;
         data[id].tag = obj.tag;
         setDataImgs(data);
-    }
+    };
     this.removeUser = function (idToRemove) {
         let data = this.getDataUsers();
-        idToRemove.forEach(id => {
+        idToRemove.forEach((id) => {
             data[id] = {};
         });
-        data = data.filter(item => {
+        data = data.filter((item) => {
             return Object.keys(item).length != 0;
-        })
+        });
         setDataUsers(data);
     };
     this.addImgs = function (obj) {
@@ -47,12 +47,12 @@ export function Data() {
     };
     this.removeImg = function (idToRemove) {
         let data = this.getDataImgs();
-        idToRemove.forEach(id => {
+        idToRemove.forEach((id) => {
             data[id] = {};
         });
-        data = data.filter(item => {
+        data = data.filter((item) => {
             return Object.keys(item).length != 0;
-        })
+        });
         setDataImgs(data);
     };
 
@@ -60,14 +60,14 @@ export function Data() {
     var dataUsers = [];
     var dataImgs = [];
     var dataOrders = [];
-    var bill = {
-        user: 'a',
-        date: '28-10-2022',
-        id: 5,
-        info: '1 x Superstar White Gold size 36; ',
-        status: 'Chưa xử lý',
-        totalprice: 2100000,
-    };
+    // var bill = {
+    //     user: 'a',
+    //     date: '28-10-2022',
+    //     id: 5,
+    //     info: '1 x Superstar White Gold size 36; ',
+    //     status: 'Chưa xử lý',
+    //     totalprice: 2100000,
+    // };
     //user
     this.addUser = function (user) {
         if (!user) return;
@@ -80,7 +80,7 @@ export function Data() {
         if (!dataImg) return;
         var cart = _this.getDataCart();
         if (!Array.isArray(cart)) cart = [];
-        dataImg.isPay = false;
+
         dataImg.dateCreate = formatDateDDMMYYYY(new Date());
         cart.push(dataImg);
         _this.setDataCart(cart);
@@ -88,15 +88,14 @@ export function Data() {
     this.spliceCart = function (index) {
         var cart = _this.getDataCart();
         if (Array.isArray(cart)) {
-            cart.splice(index, 1);
+            var cartDelete = cart.splice(index, 1)[0];
             _this.setDataCart(cart);
+            return cartDelete;
         }
     };
     this.removeCart = function () {
         window.localStorage.removeItem(keyCart);
     };
-    //bill
-    var bill = [];
     /*
     customer:  {username: "admin", password: "admin", fullname: "Trần Lê Huy Quyền",…}
 date : "30-10-2022"
@@ -105,15 +104,17 @@ info:  "1 x Air max 1 Just do it size 36; "
 status:  "Chưa xử lý"
 totalprice : 5700000
     */
-    this.pushBill = function (cart) {
-        if (!cart) return;
-        var bill = _this.getDataBill();
+    this.pushBill = function (bill) {
+        if (!bill) return;
+        var bills = _this.getDataBill();
+
+        if (!Array.isArray(bill)) bills = [];
+        bill.status = 'Đang xử lý';
+        bill.dateCreate = formatDateDDMMYYYY(new Date());
+        bill.customer = _this.getCurrentUser();
         console.log(bill);
-        if (!Array.isArray(bill)) bill = [];
-        cart.isPay = false;
-        dataImg.dateCreate = formatDateDDMMYYYY(new Date());
-        bill.push(dataImg);
-        _this.setDataBill(bill);
+        bills.push(bill);
+        _this.setDataBill(bills);
     };
     this.spliceBill = function (index) {
         var bill = _this.getDataBill();
@@ -140,11 +141,11 @@ totalprice : 5700000
         setDataUsers(dataUsers);
         setDataImgs(dataImgs);
         setDataOrders(dataOrders);
-    }
+    };
     this.setDataCart = function (data) {
         window.localStorage.setItem(keyCart, JSON.stringify(data));
     };
-    this.setBill = function () {
+    this.setDataBill = function (data) {
         window.localStorage.setItem(keyBill, JSON.stringify(data));
     };
     this.setCurrentUser = function (data) {
@@ -176,11 +177,11 @@ totalprice : 5700000
 
     this.setAdminNumOfItemsPerPage = function (num) {
         window.localStorage.setItem('admin_itemsPerPage', num);
-    }
+    };
     this.getAdminNumOfItemsPerPage = function () {
         let num = window.localStorage.getItem('admin_itemsPerPage');
         return num;
-    }
+    };
 
     this.getDataCart = function () {
         return JSON.parse(window.localStorage.getItem(keyCart));
@@ -269,7 +270,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Việt Nam',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 34800,
                 },
                 {
                     title: 'Cà Phê Sữa Nóng',
@@ -281,7 +281,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Việt Nam',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 42000,
                 },
                 {
                     title: 'Bạc Sỉu',
@@ -293,7 +292,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Việt Nam',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 34800,
                 },
                 {
                     title: 'Bạc Sỉu Nóng',
@@ -305,7 +303,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Việt Nam',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 42000,
                 },
                 {
                     title: 'Cà Phê Đen Đá',
@@ -317,7 +314,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Việt Nam',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 34800,
                 },
                 {
                     title: 'Cà Phê Đen Nóng',
@@ -329,7 +325,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Việt Nam',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 42000,
                 },
                 {
                     title: 'Cà Phê Sữa Đá Chai Fresh 250ML',
@@ -341,7 +336,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Việt Nam',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 90000,
                 },
                 {
                     title: 'Caramel Macchiato Đá',
@@ -353,7 +347,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Máy',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 58800,
                 },
                 {
                     title: 'Caramel Macchiato Nóng',
@@ -365,7 +358,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Máy',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 58800,
                 },
                 {
                     title: 'Latte Đá',
@@ -377,7 +369,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Máy',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 58800,
                 },
                 {
                     title: 'Latte Nóng',
@@ -389,7 +380,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Máy',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 58800,
                 },
                 {
                     title: 'Americano Đá',
@@ -401,7 +391,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Máy',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 46800,
                 },
                 {
                     title: 'Americano Nóng',
@@ -413,7 +402,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Máy',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 46800,
                 },
                 {
                     title: 'Cappuccino Đá',
@@ -425,7 +413,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Máy',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 58800,
                 },
                 {
                     title: 'Cappuccino Nóng',
@@ -437,7 +424,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Máy',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 58800,
                 },
                 {
                     title: 'Espresso Đá',
@@ -449,7 +435,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Máy',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 54000,
                 },
                 {
                     title: 'Espresso Nóng',
@@ -461,7 +446,6 @@ totalprice : 5700000
                     tag: 'Cà Phê Máy',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 46800,
                 },
                 {
                     title: 'Cold Brew Sữa Tươi',
@@ -473,7 +457,6 @@ totalprice : 5700000
                     tag: 'Cold Brew',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 51750,
                 },
                 {
                     title: 'Cold Brew Truyền Thống',
@@ -485,7 +468,6 @@ totalprice : 5700000
                     tag: 'Cold Brew',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 51750,
                 },
                 {
                     title: 'CloudFee Creamy Hạnh Nhân Nướng',
@@ -497,7 +479,6 @@ totalprice : 5700000
                     tag: 'Creamy',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 42900,
                 },
                 {
                     title: 'CloudFee Creamy Caramel',
@@ -509,7 +490,6 @@ totalprice : 5700000
                     tag: 'Creamy',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 42900,
                 },
                 {
                     title: 'CloudFee Creamy Pandan Coconut',
@@ -521,7 +501,6 @@ totalprice : 5700000
                     tag: 'Creamy',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 42900,
                 },
                 {
                     title: 'CloudFee Creme Brulee Hạnh Nhân Nướng',
@@ -533,7 +512,6 @@ totalprice : 5700000
                     tag: 'Creme Brulee',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 53900,
                 },
                 {
                     title: 'CloudFee Creme Brulee Caramel',
@@ -545,7 +523,6 @@ totalprice : 5700000
                     tag: 'Creme Brulee',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 53900,
                 },
                 {
                     title: 'CloudFee Creme Brulee Ovaltine',
@@ -557,7 +534,6 @@ totalprice : 5700000
                     tag: 'Creme Brulee',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 53900,
                 },
                 {
                     title: 'CloudFee Sữa Đá Sài Gòn',
@@ -569,7 +545,6 @@ totalprice : 5700000
                     tag: 'Đoàn viên',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 51750,
                 },
                 {
                     title: 'CloudFee Muối Đà Nẵng',
@@ -581,7 +556,6 @@ totalprice : 5700000
                     tag: 'Đoàn viên',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 51750,
                 },
                 {
                     title: 'CloudFee Trứng Hà Nội',
@@ -593,7 +567,6 @@ totalprice : 5700000
                     tag: 'Đoàn viên',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 51750,
                 },
                 {
                     title: 'Trà Long Nhãn Hạt Sen',
@@ -605,7 +578,6 @@ totalprice : 5700000
                     tag: 'Trà trái cây',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 56350,
                 },
                 {
                     title: 'Trà Đào Cam Sả - Đá',
@@ -617,7 +589,6 @@ totalprice : 5700000
                     tag: 'Trà trái cây',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 56350,
                 },
                 {
                     title: 'Trà Đào Cam Sả - Nóng',
@@ -629,7 +600,6 @@ totalprice : 5700000
                     tag: 'Trà trái cây',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 63250,
                 },
                 {
                     title: 'Trà Hạt Sen - Đá',
@@ -641,7 +611,6 @@ totalprice : 5700000
                     tag: 'Trà trái cây',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 56350,
                 },
                 {
                     title: 'Trà Hạt Sen - Nóng',
@@ -653,7 +622,6 @@ totalprice : 5700000
                     tag: 'Trà trái cây',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 63250,
                 },
                 {
                     title: 'Trà Long Nhãn Hạt Chia',
@@ -665,7 +633,6 @@ totalprice : 5700000
                     tag: 'Trà trái cây',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 56350,
                 },
                 {
                     title: 'Trà Long Nhãn Hạt Chia (Nóng)',
@@ -677,7 +644,6 @@ totalprice : 5700000
                     tag: 'Trà trái cây',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 63250,
                 },
                 {
                     title: 'Trà Đào Cam Sả Chai Fresh 500ML',
@@ -689,7 +655,6 @@ totalprice : 5700000
                     tag: 'Trà trái cây',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 120750,
                 },
                 {
                     title: 'Trà Đen Macchiato',
@@ -701,7 +666,6 @@ totalprice : 5700000
                     tag: 'Trà sữa Macchiato',
                     currency: 'đ',
                     salePercent: '25%',
-                    priceTotal: 68750,
                 },
                 {
                     title: 'Hồng Trà Sữa Trân Châu',
@@ -713,7 +677,6 @@ totalprice : 5700000
                     tag: 'Trà sữa Macchiato',
                     currency: 'đ',
                     salePercent: '25%',
-                    priceTotal: 68750,
                 },
                 {
                     title: 'Hồng Trà Sữa Nóng',
@@ -725,7 +688,6 @@ totalprice : 5700000
                     tag: 'Trà sữa Macchiato',
                     currency: 'đ',
                     salePercent: '25%',
-                    priceTotal: 68750,
                 },
                 {
                     title: 'Trà sữa Oolong Nướng Trân Châu',
@@ -737,7 +699,6 @@ totalprice : 5700000
                     tag: 'Trà sữa Macchiato',
                     currency: 'đ',
                     salePercent: '25%',
-                    priceTotal: 68750,
                 },
                 {
                     title: 'Trà sữa Oolong Nướng (Nóng)',
@@ -749,7 +710,6 @@ totalprice : 5700000
                     tag: 'Trà sữa Macchiato',
                     currency: 'đ',
                     salePercent: '25%',
-                    priceTotal: 68750,
                 },
                 {
                     title: 'Trà Sữa Mắc Ca Trân Châu',
@@ -761,7 +721,6 @@ totalprice : 5700000
                     tag: 'Trà sữa Macchiato',
                     currency: 'đ',
                     salePercent: '25%',
-                    priceTotal: 68750,
                 },
                 {
                     title: 'Hồng Trà Latte Macchiato',
@@ -773,7 +732,6 @@ totalprice : 5700000
                     tag: 'Trà sữa Macchiato',
                     currency: 'đ',
                     salePercent: '25%',
-                    priceTotal: 68750,
                 },
                 {
                     title: 'Trà Sữa Oolong Nướng Trân Châu Chai Fresh 500ML',
@@ -785,7 +743,6 @@ totalprice : 5700000
                     tag: 'Trà sữa Macchiato',
                     currency: 'đ',
                     salePercent: '25%',
-                    priceTotal: 118750,
                 },
                 {
                     title: 'Hi-Tea Xoài Aloe Vera',
@@ -796,7 +753,6 @@ totalprice : 5700000
                     tag: 'Hi-Tea Trà',
                     currency: 'đ',
                     salePercent: '30%',
-                    priceTotal: 63700,
                 },
                 {
                     title: 'Hi-Tea Dâu Tây Mận Muối Aloe Vera',
@@ -808,7 +764,6 @@ totalprice : 5700000
                     tag: 'Hi-Tea Trà',
                     currency: 'đ',
                     salePercent: '30%',
-                    priceTotal: 63700,
                 },
                 {
                     title: 'HI-TEA Yuzu Trân Châu',
@@ -820,7 +775,6 @@ totalprice : 5700000
                     tag: 'Hi-Tea Trà',
                     currency: 'đ',
                     salePercent: '30%',
-                    priceTotal: 63700,
                 },
                 {
                     title: 'Hi-Tea Vải',
@@ -832,7 +786,6 @@ totalprice : 5700000
                     tag: 'Hi-Tea Trà',
                     currency: 'đ',
                     salePercent: '30%',
-                    priceTotal: 63700,
                 },
                 {
                     title: 'Hi-Tea Đào',
@@ -844,7 +797,6 @@ totalprice : 5700000
                     tag: 'Hi-Tea Trà',
                     currency: 'đ',
                     salePercent: '30%',
-                    priceTotal: 63700,
                 },
                 {
                     title: 'Hi-Tea Đá Tuyết Xoài Đào',
@@ -856,7 +808,6 @@ totalprice : 5700000
                     tag: 'Hi-Tea Đá Tuyết',
                     currency: 'đ',
                     salePercent: '25%',
-                    priceTotal: 68750,
                 },
                 {
                     title: 'Hi-Tea Đá Tuyết Yuzu Vải',
@@ -868,7 +819,6 @@ totalprice : 5700000
                     tag: 'Hi-Tea Đá Tuyết',
                     currency: 'đ',
                     salePercent: '25%',
-                    priceTotal: 68750,
                 },
                 {
                     title: 'Hi-Tea Phúc Bồn Tử Bling Bling',
@@ -880,7 +830,6 @@ totalprice : 5700000
                     tag: 'Hi-Tea Bling Bling',
                     currency: 'đ',
                     salePercent: '25%',
-                    priceTotal: 81250,
                 },
                 {
                     title: 'Bánh Mì Gậy Gà Kim Quất',
@@ -892,7 +841,6 @@ totalprice : 5700000
                     tag: 'Bánh mặn',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 30000,
                 },
                 {
                     title: 'Bánh Mì Gậy Cá Ngừ Mayo',
@@ -904,7 +852,6 @@ totalprice : 5700000
                     tag: 'Bánh mặn',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 30000,
                 },
                 {
                     title: 'Bánh Mì Que Pate',
@@ -916,7 +863,6 @@ totalprice : 5700000
                     tag: 'Bánh mặn',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 18000,
                 },
                 {
                     title: 'Bánh Mì Que Pate Cay',
@@ -928,7 +874,6 @@ totalprice : 5700000
                     tag: 'Bánh mặn',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 18000,
                 },
                 {
                     title: 'Bánh Mì VN Thịt Nguội',
@@ -940,7 +885,6 @@ totalprice : 5700000
                     tag: 'Bánh mặn',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 42000,
                 },
                 {
                     title: 'Croissant trứng muối',
@@ -952,7 +896,6 @@ totalprice : 5700000
                     tag: 'Bánh mặn',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 42000,
                 },
                 {
                     title: 'Chà Bông Phô Mai',
@@ -964,7 +907,6 @@ totalprice : 5700000
                     tag: 'Bánh mặn',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 42000,
                 },
                 {
                     title: 'Mochi Kem Phúc Bồn Tử',
@@ -976,7 +918,6 @@ totalprice : 5700000
                     tag: 'Bánh ngọt',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 22800,
                 },
                 {
                     title: 'Mochi Kem Việt Quất',
@@ -988,7 +929,6 @@ totalprice : 5700000
                     tag: 'Bánh ngọt',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 22800,
                 },
                 {
                     title: 'Mochi Kem Dừa Dứa',
@@ -1000,7 +940,6 @@ totalprice : 5700000
                     tag: 'Bánh ngọt',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 22800,
                 },
                 {
                     title: 'Mochi Kem Chocolate',
@@ -1012,7 +951,6 @@ totalprice : 5700000
                     tag: 'Bánh ngọt',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 22800,
                 },
                 {
                     title: 'Mochi Kem Matcha',
@@ -1024,7 +962,6 @@ totalprice : 5700000
                     tag: 'Bánh ngọt',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 22800,
                 },
                 {
                     title: 'Mochi Kem Xoài',
@@ -1036,7 +973,6 @@ totalprice : 5700000
                     tag: 'Bánh ngọt',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 22800,
                 },
                 {
                     title: 'Mousse Red Velvet',
@@ -1048,7 +984,6 @@ totalprice : 5700000
                     tag: 'Bánh ngọt',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 42000,
                 },
                 {
                     title: 'Mousse Tiramisu',
@@ -1060,7 +995,6 @@ totalprice : 5700000
                     tag: 'Bánh ngọt',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 42000,
                 },
                 {
                     title: 'Mousse Gấu Chocolate',
@@ -1072,7 +1006,6 @@ totalprice : 5700000
                     tag: 'Bánh ngọt',
                     currency: 'đ',
                     salePercent: '20%',
-                    priceTotal: 46800,
                 },
                 {
                     title: 'Mít Sấy',
@@ -1084,7 +1017,6 @@ totalprice : 5700000
                     tag: 'Snack',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 22000,
                 },
                 {
                     title: 'Gà Xé Lá Chanh',
@@ -1096,7 +1028,6 @@ totalprice : 5700000
                     tag: 'Snack',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 27500,
                 },
                 {
                     title: 'Thùng Cà Phê Sữa Espresso',
@@ -1107,7 +1038,6 @@ totalprice : 5700000
                     tag: 'Cà phê tại nhà',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 386400,
                 },
                 {
                     title: 'Combo 6 Lon Cà Phê Sữa Espresso',
@@ -1118,7 +1048,6 @@ totalprice : 5700000
                     tag: 'Cà phê tại nhà',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 96600,
                 },
                 {
                     title: 'Cà Phê Rang Xay Original 1 Túi 1KG',
@@ -1130,7 +1059,6 @@ totalprice : 5700000
                     tag: 'Cà phê tại nhà',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 270250,
                 },
                 {
                     title: 'Cà Phê Hòa Tan Đậm Vị Việt Túi 40x16G',
@@ -1142,7 +1070,6 @@ totalprice : 5700000
                     tag: 'Cà phê tại nhà',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 113850,
                 },
                 {
                     title: 'Cà Phê Rang Xay Original 1 250g',
@@ -1154,7 +1081,6 @@ totalprice : 5700000
                     tag: 'Cà phê tại nhà',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 69000,
                 },
                 {
                     title: 'Cà Phê Sữa Đá Hòa Tan (10 gói x 22g)',
@@ -1166,7 +1092,6 @@ totalprice : 5700000
                     tag: 'Cà phê tại nhà',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 50600,
                 },
                 {
                     title: 'Cà Phê Hoà Tan Đậm Vị Việt (18 gói x 16 gam)',
@@ -1178,7 +1103,6 @@ totalprice : 5700000
                     tag: 'Cà phê tại nhà',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 55200,
                 },
                 {
                     title: 'Cà Phê Sữa Đá Hòa Tan Túi 25x22G',
@@ -1190,7 +1114,6 @@ totalprice : 5700000
                     tag: 'Cà phê tại nhà',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 113850,
                 },
                 {
                     title: 'Cà Phê Sữa Đá Pack 6 Lon',
@@ -1202,7 +1125,6 @@ totalprice : 5700000
                     tag: 'Cà phê tại nhà',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 96600,
                 },
                 {
                     title: 'Thùng 24 Lon Cà Phê Sữa Đá ',
@@ -1214,7 +1136,6 @@ totalprice : 5700000
                     tag: 'Cà phê tại nhà',
                     currency: 'đ',
                     salePercent: '15%',
-                    priceTotal: 386400,
                 },
                 {
                     title: 'Trà Oolong Túi Lọc Tearoma 20x2G',
@@ -1226,7 +1147,6 @@ totalprice : 5700000
                     tag: 'Trà tại nhà',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 30800,
                 },
                 {
                     title: 'Trà Lài Túi Lọc Tearoma 20x2G',
@@ -1238,7 +1158,6 @@ totalprice : 5700000
                     tag: 'Trà tại nhà',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 30800,
                 },
                 {
                     title: 'Trà Sen Túi Lọc Tearoma 20x2G',
@@ -1250,7 +1169,6 @@ totalprice : 5700000
                     tag: 'Trà tại nhà',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 30800,
                 },
                 {
                     title: 'Trà Đào Túi Lọc Tearoma 20x2G',
@@ -1262,7 +1180,6 @@ totalprice : 5700000
                     tag: 'Trà tại nhà',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 30800,
                 },
                 {
                     title: 'Trà Oolong Lá Tearoma 100G',
@@ -1274,7 +1191,6 @@ totalprice : 5700000
                     tag: 'Trà tại nhà',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 110000,
                 },
                 {
                     title: 'Trà Xanh Lá Tearoma 100G',
@@ -1286,7 +1202,6 @@ totalprice : 5700000
                     tag: 'Trà tại nhà',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 82500,
                 },
                 {
                     title: 'Trà Lài Lá Tearoma 100G',
@@ -1298,7 +1213,6 @@ totalprice : 5700000
                     tag: 'Trà tại nhà',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 88000,
                 },
                 {
                     title: 'Trà Sen Lá Tearoma 100G',
@@ -1310,7 +1224,6 @@ totalprice : 5700000
                     tag: 'Trà tại nhà',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 88000,
                 },
                 {
                     title: 'Giftset Trà Tearoma',
@@ -1322,7 +1235,6 @@ totalprice : 5700000
                     tag: 'Trà tại nhà',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 182600,
                 },
                 {
                     title: 'Chocolate Đá',
@@ -1334,7 +1246,6 @@ totalprice : 5700000
                     tag: 'Chocolate',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 60500,
                 },
                 {
                     title: 'Chocolate Nóng',
@@ -1346,45 +1257,44 @@ totalprice : 5700000
                     tag: 'Chocolate',
                     currency: 'đ',
                     salePercent: '10%',
-                    priceTotal: 60500,
                 },
             ];
             setDataImgs(dataImgs);
         }
         if (!this.getDataOrders()) {
-            var dataOrders = [{
-                maDH: 1,
-                maKH: 'abc',
-                gia: 30000,
-                soLuong: 2,
-                trangThai: "Chưa xử lý",
-                tongGia: 60000,
-                tag: "Cà phê",
-                ngayDK: 20000
-                }
-                ,
+            var dataOrders = [
                 {
-                maDH: 2,
-                maKH: 'abcd',
-                gia: 30000,
-                soLuong: 1,
-                trangThai: "Chưa xử lý",
-                tongGia: 30000,
-                ngayDK: 30000,
-                tag: "Trà"
+                    maDH: 1,
+                    maKH: 'abc',
+                    gia: 30000,
+                    soLuong: 2,
+                    trangThai: 'Chưa xử lý',
+                    tongGia: 60000,
+                    tag: 'Cà phê',
+                    ngayDK: 20000,
                 },
                 {
-                maDH: 3,
-                maKH: 'abcde',
-                gia: 30000,
-                soLuong: 1,
-                trangThai: "Chưa xử lý",
-                tongGia: 30000,
-                ngayDK: 30000,
-                tag: "Hi-Tea"
-                }
+                    maDH: 2,
+                    maKH: 'abcd',
+                    gia: 30000,
+                    soLuong: 1,
+                    trangThai: 'Chưa xử lý',
+                    tongGia: 30000,
+                    ngayDK: 30000,
+                    tag: 'Trà',
+                },
+                {
+                    maDH: 3,
+                    maKH: 'abcde',
+                    gia: 30000,
+                    soLuong: 1,
+                    trangThai: 'Chưa xử lý',
+                    tongGia: 30000,
+                    ngayDK: 30000,
+                    tag: 'Hi-Tea',
+                },
             ];
-            setDataOrders(dataOrders)
+            setDataOrders(dataOrders);
         }
     };
     this.updateData();

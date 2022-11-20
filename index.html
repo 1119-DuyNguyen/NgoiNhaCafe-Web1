@@ -143,6 +143,9 @@
             </div>
         </div>
         <div id="header-icon" class="header__icon">
+            <div id="user-icon-logout" class="border-square --hide">
+                <span class="icon-exit"></span>
+            </div>
             <div id="User-icon" class="border-square user-icon">
                 <span class="icon-user"></span>
             </div>
@@ -203,36 +206,7 @@
                                 <th>Giá</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <img src="./public/img/cf.jpg" alt="" />
-                                </td>
-                                <td>
-                                    <div>fdsfsdfdsfsdfsdfsdfdsfsd</div>
-                                </td>
-                                <td class="cart-size">size</td>
-
-                                <td class="cart-price">$9.99</td>
-
-                                <td>
-                                    <button class="icon plus">
-                                        <i class="icon-plus"></i>
-                                    </button>
-
-                                    <div class="info-count_num">1</div>
-
-                                    <button class="icon minus">
-                                        <i class="icon-minus"></i>
-                                    </button>
-                                </td>
-
-                                <td>fdsfsdfsdfsdfsdfs</td>
-                                <td>
-                                    <button class="deleted-btn">x</button>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
                 <div class="order-total">
@@ -246,12 +220,15 @@
                         class="cart-total-price"
                         >0đ</span
                     >
+                    <span> </span>
                 </div>
                 <div class="btn-handle">
                     <button class="btn-diff btn-deleted" data-count="0">
                         Xóa (0)
                     </button>
-                    <button class="btn-diff btn-purchased">Thanh toán</button>
+                    <button class="btn-diff btn-purchased" data-count="0">
+                        Thanh toán (0)
+                    </button>
                 </div>
                 <!-- <div class="order-board-2">
                         <div class="order-container">
