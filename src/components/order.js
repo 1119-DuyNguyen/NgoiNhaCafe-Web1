@@ -36,11 +36,10 @@ export function openCartPage() {
 }
 function resetDefaultSelectAll() {
     const checkboxBtns = cartTable.getElementsByClassName('checkbox');
+    var btnSelectAll = checkboxBtns[0];
     if (checkboxBtns.length > 1) {
-        var btnSelectAll = checkboxBtns[0];
         btnSelectAll.click();
     } else {
-        var btnSelectAll = checkboxBtns[0];
         btnSelectAll.checked = false;
     }
 }
@@ -58,7 +57,7 @@ function applyCheckbox() {
     const checkboxBtns = cartTable.getElementsByClassName('checkbox');
     var btnSelectAll = checkboxBtns[0];
     btnSelectAll.addEventListener('change', (e) => {
-        changeCheckBoxBtns(e.target.checked);
+        changeCheckBoxBtns(btnSelectAll.checked);
         updateSelect();
     });
     for (var i = 1; i < checkboxBtns.length; ++i) {
@@ -84,7 +83,7 @@ function deleteBtnCarts() {
             updateSelect();
         },
         true,
-        'Bạn có chắc chắn muốn xóa  đơn hàng?'
+        'Bạn có chắc chắn muốn xóa đơn hàng?'
     );
 }
 function convertSelectedCartsToBills(activeCheckboxes) {
@@ -274,7 +273,7 @@ function updateSelect() {
     btnPurchare.innerText = 'Thanh toán (' + countActiveCheckbox + ')';
     // length -1 vì không tính select all
     if (countActiveCheckbox === cartTable.rows.length - 1) {
-        resetDefaultSelectAll();
+        return true;
     } else return false;
 }
 /**
