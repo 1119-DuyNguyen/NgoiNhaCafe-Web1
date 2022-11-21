@@ -62,13 +62,15 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         }
 
         switch (type) {
-            case 'users', 'products':
+            case 'users', 'products', 'orders', 'analytics':
                 f1(type);
                 break;
         
             default:
                 f1('users');
                 f1('products');
+                f1('orders');
+                f1('analytics');
                 break;
         }
     }
@@ -282,6 +284,78 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         </div>`;
     }
 
+    function renderAnalytics(page) {
+        let s_orders = document.querySelector(".admin-container[data-csr='analytics'] table");
+
+        html = `<tr>
+            <th></th>
+            <th>STT</th>
+            <th>Ngày</th>
+            <th>Khách hàng</th>
+            <th>Giá</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+        </tr>`;
+        // 100 99 98 97 96 95 94 93 92 91
+        // tính toán số phần tử để lặp trong vòng lặp for - numOfItemsPerPage = 9
+        // do lặp từ cuối lên đầu danh sách ->
+        let maxSize = dataOrders.length-1; // số lượng phần tử tối đa
+        first = maxSize - (page-1) * numOfItemsPerPage; // nếu sl = 90, trang 1 -> first = 90 - 0 * 9 = 90
+        // 90 - 0 * 9 = 90 89 88 87 86 85 84 83 82
+        // 90 - 1 * 9 = 81 80 79 88 77 76 75 74 73
+        i = first;
+        count = 0;
+        while (typeof dataOrders[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) {
+            html += `<tr>
+                <td>
+                    <input type="checkbox" value="${i}" class="checkbox" data-type="order"/>
+                </td>
+                <td>${i+1}</td>
+                <td>${dataOrders[i].ngayDK}</td>
+                <td>${dataOrders[i].maKH}</td>
+                <td>${dataOrders[i].gia}đ</td>
+                <td>${dataOrders[i].trangThai}</td>
+                <td>
+                    <button class="btn btn-info edit-product" data-id="${i}">
+                        <span class="icon-pencil"></span>
+                    </button>
+                    <button class="btn btn-info">
+                        <span class="icon-info"></span>
+                    </button>
+                    <button class="btn btn-danger delete-product" data-id="${i}">
+                        <span class="icon-bin"></span>
+                    </button>
+                </td>
+            </tr>`
+            i--;
+            count++;
+        }
+    
+        s_orders.innerHTML = html;
+        
+        // Chức năng lọc
+        
+        document.querySelector(".admin-container[data-csr='orders'] .managerment").innerHTML += `<div class="filter">
+            <p><b>Lọc đơn hàng</b></p>
+            <div>
+                <span>Theo tag:</span>
+            </div>
+            <div>
+                <span>Theo thời gian</span> 
+                <label name="range">từ ngày:</label>
+
+                <input
+                    name="fromDay"
+                    type="text" onfocus="(this.type = 'date')" onchange="((this.value) ? alert(this.value) : '')" />
+                <label name="range">đến ngày :</label>
+                <span> - </span>
+                <input
+                    name="toDay"
+                    type="text" onfocus="(this.type = 'date')"/>
+            </div>
+        </div>`;
+    }
+
     function renderHome() { // render trang home
         let s_home = document.querySelector(".admin-container[data-csr='home'] .card-container");
 
@@ -319,12 +393,18 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             applyCheckboxFeature('orders');
             actionsAndDecisions('orders');
             break;
+        case 'analytics':
+            renderAnalytics(page);
+            applyCheckboxFeature('analytics');
+            actionsAndDecisions('analytics');
+            break;
     
         default:
             renderHome();
             renderUsers(page);
             renderProducts(page);
             renderOrders(page);
+            renderAnalytics(page);
             
             applyCheckboxFeature();
             actionsAndDecisions();
@@ -636,6 +716,7 @@ function actionsAndDecisions(type = '') {
 function logout() {
     document.querySelector("#logout").addEventListener('click', e => {
         e.preventDefault();
+        data.setCurrentUser("");
         window.location.href = "../";
     })
 }
@@ -665,7 +746,7 @@ function runCSR() {
     let availablePages = ['home',
     'users',
     'products',
-    'orders'];
+    'orders', 'analytics'];
 
     /**
      * Render trang dựa theo url (csr)
