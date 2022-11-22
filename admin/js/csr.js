@@ -305,6 +305,17 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                     type="text" onfocus="(this.type = 'date')"/>
             </div>
         </div>`;
+        // cảnh báo xóa đơn hàng
+        document.querySelectorAll(".delete-product").forEach(elem => {
+            elem.addEventListener('click', e => {
+                let deleteConfirm = confirm("Bạn có muốn xóa đơn hàng này không?");
+                if (deleteConfirm) {
+                    data.removeOrder(elem.dataset.id);
+                    alert("Xóa đơn hàng thành công!");
+                    window.location.href = "";
+                }
+            })
+        })
     }
 
     function renderAnalytics(page) {
@@ -712,6 +723,9 @@ function actionsAndDecisions(type = '') {
                         case 'products':
                             data.removeImg(idToRemove);
                             break;
+                        case 'orders':
+                            data.removeOrder(idToRemove);
+                            break;
                     }
                     idToRemove = [];
                     alert("Xoá các phần tử đã chọn thành công!"); // thông báo và reload lại trang
@@ -722,13 +736,14 @@ function actionsAndDecisions(type = '') {
     }
     // Ứng với mỗi trang
     switch (type) {
-        case 'users', 'products':
+        case 'users', 'products', 'orders':
             f1(".admin-container[data-csr='"+type+"']", type);
             break;
     
         default:
             f1(".admin-container[data-csr='users']", 'users');
             f1(".admin-container[data-csr='products']", 'products');
+            f1(".admin-container[data-csr='orders']", 'orders');
             break;
     }
 }

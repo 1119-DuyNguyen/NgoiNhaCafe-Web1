@@ -32,6 +32,7 @@ export function Data() {
     };
     this.removeUser = function (idToRemove) {
         let data = this.getDataUsers();
+        if (!Array.isArray(idToRemove)) idToRemove = [idToRemove];
         idToRemove.forEach((id) => {
             data[id] = {};
         });
@@ -48,6 +49,7 @@ export function Data() {
     };
     this.removeImg = function (idToRemove) {
         let data = this.getDataImgs();
+        if (!Array.isArray(idToRemove)) idToRemove = [idToRemove];
         idToRemove.forEach((id) => {
             data[id] = {};
         });
@@ -55,6 +57,17 @@ export function Data() {
             return Object.keys(item).length != 0;
         });
         setDataImgs(data);
+    };
+    this.removeOrder = function (idToRemove) {
+        let data = this.getDataOrders();
+        if (!Array.isArray(idToRemove)) idToRemove = [idToRemove];
+        idToRemove.forEach((id) => {
+            data[id] = {};
+        });
+        data = data.filter((item) => {
+            return Object.keys(item).length != 0;
+        });
+        setDataOrders(data);
     };
 
     var _this = this;
