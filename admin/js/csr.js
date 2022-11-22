@@ -2,6 +2,7 @@ import { Data } from "../../src/database/data.js";
 import { closeDisplay, openDisplay,btnCloseId, toggleDisplay } from "../../src/library/display.js";
 import { toast } from "../../src/components/toast.js";
 import toppingData from "../../src/database/topping.json" assert {type: 'json'};
+// import printOrderFunction from "./printorder.js";
 
 var data = new Data();
 data.initData();
@@ -9,6 +10,7 @@ data.initData();
 let dataUsers = data.getDataUsers();
 let dataImgs = data.getDataImgs();
 let dataOrders = data.getDataOrders();
+let dataBills = data.getDataBill();
 let adminNotify = data.getAdminNotify();
 let currentUser = data.getCurrentUser();
 
@@ -250,24 +252,24 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         // 100 99 98 97 96 95 94 93 92 91
         // tính toán số phần tử để lặp trong vòng lặp for - numOfItemsPerPage = 9
         // do lặp từ cuối lên đầu danh sách ->
-        let maxSize = dataOrders.length-1; // số lượng phần tử tối đa
+        let maxSize = dataBills.length-1; // số lượng phần tử tối đa
         first = maxSize - (page-1) * numOfItemsPerPage; // nếu sl = 90, trang 1 -> first = 90 - 0 * 9 = 90
         // 90 - 0 * 9 = 90 89 88 87 86 85 84 83 82
         // 90 - 1 * 9 = 81 80 79 88 77 76 75 74 73
         i = first;
         count = 0;
-        while (typeof dataOrders[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) {
+        while (typeof dataBills[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) {
             html += `<tr>
                 <td>
                     <input type="checkbox" value="${i}" class="checkbox" data-type="order"/>
                 </td>
                 <td>${i+1}</td>
-                <td>${dataOrders[i].ngayDK}</td>
-                <td>${dataOrders[i].maKH}</td>
-                <td>${dataOrders[i].gia}đ</td>
-                <td>${dataOrders[i].trangThai}</td>
+                <td>${dataBills[i].dateCreate}</td>
+                <td>${dataBills[i].customer.username}</td>
+                <td>${dataBills[i].totalprice}đ</td>
+                <td>${dataBills[i].status}</td>
                 <td>
-                    <button class="btn btn-info edit-product" data-id="${i}">
+                    <button class="btn btn-info edit-order" data-id="${i}">
                         <span class="icon-pencil"></span>
                     </button>
                     <button class="btn btn-info">
@@ -310,10 +312,18 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             elem.addEventListener('click', e => {
                 let deleteConfirm = confirm("Bạn có muốn xóa đơn hàng này không?");
                 if (deleteConfirm) {
-                    data.removeOrder(elem.dataset.id);
+                    data.removeBill(elem.dataset.id);
                     alert("Xóa đơn hàng thành công!");
                     window.location.href = "";
                 }
+            })
+        })
+
+        // Chỉnh sửa đơn hàng
+        
+        document.querySelectorAll(".edit-order").forEach(elem => {
+            elem.addEventListener('click', e => {
+                // printOrderFunction("#print-order");
             })
         })
     }
@@ -333,22 +343,22 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         // 100 99 98 97 96 95 94 93 92 91
         // tính toán số phần tử để lặp trong vòng lặp for - numOfItemsPerPage = 9
         // do lặp từ cuối lên đầu danh sách ->
-        let maxSize = dataOrders.length-1; // số lượng phần tử tối đa
+        let maxSize = dataBills.length-1; // số lượng phần tử tối đa
         first = maxSize - (page-1) * numOfItemsPerPage; // nếu sl = 90, trang 1 -> first = 90 - 0 * 9 = 90
         // 90 - 0 * 9 = 90 89 88 87 86 85 84 83 82
         // 90 - 1 * 9 = 81 80 79 88 77 76 75 74 73
         i = first;
         count = 0;
-        while (typeof dataOrders[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) {
+        while (typeof dataBills[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) {
             html += `<tr>
                 <td>
                     <input type="checkbox" value="${i}" class="checkbox" data-type="order"/>
                 </td>
                 <td>${i+1}</td>
-                <td>${dataOrders[i].ngayDK}</td>
-                <td>${dataOrders[i].maKH}</td>
-                <td>${dataOrders[i].gia}đ</td>
-                <td>${dataOrders[i].trangThai}</td>
+                <td>${dataBills[i].dateCreate}</td>
+                <td>${dataBills[i].customer.username}</td>
+                <td>${dataBills[i].totalprice}đ</td>
+                <td>${dataBills[i].status}</td>
                 <td>
                     <button class="btn btn-info edit-product" data-id="${i}">
                         <span class="icon-pencil"></span>
@@ -724,7 +734,7 @@ function actionsAndDecisions(type = '') {
                             data.removeImg(idToRemove);
                             break;
                         case 'orders':
-                            data.removeOrder(idToRemove);
+                            data.removeBill(idToRemove);
                             break;
                     }
                     idToRemove = [];

@@ -35,5 +35,5 @@ document.addEventListener('DOMContentLoaded', e => {
 
     runCSR();
     
-    printOrderFunction('#print-order');
+    // printOrderFunction('#print-order');
 })

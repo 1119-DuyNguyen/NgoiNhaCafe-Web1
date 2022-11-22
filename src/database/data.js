@@ -137,8 +137,18 @@ totalprice : 5700000
             _this.setDataBill(bill);
         }
     };
-    this.removeBill = function () {
-        window.localStorage.removeItem(keyBill);
+    this.removeBill = function (idToRemove) {
+        // window.localStorage.removeItem(keyBill);
+
+        let data = this.getDataBill();
+        if (!Array.isArray(idToRemove)) idToRemove = [idToRemove];
+        idToRemove.forEach((id) => {
+            data[id] = {};
+        });
+        data = data.filter((item) => {
+            return Object.keys(item).length != 0;
+        });
+        this.setDataBill(data);
     };
     //setter
     function setDataImgs(data) {
