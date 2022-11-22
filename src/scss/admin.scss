@@ -222,8 +222,9 @@ $active-color: #e57905;
             &:first-of-type {
                 background: $active-color;
                 color: white;
+                border-bottom: none;
             }
-            border-bottom: 1px solid gray;
+            border-bottom: .5px solid gray;
             &:last-child {
                 border-bottom: none;
             }
@@ -345,7 +346,7 @@ $active-color: #e57905;
 }
 // Responsive - desktop
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 900px) {
     #header-admin {
         display: inline-block;
         & > h1 {
