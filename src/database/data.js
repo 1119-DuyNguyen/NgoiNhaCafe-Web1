@@ -12,6 +12,9 @@ export function Data() {
     this.getImg = function (id) {
         return this.getDataImgs()[id];
     };
+    this.getBill = function (id) {
+        return this.getDataBill()[id];
+    };
     this.editUser = function (user, id) {
         let data = this.getDataUsers();
 
@@ -137,6 +140,14 @@ totalprice : 5700000
             _this.setDataBill(bill);
         }
     };
+    
+    this.editBill = function (obj, id) {
+        let data = this.getDataBill();
+
+        data[id].status = obj.status;
+        this.setDataBill(data);
+    };
+
     this.removeBill = function (idToRemove) {
         // window.localStorage.removeItem(keyBill);
 

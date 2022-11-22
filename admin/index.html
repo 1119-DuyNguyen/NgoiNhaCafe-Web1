@@ -621,7 +621,34 @@
                         </div>
                     </div>
 
-                    <div id="print-order" class="modal --hide">
+                    <div id="edit-order" class="modal --hide">
+                        <div class="container">
+                            <div class="content">
+                                <div class="close">
+                                    <i class="icon-cross icon"></i>
+                                </div>
+                                <div class="title">
+                                    <span>Chỉnh sửa đơn hàng</span>
+                                </div>
+                                <form action="">
+                                    <div>
+                                        <label for="product-name-edit">Tên sản phẩm</label>
+                                        <select id="order-status" data-name="status">
+                                            <option value="Đang xử lý">Đang xử lý</option>
+                                            <option value="Đã xử lý">Đã xử lý</option>
+                                        </select>
+                                        
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-danger remove" type="reset">Đặt lại</button>
+                                        <button class="btn btn-info submit" type="submit">Cập nhật</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="print-order" class="--hide modal">
                         <style>
                             #order-print-page > div {
                                 margin-bottom: 16px;

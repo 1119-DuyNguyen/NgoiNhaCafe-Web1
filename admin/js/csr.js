@@ -323,7 +323,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         
         document.querySelectorAll(".edit-order").forEach(elem => {
             elem.addEventListener('click', e => {
-                // printOrderFunction("#print-order");
+                renderEditForm(elem.dataset.id, 3);
             })
         })
     }
@@ -523,7 +523,7 @@ function renderPaginator(numOfItemsOnPage = 9, type = '') {
 /**
  * Hàm render form (thêm, chỉnh sửa)
  * @param {string} element_id id phần tử của form
- * @param {int} type loại danh sách, mặc định là 1 (1 - sản phẩm, 2 - người dùng)
+ * @param {int} type loại danh sách, mặc định là 1 (1 - sản phẩm, 2 - người dùng, 3 - đơn hàng)
  * @param {int} formType loại form, mặc định là 1 (1 - thêm, 2 - chỉnh sửa)
  * @param {int} id id người dùng || sản phẩm (chỉ yêu cầu khi render form chỉnh sửa)
  * @return void
@@ -547,7 +547,7 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
     submitBtn.addEventListener('click', e => {
         e.preventDefault();
         let obj = {};
-        document.querySelectorAll(element_id + " div input, "+element_id + " div textarea").forEach(e => {
+        document.querySelectorAll(element_id + " div select, "+element_id + " div input, "+element_id + " div textarea").forEach(e => {
             obj[e.dataset.name] = e.value;
         })
         if (formType == 1) { // add
@@ -573,6 +573,11 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
                 case 2:
                     data.editUser(obj, id);
                     alert("Chỉnh sửa người dùng thành công!");
+                    break;
+                
+                case 3:
+                    data.editBill(obj, id);
+                    alert("Chỉnh sửa đơn hàng thành công!");
                     break;
             }
         }
@@ -627,6 +632,11 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
                 document.querySelector("#user-phonenum-edit").value = obj.phone;
                 document.querySelector("#user-permission-edit").value = obj.type;
                 break;
+
+            case 3:
+                obj = data.getBill(id);
+                document.querySelector("#order-status").value = obj.status;
+                break;
         
             default:
                 break;
@@ -650,6 +660,10 @@ function renderEditForm(id, type=1) {
     
         case 2:
             renderForm("#edit-user", 2, 2, id);
+            break;
+
+        case 3:
+            renderForm("#edit-order", 3, 2, id);
             break;
     }
 }
