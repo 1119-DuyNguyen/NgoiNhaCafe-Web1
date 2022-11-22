@@ -9,6 +9,29 @@ data.initData();
 let dataUsers = data.getDataUsers();
 let dataImgs = data.getDataImgs();
 let dataOrders = data.getDataOrders();
+let adminNotify = data.getAdminNotify();
+let currentUser = data.getCurrentUser();
+
+// thông báo đăng nhập thành công
+
+// kiểm tra xem user có quyền admin hay không
+if (currentUser !== null || currentUser == "") {
+    if (currentUser.type != 'admin') window.location.href = "../";
+    else {
+        // nếu chưa thông báo
+        if (adminNotify === null || adminNotify == "") {
+            data.setAdminNotify(true);
+            toast({
+                title: "Xin chào!",
+                duration: 5000,
+                message: "Chào mừng <b>"+currentUser.username+"</b> đã quay trở lại",
+                type: "success"
+            })
+        }
+    }
+} else window.location.href = "../";
+
+
 
 let numOfItemsPerPage = (data.getAdminNumOfItemsPerPage() === null) ? 9 : parseInt(data.getAdminNumOfItemsPerPage());
 
@@ -335,7 +358,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         
         // Chức năng lọc
         
-        document.querySelector(".admin-container[data-csr='orders'] .managerment").innerHTML += `<div class="filter">
+        document.querySelector(".admin-container[data-csr='analytics'] .managerment").innerHTML += `<div class="filter">
             <p><b>Lọc đơn hàng</b></p>
             <div>
                 <span>Theo tag:</span>
@@ -716,8 +739,11 @@ function actionsAndDecisions(type = '') {
 function logout() {
     document.querySelector("#logout").addEventListener('click', e => {
         e.preventDefault();
-        data.setCurrentUser("");
-        window.location.href = "../";
+        if (confirm("Bạn có muốn đăng xuất?")) {
+            data.setCurrentUser("");
+            data.setAdminNotify("");
+            window.location.href = "../";
+        }
     })
 }
 

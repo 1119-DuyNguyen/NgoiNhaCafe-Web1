@@ -5,6 +5,7 @@ export function Data() {
     const keyCart = 'dataCart';
     const keyBill = 'dataBill';
     const keyCurrentUser = 'currentUser';
+    const keyAdminNotify = 'dataAdminNotify';
     this.getUser = function (id) {
         return this.getDataUsers()[id];
     };
@@ -137,6 +138,11 @@ totalprice : 5700000
     function setDataOrders(data) {
         window.localStorage.setItem(keyOrders, JSON.stringify(data));
     }
+
+    this.setAdminNotify = function (data) {
+        window.localStorage.setItem(keyAdminNotify, JSON.stringify(data));
+    }
+
     this.resetDefaut = function () {
         setDataUsers(dataUsers);
         setDataImgs(dataImgs);
@@ -166,6 +172,10 @@ totalprice : 5700000
     this.getDataOrders = function () {
         return JSON.parse(window.localStorage.getItem(keyOrders));
     };
+
+    this.getAdminNotify = function () {
+        return JSON.parse(window.localStorage.getItem(keyAdminNotify));
+    }
     this.updateData = function () {
         var users = this.getDataUsers();
         var imgs = this.getDataImgs();
