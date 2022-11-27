@@ -649,7 +649,7 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
 /**
  * Hàm render form chỉnh sửa phần tử của danh sách
  * @param {int} id id của phần tử
- * @param {int} type loại phần tử, mặc định là 1 (1 - sản phẩm, 2 - người dùng)
+ * @param {int} type loại phần tử, mặc định là 1 (1 - sản phẩm, 2 - người dùng, 3 - đơn hàng)
  */
 function renderEditForm(id, type=1) {
 
