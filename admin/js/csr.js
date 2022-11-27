@@ -249,6 +249,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             <th>Trạng thái</th>
             <th>Hành động</th>
         </tr>`;
+        if (dataBills === null) dataBills = [];
         // 100 99 98 97 96 95 94 93 92 91
         // tính toán số phần tử để lặp trong vòng lặp for - numOfItemsPerPage = 9
         // do lặp từ cuối lên đầu danh sách ->
