@@ -40,7 +40,13 @@ function init() {
                 );
             });
             if (user) {
-                location.reload();
+                const userIcon = document.getElementById('User-icon');
+                const logoutIcon = document.getElementById('user-icon-logout');
+                const labelNameUser = document.getElementById('');
+                // đăng nhập user
+                closeDisplay(userIcon);
+                openDisplay(logoutIcon);
+
                 const messageName =
                     'Chào mừng ' +
                     user.username.toUpperCase() +
@@ -124,4 +130,6 @@ export function openformAccount() {
 }
 export function logoutAccount() {
     data.setCurrentUser('');
+    data.setDataCart('');
+    location.reload();
 }

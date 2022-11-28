@@ -50,16 +50,17 @@ const navPages = [
 // console.log(typeof menuInner);
 // dùng disappear thay vì --hide vì hide có !important
 export const run = function (dataImgs) {
-    if (menuInnerMobile) {
-        menuInnerMobile.addEventListener('click', (e) => {
-            let headerModal = document.querySelector('.header__modal');
-            if (headerModal.classList.contains('--disappear'))
-                headerModal.classList.remove('--disappear');
-            else {
-                headerModal.classList.add('--disappear');
-            }
-        });
-    }
+    // lỗi của bấm liên hê
+    // if (menuInnerMobile) {
+    //     menuInnerMobile.addEventListener('click', (e) => {
+    //         let headerModal = document.querySelector('.header__modal');
+    //         if (headerModal.classList.contains('--disappear'))
+    //             headerModal.classList.remove('--disappear');
+    //         else {
+    //             headerModal.classList.add('--disappear');
+    //         }
+    //     });
+    // }
     //close-btn
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
@@ -93,7 +94,7 @@ export const run = function (dataImgs) {
     //menuList
     if (menuList) {
         menuList.forEach((btn, i) => {
-            let subMenu = btn.querySelector('.board__item-inside');
+            let subMenu = btn.querySelector('.header__modal');
             if (subMenu) {
                 btn.addEventListener('click', () => {
                     //console.log('hear');
@@ -141,7 +142,6 @@ export const run = function (dataImgs) {
         logoutIcon.addEventListener('click', () => {
             if (confirm('Bạn có muốn đăng xuất')) {
                 logoutAccount();
-                location.reload();
             }
         });
     }
@@ -208,3 +208,9 @@ function menuProductList() {
     }
     footerNavigation();
 }
+
+// duy xủ lí
+let headerMbAcount = document.querySelector('.header-mb-acount');
+console.log({ headerMbAcount });
+let headerAcount = document.querySelector('.header-acount');
+console.log({ headerAcount });
