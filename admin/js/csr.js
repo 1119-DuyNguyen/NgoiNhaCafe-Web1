@@ -129,7 +129,6 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                 <td>${dataUsers[i].phone}</td>
                 <td>
                     <button class="btn btn-info edit-user" data-id="${i}"><i class="icon-pencil"></i></button>
-                    <button class="btn btn-info"><i class="icon-info"></i></button>
                     <button class="btn btn-danger delete-user" data-id="${i}"><i class="icon-bin"></i></button>
                 </td>
             </tr>`
@@ -199,9 +198,6 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                 <td>
                     <button class="btn btn-info edit-product" data-id="${i}">
                         <span class="icon-pencil"></span>
-                    </button>
-                    <button class="btn btn-info">
-                        <span class="icon-info"></span>
                     </button>
                     <button class="btn btn-danger delete-product" data-id="${i}">
                         <span class="icon-bin"></span>
