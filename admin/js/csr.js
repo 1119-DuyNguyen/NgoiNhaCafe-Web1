@@ -351,9 +351,6 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                     <td>${dataBills[i].totalprice}đ</td>
                     <td>${dataBills[i].status}</td>
                     <td>
-                        <button class="btn btn-info print-order_A" data-id="${i}">
-                            <span class="icon-info"></span>
-                        </button>
                         <button class="btn btn-danger delete-order_A" data-id="${i}">
                             <span class="icon-bin"></span>
                         </button>
@@ -374,16 +371,6 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                     alert("Xóa đơn hàng thành công!");
                     window.location.href = "";
                 }
-            })
-        })
-
-        // Chỉnh sửa đơn hàng
-        
-        let bill;
-        document.querySelectorAll(".print-order_A").forEach(elem => {
-            elem.addEventListener('click', e => {
-                bill = data.getDataBill()[elem.dataset.id];
-                printOrderFunction("#print-order_A", bill);
             })
         })
 
