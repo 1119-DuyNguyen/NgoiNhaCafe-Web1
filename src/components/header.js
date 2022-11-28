@@ -155,6 +155,7 @@ function menuProductList() {
             callMenu(index + 1);
             closeAllPage();
             openDisplay(productContainer);
+            window.scrollTo(0, 0);
         });
     });
 
@@ -163,12 +164,14 @@ function menuProductList() {
             closeAllPage();
             openDisplay(productContainer);
             callMenu(index);
+            window.scrollTo(0, 0);
         });
     });
 
     aboutUsHeader.addEventListener('click', function () {
         closeAllPage();
         openDisplay(aboutUs);
+        window.scrollTo(0, 0);
     });
 
     //footer
@@ -177,25 +180,37 @@ function menuProductList() {
         const csbmttBtn = document.querySelector('.csbmtt-btn');
         const mainStoreBtn = document.querySelector('.main-store-btn');
         const aboutUsFooter = document.querySelector('.f-about-us-btn');
+        const productFooterBtn = document.querySelector('.f-product-btn');
 
         dksdBtn.addEventListener('click', function () {
             closeAllPage();
             openDisplay(dksd);
+            window.scrollTo(0, 0);
         });
 
         csbmttBtn.addEventListener('click', function () {
             closeAllPage();
             openDisplay(csbmtt);
+            window.scrollTo(0, 0);
         });
 
         mainStoreBtn.addEventListener('click', function () {
             closeAllPage();
             openDisplay(mainStore);
+            window.scrollTo(0, 0);
         });
 
         aboutUsFooter.addEventListener('click', function () {
             closeAllPage();
             openDisplay(aboutUs);
+            window.scrollTo(0, 0);
+        });
+
+        productFooterBtn.addEventListener('click', function () {
+            closeAllPage();
+            openDisplay(productContainer);
+            callMenu(0);
+            window.scrollTo(0, 0);
         });
     }
     footerNavigation();
