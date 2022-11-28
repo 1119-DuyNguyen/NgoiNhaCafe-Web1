@@ -5,11 +5,15 @@ export function Data() {
     const keyCart = 'dataCart';
     const keyBill = 'dataBill';
     const keyCurrentUser = 'currentUser';
+    const keyAdminNotify = 'dataAdminNotify';
     this.getUser = function (id) {
         return this.getDataUsers()[id];
     };
     this.getImg = function (id) {
         return this.getDataImgs()[id];
+    };
+    this.getBill = function (id) {
+        return this.getDataBill()[id];
     };
     this.editUser = function (user, id) {
         let data = this.getDataUsers();
@@ -31,6 +35,7 @@ export function Data() {
     };
     this.removeUser = function (idToRemove) {
         let data = this.getDataUsers();
+        if (!Array.isArray(idToRemove)) idToRemove = [idToRemove];
         idToRemove.forEach((id) => {
             data[id] = {};
         });
@@ -47,6 +52,7 @@ export function Data() {
     };
     this.removeImg = function (idToRemove) {
         let data = this.getDataImgs();
+        if (!Array.isArray(idToRemove)) idToRemove = [idToRemove];
         idToRemove.forEach((id) => {
             data[id] = {};
         });
@@ -54,6 +60,17 @@ export function Data() {
             return Object.keys(item).length != 0;
         });
         setDataImgs(data);
+    };
+    this.removeOrder = function (idToRemove) {
+        let data = this.getDataOrders();
+        if (!Array.isArray(idToRemove)) idToRemove = [idToRemove];
+        idToRemove.forEach((id) => {
+            data[id] = {};
+        });
+        data = data.filter((item) => {
+            return Object.keys(item).length != 0;
+        });
+        setDataOrders(data);
     };
 
     var _this = this;
@@ -123,8 +140,26 @@ totalprice : 5700000
             _this.setDataBill(bill);
         }
     };
-    this.removeBill = function () {
-        window.localStorage.removeItem(keyBill);
+    
+    this.editBill = function (obj, id) {
+        let data = this.getDataBill();
+
+        data[id].status = obj.status;
+        this.setDataBill(data);
+    };
+
+    this.removeBill = function (idToRemove) {
+        // window.localStorage.removeItem(keyBill);
+
+        let data = this.getDataBill();
+        if (!Array.isArray(idToRemove)) idToRemove = [idToRemove];
+        idToRemove.forEach((id) => {
+            data[id] = {};
+        });
+        data = data.filter((item) => {
+            return Object.keys(item).length != 0;
+        });
+        this.setDataBill(data);
     };
     //setter
     function setDataImgs(data) {
@@ -137,6 +172,11 @@ totalprice : 5700000
     function setDataOrders(data) {
         window.localStorage.setItem(keyOrders, JSON.stringify(data));
     }
+
+    this.setAdminNotify = function (data) {
+        window.localStorage.setItem(keyAdminNotify, JSON.stringify(data));
+    }
+
     this.resetDefaut = function () {
         setDataUsers(dataUsers);
         setDataImgs(dataImgs);
@@ -166,6 +206,10 @@ totalprice : 5700000
     this.getDataOrders = function () {
         return JSON.parse(window.localStorage.getItem(keyOrders));
     };
+
+    this.getAdminNotify = function () {
+        return JSON.parse(window.localStorage.getItem(keyAdminNotify));
+    }
     this.updateData = function () {
         var users = this.getDataUsers();
         var imgs = this.getDataImgs();

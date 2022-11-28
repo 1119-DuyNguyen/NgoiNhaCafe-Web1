@@ -22,6 +22,7 @@ export function openCartPage() {
 }
 function resetDefaultSelectAll() {
     const checkboxBtns = cartTable.getElementsByClassName('checkbox');
+
     var btnSelectAll = checkboxBtns[0];
     if (checkboxBtns.length > 1) {
         btnSelectAll.click();

@@ -1,5 +1,4 @@
 import runCSR from "./csr.js";
-import printOrderFunction from "./printorder.js";
 
 document.addEventListener('DOMContentLoaded', e => {
 
@@ -35,5 +34,5 @@ document.addEventListener('DOMContentLoaded', e => {
 
     runCSR();
     
-    printOrderFunction('#print-order');
+    // printOrderFunction('#print-order');
 })

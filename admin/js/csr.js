@@ -2,6 +2,7 @@ import { Data } from "../../src/database/data.js";
 import { closeDisplay, openDisplay,btnCloseId, toggleDisplay } from "../../src/library/display.js";
 import { toast } from "../../src/components/toast.js";
 import toppingData from "../../src/database/topping.json" assert {type: 'json'};
+import printOrderFunction from "./printorder.js";
 
 var data = new Data();
 data.initData();
@@ -9,6 +10,30 @@ data.initData();
 let dataUsers = data.getDataUsers();
 let dataImgs = data.getDataImgs();
 let dataOrders = data.getDataOrders();
+let dataBills = data.getDataBill();
+let adminNotify = data.getAdminNotify();
+let currentUser = data.getCurrentUser();
+
+// thông báo đăng nhập thành công
+
+// kiểm tra xem user có quyền admin hay không
+if (currentUser !== null || currentUser == "") {
+    if (currentUser.type != 'admin') window.location.href = "../";
+    else {
+        // nếu chưa thông báo
+        if (adminNotify === null || adminNotify == "") {
+            data.setAdminNotify(true);
+            toast({
+                title: "Xin chào!",
+                duration: 5000,
+                message: "Chào mừng <b>"+currentUser.username+"</b> đã quay trở lại",
+                type: "success"
+            })
+        }
+    }
+} else window.location.href = "../";
+
+
 
 let numOfItemsPerPage = (data.getAdminNumOfItemsPerPage() === null) ? 9 : parseInt(data.getAdminNumOfItemsPerPage());
 
@@ -62,13 +87,15 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         }
 
         switch (type) {
-            case 'users', 'products':
+            case 'users', 'products', 'orders', 'analytics':
                 f1(type);
                 break;
         
             default:
                 f1('users');
                 f1('products');
+                f1('orders');
+                f1('analytics');
                 break;
         }
     }
@@ -222,64 +249,216 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             <th>Trạng thái</th>
             <th>Hành động</th>
         </tr>`;
+        if (dataBills === null) dataBills = [];
         // 100 99 98 97 96 95 94 93 92 91
         // tính toán số phần tử để lặp trong vòng lặp for - numOfItemsPerPage = 9
         // do lặp từ cuối lên đầu danh sách ->
-        let maxSize = dataOrders.length-1; // số lượng phần tử tối đa
+        let maxSize = dataBills.length-1; // số lượng phần tử tối đa
         first = maxSize - (page-1) * numOfItemsPerPage; // nếu sl = 90, trang 1 -> first = 90 - 0 * 9 = 90
         // 90 - 0 * 9 = 90 89 88 87 86 85 84 83 82
         // 90 - 1 * 9 = 81 80 79 88 77 76 75 74 73
         i = first;
         count = 0;
-        while (typeof dataOrders[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) {
-            html += `<tr>
-                <td>
-                    <input type="checkbox" value="${i}" class="checkbox" data-type="order"/>
-                </td>
-                <td>${i+1}</td>
-                <td>${dataOrders[i].ngayDK}</td>
-                <td>${dataOrders[i].maKH}</td>
-                <td>${dataOrders[i].gia}đ</td>
-                <td>${dataOrders[i].trangThai}</td>
-                <td>
-                    <button class="btn btn-info edit-product" data-id="${i}">
-                        <span class="icon-pencil"></span>
-                    </button>
-                    <button class="btn btn-info">
-                        <span class="icon-info"></span>
-                    </button>
-                    <button class="btn btn-danger delete-product" data-id="${i}">
-                        <span class="icon-bin"></span>
-                    </button>
-                </td>
-            </tr>`
+        while (typeof dataBills[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) {
+            if (dataBills[i].status == "Đang xử lý")
+                html += `<tr>
+                    <td>
+                        <input type="checkbox" value="${i}" class="checkbox" data-type="order"/>
+                    </td>
+                    <td>${i+1}</td>
+                    <td>${dataBills[i].dateCreate}</td>
+                    <td>${dataBills[i].customer.username}</td>
+                    <td>${dataBills[i].totalprice}đ</td>
+                    <td>${dataBills[i].status}</td>
+                    <td>
+                        <button class="btn btn-info edit-order" data-id="${i}">
+                            <span class="icon-pencil"></span>
+                        </button>
+                        <button class="btn btn-info print-order" data-id="${i}">
+                            <span class="icon-info"></span>
+                        </button>
+                        <button class="btn btn-danger delete-order" data-id="${i}">
+                            <span class="icon-bin"></span>
+                        </button>
+                    </td>
+                </tr>`
             i--;
             count++;
         }
     
         s_orders.innerHTML = html;
         
-        // Chức năng lọc
+        // cảnh báo xóa đơn hàng
+        document.querySelectorAll(".delete-order").forEach(elem => {
+            elem.addEventListener('click', e => {
+                let deleteConfirm = confirm("Bạn có muốn xóa đơn hàng này không?");
+                if (deleteConfirm) {
+                    data.removeBill(elem.dataset.id);
+                    alert("Xóa đơn hàng thành công!");
+                    window.location.href = "";
+                }
+            })
+        })
+
+        // Chỉnh sửa đơn hàng
         
-        document.querySelector(".admin-container[data-csr='orders'] .managerment").innerHTML += `<div class="filter">
+        document.querySelectorAll(".edit-order").forEach(elem => {
+            elem.addEventListener('click', e => {
+                renderEditForm(elem.dataset.id, 3);
+            })
+        })
+        let bill;
+        document.querySelectorAll(".print-order").forEach(elem => {
+            elem.addEventListener('click', e => {
+                bill = data.getDataBill()[elem.dataset.id];
+                printOrderFunction("#print-order", bill);
+            })
+        })
+    }
+    function renderAnalytics(page) {
+        let s_orders = document.querySelector(".admin-container[data-csr='analytics'] table");
+
+        html = `<tr>
+            <th></th>
+            <th>STT</th>
+            <th>Ngày</th>
+            <th>Khách hàng</th>
+            <th>Giá</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+        </tr>`;
+
+        if (dataBills === null) dataBills = [];
+
+        // 100 99 98 97 96 95 94 93 92 91
+        // tính toán số phần tử để lặp trong vòng lặp for - numOfItemsPerPage = 9
+        // do lặp từ cuối lên đầu danh sách ->
+        let maxSize = dataBills.length-1; // số lượng phần tử tối đa
+        first = maxSize - (page-1) * numOfItemsPerPage; // nếu sl = 90, trang 1 -> first = 90 - 0 * 9 = 90
+        // 90 - 0 * 9 = 90 89 88 87 86 85 84 83 82
+        // 90 - 1 * 9 = 81 80 79 88 77 76 75 74 73
+        i = first;
+        count = 0;
+        while (typeof dataBills[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) {
+            if (dataBills[i].status == "Đã xử lý")
+                html += `<tr>
+                    <td>
+                        <input type="checkbox" value="${i}" class="checkbox" data-type="order"/>
+                    </td>
+                    <td>${i+1}</td>
+                    <td>${dataBills[i].dateCreate}</td>
+                    <td>${dataBills[i].customer.username}</td>
+                    <td>${dataBills[i].totalprice}đ</td>
+                    <td>${dataBills[i].status}</td>
+                    <td>
+                        <button class="btn btn-danger delete-order_A" data-id="${i}">
+                            <span class="icon-bin"></span>
+                        </button>
+                    </td>
+                </tr>`
+            i--;
+            count++;
+        }
+    
+        s_orders.innerHTML = html;
+        
+        // cảnh báo xóa đơn hàng
+        document.querySelectorAll(".delete-order_A").forEach(elem => {
+            elem.addEventListener('click', e => {
+                let deleteConfirm = confirm("Bạn có muốn xóa đơn hàng này không?");
+                if (deleteConfirm) {
+                    data.removeBill(elem.dataset.id);
+                    alert("Xóa đơn hàng thành công!");
+                    window.location.href = "";
+                }
+            })
+        })
+
+        // Lọc
+
+        document.querySelector(".admin-container[data-csr='analytics'] .managerment").innerHTML += `<div class="filter">
             <p><b>Lọc đơn hàng</b></p>
-            <div>
-                <span>Theo tag:</span>
-            </div>
             <div>
                 <span>Theo thời gian</span> 
                 <label name="range">từ ngày:</label>
 
-                <input
+                <input id="fromDay"
                     name="fromDay"
-                    type="text" onfocus="(this.type = 'date')" onchange="((this.value) ? alert(this.value) : '')" />
+                    type="text" onfocus="(this.type = 'date')" />
                 <label name="range">đến ngày :</label>
                 <span> - </span>
-                <input
+                <input id="toDay"
                     name="toDay"
                     type="text" onfocus="(this.type = 'date')"/>
+                <button class="btn btn-info" id="filter">Lọc</button>
             </div>
         </div>`;
+
+        let fD,tD, dtmp, d1, d2, dBills;
+        document.getElementById("filter").addEventListener('click', () => {
+            dBills = [];
+            fD = document.getElementById("fromDay").value;
+            tD = document.getElementById("toDay").value;
+
+            if (fD.length == 0 || tD.length == 0)
+                alert("Vui lòng chọn ngày cụ thể")
+            else {
+                fD = fD.split("-");
+                tD = tD.split("-");
+                d1 = new Date(fD[0], fD[1] - 1, fD[2]);
+                d2 = new Date(tD[0], tD[1] - 1, tD[2]);
+                
+                for (let i = 0, dbill; i < dataBills.length; i++) {
+                    dbill = dataBills[i];
+                    if (dbill.status == "Đã xử lý") {
+                        dtmp = dbill.dateCreate.split("-");
+                        dtmp = new Date(dtmp[2], dtmp[1] - 1, dtmp[0]);
+                        
+                        dbill.id = i;
+                        console.log(dtmp);
+                        console.log(dtmp.getTime());
+                        console.log(d1);
+                        console.log(d1.getTime());
+                        console.log(d2);
+                        console.log(d2.getTime());
+                        if (dtmp.getTime() >= d1.getTime() && dtmp.getTime() <= d2.getTime())
+                            dBills.push(dbill);
+                    } 
+                }
+
+                html = `<tr>
+                    <th></th>
+                    <th>STT</th>
+                    <th>Ngày</th>
+                    <th>Khách hàng</th>
+                    <th>Giá</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>`;
+
+                for (let i = 0; i < dBills.length; i++) {
+                    html += `<tr>
+                        <td>
+                            <input type="checkbox" value="${dBills[i].id}" class="checkbox" data-type="order"/>
+                        </td>
+                        <td>${i+1}</td>
+                        <td>${dBills[i].dateCreate}</td>
+                        <td>${dBills[i].customer.username}</td>
+                        <td>${dBills[i].totalprice}đ</td>
+                        <td>${dBills[i].status}</td>
+                        <td>
+                            <button class="btn btn-info print-order_A" data-id="${dBills[i].id}">
+                                <span class="icon-info"></span>
+                            </button>
+                            <button class="btn btn-danger delete-order_A" data-id="${dBills[i].id}">
+                                <span class="icon-bin"></span>
+                            </button>
+                        </td>
+                    </tr>`
+                }
+                s_orders.innerHTML = html;
+            }
+        })
     }
 
     function renderHome() { // render trang home
@@ -319,12 +498,18 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             applyCheckboxFeature('orders');
             actionsAndDecisions('orders');
             break;
+        case 'analytics':
+            renderAnalytics(page);
+            applyCheckboxFeature('analytics');
+            actionsAndDecisions('analytics');
+            break;
     
         default:
             renderHome();
             renderUsers(page);
             renderProducts(page);
             renderOrders(page);
+            renderAnalytics(page);
             
             applyCheckboxFeature();
             actionsAndDecisions();
@@ -399,7 +584,7 @@ function renderPaginator(numOfItemsOnPage = 9, type = '') {
 /**
  * Hàm render form (thêm, chỉnh sửa)
  * @param {string} element_id id phần tử của form
- * @param {int} type loại danh sách, mặc định là 1 (1 - sản phẩm, 2 - người dùng)
+ * @param {int} type loại danh sách, mặc định là 1 (1 - sản phẩm, 2 - người dùng, 3 - đơn hàng)
  * @param {int} formType loại form, mặc định là 1 (1 - thêm, 2 - chỉnh sửa)
  * @param {int} id id người dùng || sản phẩm (chỉ yêu cầu khi render form chỉnh sửa)
  * @return void
@@ -423,7 +608,7 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
     submitBtn.addEventListener('click', e => {
         e.preventDefault();
         let obj = {};
-        document.querySelectorAll(element_id + " div input, "+element_id + " div textarea").forEach(e => {
+        document.querySelectorAll(element_id + " div select, "+element_id + " div input, "+element_id + " div textarea").forEach(e => {
             obj[e.dataset.name] = e.value;
         })
         if (formType == 1) { // add
@@ -449,6 +634,11 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
                 case 2:
                     data.editUser(obj, id);
                     alert("Chỉnh sửa người dùng thành công!");
+                    break;
+                
+                case 3:
+                    data.editBill(obj, id);
+                    alert("Chỉnh sửa đơn hàng thành công!");
                     break;
             }
         }
@@ -503,6 +693,11 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
                 document.querySelector("#user-phonenum-edit").value = obj.phone;
                 document.querySelector("#user-permission-edit").value = obj.type;
                 break;
+
+            case 3:
+                obj = data.getBill(id);
+                document.querySelector("#order-status").value = obj.status;
+                break;
         
             default:
                 break;
@@ -515,7 +710,7 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
 /**
  * Hàm render form chỉnh sửa phần tử của danh sách
  * @param {int} id id của phần tử
- * @param {int} type loại phần tử, mặc định là 1 (1 - sản phẩm, 2 - người dùng)
+ * @param {int} type loại phần tử, mặc định là 1 (1 - sản phẩm, 2 - người dùng, 3 - đơn hàng)
  */
 function renderEditForm(id, type=1) {
 
@@ -526,6 +721,10 @@ function renderEditForm(id, type=1) {
     
         case 2:
             renderForm("#edit-user", 2, 2, id);
+            break;
+
+        case 3:
+            renderForm("#edit-order", 3, 2, id);
             break;
     }
 }
@@ -609,6 +808,9 @@ function actionsAndDecisions(type = '') {
                         case 'products':
                             data.removeImg(idToRemove);
                             break;
+                        case 'orders':
+                            data.removeBill(idToRemove);
+                            break;
                     }
                     idToRemove = [];
                     alert("Xoá các phần tử đã chọn thành công!"); // thông báo và reload lại trang
@@ -619,13 +821,14 @@ function actionsAndDecisions(type = '') {
     }
     // Ứng với mỗi trang
     switch (type) {
-        case 'users', 'products':
+        case 'users', 'products', 'orders':
             f1(".admin-container[data-csr='"+type+"']", type);
             break;
     
         default:
             f1(".admin-container[data-csr='users']", 'users');
             f1(".admin-container[data-csr='products']", 'products');
+            f1(".admin-container[data-csr='orders']", 'orders');
             break;
     }
 }
@@ -636,7 +839,11 @@ function actionsAndDecisions(type = '') {
 function logout() {
     document.querySelector("#logout").addEventListener('click', e => {
         e.preventDefault();
-        window.location.href = "../";
+        if (confirm("Bạn có muốn đăng xuất?")) {
+            data.setCurrentUser("");
+            data.setAdminNotify("");
+            window.location.href = "../";
+        }
     })
 }
 
@@ -665,7 +872,7 @@ function runCSR() {
     let availablePages = ['home',
     'users',
     'products',
-    'orders'];
+    'orders', 'analytics'];
 
     /**
      * Render trang dựa theo url (csr)
