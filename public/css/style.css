@@ -551,7 +551,7 @@ p {
     overflow-y: auto;
   }
   .board-body .header-mb-acount {
-    padding: 17px 0 17px 0;
+    padding: 24px;
     display: block;
     color: #000;
     font-size: 14px;
@@ -971,7 +971,11 @@ p {
   display: flex;
   align-items: center;
   position: absolute;
+  color: black;
   left: 65px;
+  cursor: default !important;
+  margin-right: 64px;
+  pointer-events: none;
 }
 .header__icon .border-square {
   text-align: center;

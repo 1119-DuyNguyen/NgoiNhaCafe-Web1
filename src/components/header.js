@@ -115,8 +115,10 @@ export const run = function (dataImgs) {
     if (data.getCurrentUser()) {
         closeDisplay(userIcon);
         openDisplay(logoutIcon);
-        headerAcount.innerHTML = data.getCurrentUser().username;
-        headerMbAcount.innerHTML = data.getCurrentUser().username;
+        headerAcount.innerHTML =
+            'Chào mừng ' + data.getCurrentUser().username + ' quay lại';
+        headerMbAcount.innerHTML =
+            'Chào mừng ' + data.getCurrentUser().username + ' quay lại';
     } else {
         closeDisplay(logoutIcon);
         openDisplay(userIcon);

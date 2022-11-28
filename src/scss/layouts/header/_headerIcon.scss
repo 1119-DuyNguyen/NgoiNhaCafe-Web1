@@ -16,7 +16,13 @@
         display: flex;
         align-items: center;
         position: absolute;
+        color: black;
         left: 65px;
+        // vì cái header icon ở dưới nó ghi đè
+        cursor: default !important;
+        margin-right: 64px;
+        pointer-events: none;
+
         // right: ;
         // bottom: ;
         // top: ;

@@ -50,14 +50,13 @@ function init() {
                     document.querySelector('.header-mb-acount');
 
                 let headerAcount = document.querySelector('.header-acount');
-                headerAcount.innerHTML = data.getCurrentUser().username;
-                headerMbAcount.innerHTML = data.getCurrentUser().username;
-                const messageName =
-                    'Chào mừng ' +
-                    user.username.toUpperCase() +
-                    ' quay trở lại';
+
                 switch (user.type) {
                     case 'user': {
+                        const messageName =
+                            'Chào mừng ' +
+                            user.username.toUpperCase() +
+                            ' quay trở lại';
                         toast({
                             title: 'Đăng nhập thành công',
                             message: messageName,
@@ -67,6 +66,14 @@ function init() {
 
                         closeDisplay(userLogin);
                         data.setCurrentUser(user);
+                        headerAcount.innerHTML =
+                            'Chào mừng ' +
+                            data.getCurrentUser().username +
+                            ' quay lại';
+                        headerMbAcount.innerHTML =
+                            'Chào mừng ' +
+                            data.getCurrentUser().username +
+                            ' quay lại';
                         break;
                     }
                     case 'admin': {
