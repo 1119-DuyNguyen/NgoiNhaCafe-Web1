@@ -220,7 +220,7 @@ function addItemsToCart() {
             </td>
             <td class="cart-price" data-price="${
                 elem.price + switchTranslateSize(elem.dataOption.size)
-            }$">${elem.price}đ</td>
+            }$">${elem.price + switchTranslateSize(elem.dataOption.size)}đ</td>
 
 
 
