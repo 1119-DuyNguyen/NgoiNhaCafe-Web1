@@ -120,6 +120,7 @@
                                     ></span
                                 ></span>
                             </li>
+
                             <li class="board__item">
                                 <span
                                     class="not-flow text-color"
@@ -130,8 +131,22 @@
                                 ></span>
                             </li>
 
+                            <!-- làm trước -->
+                            <!-- <li class="board__item">
+                                <span
+                                    class="not-flow text-color"
+                                    style="width: 127px"
+                                    >Lê Nguyễn Minh Huy<span
+                                        class="size-normal icon-info"
+                                    ></span
+                                ></span>
+                            </li> -->
                             <div class="form__log-in-out"></div>
                         </ul>
+
+                        <div class="header-mb-acount">
+                            <span>Lê Nguyễn Minh Huy</span>
+                        </div>
                     </div>
                 </div>
 
@@ -141,9 +156,16 @@
             </div>
         </div>
         <div id="header-icon" class="header__icon">
+            <!-- tao tạo ra header-acount là absolute của header-iocon vì mày đã set -->
+            <!-- cứng header-icon là justify-content: flex-end nên mấy thẻ con nó ăn theo -->
+            <div class="header-acount">
+                <span class="">Lê Nguyễn Minh Huy</span>
+            </div>
+
             <div id="user-icon-logout" class="border-square --hide">
                 <span class="icon-exit"></span>
             </div>
+
             <div id="User-icon" class="border-square user-icon">
                 <span class="icon-user"></span>
             </div>

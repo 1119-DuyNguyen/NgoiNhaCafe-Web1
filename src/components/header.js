@@ -36,16 +36,17 @@ const navPages = [homePage, productContainer, orderPage];
 // console.log(typeof menuInner);
 // dùng disappear thay vì --hide vì hide có !important
 export const run = function (dataImgs) {
-    if (menuInnerMobile) {
-        menuInnerMobile.addEventListener('click', (e) => {
-            let headerModal = document.querySelector('.header__modal');
-            if (headerModal.classList.contains('--disappear'))
-                headerModal.classList.remove('--disappear');
-            else {
-                headerModal.classList.add('--disappear');
-            }
-        });
-    }
+    // lỗi của bấm liên hê
+    // if (menuInnerMobile) {
+    //     menuInnerMobile.addEventListener('click', (e) => {
+    //         let headerModal = document.querySelector('.header__modal');
+    //         if (headerModal.classList.contains('--disappear'))
+    //             headerModal.classList.remove('--disappear');
+    //         else {
+    //             headerModal.classList.add('--disappear');
+    //         }
+    //     });
+    // }
     //close-btn
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
@@ -158,3 +159,9 @@ function menuProductList() {
         });
     });
 }
+
+// duy xủ lí
+let headerMbAcount = document.querySelector('.header-mb-acount');
+console.log({ headerMbAcount });
+let headerAcount = document.querySelector('.header-acount');
+console.log({ headerAcount });
