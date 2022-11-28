@@ -25,11 +25,6 @@ export function openOrderHistory() {
             html = 'Không có đơn hàng nào';
         } else {
             dataBills = dataBills.filter((bill, i) => {
-                console.log(
-                    bill.customer.username,
-                    currentUser.username,
-                    bill.customer.username === currentUser.username
-                );
                 return bill.customer.username === currentUser.username;
             });
             if (dataBills) {
