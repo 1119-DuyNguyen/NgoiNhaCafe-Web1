@@ -108,6 +108,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             <th></th>
             <th>STT</th>
             <th>Tên đăng nhập</th>
+            <th>Ngày đăng ký</th>
             <th>Số điện thoại</th>
             <th></th>
         </tr>`;
@@ -124,10 +125,10 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                 </td>
                 <td>${i+1}</td>
                 <td>${dataUsers[i].username}</td>
+                <td>${(typeof dataUsers[i].dateCreate == 'undefined') ? "" : dataUsers[i].dateCreate }</td>
                 <td>${dataUsers[i].phone}</td>
                 <td>
                     <button class="btn btn-info edit-user" data-id="${i}"><i class="icon-pencil"></i></button>
-                    <button class="btn btn-info"><i class="icon-info"></i></button>
                     <button class="btn btn-danger delete-user" data-id="${i}"><i class="icon-bin"></i></button>
                 </td>
             </tr>`
@@ -197,9 +198,6 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                 <td>
                     <button class="btn btn-info edit-product" data-id="${i}">
                         <span class="icon-pencil"></span>
-                    </button>
-                    <button class="btn btn-info">
-                        <span class="icon-info"></span>
                     </button>
                     <button class="btn btn-danger delete-product" data-id="${i}">
                         <span class="icon-bin"></span>
@@ -682,7 +680,7 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
             case 2: // user
                 obj = data.getUser(id);
                 document.querySelector("#user-name-edit").value = obj.username;
-                document.querySelector("#user-email-edit").value = obj.email;
+                document.querySelector("#user-email-edit").value = (typeof obj.email == 'undefined') ? "" : obj.email;
                 document.querySelector("#user-address-edit").value = obj.address;
                 document.querySelector("#user-phonenum-edit").value = obj.phone;
                 document.querySelector("#user-permission-edit").value = obj.type;

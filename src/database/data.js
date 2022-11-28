@@ -258,47 +258,7 @@ totalprice : 5700000
                     phone: '0383202799',
                     dateCreate: '8-10-2022',
                     type: 'user',
-                },
-                {
-                    id: 1,
-                    username: 'Bret',
-                    email: 'Sincere@april.biz',
-                    address:
-                        '215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam',
-                    phone: '04147274',
-                    password: 'khongcopass',
-                    type: 'admin',
-                },
-                {
-                    id: 1,
-                    username: 'Antonette',
-                    email: 'Shanna@melissa.tv',
-                    address:
-                        '215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam',
-                    phone: '04252181',
-                    password: 'khongcopass',
-                    type: 'user',
-                },
-                {
-                    id: 1,
-                    username: 'Samantha',
-                    email: 'Nathan@yesenia.net',
-                    address:
-                        '215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam',
-                    phone: '06949196',
-                    password: 'khongcopass',
-                    type: 'user',
-                },
-                {
-                    id: 1,
-                    username: 'Karianne',
-                    email: 'Julianne.OConner@kory.org',
-                    address:
-                        '215/39 Bông Sao, Phường 5, Quận 8, Thành phố Hồ Chí Minh, Việt Nam',
-                    phone: '01261619',
-                    password: 'khongcopass',
-                    type: 'user',
-                },
+                }
             ];
             setDataUsers(dataUsers);
         }
