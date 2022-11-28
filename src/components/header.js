@@ -27,12 +27,26 @@ const home = document.querySelector('#home');
 const homeBtn = document.querySelector('.header__menu-mobile');
 let menuInnerMobile = document.getElementsByClassName('board__item')[2];
 
+//footer
+const dksd = document.querySelector('.dksd');
+const csbmtt = document.querySelector('.csbmtt');
+const mainStore = document.querySelector('.main-store');
+
 //paths nav content of the page
 // const main = document.querySelector('#main');
 const productContainer = document.getElementById('product-container');
 var homePage = document.getElementById('home-page');
 var orderPage = document.getElementById('order-page');
-const navPages = [homePage, productContainer, orderPage];
+const aboutUs = document.querySelector('#about-us');
+const navPages = [
+    homePage,
+    productContainer,
+    orderPage,
+    csbmtt,
+    dksd,
+    mainStore,
+    aboutUs,
+];
 // console.log(typeof menuInner);
 // dùng disappear thay vì --hide vì hide có !important
 export const run = function (dataImgs) {
@@ -142,6 +156,7 @@ function menuProductList() {
     //header on click
     const headerBtn = document.querySelectorAll('.header-btn');
     const menuBtn = document.querySelectorAll('.menu-btn');
+    const aboutUsHeader = document.querySelector('.h-about-us-btn');
 
     headerBtn.forEach(function (element, index) {
         element.addEventListener('click', function () {
@@ -158,4 +173,38 @@ function menuProductList() {
             callMenu(index);
         });
     });
+
+    aboutUsHeader.addEventListener('click', function () {
+        closeAllPage();
+        openDisplay(aboutUs);
+    });
+
+    //footer
+    function footerNavigation() {
+        const dksdBtn = document.querySelector('.dksd-btn');
+        const csbmttBtn = document.querySelector('.csbmtt-btn');
+        const mainStoreBtn = document.querySelector('.main-store-btn');
+        const aboutUsFooter = document.querySelector('.f-about-us-btn');
+
+        dksdBtn.addEventListener('click', function () {
+            closeAllPage();
+            openDisplay(dksd);
+        });
+
+        csbmttBtn.addEventListener('click', function () {
+            closeAllPage();
+            openDisplay(csbmtt);
+        });
+
+        mainStoreBtn.addEventListener('click', function () {
+            closeAllPage();
+            openDisplay(mainStore);
+        });
+
+        aboutUsFooter.addEventListener('click', function () {
+            closeAllPage();
+            openDisplay(aboutUs);
+        });
+    }
+    footerNavigation();
 }
