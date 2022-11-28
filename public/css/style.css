@@ -1874,6 +1874,9 @@ p {
   color: #f33a58 !important;
 }
 
+.home-product {
+  margin-bottom: 100px;
+}
 .home-product .image-container {
   display: flex;
   flex-wrap: wrap;
