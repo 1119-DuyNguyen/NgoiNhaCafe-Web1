@@ -115,6 +115,9 @@ export const run = function (dataImgs) {
         });
     }
     if (data.getCurrentUser()) {
+        if (data.getCurrentUser().type === 'admin') {
+            window.location.replace('admin/index.html');
+        }
         closeDisplay(userIcon);
         openDisplay(logoutIcon);
         headerAcount.innerHTML =

@@ -144,7 +144,6 @@ function searchProduct(dataImgs, keyword, optionAdvanced) {
         li.addEventListener('click', (e) => {
             e.preventDefault();
             productInfo(item.title, dataImgs);
-            console.log('li');
         });
         ulRelated.appendChild(li);
     });

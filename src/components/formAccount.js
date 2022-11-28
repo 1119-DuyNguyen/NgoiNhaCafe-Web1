@@ -42,7 +42,6 @@ function init() {
             if (user) {
                 const userIcon = document.getElementById('User-icon');
                 const logoutIcon = document.getElementById('user-icon-logout');
-                const labelNameUser = document.getElementById('');
                 // đăng nhập user
                 closeDisplay(userIcon);
                 openDisplay(logoutIcon);
