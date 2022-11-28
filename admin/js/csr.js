@@ -280,32 +280,36 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
     
         s_orders.innerHTML = html;
         
-        // cảnh báo xóa đơn hàng
-        document.querySelectorAll(".delete-order").forEach(elem => {
-            elem.addEventListener('click', e => {
-                let deleteConfirm = confirm("Bạn có muốn xóa đơn hàng này không?");
-                if (deleteConfirm) {
-                    data.removeBill(elem.dataset.id);
-                    alert("Xóa đơn hàng thành công!");
-                    window.location.href = "";
-                }
+        function delEditPrint() {
+            // cảnh báo xóa đơn hàng
+            document.querySelectorAll(".delete-order").forEach(elem => {
+                elem.addEventListener('click', e => {
+                    let deleteConfirm = confirm("Bạn có muốn xóa đơn hàng này không?");
+                    if (deleteConfirm) {
+                        data.removeBill(elem.dataset.id);
+                        alert("Xóa đơn hàng thành công!");
+                        window.location.href = "";
+                    }
+                })
             })
-        })
 
-        // Chỉnh sửa đơn hàng
-        
-        document.querySelectorAll(".edit-order").forEach(elem => {
-            elem.addEventListener('click', e => {
-                renderEditForm(elem.dataset.id, 3);
+            // Chỉnh sửa đơn hàng
+            
+            document.querySelectorAll(".edit-order").forEach(elem => {
+                elem.addEventListener('click', e => {
+                    renderEditForm(elem.dataset.id, 3);
+                })
             })
-        })
-        let bill;
-        document.querySelectorAll(".print-order").forEach(elem => {
-            elem.addEventListener('click', e => {
-                bill = data.getDataBill()[elem.dataset.id];
-                printOrderFunction("#print-order", bill);
+            let bill;
+            document.querySelectorAll(".print-order").forEach(elem => {
+                elem.addEventListener('click', e => {
+                    bill = data.getDataBill()[elem.dataset.id];
+                    printOrderFunction("#print-order", bill);
+                })
             })
-        })
+        }
+
+        delEditPrint();
 
         // Lọc
 
@@ -374,16 +378,21 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                         <td>${dBills[i].totalprice}đ</td>
                         <td>${dBills[i].status}</td>
                         <td>
-                            <button class="btn btn-info print-order_A" data-id="${dBills[i].id}">
+                            <button class="btn btn-info edit-order" data-id="${dBills[i].id}">
+                                <span class="icon-pencil"></span>
+                            </button>
+                            <button class="btn btn-info print-order" data-id="${dBills[i].id}">
                                 <span class="icon-info"></span>
                             </button>
-                            <button class="btn btn-danger delete-order_A" data-id="${dBills[i].id}">
+                            <button class="btn btn-danger delete-order" data-id="${dBills[i].id}">
                                 <span class="icon-bin"></span>
                             </button>
                         </td>
                     </tr>`
                 }
                 s_orders.innerHTML = html;
+
+                delEditPrint();
             }
         })
     }
@@ -434,17 +443,20 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
     
         s_orders.innerHTML = html;
         
-        // cảnh báo xóa đơn hàng
-        document.querySelectorAll(".delete-order_A").forEach(elem => {
-            elem.addEventListener('click', e => {
-                let deleteConfirm = confirm("Bạn có muốn xóa đơn hàng này không?");
-                if (deleteConfirm) {
-                    data.removeBill(elem.dataset.id);
-                    alert("Xóa đơn hàng thành công!");
-                    window.location.href = "";
-                }
+        function del() {
+            // cảnh báo xóa đơn hàng
+            document.querySelectorAll(".delete-order_A").forEach(elem => {
+                elem.addEventListener('click', e => {
+                    let deleteConfirm = confirm("Bạn có muốn xóa đơn hàng này không?");
+                    if (deleteConfirm) {
+                        data.removeBill(elem.dataset.id);
+                        alert("Xóa đơn hàng thành công!");
+                        window.location.href = "";
+                    }
+                })
             })
-        })
+        }
+        del();
 
         // Lọc
 
@@ -462,12 +474,12 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                 <input id="toDay_A"
                     name="toDay_A"
                     type="text" onfocus="(this.type = 'date')"/>
-                <button class="btn btn-info" id="filter">Lọc</button>
+                <button class="btn btn-info" id="filter_A">Lọc</button>
             </div>
         </div>`;
 
         let fD,tD, dtmp, d1, d2, dBills;
-        document.getElementById("filter").addEventListener('click', () => {
+        document.getElementById("filter_A").addEventListener('click', () => {
             dBills = [];
             fD = document.getElementById("fromDay_A").value;
             tD = document.getElementById("toDay_A").value;
@@ -523,6 +535,8 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                     </tr>`
                 }
                 s_orders.innerHTML = html;
+
+                del();
             }
         })
     }
