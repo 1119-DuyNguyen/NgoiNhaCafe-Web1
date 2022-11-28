@@ -108,8 +108,6 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             <th></th>
             <th>STT</th>
             <th>Tên đăng nhập</th>
-            <th>Email</th>
-            <th>Ngày đăng ký</th>
             <th>Số điện thoại</th>
             <th></th>
         </tr>`;
@@ -126,10 +124,6 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                 </td>
                 <td>${i+1}</td>
                 <td>${dataUsers[i].username}</td>
-                <td>
-                    <a href="mailto:${dataUsers[i].email}">${dataUsers[i].email}</a>
-                </td>
-                <td></td>
                 <td>${dataUsers[i].phone}</td>
                 <td>
                     <button class="btn btn-info edit-user" data-id="${i}"><i class="icon-pencil"></i></button>
