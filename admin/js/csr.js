@@ -2,7 +2,7 @@ import { Data } from "../../src/database/data.js";
 import { closeDisplay, openDisplay,btnCloseId, toggleDisplay } from "../../src/library/display.js";
 import { toast } from "../../src/components/toast.js";
 import toppingData from "../../src/database/topping.json" assert {type: 'json'};
-// import printOrderFunction from "./printorder.js";
+import printOrderFunction from "./printorder.js";
 
 var data = new Data();
 data.initData();
@@ -260,56 +260,36 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         i = first;
         count = 0;
         while (typeof dataBills[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) {
-            html += `<tr>
-                <td>
-                    <input type="checkbox" value="${i}" class="checkbox" data-type="order"/>
-                </td>
-                <td>${i+1}</td>
-                <td>${dataBills[i].dateCreate}</td>
-                <td>${dataBills[i].customer.username}</td>
-                <td>${dataBills[i].totalprice}đ</td>
-                <td>${dataBills[i].status}</td>
-                <td>
-                    <button class="btn btn-info edit-order" data-id="${i}">
-                        <span class="icon-pencil"></span>
-                    </button>
-                    <button class="btn btn-info">
-                        <span class="icon-info"></span>
-                    </button>
-                    <button class="btn btn-danger delete-product" data-id="${i}">
-                        <span class="icon-bin"></span>
-                    </button>
-                </td>
-            </tr>`
+            if (dataBills[i].status == "Đang xử lý")
+                html += `<tr>
+                    <td>
+                        <input type="checkbox" value="${i}" class="checkbox" data-type="order"/>
+                    </td>
+                    <td>${i+1}</td>
+                    <td>${dataBills[i].dateCreate}</td>
+                    <td>${dataBills[i].customer.username}</td>
+                    <td>${dataBills[i].totalprice}đ</td>
+                    <td>${dataBills[i].status}</td>
+                    <td>
+                        <button class="btn btn-info edit-order" data-id="${i}">
+                            <span class="icon-pencil"></span>
+                        </button>
+                        <button class="btn btn-info print-order" data-id="${i}">
+                            <span class="icon-info"></span>
+                        </button>
+                        <button class="btn btn-danger delete-order" data-id="${i}">
+                            <span class="icon-bin"></span>
+                        </button>
+                    </td>
+                </tr>`
             i--;
             count++;
         }
     
         s_orders.innerHTML = html;
         
-        // Chức năng lọc
-        
-        document.querySelector(".admin-container[data-csr='orders'] .managerment").innerHTML += `<div class="filter">
-            <p><b>Lọc đơn hàng</b></p>
-            <div>
-                <span>Theo tag:</span>
-            </div>
-            <div>
-                <span>Theo thời gian</span> 
-                <label name="range">từ ngày:</label>
-
-                <input
-                    name="fromDay"
-                    type="text" onfocus="(this.type = 'date')" onchange="((this.value) ? alert(this.value) : '')" />
-                <label name="range">đến ngày :</label>
-                <span> - </span>
-                <input
-                    name="toDay"
-                    type="text" onfocus="(this.type = 'date')"/>
-            </div>
-        </div>`;
         // cảnh báo xóa đơn hàng
-        document.querySelectorAll(".delete-product").forEach(elem => {
+        document.querySelectorAll(".delete-order").forEach(elem => {
             elem.addEventListener('click', e => {
                 let deleteConfirm = confirm("Bạn có muốn xóa đơn hàng này không?");
                 if (deleteConfirm) {
@@ -327,8 +307,14 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                 renderEditForm(elem.dataset.id, 3);
             })
         })
+        let bill;
+        document.querySelectorAll(".print-order").forEach(elem => {
+            elem.addEventListener('click', e => {
+                bill = data.getDataBill()[elem.dataset.id];
+                printOrderFunction("#print-order", bill);
+            })
+        })
     }
-
     function renderAnalytics(page) {
         let s_orders = document.querySelector(".admin-container[data-csr='analytics'] table");
 
@@ -341,6 +327,9 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             <th>Trạng thái</th>
             <th>Hành động</th>
         </tr>`;
+
+        if (dataBills === null) dataBills = [];
+
         // 100 99 98 97 96 95 94 93 92 91
         // tính toán số phần tử để lặp trong vòng lặp for - numOfItemsPerPage = 9
         // do lặp từ cuối lên đầu danh sách ->
@@ -351,54 +340,138 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         i = first;
         count = 0;
         while (typeof dataBills[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) {
-            html += `<tr>
-                <td>
-                    <input type="checkbox" value="${i}" class="checkbox" data-type="order"/>
-                </td>
-                <td>${i+1}</td>
-                <td>${dataBills[i].dateCreate}</td>
-                <td>${dataBills[i].customer.username}</td>
-                <td>${dataBills[i].totalprice}đ</td>
-                <td>${dataBills[i].status}</td>
-                <td>
-                    <button class="btn btn-info edit-product" data-id="${i}">
-                        <span class="icon-pencil"></span>
-                    </button>
-                    <button class="btn btn-info">
-                        <span class="icon-info"></span>
-                    </button>
-                    <button class="btn btn-danger delete-product" data-id="${i}">
-                        <span class="icon-bin"></span>
-                    </button>
-                </td>
-            </tr>`
+            if (dataBills[i].status == "Đã xử lý")
+                html += `<tr>
+                    <td>
+                        <input type="checkbox" value="${i}" class="checkbox" data-type="order"/>
+                    </td>
+                    <td>${i+1}</td>
+                    <td>${dataBills[i].dateCreate}</td>
+                    <td>${dataBills[i].customer.username}</td>
+                    <td>${dataBills[i].totalprice}đ</td>
+                    <td>${dataBills[i].status}</td>
+                    <td>
+                        <button class="btn btn-info print-order_A" data-id="${i}">
+                            <span class="icon-info"></span>
+                        </button>
+                        <button class="btn btn-danger delete-order_A" data-id="${i}">
+                            <span class="icon-bin"></span>
+                        </button>
+                    </td>
+                </tr>`
             i--;
             count++;
         }
     
         s_orders.innerHTML = html;
         
-        // Chức năng lọc
+        // cảnh báo xóa đơn hàng
+        document.querySelectorAll(".delete-order_A").forEach(elem => {
+            elem.addEventListener('click', e => {
+                let deleteConfirm = confirm("Bạn có muốn xóa đơn hàng này không?");
+                if (deleteConfirm) {
+                    data.removeBill(elem.dataset.id);
+                    alert("Xóa đơn hàng thành công!");
+                    window.location.href = "";
+                }
+            })
+        })
+
+        // Chỉnh sửa đơn hàng
         
+        let bill;
+        document.querySelectorAll(".print-order_A").forEach(elem => {
+            elem.addEventListener('click', e => {
+                bill = data.getDataBill()[elem.dataset.id];
+                printOrderFunction("#print-order_A", bill);
+            })
+        })
+
+        // Lọc
+
         document.querySelector(".admin-container[data-csr='analytics'] .managerment").innerHTML += `<div class="filter">
             <p><b>Lọc đơn hàng</b></p>
-            <div>
-                <span>Theo tag:</span>
-            </div>
             <div>
                 <span>Theo thời gian</span> 
                 <label name="range">từ ngày:</label>
 
-                <input
+                <input id="fromDay"
                     name="fromDay"
-                    type="text" onfocus="(this.type = 'date')" onchange="((this.value) ? alert(this.value) : '')" />
+                    type="text" onfocus="(this.type = 'date')" />
                 <label name="range">đến ngày :</label>
                 <span> - </span>
-                <input
+                <input id="toDay"
                     name="toDay"
                     type="text" onfocus="(this.type = 'date')"/>
+                <button class="btn btn-info" id="filter">Lọc</button>
             </div>
         </div>`;
+
+        let fD,tD, dtmp, d1, d2, dBills;
+        document.getElementById("filter").addEventListener('click', () => {
+            dBills = [];
+            fD = document.getElementById("fromDay").value;
+            tD = document.getElementById("toDay").value;
+
+            if (fD.length == 0 || tD.length == 0)
+                alert("Vui lòng chọn ngày cụ thể")
+            else {
+                fD = fD.split("-");
+                tD = tD.split("-");
+                d1 = new Date(fD[0], fD[1] - 1, fD[2]);
+                d2 = new Date(tD[0], tD[1] - 1, tD[2]);
+                
+                for (let i = 0, dbill; i < dataBills.length; i++) {
+                    dbill = dataBills[i];
+                    if (dbill.status == "Đã xử lý") {
+                        dtmp = dbill.dateCreate.split("-");
+                        dtmp = new Date(dtmp[2], dtmp[1] - 1, dtmp[0]);
+                        
+                        dbill.id = i;
+                        console.log(dtmp);
+                        console.log(dtmp.getTime());
+                        console.log(d1);
+                        console.log(d1.getTime());
+                        console.log(d2);
+                        console.log(d2.getTime());
+                        if (dtmp.getTime() >= d1.getTime() && dtmp.getTime() <= d2.getTime())
+                            dBills.push(dbill);
+                    } 
+                }
+
+                html = `<tr>
+                    <th></th>
+                    <th>STT</th>
+                    <th>Ngày</th>
+                    <th>Khách hàng</th>
+                    <th>Giá</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>`;
+
+                for (let i = 0; i < dBills.length; i++) {
+                    html += `<tr>
+                        <td>
+                            <input type="checkbox" value="${dBills[i].id}" class="checkbox" data-type="order"/>
+                        </td>
+                        <td>${i+1}</td>
+                        <td>${dBills[i].dateCreate}</td>
+                        <td>${dBills[i].customer.username}</td>
+                        <td>${dBills[i].totalprice}đ</td>
+                        <td>${dBills[i].status}</td>
+                        <td>
+                            <button class="btn btn-info print-order_A" data-id="${dBills[i].id}">
+                                <span class="icon-info"></span>
+                            </button>
+                            <button class="btn btn-danger delete-order_A" data-id="${dBills[i].id}">
+                                <span class="icon-bin"></span>
+                            </button>
+                        </td>
+                    </tr>`
+                }
+                s_orders.innerHTML = html;
+            }
+        })
     }
 
     function renderHome() { // render trang home
