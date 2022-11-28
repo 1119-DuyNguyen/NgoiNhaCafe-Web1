@@ -111,6 +111,7 @@ export const run = function (dataImgs) {
             closeAllPage();
             openDisplay(orderPage);
             openCartPage();
+            window.scrollTo(0, 0);
         });
     }
     if (data.getCurrentUser()) {
