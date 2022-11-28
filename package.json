@@ -1,6 +1,6 @@
 {
     "devDependencies": {
-        "sass": "^1.55.0"
+        "sass": "^1.56.1"
     },
     "name": "web1",
     "version": "1.0.0",

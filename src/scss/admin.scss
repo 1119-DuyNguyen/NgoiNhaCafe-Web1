@@ -191,7 +191,7 @@ $active-color: #e57905;
 }
 
 #main {
-    min-height: 78vh;
+    min-height: 84vh;
     .table-container {
         overflow-y: auto;
         min-height: 44vh;
@@ -222,8 +222,9 @@ $active-color: #e57905;
             &:first-of-type {
                 background: $active-color;
                 color: white;
+                border-bottom: none;
             }
-            border-bottom: 1px solid gray;
+            border-bottom: .5px solid gray;
             &:last-child {
                 border-bottom: none;
             }
@@ -297,7 +298,7 @@ $active-color: #e57905;
 
 // Form thêm sản phẩm
 
-#add-product, #add-user, #edit-product, #edit-user {
+#add-product, #add-user, #edit-product, #edit-user, #edit-order {
     .container {
         padding: 20px;
         .content {
@@ -345,7 +346,7 @@ $active-color: #e57905;
 }
 // Responsive - desktop
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 900px) {
     #header-admin {
         display: inline-block;
         & > h1 {

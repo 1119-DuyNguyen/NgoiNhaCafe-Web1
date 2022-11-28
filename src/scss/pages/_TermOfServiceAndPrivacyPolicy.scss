@@ -1,0 +1,135 @@
+//class dung chung
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-xs-12 {
+    width: 100%;
+}
+
+//css
+#article {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        line-height: 1.4;
+        color: #000;
+        font-weight: 600;
+        font-family: 'SF Pro Display', sans-serif;
+    }
+    display: block;
+    margin-bottom: 40px;
+    height: auto;
+    .container {
+        &::after {
+            clear: both;
+        }
+
+        &::before {
+            content: ' ';
+            display: table;
+            clear: both;
+        }
+
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        .row {
+            &::before {
+                content: ' ';
+                display: table;
+                clear: both;
+            }
+
+            &::after {
+                clear: both;
+            }
+            margin-left: -15px;
+            margin-right: -15px;
+            .article_wrap {
+                background: #fff;
+                margin-bottom: 100px;
+                margin-bottom: 40px;
+                .article_content_wrap {
+                    max-width: 70%;
+                    margin: 0 auto;
+                    padding: 30px 0;
+
+                    .section_heading {
+                        float: left;
+                        position: relative;
+                        margin-bottom: 30px;
+                        margin-top: 0;
+                        font-size: 24px;
+                        font-family: 'SF Pro Display', sans-serif;
+                    }
+
+                    h1 {
+                        font-size: 26px !important;
+                        float: none !important;
+                        color: #000 !important;
+                        display: inline-block !important;
+                    }
+
+                    .article_content {
+                        position: relative;
+                        z-index: 1;
+                        h3 {
+                            font-size: 22px;
+                        }
+                        h3:not(:nth-child(1)) {
+                            margin-top: 15px;
+                        }
+                        p {
+                            margin-bottom: 10px;
+                            line-height: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .article_content_wrap {
+        max-width: 90% !important;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .col-sm-12 {
+        width: 100%;
+    }
+    #article-T .container {
+        width: 740px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .col-md-12 {
+        width: 100%;
+    }
+    #article-T .container {
+        width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #article-T .container {
+        width: 1200px;
+    }
+    .col-lg-12 {
+        width: 100%;
+    }
+}

@@ -14,6 +14,11 @@ const priceOption = {
     medium: 6000,
     large: 10000,
 };
+const switchTranslateSize = {
+    small: 'nhỏ',
+    medium: 'vừa',
+    large: 'lớn',
+};
 function createToppingHTML(tag) {
     const topping = dataToppings[tag];
     let toppingHTML = '';
@@ -272,6 +277,9 @@ function initSubmitProduct(dataImg) {
         //console.log(dataProduct);
         var dataController = new Data();
         dataImg.dataOption = dataOption;
+        if (switchTranslateSize[dataOption.size]) {
+            dataImg.dataOption.size = switchTranslateSize[dataOption.size];
+        }
         dataController.pushCart(dataImg);
     });
 }

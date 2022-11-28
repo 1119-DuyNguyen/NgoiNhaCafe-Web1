@@ -116,14 +116,6 @@
         display: inline-block;
         margin: 4px;
     }
-
-    // phần Menu board
-
-    .board__item > span {
-        line-height: 5.8rem;
-        font-size: 1.4rem;
-    }
-
     // Menu board
 
     .menu__board {
@@ -143,6 +135,14 @@
         z-index: 12;
         transition: 0.5s ease-in;
         overflow-y: auto;
+        .header-mb-acount {
+            padding: 17px 0 17px 0;
+            display: block;
+            color: #000;
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 600;
+        }
     }
 
     .board-body > p {
@@ -150,6 +150,25 @@
         font-size: 1.4rem;
     }
 
+    .board-body > ul > li > span {
+        padding: 17px 16px 17px 0px;
+        text-decoration: none;
+        display: block;
+        color: #000;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 600;
+    }
+
+    .board-body ul > li > a {
+        padding: 17px 16px 17px 0px;
+        text-decoration: none;
+        display: block;
+        color: #000;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 600;
+    }
     .closemenu-mobile {
         display: flex;
         align-items: center;
@@ -167,6 +186,7 @@
     .header__inside-menu-item-1 {
         list-style: none;
         border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        margin-left: 12px;
         &:last-child {
             border: none;
         }
@@ -178,6 +198,8 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         position: relative;
         & > span {
+            line-height: 5.8rem;
+            font-size: 1.4rem;
             margin: 0;
         }
         .icon-mug,
@@ -205,17 +227,6 @@
         }
     }
 
-    .board-body > ul > li > span,
-    a {
-        padding: 17px 16px 17px 0px;
-        text-decoration: none;
-        display: block;
-        color: #000;
-        font-size: 14px;
-        line-height: 22px;
-        font-weight: 600;
-    }
-
     // Phần bên trong menu
 
     .board__item-all {
@@ -238,25 +249,7 @@
     .menu__mobile {
         position: relative;
     }
-    .header__icon {
-        // padding: ;
-        background-color: white;
-        display: flex;
-        justify-content: center;
-        .user-icon,
-        .cart-icon,
-        .search-icon {
-            margin: 4px 8px 0 8px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-        // .user-icon {
-        //     height: 22px;
-        // }
-        .change-dir-modal {
-            display: none;
-        }
-    }
+
     .menu__mobile {
         display: block;
     }
@@ -471,7 +464,7 @@
         position: fixed;
         width: 100%;
         height: 260px;
-        top: 6.37em;
+        top: 3.37em;
         right: 0;
         z-index: 12;
     }
@@ -494,6 +487,7 @@
 
     .header__inside-menu-item-1 {
         display: block;
+
         flex: 1;
         list-style: none;
         width: 156px;
@@ -545,15 +539,6 @@
     .header__acount .icon {
         font-size: 15px;
         line-height: 17px;
-    }
-
-    .border-square {
-        text-align: center;
-        opacity: 1;
-        padding: 3px 3px 4px 3px;
-        border: 3px solid;
-        border-radius: 50%;
-        height: 27px;
     }
 
     .header__acount .icon {
@@ -632,19 +617,6 @@
             z-index: 11;
         }
     }
-    .header__icon {
-        background-color: white;
-        padding: 10px 7.8% 10px 0;
-        justify-content: end;
-        display: flex;
-        .user-icon,
-        .cart-icon,
-        .search-icon {
-            cursor: pointer;
-            margin-left: 2%;
-            &:hover {
-                color: #e57905;
-            }
-        }
-    }
 }
+
+@import './headerIcon';

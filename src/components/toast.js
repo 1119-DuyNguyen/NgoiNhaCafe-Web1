@@ -1,4 +1,8 @@
-export function toast({ title = '', message = '', type = '', duration = '' }) {
+export function toast(
+    { title = '', message = '', type = '', duration = '' },
+    animationAppear = 'slideInLeft',
+    animationDissapear = 'fadeOut'
+) {
     type = type.toLowerCase();
     const toastList = document.getElementById('toast');
     if (toastList) {
@@ -12,7 +16,7 @@ export function toast({ title = '', message = '', type = '', duration = '' }) {
         const delay = duration / 1000;
         var toast = document.createElement('div');
 
-        toast.style.animation = `slideInLeft ease 0.3s, fadeOut linear ${delay}s forwards`;
+        toast.style.animation = `${animationAppear} ease 0.3s, ${animationDissapear} linear ${delay}s forwards`;
 
         toast.classList.add('toast');
         toast.classList.add('toast--' + type);

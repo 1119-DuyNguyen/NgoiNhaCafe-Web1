@@ -3,18 +3,17 @@ import * as slider from './components/slider.js';
 import * as header from './components/header.js';
 import * as listProduct from './components/listProduct.js';
 import * as homeProduct from './components/homeProduct.js';
-import { toast } from './components/toast.js';
-import { productInfo } from './components/productDetail.js';
-import * as display from './library/display.js';
+import { openOrderHistory } from './components/orderHistory.js';
 //------------dành cho trang user
 
 //---- comment dòng display sẽ hiện trang để làm việc
 //display.closeDisplay(document.getElementById('user-page'));
 var data = new Data();
 data.initData();
+//order.init(data.getDataImgs());
 header.run(data.getDataImgs());
 slider.onLoad();
-listProduct.run(data.getDataImgs());
 homeProduct.run(data.getDataImgs());
+
 //-----------dành cho trang admin
-display.closeDisplay(document.getElementById('admin-page'));
+//display.closeDisplay(document.getElementById('admin-page'));

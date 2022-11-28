@@ -8,19 +8,19 @@ import {
 import { Validator } from '../library/Validator.js';
 import { Data } from '../database/data.js';
 import { toast } from './toast.js';
+
 var data = new Data();
+//elements
 const userLogin = document.getElementById('user-login');
 const formLoginValidator = new Validator('#form-login');
 const errorLogin = formLoginValidator.formElement.querySelector('.error-login');
 
 const userRegister = document.getElementById('user-register');
 var formSignupValidator = new Validator('#form-register');
-const inputsLogin = userLogin.querySelectorAll('input');
-const inputsRegister =
-    formSignupValidator.formElement.querySelectorAll('input');
-//formAccount.openformAccount(data.getDataUsers());
+//input
+const beforLoginHeaderHTML = ' <span class="icon-user"></span>';
 let isInit = false;
-function init(dataUsers) {
+function init() {
     if (isInit) return;
     isInit = true;
     //setup
@@ -40,6 +40,18 @@ function init(dataUsers) {
                 );
             });
             if (user) {
+                const userIcon = document.getElementById('User-icon');
+                const logoutIcon = document.getElementById('user-icon-logout');
+                const labelNameUser = document.getElementById('');
+                // đăng nhập user
+                closeDisplay(userIcon);
+                openDisplay(logoutIcon);
+                let headerMbAcount =
+                    document.querySelector('.header-mb-acount');
+
+                let headerAcount = document.querySelector('.header-acount');
+                headerAcount.innerHTML = data.getCurrentUser().username;
+                headerMbAcount.innerHTML = data.getCurrentUser().username;
                 const messageName =
                     'Chào mừng ' +
                     user.username.toUpperCase() +
@@ -52,6 +64,7 @@ function init(dataUsers) {
                             type: 'success',
                             duration: 3000,
                         });
+
                         closeDisplay(userLogin);
                         data.setCurrentUser(user);
                         break;
@@ -91,6 +104,14 @@ function init(dataUsers) {
             var user = dataInputs;
             data.addUser(user);
             Validator.prototype.dataUsers.push(user);
+            const messageName =
+                'Khởi tạo tài khoản ' + user.username + ' thành công ';
+            toast({
+                title: 'Đăng ký thành công',
+                message: messageName,
+                duration: 3000,
+                type: 'success',
+            });
             closeDisplay(userRegister);
             openDisplay(userLogin);
             formSignupValidator.resetForm();
@@ -109,6 +130,11 @@ export function openformAccount() {
     formSignupValidator.resetForm();
     formLoginValidator.resetForm();
     errorLogin.textContent = '';
-    Validator.prototype.dataUsers = data.getDataUsers();
+
     init();
+}
+export function logoutAccount() {
+    data.setCurrentUser('');
+    data.setDataCart('');
+    location.reload();
 }

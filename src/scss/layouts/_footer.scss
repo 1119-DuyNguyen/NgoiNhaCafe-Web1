@@ -17,6 +17,12 @@
             text-align: justify;
             p {
                 padding: 3px;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            .footer-header:hover {
+                cursor: default;
             }
             .col-head {
                 font-size: 18px;
