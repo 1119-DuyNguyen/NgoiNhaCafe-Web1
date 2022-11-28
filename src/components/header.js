@@ -1,10 +1,6 @@
 import { openFormSearch } from './formSearch.js';
 import { openformAccount, logoutAccount } from './formAccount.js';
-import {
-    closeDisplay,
-    openDisplay,
-    toggleDisplay,
-} from '../library/display.js';
+import { closeDisplay, openDisplay } from '../library/display.js';
 import { callMenu } from './listProduct.js';
 import { Data } from '../database/data.js';
 import { openCartPage } from './order.js';
@@ -25,7 +21,10 @@ const cartIcon = document.querySelector('#header-icon .cart-icon');
 //header button
 const home = document.querySelector('#home');
 const homeBtn = document.querySelector('.header__menu-mobile');
-let menuInnerMobile = document.getElementsByClassName('board__item')[2];
+// xử lý tên user đăng nhập đang xuất
+let headerMbAcount = document.querySelector('.header-mb-acount');
+
+let headerAcount = document.querySelector('.header-acount');
 
 //footer
 const dksd = document.querySelector('.dksd');
@@ -50,18 +49,6 @@ const navPages = [
 // console.log(typeof menuInner);
 // dùng disappear thay vì --hide vì hide có !important
 export const run = function (dataImgs) {
-    // lỗi của bấm liên hê
-    // if (menuInnerMobile) {
-    //     menuInnerMobile.addEventListener('click', (e) => {
-    //         let headerModal = document.querySelector('.header__modal');
-    //         if (headerModal.classList.contains('--disappear'))
-    //             headerModal.classList.remove('--disappear');
-    //         else {
-    //             headerModal.classList.add('--disappear');
-    //         }
-    //     });
-    // }
-    //close-btn
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
             let menuBar = document.querySelector('.menu__board');
@@ -71,7 +58,6 @@ export const run = function (dataImgs) {
         });
     }
 
-    //console.log(closeBtn);
     //menu bar background
     if (menuBarBackground) {
         menuBarBackground.addEventListener('click', (e) => {
@@ -129,9 +115,13 @@ export const run = function (dataImgs) {
     if (data.getCurrentUser()) {
         closeDisplay(userIcon);
         openDisplay(logoutIcon);
+        headerAcount.innerHTML = data.getCurrentUser().username;
+        headerMbAcount.innerHTML = data.getCurrentUser().username;
     } else {
         closeDisplay(logoutIcon);
         openDisplay(userIcon);
+        headerAcount.innerHTML = '';
+        headerMbAcount.innerHTML = '';
     }
     if (userIcon) {
         userIcon.addEventListener('click', () => {
@@ -208,9 +198,3 @@ function menuProductList() {
     }
     footerNavigation();
 }
-
-// duy xủ lí
-let headerMbAcount = document.querySelector('.header-mb-acount');
-console.log({ headerMbAcount });
-let headerAcount = document.querySelector('.header-acount');
-console.log({ headerAcount });

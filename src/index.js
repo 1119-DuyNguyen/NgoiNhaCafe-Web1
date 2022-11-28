@@ -3,7 +3,7 @@ import * as slider from './components/slider.js';
 import * as header from './components/header.js';
 import * as listProduct from './components/listProduct.js';
 import * as homeProduct from './components/homeProduct.js';
-
+import { openOrderHistory } from './components/orderHistory.js';
 //------------dành cho trang user
 
 //---- comment dòng display sẽ hiện trang để làm việc

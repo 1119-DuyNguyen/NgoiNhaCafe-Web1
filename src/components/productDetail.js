@@ -264,7 +264,6 @@ function removeOptionActive(options) {
 function initSubmitProduct(dataImg) {
     const cart = detailProduct.querySelector('.product_shopping_cart');
     cart.addEventListener('click', () => {
-        console.log(dataOption['size'], !dataOption['size']);
         for (const data in dataOption) {
             if (!dataOption[data]) {
                 errorMessageNullProduct();

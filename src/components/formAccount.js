@@ -46,7 +46,12 @@ function init() {
                 // đăng nhập user
                 closeDisplay(userIcon);
                 openDisplay(logoutIcon);
+                let headerMbAcount =
+                    document.querySelector('.header-mb-acount');
 
+                let headerAcount = document.querySelector('.header-acount');
+                headerAcount.innerHTML = data.getCurrentUser().username;
+                headerMbAcount.innerHTML = data.getCurrentUser().username;
                 const messageName =
                     'Chào mừng ' +
                     user.username.toUpperCase() +

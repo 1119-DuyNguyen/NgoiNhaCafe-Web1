@@ -1,24 +1,22 @@
 import { Data } from '../database/data.js';
-import {
-    closeDisplay,
-    openDisplay,
-    btnCloseId,
-    closeModal,
-    toggleDisplay,
-} from '../library/display.js';
 import { openformAccount } from './formAccount.js';
+import { openOrderHistory } from './orderHistory.js';
 import { toast } from './toast.js';
 const data = new Data();
 const orderPage = document.getElementById('order-page');
+
 const cartTable = orderPage.querySelector('.cart-table');
 const totalPriceElement = orderPage.querySelector('.cart-total-price');
 //btn
 
 const btnPurchare = orderPage.querySelector('.btn-purchased');
 const btnDelete = orderPage.querySelector('.btn-deleted');
+var linkHistory = orderPage.querySelector('.order-history');
 
 //global data
-
+linkHistory.addEventListener('click', () => {
+    openOrderHistory();
+});
 export function openCartPage() {
     ready();
 }
@@ -284,3 +282,4 @@ function changeCheckBoxBtns(isCheck) {
         btn.checked = isCheck;
     });
 }
+//orderHistory
