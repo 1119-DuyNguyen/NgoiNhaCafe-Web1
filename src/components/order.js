@@ -20,18 +20,6 @@ const btnDelete = orderPage.querySelector('.btn-deleted');
 //global data
 
 export function openCartPage() {
-    /*
-    -------huy----------
-    // // viết phần js thêm/ giảm món hàng
-    //phần để cho trang HTML chạy trước rồi sau đó JS mới chạy
-    if (document.readyState == 'loading') {
-        document.addEventListener('DOMContentLoaded', ready);
-    } else {
-        ready();
-    }
-    ---duy------------
-    vì script để ở cuối nên chắc chắn js sẽ chạy 
-     */
     ready();
 }
 function resetDefaultSelectAll() {
@@ -192,11 +180,20 @@ function applyOperatorQuantity() {
         infoElem.dataset.quantity = dataQuantity;
     }
 }
+function switchTranslateSize(size) {
+    switch (size.toLowerCase()) {
+        case 'lớn':
+            return 10000;
+        case 'vừa':
+            return 6000;
+        default:
+            return 0;
+    }
+}
 //hàm csr in sản phẩm
 function addItemsToCart() {
     var dataCarts = data.getDataCart();
     var cartTBody = cartTable.querySelector('tbody');
-
     let html = '';
     if (dataCarts) {
         dataCarts.forEach((elem, i) => {
@@ -222,9 +219,9 @@ function addItemsToCart() {
             </button>
 
             </td>
-            <td class="cart-price" data-price="${elem.price}$">${
-                elem.price
-            }đ</td>
+            <td class="cart-price" data-price="${
+                elem.price + switchTranslateSize(elem.dataOption.size)
+            }$">${elem.price}đ</td>
 
 
 

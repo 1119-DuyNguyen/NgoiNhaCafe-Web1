@@ -79,7 +79,7 @@ export const run = function (dataImgs) {
     //menuList
     if (menuList) {
         menuList.forEach((btn, i) => {
-            let subMenu = btn.querySelector('.board__item-inside');
+            let subMenu = btn.querySelector('.header__modal');
             if (subMenu) {
                 btn.addEventListener('click', () => {
                     //console.log('hear');
@@ -127,7 +127,6 @@ export const run = function (dataImgs) {
         logoutIcon.addEventListener('click', () => {
             if (confirm('Bạn có muốn đăng xuất')) {
                 logoutAccount();
-                location.reload();
             }
         });
     }
