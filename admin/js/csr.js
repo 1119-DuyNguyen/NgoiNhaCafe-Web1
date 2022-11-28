@@ -679,8 +679,8 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
                 break;
             case 2: // user
                 obj = data.getUser(id);
+                document.querySelector("#user-fullname-edit").value = obj.fullname;
                 document.querySelector("#user-name-edit").value = obj.username;
-                document.querySelector("#user-email-edit").value = (typeof obj.email == 'undefined') ? "" : obj.email;
                 document.querySelector("#user-address-edit").value = obj.address;
                 document.querySelector("#user-phonenum-edit").value = obj.phone;
                 document.querySelector("#user-permission-edit").value = obj.type;
