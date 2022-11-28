@@ -40,7 +40,18 @@ function init() {
                 );
             });
             if (user) {
-                location.reload();
+                const userIcon = document.getElementById('User-icon');
+                const logoutIcon = document.getElementById('user-icon-logout');
+                const labelNameUser = document.getElementById('');
+                // đăng nhập user
+                closeDisplay(userIcon);
+                openDisplay(logoutIcon);
+                let headerMbAcount =
+                    document.querySelector('.header-mb-acount');
+
+                let headerAcount = document.querySelector('.header-acount');
+                headerAcount.innerHTML = data.getCurrentUser().username;
+                headerMbAcount.innerHTML = data.getCurrentUser().username;
                 const messageName =
                     'Chào mừng ' +
                     user.username.toUpperCase() +
@@ -124,4 +135,6 @@ export function openformAccount() {
 }
 export function logoutAccount() {
     data.setCurrentUser('');
+    data.setDataCart('');
+    location.reload();
 }

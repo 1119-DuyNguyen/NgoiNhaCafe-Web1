@@ -1,47 +1,32 @@
 import { Data } from '../database/data.js';
-import {
-    closeDisplay,
-    openDisplay,
-    btnCloseId,
-    closeModal,
-    toggleDisplay,
-} from '../library/display.js';
 import { openformAccount } from './formAccount.js';
+import { openOrderHistory } from './orderHistory.js';
 import { toast } from './toast.js';
 const data = new Data();
 const orderPage = document.getElementById('order-page');
+
 const cartTable = orderPage.querySelector('.cart-table');
 const totalPriceElement = orderPage.querySelector('.cart-total-price');
 //btn
 
 const btnPurchare = orderPage.querySelector('.btn-purchased');
 const btnDelete = orderPage.querySelector('.btn-deleted');
+var linkHistory = orderPage.querySelector('.order-history');
 
 //global data
-
+linkHistory.addEventListener('click', () => {
+    openOrderHistory();
+});
 export function openCartPage() {
-    /*
-    -------huy----------
-    // // viết phần js thêm/ giảm món hàng
-    //phần để cho trang HTML chạy trước rồi sau đó JS mới chạy
-    if (document.readyState == 'loading') {
-        document.addEventListener('DOMContentLoaded', ready);
-    } else {
-        ready();
-    }
-    ---duy------------
-    vì script để ở cuối nên chắc chắn js sẽ chạy 
-     */
     ready();
 }
 function resetDefaultSelectAll() {
     const checkboxBtns = cartTable.getElementsByClassName('checkbox');
-    
+
+    var btnSelectAll = checkboxBtns[0];
     if (checkboxBtns.length > 1) {
-        var btnSelectAll = checkboxBtns[0];
         btnSelectAll.click();
     } else {
-        var btnSelectAll = checkboxBtns[0];
         btnSelectAll.checked = false;
     }
 }
@@ -59,7 +44,7 @@ function applyCheckbox() {
     const checkboxBtns = cartTable.getElementsByClassName('checkbox');
     var btnSelectAll = checkboxBtns[0];
     btnSelectAll.addEventListener('change', (e) => {
-        changeCheckBoxBtns(e.target.checked);
+        changeCheckBoxBtns(btnSelectAll.checked);
         updateSelect();
     });
     for (var i = 1; i < checkboxBtns.length; ++i) {
@@ -85,7 +70,7 @@ function deleteBtnCarts() {
             updateSelect();
         },
         true,
-        'Bạn có chắc chắn muốn xóa  đơn hàng?'
+        'Bạn có chắc chắn muốn xóa đơn hàng?'
     );
 }
 function convertSelectedCartsToBills(activeCheckboxes) {
@@ -194,11 +179,20 @@ function applyOperatorQuantity() {
         infoElem.dataset.quantity = dataQuantity;
     }
 }
+function switchTranslateSize(size) {
+    switch (size.toLowerCase()) {
+        case 'lớn':
+            return 10000;
+        case 'vừa':
+            return 6000;
+        default:
+            return 0;
+    }
+}
 //hàm csr in sản phẩm
 function addItemsToCart() {
     var dataCarts = data.getDataCart();
     var cartTBody = cartTable.querySelector('tbody');
-
     let html = '';
     if (dataCarts) {
         dataCarts.forEach((elem, i) => {
@@ -224,9 +218,9 @@ function addItemsToCart() {
             </button>
 
             </td>
-            <td class="cart-price" data-price="${elem.price}$">${
-                elem.price
-            }đ</td>
+            <td class="cart-price" data-price="${
+                elem.price + switchTranslateSize(elem.dataOption.size)
+            }$">${elem.price}đ</td>
 
 
 
@@ -275,7 +269,7 @@ function updateSelect() {
     btnPurchare.innerText = 'Thanh toán (' + countActiveCheckbox + ')';
     // length -1 vì không tính select all
     if (countActiveCheckbox === cartTable.rows.length - 1) {
-        resetDefaultSelectAll();
+        return true;
     } else return false;
 }
 /**
@@ -289,3 +283,4 @@ function changeCheckBoxBtns(isCheck) {
         btn.checked = isCheck;
     });
 }
+//orderHistory
