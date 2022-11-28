@@ -582,6 +582,7 @@ function renderPaginator(numOfItemsOnPage = 9, type = '') {
  * @return void
  */
 function renderForm(element_id, type=1, formType = 1, id=0) {
+    let obj = {};
     // render form thêm phần tử với elem_id
     let form_elem = document.querySelector(element_id);
     btnCloseId(form_elem); // gán nút đóng
@@ -599,11 +600,25 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
     // nút gửi
     submitBtn.addEventListener('click', e => {
         e.preventDefault();
-        let obj = {};
+        
+        let check = true;
         document.querySelectorAll(element_id + " div select, "+element_id + " div input, "+element_id + " div textarea").forEach(e => {
-            obj[e.dataset.name] = e.value;
+            if (e.dataset.name == 'password') // nếu là mật khẩu
+            {
+                obj = data.getUser(id);
+                if (e.value.length > 0)
+                { // có set mật khẩu
+                    if (e.value.length < 6)
+                    {
+                        alert("Mật khẩu phải từ 6 ký tự trở lên!");
+                        check = false;
+                    } else obj[e.dataset.name] = e.value;
+                }
+            } else
+                obj[e.dataset.name] = e.value;
+                
         })
-        if (formType == 1) { // add
+        if (formType == 1 && check) { // add
             switch (type) {
                 case 1:
                     data.addImgs(obj);
@@ -615,7 +630,7 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
                     alert("Thêm người dùng thành công!");
                     break;
             }
-        } else if (formType == 2) {
+        } else if (formType == 2 && check) {
             // edit
             switch (type) {
                 case 1:
@@ -634,7 +649,8 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
                     break;
             }
         }
-        window.location.href = "";
+        if (check)
+            window.location.href = "";
     })
 
     document.querySelector(element_id+' form').addEventListener('submit', e => {
@@ -667,7 +683,7 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
     }
 
     // thêm nội dung vào các trường có sẵn ở form chỉnh sửa
-    let obj = {};
+    
     if (formType == 2) { // edit
         switch (type) {
             case 1: // product
