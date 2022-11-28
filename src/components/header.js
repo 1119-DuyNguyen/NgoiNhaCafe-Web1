@@ -95,6 +95,7 @@ export const run = function (dataImgs) {
         homeBtn.addEventListener('click', function (e) {
             closeAllPage();
             openDisplay(homePage);
+            window.scrollTo(0, 0);
         });
     }
     //modal popup icon
