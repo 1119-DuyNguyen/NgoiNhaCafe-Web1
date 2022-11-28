@@ -702,6 +702,12 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
                         check = false;
                     } else obj[e.dataset.name] = e.value;
                 }
+            } else if (e.dataset.name == 'price') {
+                if (isNaN(parseInt(e.value)))
+                {
+                    alert("Giá phải là giá trị số!");
+                    check = false;
+                } else obj[e.dataset.name] = e.value;
             } else
                 obj[e.dataset.name] = e.value;
                 

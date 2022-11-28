@@ -49,6 +49,7 @@ export function Data() {
     this.addImgs = function (obj) {
         let data = this.getDataImgs();
         obj.currency = 'đ';
+        obj.image = 'public/img/ngoiNhaCafe/default.jpg';
         data.push(obj);
         setDataImgs(data);
     };
