@@ -306,6 +306,86 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                 printOrderFunction("#print-order", bill);
             })
         })
+
+        // Lọc
+
+        document.querySelector(".admin-container[data-csr='orders'] .managerment").innerHTML += `<div class="filter">
+            <p><b>Lọc đơn hàng</b></p>
+            <div>
+                <span>Theo thời gian</span> 
+                <label name="range">từ ngày:</label>
+
+                <input id="fromDay"
+                    name="fromDay"
+                    type="text" onfocus="(this.type = 'date')" />
+                <label name="range">đến ngày :</label>
+                <span> - </span>
+                <input id="toDay"
+                    name="toDay"
+                    type="text" onfocus="(this.type = 'date')"/>
+                <button class="btn btn-info" id="filter">Lọc</button>
+            </div>
+        </div>`;
+
+        let fD,tD, dtmp, d1, d2, dBills;
+        document.getElementById("filter").addEventListener('click', () => {
+            dBills = [];
+            fD = document.getElementById("fromDay").value;
+            tD = document.getElementById("toDay").value;
+
+            if (fD.length == 0 || tD.length == 0)
+                alert("Vui lòng chọn ngày cụ thể")
+            else {
+                fD = fD.split("-");
+                tD = tD.split("-");
+                d1 = new Date(fD[0], fD[1] - 1, fD[2]);
+                d2 = new Date(tD[0], tD[1] - 1, tD[2]);
+                
+                for (let i = 0, dbill; i < dataBills.length; i++) {
+                    dbill = dataBills[i];
+                    if (dbill.status == "Đang xử lý") {
+                        dtmp = dbill.dateCreate.split("-");
+                        dtmp = new Date(dtmp[2], dtmp[1] - 1, dtmp[0]);
+                        
+                        dbill.id = i;
+                        if (dtmp.getTime() >= d1.getTime() && dtmp.getTime() <= d2.getTime())
+                            dBills.push(dbill);
+                    } 
+                }
+
+                html = `<tr>
+                    <th></th>
+                    <th>STT</th>
+                    <th>Ngày</th>
+                    <th>Khách hàng</th>
+                    <th>Giá</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>`;
+
+                for (let i = 0; i < dBills.length; i++) {
+                    html += `<tr>
+                        <td>
+                            <input type="checkbox" value="${dBills[i].id}" class="checkbox" data-type="order"/>
+                        </td>
+                        <td>${i+1}</td>
+                        <td>${dBills[i].dateCreate}</td>
+                        <td>${dBills[i].customer.username}</td>
+                        <td>${dBills[i].totalprice}đ</td>
+                        <td>${dBills[i].status}</td>
+                        <td>
+                            <button class="btn btn-info print-order_A" data-id="${dBills[i].id}">
+                                <span class="icon-info"></span>
+                            </button>
+                            <button class="btn btn-danger delete-order_A" data-id="${dBills[i].id}">
+                                <span class="icon-bin"></span>
+                            </button>
+                        </td>
+                    </tr>`
+                }
+                s_orders.innerHTML = html;
+            }
+        })
     }
     function renderAnalytics(page) {
         let s_orders = document.querySelector(".admin-container[data-csr='analytics'] table");
@@ -374,13 +454,13 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                 <span>Theo thời gian</span> 
                 <label name="range">từ ngày:</label>
 
-                <input id="fromDay"
-                    name="fromDay"
+                <input id="fromDay_A"
+                    name="fromDay_A"
                     type="text" onfocus="(this.type = 'date')" />
                 <label name="range">đến ngày :</label>
                 <span> - </span>
-                <input id="toDay"
-                    name="toDay"
+                <input id="toDay_A"
+                    name="toDay_A"
                     type="text" onfocus="(this.type = 'date')"/>
                 <button class="btn btn-info" id="filter">Lọc</button>
             </div>
@@ -389,8 +469,8 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         let fD,tD, dtmp, d1, d2, dBills;
         document.getElementById("filter").addEventListener('click', () => {
             dBills = [];
-            fD = document.getElementById("fromDay").value;
-            tD = document.getElementById("toDay").value;
+            fD = document.getElementById("fromDay_A").value;
+            tD = document.getElementById("toDay_A").value;
 
             if (fD.length == 0 || tD.length == 0)
                 alert("Vui lòng chọn ngày cụ thể")
@@ -407,12 +487,6 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                         dtmp = new Date(dtmp[2], dtmp[1] - 1, dtmp[0]);
                         
                         dbill.id = i;
-                        console.log(dtmp);
-                        console.log(dtmp.getTime());
-                        console.log(d1);
-                        console.log(d1.getTime());
-                        console.log(d2);
-                        console.log(d2.getTime());
                         if (dtmp.getTime() >= d1.getTime() && dtmp.getTime() <= d2.getTime())
                             dBills.push(dbill);
                     } 
