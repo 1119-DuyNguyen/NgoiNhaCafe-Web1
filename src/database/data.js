@@ -33,6 +33,8 @@ export function Data() {
         data[id].description = obj.description;
         data[id].price = obj.price;
         data[id].tag = obj.tag;
+        if (obj.image.length > 0)
+            data[id].image = 'public/img/ngoiNhaCafe/default.jpg';
         setDataImgs(data);
     };
     this.removeUser = function (idToRemove) {
