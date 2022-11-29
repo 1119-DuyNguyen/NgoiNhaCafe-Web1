@@ -253,6 +253,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         count = 0;
         while (typeof dataBills[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) {
             if (dataBills[i].status == "Đang xử lý")
+            {
                 html += `<tr>
                     <td>
                         <input type="checkbox" value="${i}" class="checkbox" data-type="order"/>
@@ -274,8 +275,9 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                         </button>
                     </td>
                 </tr>`
+                count++;
+            }
             i--;
-            count++;
         }
     
         s_orders.innerHTML = html;
@@ -422,6 +424,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         count = 0;
         while (typeof dataBills[i] != 'undefined' && i >= 0 && count < numOfItemsPerPage) {
             if (dataBills[i].status == "Đã xử lý")
+            {
                 html += `<tr>
                     <td>
                         <input type="checkbox" value="${i}" class="checkbox" data-type="order"/>
@@ -437,8 +440,9 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                         </button>
                     </td>
                 </tr>`
+                count++;
+            }
             i--;
-            count++;
         }
     
         s_orders.innerHTML = html;
