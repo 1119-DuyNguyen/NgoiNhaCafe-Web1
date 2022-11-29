@@ -121,9 +121,9 @@ export const run = function (dataImgs) {
         closeDisplay(userIcon);
         openDisplay(logoutIcon);
         headerAcount.innerHTML =
-            'Chào mừng ' + data.getCurrentUser().username + ' quay lại';
+            'Chào mừng ' + data.getCurrentUser().fullname + ' quay lại';
         headerMbAcount.innerHTML =
-            'Chào mừng ' + data.getCurrentUser().username + ' quay lại';
+            'Chào mừng ' + data.getCurrentUser().fullname + ' quay lại';
     } else {
         closeDisplay(logoutIcon);
         openDisplay(userIcon);

@@ -212,7 +212,7 @@ function addItemsToCart() {
                 <button class="icon minus --gray">
                 <i class="icon-minus "></i>
             </button>
-                <div class="info-count_num" data-quantity="1">1</div>
+                <div class="info-count_num" data-quantity="${elem.dataOption.quantity}">${elem.dataOption.quantity}</div>
                 <button class="icon plus">
                 <i class="icon-plus"></i>
             </button>
