@@ -67,11 +67,11 @@ function init() {
                         data.setCurrentUser(user);
                         headerAcount.innerHTML =
                             'Chào mừng ' +
-                            data.getCurrentUser().username +
+                            data.getCurrentUser().fullname +
                             ' quay lại';
                         headerMbAcount.innerHTML =
                             'Chào mừng ' +
-                            data.getCurrentUser().username +
+                            data.getCurrentUser().fullname +
                             ' quay lại';
                         break;
                     }

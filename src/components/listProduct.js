@@ -5,19 +5,6 @@ const parentTag = {
     Tra: ['Trà trái cây', 'Trà sữa Macchiato'],
     HiTea: ['Hi-Tea Trà', 'Hi-Tea Đá Tuyết', 'Hi-Tea Bling Bling'],
 };
-function switchTranslate(data) {
-    switch (data) {
-        case 'Tra':
-            return 'Trà';
-            break;
-        case 'HiTea':
-            return 'Hi-Tea';
-            break;
-        case 'Cafe':
-            return 'Cà Phê';
-            break;
-    }
-}
 function switchTranslate2(data) {
     switch (data) {
         case 'Tra':
@@ -80,9 +67,8 @@ export function run(dataImgs) {
 function rightTag(data) {
     for (let i in parentTag) {
         for (let key of parentTag[i]) {
-            if (data == key) {
-                return switchTranslate2(i);
-            }
+                return key;
+            
         }
     }
     return false;
@@ -92,39 +78,41 @@ function showProduct() {
     let showProductHtml = '';
     let currentTag = '';
     let count = 0;
-    for (let element of dataImgs) {
-        const pTag = rightTag(element.tag);
-        if (pTag) {
-            if (!(currentTag === element.tag)) {
-                if (count > 0) showProductHtml += `</div>`;
-                currentTag = element.tag;
-                showProductHtml += `<div class="cf-container ${pTag}">
-                    <t>${element.tag}</t>
+    for (let i in parentTag) {
+        for (let key of parentTag[i]) {
+            if (count > 0) showProductHtml += `</div>`;
+                showProductHtml += `<div class="cf-container ${key}">
+                    <t>${key}</t>
                 `;
                 ++count;
+            for (let element of dataImgs) {
+                if (element.tag === key) {
+                    showProductHtml += `
+                    <div class="image-item" id="${element.id}">
+                        <div class="image-pack">
+                            <img
+                                class="product-image"
+                                style="margin-bottom: 15px"
+                                src="${element.image}"
+                                alt=""
+                                />
+                            <div class="buy-now">
+                                <div class="text-buy">Mua ngay!</div>
+                            </div>
+                                <n>${element.title}</n>
+                                <p style="margin-top: 15px">${element.price} đ</p>
+                                <span class="icon-plus"></span>
+                        </div>
+                    </div>`;
+                }
             }
-            showProductHtml += `
-            <div class="image-item" id="${element.id}">
-                <div class="image-pack">
-                    <img
-                        class="product-image"
-                        style="margin-bottom: 15px"
-                        src="${element.image}"
-                        alt=""
-                        />
-                    <div class="buy-now">
-                        <div class="text-buy">Mua ngay!</div>
-                    </div>
-                        <n>${element.title}</n>
-                        <p style="margin-top: 15px">${element.price} đ</p>
-                        <span class="icon-plus"></span>
-                </div>
-            </div>`;
+            showProductHtml += '</div>';
+            imageContainer.innerHTML = showProductHtml;
+        }
         }
     }
-    showProductHtml += '</div>';
-    imageContainer.innerHTML = showProductHtml;
-}
+                
+        
 
 //render product info
 

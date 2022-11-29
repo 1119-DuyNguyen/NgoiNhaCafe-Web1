@@ -711,7 +711,7 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
                 {
                     alert("Giá phải là giá trị số!");
                     check = false;
-                } else obj[e.dataset.name] = e.value;
+                } else obj[e.dataset.name] = parseInt(e.value);
             } else
                 obj[e.dataset.name] = e.value;
                 
@@ -719,11 +719,13 @@ function renderForm(element_id, type=1, formType = 1, id=0) {
         if (formType == 1 && check) { // add
             switch (type) {
                 case 1:
+                    obj.id = data.getDataImgs().length+1;
                     data.addImgs(obj);
                     alert("Thêm sản phẩm thành công!");
                     break;
             
                 case 2:
+                    obj.id = data.getDataUsers().length+1;
                     data.addUser(obj);
                     alert("Thêm người dùng thành công!");
                     break;

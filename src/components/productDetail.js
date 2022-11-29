@@ -275,6 +275,7 @@ function initSubmitProduct(dataImg) {
         successMessageAddCart();
         //return data
         //console.log(dataProduct);
+       
         var dataController = new Data();
         dataImg.dataOption = dataOption;
         if (switchTranslateSize[dataOption.size]) {
