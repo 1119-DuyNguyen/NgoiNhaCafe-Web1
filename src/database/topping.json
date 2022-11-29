@@ -17,24 +17,6 @@
         "Trân châu trắng",
         "Sốt Caramel"
     ],
-    "Creamy": [
-        "Kem Phô Mai Macchiato",
-        "Shot Espresso",
-        "Trân châu trắng",
-        "Sốt Caramel"
-    ],
-    "Creme Brulee": [
-        "Kem Phô Mai Macchiato",
-        "Shot Espresso",
-        "Trân châu trắng",
-        "Sốt Caramel"
-    ],
-    "Đoàn viên": [
-        "Kem Phô Mai Macchiato",
-        "Shot Espresso",
-        "Trân châu trắng",
-        "Sốt Caramel"
-    ],
     "Trà trái cây": [
         "Kem Phô Mai Macchiato",
         "Trân châu trắng",
@@ -72,11 +54,5 @@
         "Hạt Sen",
         "Nha Đam",
         "Trái Nhãn"
-    ],
-    "Bánh mặn": "",
-    "Bánh ngọt": "",
-    "Snack": "",
-    "Cà phê tại nhà": "",
-    "Trà tại nhà": "",
-    "Chocolate": ["Kem Phô Mai Macchiato", "Trân châu trắng"]
+    ]
 }
