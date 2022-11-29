@@ -123,7 +123,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                 <td>
                     <input type="checkbox" value="${i}" class="checkbox" data-type="user"/>
                 </td>
-                <td>${i+1}</td>
+                <td>${count+1}</td>
                 <td>${dataUsers[i].username}</td>
                 <td>${(typeof dataUsers[i].dateCreate == 'undefined') ? "" : dataUsers[i].dateCreate }</td>
                 <td>${dataUsers[i].phone}</td>
@@ -185,7 +185,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                 <td>
                     <input type="checkbox" value="${i}" class="checkbox" data-type="product"/>
                 </td>
-                <td>${i+1}</td>
+                <td>${count+1}</td>
                 <td><img src="../${dataImgs[i].image}"></td>
                 <td>${dataImgs[i].title}</td>
                 <td>
@@ -257,7 +257,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                     <td>
                         <input type="checkbox" value="${i}" class="checkbox" data-type="order"/>
                     </td>
-                    <td>${i+1}</td>
+                    <td>${count+1}</td>
                     <td>${dataBills[i].dateCreate}</td>
                     <td>${dataBills[i].customer.username}</td>
                     <td>${dataBills[i].totalprice}đ</td>
@@ -426,7 +426,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                     <td>
                         <input type="checkbox" value="${i}" class="checkbox" data-type="order"/>
                     </td>
-                    <td>${i+1}</td>
+                    <td>${count+1}</td>
                     <td>${dataBills[i].dateCreate}</td>
                     <td>${dataBills[i].customer.username}</td>
                     <td>${dataBills[i].totalprice}đ</td>
