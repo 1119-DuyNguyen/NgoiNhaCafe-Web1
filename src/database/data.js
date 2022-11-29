@@ -145,7 +145,7 @@ totalprice : 5700000
             _this.setDataBill(bill);
         }
     };
-    
+
     this.editBill = function (obj, id) {
         let data = this.getDataBill();
 
@@ -180,7 +180,7 @@ totalprice : 5700000
 
     this.setAdminNotify = function (data) {
         window.localStorage.setItem(keyAdminNotify, JSON.stringify(data));
-    }
+    };
 
     this.resetDefaut = function () {
         setDataUsers(dataUsers);
@@ -214,7 +214,7 @@ totalprice : 5700000
 
     this.getAdminNotify = function () {
         return JSON.parse(window.localStorage.getItem(keyAdminNotify));
-    }
+    };
     this.updateData = function () {
         var users = this.getDataUsers();
         var imgs = this.getDataImgs();
@@ -263,7 +263,7 @@ totalprice : 5700000
                     phone: '0383202799',
                     dateCreate: '8-10-2022',
                     type: 'user',
-                }
+                },
             ];
             setDataUsers(dataUsers);
         }
@@ -1268,6 +1268,9 @@ totalprice : 5700000
                     salePercent: '10%',
                 },
             ];
+            for (var i = 0; i < dataImgs.length; i++) {
+                dataImgs[i].count = i + 1;
+            }
             setDataImgs(dataImgs);
         }
         if (!this.getDataOrders()) {
