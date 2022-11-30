@@ -17,3 +17,13 @@ homeProduct.run(data.getDataImgs());
 
 //-----------dành cho trang admin
 //display.closeDisplay(document.getElementById('admin-page'));
+
+//darkMode
+const darkModeElements = document.querySelectorAll('.--darkMode');
+const darkModeBtns = document.getElementById('darkMode-btn');
+darkModeBtns.addEventListener('click', () => {
+    darkModeElements.forEach((element) => {
+        element.classList.toggle('--darkMode');
+    });
+});
+// console.log(darkModeElements);

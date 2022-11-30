@@ -12,7 +12,7 @@
     <body>
         <div id="header">
             <!-- mobile list -->
-            <div class="menu__mobile">
+            <div class="menu__mobile --darkMode">
                 <div class="header__menu-mobile">
                     <h3 class="header__menu-mobile-line not-flow">
                         Ngôi nhà cafe
@@ -20,7 +20,11 @@
                     <!-- Khúc này là đợi có icon rồi thêm vô -->
                     <span class="line-height-50 icon-large icon-home"></span>
                 </div>
-
+                <span
+                    id="darkMode-btn"
+                    class="icon-brightness-contrast"
+                    style="padding: 0px 10px"
+                ></span>
                 <div class="menu__board --disappear">
                     <div class="layout-dark"></div>
 
@@ -156,7 +160,7 @@
                 </div>
             </div>
         </div>
-        <div id="header-icon" class="header__icon">
+        <div id="header-icon" class="header__icon --darkMode">
             <!-- tao tạo ra header-acount là absolute của header-iocon vì mày đã set -->
             <!-- cứng header-icon là justify-content: flex-end nên mấy thẻ con nó ăn theo -->
             <div class="header-acount">
@@ -181,7 +185,7 @@
                 <span class="icon-search"></span>
             </div>
         </div>
-        <div id="main">
+        <div id="main" class="--darkMode">
             <div id="home-page" class="container">
                 <div style="padding-top: 100px" id="slider"></div>
                 <!-- chi tiet san pham render trang chu -->
@@ -201,7 +205,7 @@
                 </div>
             </div>
             <!-- danh muc san pham -->
-            <div id="product-container" class="product-container">
+            <div id="product-container" class="product-container --darkMode">
                 <div class="show-product">
                     <div class="image-container-LP"></div>
                 </div>
@@ -255,7 +259,7 @@
                 </div>
                 <div id="order-history" class="modal --hide">
                     <div class="container">
-                        <div class="content">
+                        <div class="content --darkMode">
                             <div class="close">
                                 <i class="icon-cross icon"></i>
                             </div>
@@ -274,7 +278,7 @@
 
             <div id="user-login" class="modal --hide">
                 <div class="container">
-                    <div class="content">
+                    <div class="content --darkMode">
                         <div class="close">
                             <i class="icon-cross icon"></i>
                         </div>
@@ -423,7 +427,7 @@
             <!-- search san pham -->
             <div id="form-search" class="modal --hide">
                 <div class="container">
-                    <div class="content">
+                    <div class="content --darkMode">
                         <div class="close">
                             <i class="icon-cross icon"></i>
                         </div>
@@ -505,7 +509,7 @@
             <!-- chi tiet san pham -->
             <div id="detail-product" class="modal --hide">
                 <div class="container">
-                    <div class="content">
+                    <div class="content --darkMode">
                         <div class="close">
                             <i class="icon-cross icon"></i>
                         </div>
@@ -1293,7 +1297,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="article_wrap">
+                            <div class="article_wrap --darkMode">
                                 <div class="article_content_wrap">
                                     <h1
                                         class="line_after_heading section_heading"
@@ -1668,8 +1672,15 @@
                     </div>
                 </div>
             </div>
+
             <!-- toast -->
             <div id="toast"></div>
+        </div>
+        <!-- comback -->
+        <div class="comeback-home">
+            <button class="btn-up">
+                <a href="#"><span class="icon-circle-up"></span></a>
+            </button>
         </div>
         <div id="footer">
             <div class="container">

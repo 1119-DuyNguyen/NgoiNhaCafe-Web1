@@ -1,0 +1,138 @@
+.--darkMode {
+    background: rgba(#262626, 1);
+    color: white;
+    border-color: white;
+
+    .board-body {
+        background: rgba(#262626, 1);
+        // .board__item {
+        //     display: none !important;
+        //     & > * {
+        //         display: none !important;
+        //     }
+        // }
+    }
+    // phần header__icon
+    .border-square {
+        border-color: white;
+    }
+
+    //phần header menu__mobile
+    .text-color {
+        color: white;
+    }
+    .size-normal {
+        color: white;
+    }
+
+    //phần header board-body
+    .board__item .icon-phone {
+        border-color: white;
+    }
+
+    .close-btn-wrap {
+        color: white;
+    }
+
+    .layout-white {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    #order-page .order-history {
+        color: white;
+    }
+
+    //#story-main .story-contact .page-header .page-container
+    #story-main .story-contact .page-header .page-container {
+        background: rgba(0, 0, 0, 0.8);
+        & > h1 {
+            color: white;
+        }
+        .page-content > p {
+            color: white;
+        }
+    }
+
+    #wrapper .about-who-we-are {
+        border-color: white;
+    }
+
+    //#story-mail
+    #story-mail {
+        background: rgba(0, 0, 0, 0.8);
+        & > button {
+            background-color: white;
+            color: black;
+        }
+    }
+    .option_selections_item {
+        background-color: rgba(#121212, 1);
+        .size-content {
+            color: white;
+        }
+    }
+}
+
+//user-login content
+#user-login .container .--darkMode {
+    color: white;
+    .close {
+        color: white;
+    }
+
+    .title {
+        color: white;
+    }
+}
+
+//form-search  ->.content
+.modal .container .--darkMode {
+    color: white;
+
+    .title {
+        color: white;
+    }
+    .close {
+        color: white;
+    }
+}
+
+//article2 -> article_wrap
+.article .container .row .article_wrap {
+    background: rgba(0, 0, 0, 0.8);
+    .article_content_wrap h1 {
+        color: white !important;
+    }
+    .article_content_wrap .article_content h3 {
+        color: white !important;
+    }
+}
+@media screen and (max-width: 1024.5px) {
+    .--darkMode {
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        border-color: white;
+
+        // phần header__icon
+        .border-square {
+            border-color: white;
+        }
+
+        //phần header menu__mobile
+        .text-color {
+            color: white;
+        }
+        .size-normal {
+            color: white;
+        }
+
+        //phần header board-body
+        .board__item .icon-phone {
+            border-color: white;
+        }
+
+        .close-btn-wrap {
+            color: white;
+        }
+    }
+}
