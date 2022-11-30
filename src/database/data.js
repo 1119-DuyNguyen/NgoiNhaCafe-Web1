@@ -148,7 +148,8 @@ totalprice : 5700000
 
     this.editBill = function (obj, id) {
         let data = this.getDataBill();
-
+        // đặt lại ngày nếu editBill
+        data[id].dateCreate = formatDateDDMMYYYY(new Date());
         data[id].status = obj.status;
         this.setDataBill(data);
     };
