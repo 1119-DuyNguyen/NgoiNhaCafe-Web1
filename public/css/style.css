@@ -4151,6 +4151,9 @@ p {
 .--darkMode .option_selections_item .size-content {
   color: white;
 }
+.--darkMode .header-acount {
+  color: white;
+}
 
 #user-login .container .--darkMode {
   color: white;
