@@ -67,8 +67,7 @@ export function run(dataImgs) {
 function rightTag(data) {
     for (let i in parentTag) {
         for (let key of parentTag[i]) {
-                return key;
-            
+            return key;
         }
     }
     return false;
@@ -81,10 +80,10 @@ function showProduct() {
     for (let i in parentTag) {
         for (let key of parentTag[i]) {
             if (count > 0) showProductHtml += `</div>`;
-                showProductHtml += `<div class="cf-container ${key}">
+            showProductHtml += `<div class="cf-container ${key}">
                     <t>${key}</t>
                 `;
-                ++count;
+            ++count;
             for (let element of dataImgs) {
                 if (element.tag === key) {
                     showProductHtml += `
@@ -109,10 +108,8 @@ function showProduct() {
             showProductHtml += '</div>';
             imageContainer.innerHTML = showProductHtml;
         }
-        }
     }
-                
-        
+}
 
 //render product info
 
