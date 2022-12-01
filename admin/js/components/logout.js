@@ -3,6 +3,7 @@
  */
 import { Data } from '../../../src/database/data.js';
 var data = new Data();
+
 function logout() {
     document.querySelector('#logout').addEventListener('click', (e) => {
         e.preventDefault();
