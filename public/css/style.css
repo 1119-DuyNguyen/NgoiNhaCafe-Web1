@@ -1587,7 +1587,6 @@ p {
 #user-register .container .content {
   padding: 16px;
   display: inline-block;
-  color: #000;
   overflow-y: auto;
   font-size: 16px;
 }
@@ -1881,7 +1880,7 @@ p {
 }
 
 .home-product {
-  margin-bottom: 100px;
+  padding-bottom: 100px;
 }
 .home-product .image-container {
   display: flex;
