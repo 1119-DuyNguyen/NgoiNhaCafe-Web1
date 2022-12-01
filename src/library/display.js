@@ -1,5 +1,6 @@
 export function openDisplay(element) {
     if (element.classList.contains('--hide')) {
+        element.style.animation = 'fadeIn linear 0.2s';
         element.classList.remove('--hide');
     }
 }

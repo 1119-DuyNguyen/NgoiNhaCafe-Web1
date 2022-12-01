@@ -13,17 +13,17 @@
         <div id="header">
             <!-- mobile list -->
             <div class="menu__mobile --darkMode">
+                <div id="menu-btn" class="line-height-50 header__icon-menu-btn">
+                    <span class="icon-large icon-menu"></span>
+                </div>
                 <div class="header__menu-mobile">
-                    <h3 class="header__menu-mobile-line not-flow">
-                        Ngôi nhà cafe
-                    </h3>
+                    <h3 class="header__menu-mobile-line">Ngôi nhà cafe</h3>
                     <!-- Khúc này là đợi có icon rồi thêm vô -->
-                    <span class="line-height-50 icon-large icon-home"></span>
+                    <span class="icon-large icon-home"></span>
                 </div>
                 <span
                     id="darkMode-btn"
-                    class="icon-brightness-contrast"
-                    style="padding: 0px 10px"
+                    class="icon-brightness-contrast btn-theme"
                 ></span>
                 <div class="menu__board --disappear">
                     <div class="layout-dark"></div>
@@ -154,10 +154,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div id="menu-btn" class="line-height-50 header__icon-menu-btn">
-                    <span class="icon-large icon-menu"></span>
-                </div>
             </div>
         </div>
         <div id="header-icon" class="header__icon --darkMode">
@@ -203,7 +199,10 @@
                 </div>
             </div>
             <!-- danh muc san pham -->
-            <div id="product-container" class="product-container --darkMode">
+            <div
+                id="product-container"
+                class="product-container --darkMode --hide"
+            >
                 <div class="show-product">
                     <div class="image-container-LP"></div>
                 </div>
@@ -320,7 +319,7 @@
             </div>
             <div id="user-register" class="modal --hide">
                 <div class="container">
-                    <div class="content">
+                    <div class="content --darkMode">
                         <div class="close">
                             <i class="icon-cross icon"></i>
                         </div>
@@ -1676,7 +1675,12 @@
         </div>
         <!-- comback -->
         <div class="comeback-home">
-            <button class="btn-up">
+            <button
+                class="btn-up"
+                onclick="(function(){
+                window.scrollTo(0, 0);
+               })()"
+            >
                 <a href="#"><span class="icon-circle-up"></span></a>
             </button>
         </div>

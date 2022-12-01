@@ -1,5 +1,6 @@
 import { productInfo } from './productDetail.js';
 import { Data } from '../database/data.js';
+import { closeDisplay, openDisplay } from '../library/display.js';
 const parentTag = {
     Cafe: ['Cà Phê Việt Nam', 'Cà Phê Máy', 'Cold Brew'],
     Tra: ['Trà trái cây', 'Trà sữa Macchiato'],
@@ -67,11 +68,7 @@ export function run(dataImgs) {
 function rightTag(data) {
     for (let i in parentTag) {
         for (let key of parentTag[i]) {
- 
-            
-
-            return key;
-
+            return switchTranslate2(data);
         }
     }
     return false;
@@ -84,10 +81,8 @@ function showProduct() {
     for (let i in parentTag) {
         for (let key of parentTag[i]) {
             let keyClass = rightTag(i);
-            if (count > 0) showProductHtml += `</div>`;
- 
-            showProductHtml += `<div class="cf-container ${key}">
-
+            if (count > 0) showProductHtml += '</div>';
+            showProductHtml += `<div class="cf-container ${keyClass}">
                     <t>${key}</t>
                 `;
             ++count;
@@ -113,7 +108,16 @@ function showProduct() {
                 }
             }
             showProductHtml += '</div>';
+
             imageContainer.innerHTML = showProductHtml;
+            // cài animation cho mượt mà như sunsilk;
+            const timeDelay = 400;
+            setTimeout(() => {
+                //fadeIn
+                openDisplay(imageContainer);
+                imageContainer.style.opacity = 1;
+            }, timeDelay);
+            imageContainer.style.opacity = 0;
         }
     }
 }
@@ -126,7 +130,7 @@ function renderProductInfo() {
     productList.forEach(function (product) {
         product.addEventListener('click', function () {
             const dataID = product.id;
-            productInfo(dataImgs[dataID - 1].title, dataImgs);
+            productInfo(dataImgs[dataID - 1].id, dataImgs);
         });
     });
 }

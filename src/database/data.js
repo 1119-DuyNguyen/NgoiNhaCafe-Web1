@@ -79,20 +79,10 @@ export function Data() {
     };
 
     var _this = this;
-    var dataUsers = [];
-    var dataImgs = [];
-    var dataOrders = [];
-    // var bill = {
-    //     user: 'a',
-    //     date: '28-10-2022',
-    //     id: 5,
-    //     info: '1 x Superstar White Gold size 36; ',
-    //     status: 'Chưa xử lý',
-    //     totalprice: 2100000,
-    // };
-    //user
+
     this.addUser = function (user) {
         if (!user) return;
+        var dataUsers = _this.getDataUsers();
         user.dateCreate = formatDateDDMMYYYY(new Date());
         dataUsers.push(user);
         setDataUsers(dataUsers);
@@ -184,9 +174,9 @@ totalprice : 5700000
     };
 
     this.resetDefaut = function () {
-        setDataUsers(dataUsers);
-        setDataImgs(dataImgs);
-        setDataOrders(dataOrders);
+        // setDataUsers(dataUsers);
+        // setDataImgs(dataImgs);
+        // setDataOrders(dataOrders);
     };
     this.setDataCart = function (data) {
         window.localStorage.setItem(keyCart, JSON.stringify(data));
@@ -215,14 +205,6 @@ totalprice : 5700000
 
     this.getAdminNotify = function () {
         return JSON.parse(window.localStorage.getItem(keyAdminNotify));
-    };
-    this.updateData = function () {
-        var users = this.getDataUsers();
-        var imgs = this.getDataImgs();
-        var orders = this.getDataOrders();
-        if (users) dataUsers = users;
-        if (imgs) dataImgs = imgs;
-        if (orders) dataOrders = orders;
     };
 
     this.setAdminNumOfItemsPerPage = function (num) {
@@ -1310,8 +1292,28 @@ totalprice : 5700000
             setDataOrders(dataOrders);
         }
     };
-    this.updateData();
 }
+// html đã có --darkmode mặc định là dar
+
+Data.prototype.toggleDarkMode = function () {
+    if (Data.prototype.theme === 'light') {
+        Data.prototype.theme = 'dark';
+    } else {
+        Data.prototype.theme = 'light';
+    }
+    Data.prototype.setTheme();
+};
+
+Data.prototype.setTheme = function () {
+    window.localStorage.setItem('theme', Data.prototype.theme);
+};
+Data.prototype.getTheme = function () {
+    var theme = window.localStorage.getItem('theme');
+    if (typeof theme != 'string') theme = '';
+
+    return theme;
+};
+Data.prototype.theme = Data.prototype.getTheme();
 function formatDateDDMMYYYY(date) {
     return (
         date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear()

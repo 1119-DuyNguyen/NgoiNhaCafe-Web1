@@ -8,6 +8,7 @@
 @import './layouts/header/header';
 @import './layouts/footer';
 @import './layouts/modal';
+@import './layouts/scrollToTopBtn';
 @import './components/toast';
 @import './components/productInfo';
 @import './components/formAccount';
@@ -22,5 +23,4 @@
 @import './pages/TermOfServiceAndPrivacyPolicy';
 @import './pages/contact';
 @import './components/orderHistory';
-@import './pages/darkMode';
-@import './layouts/scrollToTopBtn';
+@import './theme/darkMode';

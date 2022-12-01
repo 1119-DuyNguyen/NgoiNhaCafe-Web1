@@ -4,7 +4,7 @@ export function run(dataImgs) {
         '.home-product .image-container'
     );
     const htmls = dataImgs.map((element, index) => {
-        if (index < 8) {
+        if (index < 9) {
             return `
             <div class="image-item" id="${element.id}">
             <div class="image-pack">
@@ -32,7 +32,7 @@ export function run(dataImgs) {
     productList.forEach(function (product) {
         product.addEventListener('click', function () {
             const dataID = product.id;
-            productInfo(dataImgs[dataID - 1].title, dataImgs);
+            productInfo(dataImgs[dataID - 1].id, dataImgs);
         });
     });
 }
