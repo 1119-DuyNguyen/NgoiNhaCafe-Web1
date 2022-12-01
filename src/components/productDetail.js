@@ -102,7 +102,7 @@ export function productInfo(title, dataImgs) {
     );
     const html = `                
     <div class="container">
-    <div class="content">
+    <div class="content --darkMode">
         <div class="close">
         <i class="icon-cross icon"></i>
         </div>
@@ -275,7 +275,7 @@ function initSubmitProduct(dataImg) {
         successMessageAddCart();
         //return data
         //console.log(dataProduct);
-       
+
         var dataController = new Data();
         dataImg.dataOption = dataOption;
         if (switchTranslateSize[dataOption.size]) {

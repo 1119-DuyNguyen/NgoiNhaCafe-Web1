@@ -15,7 +15,7 @@
 
 //css
 .article {
-    padding-top: 100px;
+    padding: 100px 0 40px 0;
     h1,
     h2,
     h3,
@@ -28,7 +28,6 @@
         font-family: 'SF Pro Display', sans-serif;
     }
     display: block;
-    margin-bottom: 40px;
     height: auto;
     .container {
         &::after {
