@@ -1,6 +1,24 @@
 #header {
     top: 0;
     z-index: 10;
+    .menu__mobile {
+        height: 58px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        .btn-theme {
+            height: 100%;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            cursor: pointer;
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
 }
 @media screen and (max-width: 1024.5px) {
     $--primary-color: #fff2d9;
@@ -68,36 +86,22 @@
         color: black;
         cursor: pointer;
     }
-    .menu__mobile {
-        .icon-brightness-contrast {
-            position: absolute;
-            top: 16px;
-            right: 175px;
-        }
-    }
+
     .header__menu-mobile {
         display: flex;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        flex: 1;
+        align-items: center;
+        justify-content: center;
         height: 100%;
         margin-left: 0px;
 
         line-height: 50px;
     }
 
-    .header__menu-mobile-line {
-        width: 154px;
-        margin-top: 12px;
-        font-size: 20px;
-        font-weight: 700;
-    }
-
     .header__icon-menu-btn {
         width: 50px;
         text-align: center;
-        height: 100%;
+
         font-size: 16px;
         cursor: pointer;
     }
@@ -254,13 +258,6 @@
     // .header__desktop-list {
     //     display: none;
     // }
-    .menu__mobile {
-        position: relative;
-    }
-
-    .menu__mobile {
-        display: block;
-    }
 }
 
 @media screen and (min-width: 1025px) {
@@ -277,10 +274,6 @@
 
     .opacity-light {
         opacity: 0.5;
-    }
-
-    .menu__mobile {
-        display: block;
     }
 
     .icon-home {
@@ -355,30 +348,14 @@
         margin-top: 12px;
     }
 
-    .menu__mobile {
-        height: 58px;
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        .icon-brightness-contrast {
-            position: absolute;
-            top: 20px;
-            left: 321px;
-            cursor: pointer;
-        }
-    }
-
     .header__menu-mobile {
         margin-left: 54px;
         display: flex;
         text-align: center;
         padding: 3px;
         cursor: pointer;
-    }
-
-    .header__menu-mobile-line {
-        margin-top: 12px;
-        width: 166px;
+        align-items: center;
+        height: 100%;
     }
 
     //hai cái nút bị xóa
@@ -404,6 +381,7 @@
         height: 58px;
         display: flex;
         margin: 0;
+        margin-right: 52px;
         padding-left: 0;
     }
 
