@@ -38,17 +38,22 @@ var homePage = document.getElementById('home-page');
 var orderPage = document.getElementById('order-page');
 const aboutUs = document.querySelector('#about-us');
 const navPages = [
-    homePage,
-    productContainer,
-    orderPage,
-    csbmtt,
-    dksd,
-    mainStore,
-    aboutUs,
+    { isCurrent: 1, page: homePage },
+    { isCurrent: 0, page: productContainer },
+    { isCurrent: 0, page: orderPage },
+    { isCurrent: 0, page: csbmtt },
+    { isCurrent: 0, page: dksd },
+    { isCurrent: 0, page: mainStore },
+    { isCurrent: 0, page: aboutUs },
 ];
 // console.log(typeof menuInner);
 // dùng disappear thay vì --hide vì hide có !important
 export const run = function (dataImgs) {
+    headerNavigation(dataImgs);
+    menuProductList();
+    footerNavigation();
+};
+function headerNavigation(dataImgs) {
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
             let menuBar = document.querySelector('.menu__board');
@@ -93,8 +98,8 @@ export const run = function (dataImgs) {
     }
     if (homeBtn) {
         homeBtn.addEventListener('click', function (e) {
-            closeAllPage();
-            openDisplay(homePage);
+            openPage(homePage);
+
             window.scrollTo(0, 0);
         });
     }
@@ -108,8 +113,7 @@ export const run = function (dataImgs) {
     }
     if (cartIcon) {
         cartIcon.addEventListener('click', () => {
-            closeAllPage();
-            openDisplay(orderPage);
+            openPage(orderPage);
             openCartPage();
             window.scrollTo(0, 0);
         });
@@ -142,12 +146,33 @@ export const run = function (dataImgs) {
             }
         });
     }
-    menuProductList();
-};
-function closeAllPage() {
-    navPages.forEach((page) => {
-        closeDisplay(page);
-    });
+}
+/**
+ *
+ * nếu page chưa mở thì đóng page hiện tại mở page cần mở
+ * page đã mở thì không làm gì
+ * @param {element} page
+ * @returns
+ */
+function openPage(page) {
+    for (var i = 0; i < navPages.length; ++i) {
+        // đã page đã mở thì sẽ không làm gì
+        if (navPages[i].page === page && navPages[i].isCurrent === 1) {
+            return;
+        }
+        // nếu page chưa mở
+
+        // đóng cái page hiện tại đang mở
+        if (navPages[i].isCurrent == 1) {
+            navPages[i].isCurrent = 0;
+            closeDisplay(navPages[i].page);
+        }
+        // mở page cần mở
+        if (navPages[i].page === page) {
+            navPages[i].isCurrent = 1;
+            openDisplay(navPages[i].page);
+        }
+    }
 }
 function menuProductList() {
     //header on click
@@ -158,65 +183,59 @@ function menuProductList() {
     headerBtn.forEach(function (element, index) {
         element.addEventListener('click', function () {
             callMenu(index + 1);
-            closeAllPage();
-            openDisplay(productContainer);
+            openPage(productContainer);
             window.scrollTo(0, 0);
         });
     });
 
     menuBtn.forEach(function (element, index) {
         element.addEventListener('click', function () {
-            closeAllPage();
-            openDisplay(productContainer);
+            openPage(productContainer);
             callMenu(index);
             window.scrollTo(0, 0);
         });
     });
 
     aboutUsHeader.addEventListener('click', function () {
-        closeAllPage();
-        openDisplay(aboutUs);
+        openPage(aboutUs);
+        window.scrollTo(0, 0);
+    });
+}
+//footer
+function footerNavigation() {
+    const dksdBtn = document.querySelector('.dksd-btn');
+    const csbmttBtn = document.querySelector('.csbmtt-btn');
+    const mainStoreBtn = document.querySelector('.main-store-btn');
+    const aboutUsFooter = document.querySelector('.f-about-us-btn');
+    const productFooterBtn = document.querySelector('.f-product-btn');
+
+    dksdBtn.addEventListener('click', function () {
+        openPage(dksd);
+
         window.scrollTo(0, 0);
     });
 
-    //footer
-    function footerNavigation() {
-        const dksdBtn = document.querySelector('.dksd-btn');
-        const csbmttBtn = document.querySelector('.csbmtt-btn');
-        const mainStoreBtn = document.querySelector('.main-store-btn');
-        const aboutUsFooter = document.querySelector('.f-about-us-btn');
-        const productFooterBtn = document.querySelector('.f-product-btn');
+    csbmttBtn.addEventListener('click', function () {
+        openPage(csbmtt);
+        window.scrollTo(0, 0);
+    });
 
-        dksdBtn.addEventListener('click', function () {
-            closeAllPage();
-            openDisplay(dksd);
-            window.scrollTo(0, 0);
-        });
+    mainStoreBtn.addEventListener('click', function () {
+        openPage(mainStore);
 
-        csbmttBtn.addEventListener('click', function () {
-            closeAllPage();
-            openDisplay(csbmtt);
-            window.scrollTo(0, 0);
-        });
+        window.scrollTo(0, 0);
+    });
 
-        mainStoreBtn.addEventListener('click', function () {
-            closeAllPage();
-            openDisplay(mainStore);
-            window.scrollTo(0, 0);
-        });
+    aboutUsFooter.addEventListener('click', function () {
+        openPage(aboutUs);
 
-        aboutUsFooter.addEventListener('click', function () {
-            closeAllPage();
-            openDisplay(aboutUs);
-            window.scrollTo(0, 0);
-        });
+        window.scrollTo(0, 0);
+    });
 
-        productFooterBtn.addEventListener('click', function () {
-            closeAllPage();
-            openDisplay(productContainer);
-            callMenu(0);
-            window.scrollTo(0, 0);
-        });
-    }
-    footerNavigation();
+    productFooterBtn.addEventListener('click', function () {
+        openPage(productContainer);
+
+        callMenu(0);
+        window.scrollTo(0, 0);
+    });
 }

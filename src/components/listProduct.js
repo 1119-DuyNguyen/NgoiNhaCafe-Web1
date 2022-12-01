@@ -1,5 +1,6 @@
 import { productInfo } from './productDetail.js';
 import { Data } from '../database/data.js';
+import { closeDisplay, openDisplay } from '../library/display.js';
 const parentTag = {
     Cafe: ['Cà Phê Việt Nam', 'Cà Phê Máy', 'Cold Brew'],
     Tra: ['Trà trái cây', 'Trà sữa Macchiato'],
@@ -107,7 +108,16 @@ function showProduct() {
                 }
             }
             showProductHtml += '</div>';
+
             imageContainer.innerHTML = showProductHtml;
+            // cài animation cho mượt mà như sunsilk;
+            const timeDelay = 400;
+            setTimeout(() => {
+                //fadeIn
+                openDisplay(imageContainer);
+                imageContainer.style.opacity = 1;
+            }, timeDelay);
+            imageContainer.style.opacity = 0;
         }
     }
 }
