@@ -20,7 +20,7 @@ export function toast(
 
         toast.classList.add('toast');
         toast.classList.add('toast--' + type);
-        toast.classList.add('--darkMode');
+        //toast.classList.add('--darkMode');
         toast.innerHTML = `
     
         <div class="toast__icon">
