@@ -67,7 +67,11 @@ export function run(dataImgs) {
 function rightTag(data) {
     for (let i in parentTag) {
         for (let key of parentTag[i]) {
-            return switchTranslate2(data);
+ 
+            
+
+            return key;
+
         }
     }
     return false;
@@ -81,7 +85,9 @@ function showProduct() {
         for (let key of parentTag[i]) {
             let keyClass = rightTag(i);
             if (count > 0) showProductHtml += `</div>`;
-            showProductHtml += `<div class="cf-container ${keyClass}">
+ 
+            showProductHtml += `<div class="cf-container ${key}">
+
                     <t>${key}</t>
                 `;
             ++count;

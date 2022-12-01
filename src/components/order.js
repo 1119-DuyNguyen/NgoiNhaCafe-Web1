@@ -77,23 +77,50 @@ function convertSelectedCartsToBills(activeCheckboxes) {
     //validate if user chưa đăng nhập
     var currentUser = data.getCurrentUser();
     if (currentUser) {
-        var cartInfo = [];
+        // cartFilter giúp lọc những cart trùng ra ngoài
+        var cartFilter = [];
         // đếm số phần tử xóa vì querySelectorAll là tĩnh nên data không đc cập nhập
         var elemenDeleted = 0;
+
         activeCheckboxes.forEach((checkbox) => {
-            var str = '';
             var row = checkbox.closest('tr');
             var cart = data.spliceCart(checkbox.dataset.index - elemenDeleted);
-            elemenDeleted++;
+            var getCartObject = {};
             var quantity =
                 row.querySelector(' .info-count_num').dataset.quantity;
-            str += quantity + ' X ' + cart.title + ' ';
-            cartInfo.push(str);
+            var price = row.querySelector('.cart-price').dataset.price;
+            var size = row.querySelector('.cart-size').innerText;
+            // price của img chưa bao gồm size
+            getCartObject.size = size;
+            getCartObject.id = cart.id;
+            getCartObject.tag = cart.tag;
+            getCartObject.quantity = quantity;
+            getCartObject.price = price;
+            getCartObject.title = cart.title;
+            var isDuplicate = false;
+            for (var i = 0; i < cartFilter.length; ++i) {
+                if (cartFilter[i].id === cart.id) {
+                    cartFilter[i].quantity =
+                        parseInt(cartFilter[i].quantity) + parseInt(quantity);
+                    console.log(quantity, cartFilter[i].quantity);
+                    isDuplicate = true;
+                }
+            }
+            if (!isDuplicate) cartFilter.push(getCartObject);
+            //cartInfo.push(str);
+            elemenDeleted++;
             row.remove();
+        });
+        var infoBill = [];
+        cartFilter.forEach((info) => {
+            var str = '';
+            str += info.quantity + ' X ' + info.title + ' ' + info.size;
+            infoBill.push(str);
         });
         addItemsToCart();
         var bill = {
-            info: cartInfo.join(),
+            cart: cartFilter,
+            info: infoBill.join(','),
             totalprice: totalPriceElement.dataset.priceTotal,
         };
         console.log(bill);
@@ -212,7 +239,9 @@ function addItemsToCart() {
                 <button class="icon minus --gray">
                 <i class="icon-minus "></i>
             </button>
-                <div class="info-count_num" data-quantity="${elem.dataOption.quantity}">${elem.dataOption.quantity}</div>
+                <div class="info-count_num" data-quantity="${
+                    elem.dataOption.quantity
+                }">${elem.dataOption.quantity}</div>
                 <button class="icon plus">
                 <i class="icon-plus"></i>
             </button>
@@ -220,7 +249,7 @@ function addItemsToCart() {
             </td>
             <td class="cart-price" data-price="${
                 elem.price + switchTranslateSize(elem.dataOption.size)
-            }$">${elem.price + switchTranslateSize(elem.dataOption.size)}đ</td>
+            }">${elem.price + switchTranslateSize(elem.dataOption.size)}đ</td>
 
 
 
