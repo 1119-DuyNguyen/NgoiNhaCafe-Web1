@@ -108,8 +108,8 @@ function init() {
         if (dataInputs) {
             dataInputs.type = 'user';
             var user = dataInputs;
-            data.addUser(user);
             Validator.prototype.dataUsers.push(user);
+            data.addUser(user);
             const messageName =
                 'Khởi tạo tài khoản ' + user.username + ' thành công ';
             toast({
@@ -133,6 +133,7 @@ function init() {
 export function openformAccount() {
     if (data.getCurrentUser()) return;
     openDisplay(userLogin);
+    Validator.prototype.dataUsers = data.getDataUsers();
     formSignupValidator.resetForm();
     formLoginValidator.resetForm();
     errorLogin.textContent = '';

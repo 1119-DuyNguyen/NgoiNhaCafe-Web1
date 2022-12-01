@@ -93,6 +93,7 @@ export function Data() {
     //user
     this.addUser = function (user) {
         if (!user) return;
+        var dataUsers = _this.getDataUsers();
         user.dateCreate = formatDateDDMMYYYY(new Date());
         dataUsers.push(user);
         setDataUsers(dataUsers);
