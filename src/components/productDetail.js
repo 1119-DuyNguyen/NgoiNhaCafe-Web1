@@ -19,22 +19,9 @@ const switchTranslateSize = {
     medium: 'vừa',
     large: 'lớn',
 };
-function createToppingHTML(tag) {
-    const topping = dataToppings[tag];
-    let toppingHTML = '';
-    if (topping) {
-        for (let t of topping) {
-            toppingHTML += `               
-    <li class="option_selections_item">
-       <p>${t} + 10.000 đ</p>
-    </li>`;
-        }
-    }
-    return toppingHTML;
-}
-function createRelatedHTML(dataImg = { tag: '', title: {} }, dataImgs) {
+function createRelatedHTML(dataImg = { tag: '', id: '' }, dataImgs) {
     const items = dataImgs.filter((data, i) => {
-        return data.tag === dataImg.tag && data.title !== dataImg.title;
+        return data.tag === dataImg.tag && data.id !== dataImg.id;
     });
     let relatedHTML = document.createElement('ul');
     relatedHTML.classList.add('option_selections');
@@ -44,6 +31,7 @@ function createRelatedHTML(dataImg = { tag: '', title: {} }, dataImgs) {
             randomItems.push({
                 image: i.image,
                 title: i.title,
+                id: i.id,
                 price: i.price,
             });
         }
@@ -72,7 +60,7 @@ function createRelatedHTML(dataImg = { tag: '', title: {} }, dataImgs) {
                 <p>${randomItems[i].price} đ</p>
                 </div>
               `;
-            li.setAttribute('data-title', randomItems[i].title);
+            li.setAttribute('data-id', randomItems[i].id);
             relatedHTML.appendChild(li);
         }
     }
@@ -80,8 +68,9 @@ function createRelatedHTML(dataImg = { tag: '', title: {} }, dataImgs) {
     return relatedHTML;
 }
 
-export function productInfo(title, dataImgs) {
-    const data = dataImgs.find((item) => item.title === title);
+export function productInfo(id, dataImgs) {
+    if (typeof id === 'string') id = parseInt(id);
+    const data = dataImgs.find((item) => item.id === id);
     if (!data || !detailProduct) {
         return;
     }
@@ -97,7 +86,7 @@ export function productInfo(title, dataImgs) {
     // const toppingHTML = createToppingHTML(data.tag);
 
     const relatedHTML = createRelatedHTML(
-        { tag: data.tag, title: data.title },
+        { tag: data.tag, id: data.id },
         dataImgs
     );
     const html = `                
@@ -197,12 +186,13 @@ export function productInfo(title, dataImgs) {
     detailProduct.innerHTML = html;
 
     //tới sản phẩm liên quan
-    const liImgs = detailProduct.querySelectorAll('li[data-title]');
+    const liImgs = detailProduct.querySelectorAll('li[data-id]');
     liImgs.forEach((img) => {
         img.addEventListener('click', (e) => {
             e.preventDefault();
-            if (!img.dataset.title) return;
-            productInfo(img.dataset.title, dataImgs);
+            if (!img.dataset.id) return;
+            console.log(img.dataset.id);
+            productInfo(img.dataset.id, dataImgs);
             detailProduct.scrollIntoView(true);
             //tránh header che kh thấy product
             var scrolledY = window.scrollY;

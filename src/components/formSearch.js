@@ -143,7 +143,7 @@ function searchProduct(dataImgs, keyword, optionAdvanced) {
      `;
         li.addEventListener('click', (e) => {
             e.preventDefault();
-            productInfo(item.title, dataImgs);
+            productInfo(item.id, dataImgs);
         });
         ulRelated.appendChild(li);
     });
