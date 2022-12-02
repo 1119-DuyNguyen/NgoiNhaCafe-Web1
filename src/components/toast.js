@@ -1,3 +1,5 @@
+import { Data } from '../database/data.js';
+
 export function toast(
     { title = '', message = '', type = '', duration = '' },
     animationAppear = 'slideInLeft',
@@ -20,7 +22,8 @@ export function toast(
 
         toast.classList.add('toast');
         toast.classList.add('toast--' + type);
-        //toast.classList.add('--darkMode');
+        if (Data.prototype.getTheme() == 'dark')
+            toast.classList.add('--darkMode');
         toast.innerHTML = `
     
         <div class="toast__icon">
