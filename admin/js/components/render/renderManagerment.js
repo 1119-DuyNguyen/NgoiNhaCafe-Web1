@@ -1,3 +1,6 @@
+import dataObj from "../data.js";
+import { toast } from "../../../../src/components/toast.js";
+
 /**
  * Render class managerment cho toàn bộ trang
  */
@@ -34,7 +37,7 @@ function renderManagerment(numOfItemsPerPage = 9) {
             else if (numOfItemsOnPage < 5 || numOfItemsOnPage > 100)
                 alert("Vui lòng điền số trong khoảng từ 5 -> 100");
             else {
-                data.setAdminNumOfItemsPerPage(numOfItemsOnPage);
+                dataObj.data.setAdminNumOfItemsPerPage(numOfItemsOnPage);
                 toast({
                     title: 'Success',
                     message: 'Cập nhật thành công, đang tải lại trang',

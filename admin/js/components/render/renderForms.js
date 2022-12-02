@@ -107,7 +107,7 @@ import dataObj from "../data.js";
         if (tag_field.length == 0) { // chỉ khởi tạo 1 lần duy nhất
 
             // Thêm danh sách tag
-            let listOfTags = Object.keys(toppingData);
+            let listOfTags = ["Cà phê", "Trà", "Hi-Tea"];
 
             listOfTags.forEach(elem => {
                 elemToAdd = document.createElement('option');

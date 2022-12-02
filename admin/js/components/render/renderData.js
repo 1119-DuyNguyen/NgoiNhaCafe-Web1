@@ -2,6 +2,7 @@ import renderManagerment from "./renderManagerment.js";
 import actionsAndDecisions from "./actionsAndDecisions.js";
 import { renderEditForm } from "./renderForms.js";
 import dataObj from "../data.js";
+import printOrderFunction from "../../printorder.js";
 /**
  * 
  * @param {int} page trang thứ mấy
