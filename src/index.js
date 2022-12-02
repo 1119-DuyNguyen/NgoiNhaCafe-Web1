@@ -1,12 +1,12 @@
 import { Data } from './database/data.js';
 import * as slider from './components/slider.js';
-import * as header from './components/header.js';
+import * as navigation from './components/navigation.js';
 import * as homeProduct from './components/homeProduct.js';
 
 var data = new Data();
 data.initData();
 //order.init(data.getDataImgs());
-header.run(data.getDataImgs());
+navigation.run(data.getDataImgs());
 slider.onLoad();
 homeProduct.run(data.getDataImgs());
 
