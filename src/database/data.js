@@ -24,6 +24,7 @@ export function Data() {
         data[id].phone = user.phone;
         data[id].password = user.password;
         data[id].fullname = user.fullname;
+        data[id].type = user.type;
         setDataUsers(data);
     };
     this.editImg = function (obj, id) {

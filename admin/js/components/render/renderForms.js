@@ -34,7 +34,6 @@ import dataObj from "../data.js";
         document.querySelectorAll(element_id + " div select, "+element_id + " div input, "+element_id + " div textarea").forEach(e => {
             if (e.dataset.name == 'password') // nếu là mật khẩu
             {
-                obj = dataObj.data.getUser(id);
                 if (e.value.length > 0)
                 { // có set mật khẩu
                     if (e.value.length < 6)
