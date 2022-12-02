@@ -1,3 +1,5 @@
+import { Data } from '../database/data.js';
+
 //input có name chứa "repeat" sẽ không láy data
 export function Validator(formSelector) {
     //tránh trỏ lung tung
@@ -35,9 +37,10 @@ export function Validator(formSelector) {
     var rulesCollector = {};
     var validatorRules = {
         username: function (value) {
-            if (!_this.dataUsers) return undefined;
+            var data = new Data();
+            if (!data.getDataUsers()) return undefined;
 
-            for (var user of _this.dataUsers) {
+            for (var user of data.getDataUsers()) {
                 if (user.username === value) {
                     return 'Tài khoản đã tồn tại';
                 }
@@ -80,7 +83,8 @@ export function Validator(formSelector) {
     var formElement = document.querySelector(formSelector);
     _this.formElement = formElement;
     if (formElement) {
-        var inputs = formElement.querySelectorAll('[name][rules]');
+        var inputs = formElement.querySelectorAll('[name][data-rules]');
+
         _this.resetForm = function () {
             var isFormValid = true;
 
@@ -91,7 +95,7 @@ export function Validator(formSelector) {
             }
         };
         for (var input of inputs) {
-            var rules = input.getAttribute('rules').split('|');
+            var rules = input.dataset.rules.split('|');
             for (var rule of rules) {
                 var ruleInfo;
                 //if rule = min:6
@@ -141,7 +145,8 @@ export function Validator(formSelector) {
         }
         formElement.onsubmit = function (e) {
             e.preventDefault();
-            var inputs = formElement.querySelectorAll('[name][rules]');
+            var inputs = formElement.querySelectorAll('[name][data-rules]');
+
             var isFormValid = true;
 
             for (var input of inputs) {
