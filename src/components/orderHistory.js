@@ -14,11 +14,13 @@ var orderHistoryContent = orderHistory.querySelector('.overview-history');
 export function openOrderHistory() {
     var currentUser = data.getCurrentUser();
     if (currentUser) {
+        //setup
         openDisplay(orderHistory);
         btnCloseId(orderHistory);
         closeModal(orderHistory);
 
         var html = ' ';
+        //render dataBill
         var dataBills = data.getDataBill();
 
         if (!dataBills) {
