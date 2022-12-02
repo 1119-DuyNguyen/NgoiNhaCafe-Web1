@@ -4,7 +4,7 @@ export function run(dataImgs) {
         '.home-product .image-container'
     );
     const htmls = dataImgs.map((element, index) => {
-        if (index < 9) {
+        if (index < 8) {
             return `
             <div class="image-item" id="${element.id}">
             <div class="image-pack">

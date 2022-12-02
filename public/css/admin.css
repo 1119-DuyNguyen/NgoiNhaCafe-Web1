@@ -625,6 +625,14 @@ p {
     width: 100%;
   }
 }
+.form-group.invalid input {
+  border-color: #f33a58 !important;
+}
+
+.form-group.invalid .form-message {
+  color: #f33a58 !important;
+}
+
 #toast {
   max-width: 100%;
   position: fixed;
@@ -722,7 +730,11 @@ body {
   position: relative;
 }
 
-h1, h2, h4, h5, h6 {
+h1,
+h2,
+h4,
+h5,
+h6 {
   margin: 20px 0;
 }
 
@@ -974,34 +986,66 @@ h1, h2, h4, h5, h6 {
   vertical-align: middle;
 }
 
-#add-product .container, #add-user .container, #edit-product .container, #edit-user .container, #edit-order .container {
+#add-product .container,
+#add-user .container,
+#edit-product .container,
+#edit-user .container,
+#edit-order .container {
   padding: 20px;
 }
-#add-product .container .content, #add-user .container .content, #edit-product .container .content, #edit-user .container .content, #edit-order .container .content {
+#add-product .container .content,
+#add-user .container .content,
+#edit-product .container .content,
+#edit-user .container .content,
+#edit-order .container .content {
   overflow-y: auto;
 }
-#add-product .container .content form, #add-user .container .content form, #edit-product .container .content form, #edit-user .container .content form, #edit-order .container .content form {
+#add-product .container .content form,
+#add-user .container .content form,
+#edit-product .container .content form,
+#edit-user .container .content form,
+#edit-order .container .content form {
   display: block;
   margin: 0 auto;
   width: 50%;
 }
-#add-product .container .content form div, #add-user .container .content form div, #edit-product .container .content form div, #edit-user .container .content form div, #edit-order .container .content form div {
+#add-product .container .content form div,
+#add-user .container .content form div,
+#edit-product .container .content form div,
+#edit-user .container .content form div,
+#edit-order .container .content form div {
   margin: 10px 0;
 }
-#add-product .container .content form label, #add-user .container .content form label, #edit-product .container .content form label, #edit-user .container .content form label, #edit-order .container .content form label {
+#add-product .container .content form label,
+#add-user .container .content form label,
+#edit-product .container .content form label,
+#edit-user .container .content form label,
+#edit-order .container .content form label {
   display: block;
   margin: 10px 0;
 }
-#add-product .container .content form input, #add-user .container .content form input, #edit-product .container .content form input, #edit-user .container .content form input, #edit-order .container .content form input {
+#add-product .container .content form input,
+#add-user .container .content form input,
+#edit-product .container .content form input,
+#edit-user .container .content form input,
+#edit-order .container .content form input {
   width: 100%;
   padding: 5px;
   border-radius: 10px;
   border: 1px solid gray;
 }
-#add-product .container .content form input[type=file], #add-user .container .content form input[type=file], #edit-product .container .content form input[type=file], #edit-user .container .content form input[type=file], #edit-order .container .content form input[type=file] {
+#add-product .container .content form input[type=file],
+#add-user .container .content form input[type=file],
+#edit-product .container .content form input[type=file],
+#edit-user .container .content form input[type=file],
+#edit-order .container .content form input[type=file] {
   border: none;
 }
-#add-product .container .content form textarea, #add-user .container .content form textarea, #edit-product .container .content form textarea, #edit-user .container .content form textarea, #edit-order .container .content form textarea {
+#add-product .container .content form textarea,
+#add-user .container .content form textarea,
+#edit-product .container .content form textarea,
+#edit-user .container .content form textarea,
+#edit-order .container .content form textarea {
   resize: none;
   width: 100%;
   height: 100px;

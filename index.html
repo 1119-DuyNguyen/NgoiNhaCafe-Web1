@@ -290,7 +290,7 @@
                                 <input
                                     name="username"
                                     type="text"
-                                    rules="required"
+                                    data-rules="required"
                                     id="usernameLogin"
                                 />
                                 <span class="form-message"></span>
@@ -300,7 +300,7 @@
                                 <input
                                     name="password"
                                     type="password"
-                                    rules="required"
+                                    data-rules="required"
                                     id="passwordLogin"
                                 />
                                 <span class="form-message"></span>
@@ -332,7 +332,7 @@
                                 <input
                                     id="fullname"
                                     name="fullname"
-                                    rules="required"
+                                    data-rules="required"
                                     type="text"
                                     placeholder=""
                                     class="form-control"
@@ -346,7 +346,7 @@
                                 <input
                                     id="userNameRegister"
                                     name="username"
-                                    rules="required|username"
+                                    data-rules="required|username"
                                     type="text"
                                     placeholder=""
                                     class="form-control"
@@ -360,7 +360,7 @@
                                 <input
                                     id="passRegister"
                                     name="password"
-                                    rules="password"
+                                    data-rules="password"
                                     type="password"
                                     placeholder=""
                                     class="form-control"
@@ -376,7 +376,7 @@
                                 <input
                                     id="repeatPassRegister"
                                     name="repeatPassRegister"
-                                    rules="repeatPassword"
+                                    data-rules="repeatPassword"
                                     type="password"
                                     placeholder=""
                                     class="form-control"
@@ -390,7 +390,7 @@
                                 <input
                                     id="address"
                                     name="address"
-                                    rules="required"
+                                    data-rules="required"
                                     type="text"
                                     placeholder=""
                                     class="form-control"
@@ -404,7 +404,7 @@
                                 <input
                                     id="phoneRegister"
                                     name="phone"
-                                    rules="required|phone"
+                                    data-rules="required|phone"
                                     type="text"
                                     placeholder="0123456789"
                                     class="form-control"
@@ -506,173 +506,7 @@
             <!-- chi tiet san pham -->
             <div id="detail-product" class="modal --hide">
                 <div class="container">
-                    <div class="content --darkMode">
-                        <div class="close">
-                            <i class="icon-cross icon"></i>
-                        </div>
-                        <div class="product-about">
-                            <div class="product_visual">
-                                <div class="product_visual_img">
-                                    <img
-                                        src="./public/img/ngoiNhaCafe/CPhSa.jpg"
-                                        alt="cà phê đá"
-                                    />
-                                </div>
-                            </div>
-                            <div class="product_shopping">
-                                <div class="info">
-                                    <h2 class="h2">Cà Phê Sữa Đá</h2>
-                                    <div class="info_price">
-                                        <div class="price" data-price="29000">
-                                            29000đ
-                                        </div>
-                                        <div class="info-count">
-                                            <div class="icon minus --gray">
-                                                <i class="icon-minus"></i>
-                                            </div>
-                                            <div
-                                                class="info-count_num"
-                                                data-quantity="1"
-                                            >
-                                                1
-                                            </div>
-                                            <div class="icon plus">
-                                                <i class="icon-plus"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-description">
-                                    <hr />
-                                    <p>
-                                        Cà phê Đắk Lắk nguyên chất được pha phin
-                                        truyền thống kết hợp với sữa đặc tạo nên
-                                        hương vị đậm đà, hài hòa giữa vị ngọt
-                                        đầu lưỡi và vị đắng thanh thoát nơi hậu
-                                        vị.
-                                    </p>
-
-                                    <hr />
-                                </div>
-                                <div class="option-size">
-                                    <div class="h4">Chọn size (bắt buộc)</div>
-                                    <ul class="option_selections">
-                                        <li
-                                            class="option_selections_item"
-                                            data-option-size="small"
-                                        >
-                                            <p class="size-content">
-                                                <i
-                                                    class="icon-mug icon-small"
-                                                ></i>
-                                                Nhỏ + 0 đ
-                                            </p>
-                                        </li>
-                                        <li
-                                            class="option_selections_item --active"
-                                            data-option-size="medium"
-                                        >
-                                            <p class="size-content">
-                                                <i
-                                                    class="icon-mug icon-medium"
-                                                ></i>
-                                                Vừa + 6.000 đ
-                                            </p>
-                                        </li>
-                                        <li
-                                            class="option_selections_item"
-                                            data-option-size="large"
-                                        >
-                                            <p class="size-content">
-                                                <i
-                                                    class="icon-mug icon-large"
-                                                ></i>
-                                                Lớn + 10.000 đ
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="product-related">
-                            <h2 class="product-related_title">
-                                Sản phẩm liên quan
-                            </h2>
-                            <ul class="option_selections">
-                                <li
-                                    class="option_selections_item"
-                                    data-title="Cà Phê Sữa Nóng"
-                                >
-                                    <div class="image-pack">
-                                        <img
-                                            class="product-image"
-                                            src="./public/img/ngoiNhaCafe/CPhSaNng.jpg"
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div class="overview">
-                                        <p class="overview_title">
-                                            Cà Phê Sữa Nóng
-                                        </p>
-                                        <p>35000 đ</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="option_selections_item"
-                                    data-title="Bạc Sỉu"
-                                >
-                                    <div class="image-pack">
-                                        <img
-                                            class="product-image"
-                                            src="./public/img/ngoiNhaCafe/BcSu.jpg"
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div class="overview">
-                                        <p class="overview_title">Bạc Sỉu</p>
-                                        <p>29000 đ</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="option_selections_item"
-                                    data-title="Cà Phê Đen Đá"
-                                >
-                                    <div class="image-pack">
-                                        <img
-                                            class="product-image"
-                                            src="./public/img/ngoiNhaCafe/CPhen.jpg"
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div class="overview">
-                                        <p class="overview_title">
-                                            Cà Phê Đen Đá
-                                        </p>
-                                        <p>29000 đ</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="option_selections_item"
-                                    data-title="Cà Phê Sữa Đá Chai Fresh 250ML"
-                                >
-                                    <div class="image-pack">
-                                        <img
-                                            class="product-image"
-                                            src="./public/img/ngoiNhaCafe/CPhSaChaiFresh250ML.jpg"
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div class="overview">
-                                        <p class="overview_title">
-                                            Cà Phê Sữa Đá Chai Fresh 250ML
-                                        </p>
-                                        <p>75000 đ</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <div class="content --darkMode"></div>
                     <div class="cart">
                         <div class="product_shopping_cart">
                             <i class="icon-cart icon"></i>
