@@ -16,6 +16,7 @@ export function toggleDisplay(element) {
         element.classList.add('--hide');
     }
 }
+//click vào element có class= close sẽ đóng modal
 export function btnCloseId(parentElement, classBtn = '.close') {
     // close icon
     const closeBtns = parentElement.querySelectorAll(classBtn);
@@ -24,6 +25,7 @@ export function btnCloseId(parentElement, classBtn = '.close') {
         closeBtn.addEventListener('click', () => closeDisplay(parentElement));
     });
 }
+//click vào ngoài content của modal thì đóng modal
 export function closeModal(element) {
     element.addEventListener('click', (e) => {
         if (e.target === element) {
