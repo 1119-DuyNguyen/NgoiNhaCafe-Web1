@@ -75,6 +75,17 @@
     .header-acount {
         color: white;
     }
+
+    //article2 -> article_wrap
+    .article .container .row .article_wrap {
+        background: rgba(0, 0, 0, 0.8);
+        .article_content_wrap h1 {
+            color: white !important;
+        }
+        .article_content_wrap .article_content h3 {
+            color: white !important;
+        }
+    }
 }
 
 //user-login content
@@ -101,16 +112,6 @@
     }
 }
 
-//article2 -> article_wrap
-.article .container .row .article_wrap {
-    background: rgba(0, 0, 0, 0.8);
-    .article_content_wrap h1 {
-        color: white !important;
-    }
-    .article_content_wrap .article_content h3 {
-        color: white !important;
-    }
-}
 @media screen and (max-width: 1024.5px) {
     .--darkMode {
         background: rgba(0, 0, 0, 0.8);

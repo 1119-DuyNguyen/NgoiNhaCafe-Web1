@@ -4158,6 +4158,15 @@ p {
 .--darkMode .header-acount {
   color: white;
 }
+.--darkMode .article .container .row .article_wrap {
+  background: rgba(0, 0, 0, 0.8);
+}
+.--darkMode .article .container .row .article_wrap .article_content_wrap h1 {
+  color: white !important;
+}
+.--darkMode .article .container .row .article_wrap .article_content_wrap .article_content h3 {
+  color: white !important;
+}
 
 #user-login .container .--darkMode {
   color: white;
@@ -4177,16 +4186,6 @@ p {
 }
 .modal .container .--darkMode .close {
   color: white;
-}
-
-.article .container .row .article_wrap {
-  background: rgba(0, 0, 0, 0.8);
-}
-.article .container .row .article_wrap .article_content_wrap h1 {
-  color: white !important;
-}
-.article .container .row .article_wrap .article_content_wrap .article_content h3 {
-  color: white !important;
 }
 
 @media screen and (max-width: 1024.5px) {
