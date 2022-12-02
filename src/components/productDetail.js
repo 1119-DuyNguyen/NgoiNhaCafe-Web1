@@ -89,9 +89,8 @@ export function productInfo(id, dataImgs) {
         { tag: data.tag, id: data.id },
         dataImgs
     );
+    var contentElemnt = detailProduct.querySelector('.content');
     const html = `                
-    <div class="container">
-    <div class="content --darkMode">
         <div class="close">
         <i class="icon-cross icon"></i>
         </div>
@@ -179,11 +178,9 @@ export function productInfo(id, dataImgs) {
         <div class="product_shopping_cart">
             <i class="icon-cart icon"></i>
             <div class="h4">Thêm vào giỏ hàng</div>
-        </div>
-    </div>
-</div>`;
+        </div>`;
 
-    detailProduct.innerHTML = html;
+    contentElemnt.innerHTML = html;
 
     //tới sản phẩm liên quan
     const liImgs = detailProduct.querySelectorAll('li[data-id]');
