@@ -1328,28 +1328,28 @@ p {
 }
 
 .toast--success {
-  border-color: #71be34;
+  border-color: #71be34 !important;
 }
 .toast--success .toast-icon-background {
   color: #71be34;
 }
 
 .toast--warning {
-  border-color: #ffb702;
+  border-color: #ffb702 !important;
 }
 .toast--warning .toast-icon-background {
   color: #ffb702;
 }
 
 .toast--info {
-  border-color: #2f86eb;
+  border-color: #2f86eb !important;
 }
 .toast--info .toast-icon-background {
   color: #2f86eb;
 }
 
 .toast--error {
-  border-color: #ff623d;
+  border-color: #ff623d !important;
 }
 .toast--error .toast-icon-background {
   color: #ff623d;
