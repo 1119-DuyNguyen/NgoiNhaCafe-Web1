@@ -17,18 +17,41 @@
                 <div id="nav">
                     <h1><i class="icon-cross" id="nav_close"></i></h1>
                     <ul>
-                        <li><a href="" class="csr-toggle" data-csr="home"><i class="icon-home"></i> Trang chủ</a></li>
-                        <li><a href="" class="csr-toggle" data-csr="users"><i class="icon-users"></i> Người dùng</a></li>
-                        <li><a href="" class="csr-toggle" data-csr="products"><i class="icon-cup"></i> Sản phẩm</a></li>
-                        <li><a href="" class="csr-toggle" data-csr="orders"><i class="icon-file-text2"></i> Đơn hàng</a></li>
-                        <li><a href="" class="csr-toggle" data-csr="analytics"><i class="icon-file-text2"></i> Thống kê</a></li>
-                        <li><a href="" id="logout"><i class="icon-exit"></i> Đăng xuất</a></li>
+                        <li>
+                            <a href="" class="csr-toggle" data-csr="home"
+                                ><i class="icon-home"></i> Trang chủ</a
+                            >
+                        </li>
+                        <li>
+                            <a href="" class="csr-toggle" data-csr="users"
+                                ><i class="icon-users"></i> Người dùng</a
+                            >
+                        </li>
+                        <li>
+                            <a href="" class="csr-toggle" data-csr="products"
+                                ><i class="icon-cup"></i> Sản phẩm</a
+                            >
+                        </li>
+                        <li>
+                            <a href="" class="csr-toggle" data-csr="orders"
+                                ><i class="icon-file-text2"></i> Đơn hàng</a
+                            >
+                        </li>
+                        <li>
+                            <a href="" class="csr-toggle" data-csr="analytics"
+                                ><i class="icon-file-text2"></i> Thống kê</a
+                            >
+                        </li>
+                        <li>
+                            <a href="" id="logout"
+                                ><i class="icon-exit"></i> Đăng xuất</a
+                            >
+                        </li>
                     </ul>
                 </div>
                 <div id="under-nav"></div>
             </div>
             <div id="main">
-                
                 <div data-csr="home" class="admin-container --hidden">
                     <h1>Bảng điều khiển</h1>
                     <div class="card-container">
@@ -52,9 +75,14 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="admin-container --hidden" data-csr="users">
-                    <h2>Người dùng <button class="btn btn-success" id="add-user-tag">Thêm mới</button></h2>
+                    <h2>
+                        Người dùng
+                        <button class="btn btn-success" id="add-user-tag">
+                            Thêm mới
+                        </button>
+                    </h2>
                     <div class="managerment">
                         <div class="select-all">
                             <input type="checkbox" class="check-all" />
@@ -62,13 +90,13 @@
                         </div>
                         <div class="actions">
                             <select class="decisions">
-    
-                                <option value="undone" selected>-- Hành động --</option>
+                                <option value="undone" selected>
+                                    -- Hành động --
+                                </option>
                                 <option value="delete">Xóa</option>
                             </select>
                             <button class="btn btn-info">Thực hiện</button>
                         </div>
-    
                     </div>
                     <div class="table-container">
                         <table>
@@ -191,8 +219,7 @@
                         </table>
                     </div>
                     <div class="paginator">
-                        <div class="paginator_items">
-                        </div>
+                        <div class="paginator_items"></div>
                     </div>
 
                     <div id="add-user" class="modal --hide">
@@ -206,40 +233,89 @@
                                 </div>
                                 <form class="form">
                                     <div class="form-group">
-                                        <label for="user-fullname">Họ và tên</label>
-                                        <input type="text" id="user-fullname" data-name="fullname">
+                                        <label for="user-fullname"
+                                            >Họ và tên</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-fullname"
+                                            data-name="fullname"
+                                        />
                                         <span class="form-message"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="user-name">Tên đăng nhập</label>
-                                        <input type="text" id="user-name" data-name="username">
+                                        <label for="user-name"
+                                            >Tên đăng nhập</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-name"
+                                            data-name="username"
+                                        />
                                         <span class="form-message"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="user-address">Địa chỉ</label>
-                                        <input type="text" id="user-address" data-name="address">
+                                        <label for="user-address"
+                                            >Địa chỉ</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-address"
+                                            data-name="address"
+                                        />
                                         <span class="form-message"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="user-password">Mật khẩu</label>
-                                        <input type="password" id="user-password" data-name="price">
+                                        <label for="user-password"
+                                            >Mật khẩu</label
+                                        >
+                                        <input
+                                            type="password"
+                                            id="user-password"
+                                            data-name="price"
+                                        />
                                         <span class="form-message"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="user-phonenum">Số điện thoại</label>
-                                        <input type="text" id="user-phonenum" data-name="phone">
+                                        <label for="user-phonenum"
+                                            >Số điện thoại</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-phonenum"
+                                            data-name="phone"
+                                        />
                                         <span class="form-message"></span>
                                     </div>
                                     <div>
-                                        <label for="user-permission">Loại người dùng</label>
-                                        <select data-name="type" id="user-permission">
-                                            <option value="user" selected>Người dùng cuối</option>
-                                            <option value="admin">Quản trị viên</option>
+                                        <label for="user-permission"
+                                            >Loại người dùng</label
+                                        >
+                                        <select
+                                            data-name="type"
+                                            id="user-permission"
+                                        >
+                                            <option value="user" selected>
+                                                Người dùng cuối
+                                            </option>
+                                            <option value="admin">
+                                                Quản trị viên
+                                            </option>
                                         </select>
                                     </div>
                                     <div>
-                                        <button class="btn btn-danger remove" type="reset">Đặt lại</button>
-                                        <button class="btn btn-info submit" type="submit">Thêm</button>
+                                        <button
+                                            class="btn btn-danger remove"
+                                            type="reset"
+                                        >
+                                            Đặt lại
+                                        </button>
+                                        <button
+                                            class="btn btn-info submit"
+                                            type="submit"
+                                        >
+                                            Thêm
+                                        </button>
                                     </div>
                                 </form>
                             </div>
@@ -257,64 +333,116 @@
                                 </div>
                                 <form class="form">
                                     <div class="form-group">
-                                        <label for="user-name-edit">Họ và tên</label>
-                                        <input type="text" id="user-fullname-edit" data-name="fullname">
+                                        <label for="user-name-edit"
+                                            >Họ và tên</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-fullname-edit"
+                                            data-name="fullname"
+                                        />
                                         <span class="form-message"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="user-name-edit">Tên đăng nhập</label>
-                                        <input type="text" id="user-name-edit" data-name="username">
+                                        <label for="user-name-edit"
+                                            >Tên đăng nhập</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-name-edit"
+                                            data-name="username"
+                                        />
                                         <span class="form-message"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="user-address-edit">Địa chỉ</label>
-                                        <input type="text" id="user-address-edit" data-name="address">
+                                        <label for="user-address-edit"
+                                            >Địa chỉ</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-address-edit"
+                                            data-name="address"
+                                        />
                                         <span class="form-message"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="user-password-edit">Mật khẩu</label>
-                                        <input type="password" id="user-password-edit" data-name="password">
+                                        <label for="user-password-edit"
+                                            >Mật khẩu</label
+                                        >
+                                        <input
+                                            type="password"
+                                            id="user-password-edit"
+                                            data-name="password"
+                                        />
                                         <span class="form-message"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="user-phonenum-edit">Số điện thoại</label>
-                                        <input type="text" id="user-phonenum-edit" data-name="phone">
+                                        <label for="user-phonenum-edit"
+                                            >Số điện thoại</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-phonenum-edit"
+                                            data-name="phone"
+                                        />
                                         <span class="form-message"></span>
                                     </div>
                                     <div>
-                                        <label for="user-permission-edit">Loại người dùng</label>
-                                        <select data-name="type" id="user-permission-edit">
-                                            <option value="user" selected>Người dùng cuối</option>
-                                            <option value="admin">Quản trị viên</option>
+                                        <label for="user-permission-edit"
+                                            >Loại người dùng</label
+                                        >
+                                        <select
+                                            data-name="type"
+                                            id="user-permission-edit"
+                                        >
+                                            <option value="user" selected>
+                                                Người dùng cuối
+                                            </option>
+                                            <option value="admin">
+                                                Quản trị viên
+                                            </option>
                                         </select>
                                     </div>
                                     <div>
-                                        <button class="btn btn-danger remove" type="reset">Đặt lại</button>
-                                        <button class="btn btn-info submit" type="submit">Cập nhật</button>
+                                        <button
+                                            class="btn btn-danger remove"
+                                            type="reset"
+                                        >
+                                            Đặt lại
+                                        </button>
+                                        <button
+                                            class="btn btn-info submit"
+                                            type="submit"
+                                        >
+                                            Cập nhật
+                                        </button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="admin-container --hidden" data-csr="products">
                     <h2 class="product-text">
                         Danh mục sản phẩm
-        
-                        <button id="add-product-tag" class="btn btn-success">Thêm mới</button>
+
+                        <button id="add-product-tag" class="btn btn-success">
+                            Thêm mới
+                        </button>
                     </h2>
-    
+
                     <div class="managerment">
-    
                         <div class="select-all">
                             <input type="checkbox" class="check-all" />
                             <label for="check-all">Chọn tất cả</label>
                         </div>
-    
+
                         <div class="actions">
                             <select class="decisions">
-                                <option value="undone" selected>-- Hành động --</option>
+                                <option value="undone" selected>
+                                    -- Hành động --
+                                </option>
                                 <option value="delete">Xóa</option>
                             </select>
                             <button class="btn btn-info">Thực hiện</button>
@@ -483,8 +611,7 @@
                         </table>
                     </div>
                     <div class="paginator">
-                        <div class="paginator_items">
-                        </div>
+                        <div class="paginator_items"></div>
                     </div>
                     <div id="add-product" class="modal --hide">
                         <div class="container">
@@ -497,32 +624,63 @@
                                 </div>
                                 <form action="" class="form">
                                     <div class="form-group">
-                                        <label for="product-name">Tên sản phẩm</label>
-                                        <input type="text" id="product-name" data-name="title">
+                                        <label for="product-name"
+                                            >Tên sản phẩm</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="product-name"
+                                            data-name="title"
+                                        />
                                         <span class="form-message"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="product-type">Tag</label>
-                                        <select type="text" id="product-type" data-name="tag"></select>
+                                        <select
+                                            type="text"
+                                            id="product-type"
+                                            data-name="tag"
+                                        ></select>
                                         <span class="form-message"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="product-price">Giá</label>
-                                        <input type="text" id="product-price" data-name="price">
+                                        <input
+                                            type="text"
+                                            id="product-price"
+                                            data-name="price"
+                                        />
                                         <span class="form-message"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="product-desc">Mô tả</label>
-                                        <textarea id="product-desc" data-name="description"></textarea>
+                                        <textarea
+                                            id="product-desc"
+                                            data-name="description"
+                                        ></textarea>
                                         <span class="form-message"></span>
                                     </div>
                                     <div>
                                         <label for="product-image">Ảnh</label>
-                                        <input type="file" data-name="image" id="product-image">
+                                        <input
+                                            type="file"
+                                            data-name="image"
+                                            id="product-image"
+                                        />
                                     </div>
                                     <div>
-                                        <button class="btn btn-danger remove" type="reset">Đặt lại</button>
-                                        <button class="btn btn-info submit" type="submit">Thêm</button>
+                                        <button
+                                            class="btn btn-danger remove"
+                                            type="reset"
+                                        >
+                                            Đặt lại
+                                        </button>
+                                        <button
+                                            class="btn btn-info submit"
+                                            type="submit"
+                                        >
+                                            Thêm
+                                        </button>
                                     </div>
                                 </form>
                             </div>
@@ -540,61 +698,96 @@
                                 </div>
                                 <form action="" class="form">
                                     <div class="form-group row">
-                                        <label for="product-name-edit">Tên sản phẩm</label>
-                                        <input type="text" id="product-name-edit" data-name="title">
+                                        <label for="product-name-edit"
+                                            >Tên sản phẩm</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="product-name-edit"
+                                            data-name="title"
+                                        />
                                         <span class="form-message"></span>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="product-type-edit">Tag</label>
-                                        <select type="text" id="product-type-edit" data-name="tag"></select>
+                                        <label for="product-type-edit"
+                                            >Tag</label
+                                        >
+                                        <select
+                                            type="text"
+                                            id="product-type-edit"
+                                            data-name="tag"
+                                        ></select>
                                         <span class="form-message"></span>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="product-price-edit">Giá</label>
-                                        <input type="text" id="product-price-edit" data-name="price">
+                                        <label for="product-price-edit"
+                                            >Giá</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="product-price-edit"
+                                            data-name="price"
+                                        />
                                         <span class="form-message"></span>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="product-desc-edit">Mô tả</label>
-                                        <textarea id="product-desc-edit" data-name="description"></textarea>
+                                        <label for="product-desc-edit"
+                                            >Mô tả</label
+                                        >
+                                        <textarea
+                                            id="product-desc-edit"
+                                            data-name="description"
+                                        ></textarea>
                                         <span class="form-message"></span>
                                     </div>
                                     <div>
-                                        <label for="product-image-edit">Ảnh</label>
-                                        <input type="file" data-name="image" id="product-image-edit">
+                                        <label for="product-image-edit"
+                                            >Ảnh</label
+                                        >
+                                        <input
+                                            type="file"
+                                            data-name="image"
+                                            id="product-image-edit"
+                                        />
                                     </div>
                                     <div>
-                                        <button class="btn btn-danger remove" type="reset">Đặt lại</button>
-                                        <button class="btn btn-info submit" type="submit">Cập nhật</button>
+                                        <button
+                                            class="btn btn-danger remove"
+                                            type="reset"
+                                        >
+                                            Đặt lại
+                                        </button>
+                                        <button
+                                            class="btn btn-info submit"
+                                            type="submit"
+                                        >
+                                            Cập nhật
+                                        </button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-    
                 </div>
-    
+
                 <div class="admin-container --hidden" data-csr="orders">
-                    <h2 class="product-text">
-                        Đơn hàng
-                    </h2>
-    
+                    <h2 class="product-text">Đơn hàng</h2>
+
                     <div class="managerment">
-    
                         <div class="select-all">
-                            <input type="checkbox" class="check-all"/>
+                            <input type="checkbox" class="check-all" />
                             <label for="check-all">Chọn tất cả</label>
                         </div>
-    
+
                         <div class="actions">
                             <select class="decisions">
-                                <option value="undone" selected>-- Hành động --</option>
+                                <option value="undone" selected>
+                                    -- Hành động --
+                                </option>
                                 <option value="delete">Xóa</option>
                             </select>
                             <button class="btn btn-info">Thực hiện</button>
                         </div>
-
-                        
                     </div>
                     <div class="table-container">
                         <table>
@@ -635,8 +828,7 @@
                         </table>
                     </div>
                     <div class="paginator">
-                        <div class="paginator_items">
-                        </div>
+                        <div class="paginator_items"></div>
                     </div>
 
                     <div id="edit-order" class="modal --hide">
@@ -650,16 +842,34 @@
                                 </div>
                                 <form action="">
                                     <div>
-                                        <label for="product-name-edit">Tên sản phẩm</label>
-                                        <select id="order-status" data-name="status">
-                                            <option value="Đang xử lý">Đang xử lý</option>
-                                            <option value="Đã xử lý">Đã xử lý</option>
+                                        <label for="product-name-edit"
+                                            >Tên sản phẩm</label
+                                        >
+                                        <select
+                                            id="order-status"
+                                            data-name="status"
+                                        >
+                                            <option value="Đang xử lý">
+                                                Đang xử lý
+                                            </option>
+                                            <option value="Đã xử lý">
+                                                Đã xử lý
+                                            </option>
                                         </select>
-                                        
                                     </div>
                                     <div>
-                                        <button class="btn btn-danger remove" type="reset">Đặt lại</button>
-                                        <button class="btn btn-info submit" type="submit">Cập nhật</button>
+                                        <button
+                                            class="btn btn-danger remove"
+                                            type="reset"
+                                        >
+                                            Đặt lại
+                                        </button>
+                                        <button
+                                            class="btn btn-info submit"
+                                            type="submit"
+                                        >
+                                            Cập nhật
+                                        </button>
                                     </div>
                                 </form>
                             </div>
@@ -681,14 +891,14 @@
                                 width: 60px;
                                 height: 34px;
                             }
-        
+
                             /* Hide default HTML checkbox */
                             .switch input {
                                 opacity: 0;
                                 width: 0;
                                 height: 0;
                             }
-        
+
                             /* The slider */
                             .slider {
                                 position: absolute;
@@ -701,7 +911,7 @@
                                 -webkit-transition: 0.4s;
                                 transition: 0.4s;
                             }
-        
+
                             .slider:before {
                                 position: absolute;
                                 content: '';
@@ -713,26 +923,26 @@
                                 -webkit-transition: 0.4s;
                                 transition: 0.4s;
                             }
-        
+
                             input:checked + .slider {
                                 background-color: #2196f3;
                             }
-        
+
                             input:focus + .slider {
                                 box-shadow: 0 0 1px #2196f3;
                             }
-        
+
                             input:checked + .slider:before {
                                 -webkit-transform: translateX(26px);
                                 -ms-transform: translateX(26px);
                                 transform: translateX(26px);
                             }
-        
+
                             /* Rounded sliders */
                             .slider.round {
                                 border-radius: 34px;
                             }
-        
+
                             .slider.round:before {
                                 border-radius: 50%;
                             }
@@ -760,11 +970,15 @@
                                 <div class="title">In sản phẩm</div>
                                 <div id="order-print-page">
                                     <div>
-                                        <span class="h2">Thông tin đơn hàng:</span>
+                                        <span class="h2"
+                                            >Thông tin đơn hàng:</span
+                                        >
                                         <p>1x Bị Phê Đá</p>
                                     </div>
                                     <div>
-                                        <span class="h2">Ngày tạo đơn hàng:</span>
+                                        <span class="h2"
+                                            >Ngày tạo đơn hàng:</span
+                                        >
                                         <p>00/00/0000</p>
                                     </div>
                                     <div>
@@ -773,17 +987,22 @@
                                     </div>
                                     <div>
                                         <span class="h2">Địa chỉ:</span>
-                                        <p>273 An Dương Vương, P3, Quận 5, TPHCM</p>
+                                        <p>
+                                            273 An Dương Vương, P3, Quận 5,
+                                            TPHCM
+                                        </p>
                                     </div>
                                     <div>
                                         <span class="h2">SĐT:</span>
                                         <p>0969696969</p>
                                     </div>
                                     <div>
-                                        <span class="h2">Tổng giá trị hoá đơn:</span>
+                                        <span class="h2"
+                                            >Tổng giá trị hoá đơn:</span
+                                        >
                                         <p>69 000đ</p>
                                     </div>
-        
+
                                     <div>
                                         <span class="h2">Tình trạng:</span>
                                         <p>chưa xử lý</p>
@@ -799,25 +1018,31 @@
                                         var mywindow = window.open(
                                             '',
                                             'PRINT',
-                                            'height='+screen.availHeight+',width='+screen.availWidth
+                                            'height=' +
+                                                screen.availHeight +
+                                                ',width=' +
+                                                screen.availWidth
                                         );
-        
+
                                         mywindow.document.write(
                                             '<html><head><title>' +
                                                 document.title +
                                                 '</title>'
                                         );
-                                        mywindow.document.write('</head><body >');
+                                        mywindow.document.write(
+                                            '</head><body >'
+                                        );
                                         mywindow.document.write(
                                             '<h1>' + document.title + '</h1>'
                                         );
                                         mywindow.document.write(
-                                            document.getElementById(idElememt).innerHTML
+                                            document.getElementById(idElememt)
+                                                .innerHTML
                                         );
-        
+
                                         mywindow.document.close(); // necessary for IE >= 10
                                         mywindow.focus(); // necessary for IE >= 10*/
-        
+
                                         mywindow.print();
                                         // mywindow.close();
                                     }
@@ -846,27 +1071,27 @@
                 </div>
 
                 <div class="admin-container --hidden" data-csr="analytics">
-                    <h2 class="product-text">
-                        Đơn hàng
-                    </h2>
-    
+                    <h2 class="product-text">Thống kê đơn hàng</h2>
+
                     <div class="managerment">
-    
-                        <div class="select-all">
-                            <input type="checkbox" class="check-all"/>
+                        <!-- <div class="select-all">
                             <label for="check-all">Chọn tất cả</label>
                         </div>
-    
-                        <div class="actions">
-                            <select class="decisions">
-                                <option value="undone" selected>-- Hành động --</option>
-                                <option value="delete">Xóa</option>
-                            </select>
-                            <button class="btn btn-info">Thực hiện</button>
-                        </div>
 
-                        
+                        <div class="actions">
+                            <select class="decisions-filter">
+                                <option value="undone-filter" selected>
+                                    -- Loại sản phẩm --
+                                </option>
+                                <option value="delete-filter">A</option>
+                            </select>
+                            <button class="btn btn-info">Lọc</button>
+                        </div> -->
                     </div>
+                    <div
+                        class="filter-product-tag"
+                        style="padding-bottom: 15px"
+                    ></div>
                     <div class="table-container">
                         <table class="statistics">
                             <tr>
@@ -906,8 +1131,7 @@
                         </table>
                     </div>
                     <div class="paginator">
-                        <div class="paginator_items">
-                        </div>
+                        <div class="paginator_items"></div>
                     </div>
 
                     <div id="print-order_A" class="--hide modal">
@@ -925,14 +1149,14 @@
                                 width: 60px;
                                 height: 34px;
                             }
-        
+
                             /* Hide default HTML checkbox */
                             .switch input {
                                 opacity: 0;
                                 width: 0;
                                 height: 0;
                             }
-        
+
                             /* The slider */
                             .slider {
                                 position: absolute;
@@ -945,7 +1169,7 @@
                                 -webkit-transition: 0.4s;
                                 transition: 0.4s;
                             }
-        
+
                             .slider:before {
                                 position: absolute;
                                 content: '';
@@ -957,26 +1181,26 @@
                                 -webkit-transition: 0.4s;
                                 transition: 0.4s;
                             }
-        
+
                             input:checked + .slider {
                                 background-color: #2196f3;
                             }
-        
+
                             input:focus + .slider {
                                 box-shadow: 0 0 1px #2196f3;
                             }
-        
+
                             input:checked + .slider:before {
                                 -webkit-transform: translateX(26px);
                                 -ms-transform: translateX(26px);
                                 transform: translateX(26px);
                             }
-        
+
                             /* Rounded sliders */
                             .slider.round {
                                 border-radius: 34px;
                             }
-        
+
                             .slider.round:before {
                                 border-radius: 50%;
                             }
@@ -1004,11 +1228,15 @@
                                 <div class="title">In sản phẩm</div>
                                 <div id="order-print-page">
                                     <div>
-                                        <span class="h2">Thông tin đơn hàng:</span>
+                                        <span class="h2"
+                                            >Thông tin đơn hàng:</span
+                                        >
                                         <p>1x Bị Phê Đá</p>
                                     </div>
                                     <div>
-                                        <span class="h2">Ngày tạo đơn hàng:</span>
+                                        <span class="h2"
+                                            >Ngày tạo đơn hàng:</span
+                                        >
                                         <p>00/00/0000</p>
                                     </div>
                                     <div>
@@ -1017,17 +1245,22 @@
                                     </div>
                                     <div>
                                         <span class="h2">Địa chỉ:</span>
-                                        <p>273 An Dương Vương, P3, Quận 5, TPHCM</p>
+                                        <p>
+                                            273 An Dương Vương, P3, Quận 5,
+                                            TPHCM
+                                        </p>
                                     </div>
                                     <div>
                                         <span class="h2">SĐT:</span>
                                         <p>0969696969</p>
                                     </div>
                                     <div>
-                                        <span class="h2">Tổng giá trị hoá đơn:</span>
+                                        <span class="h2"
+                                            >Tổng giá trị hoá đơn:</span
+                                        >
                                         <p>69 000đ</p>
                                     </div>
-        
+
                                     <div>
                                         <span class="h2">Tình trạng:</span>
                                         <p>chưa xử lý</p>
@@ -1043,25 +1276,31 @@
                                         var mywindow = window.open(
                                             '',
                                             'PRINT',
-                                            'height='+screen.availHeight+',width='+screen.availWidth
+                                            'height=' +
+                                                screen.availHeight +
+                                                ',width=' +
+                                                screen.availWidth
                                         );
-        
+
                                         mywindow.document.write(
                                             '<html><head><title>' +
                                                 document.title +
                                                 '</title>'
                                         );
-                                        mywindow.document.write('</head><body >');
+                                        mywindow.document.write(
+                                            '</head><body >'
+                                        );
                                         mywindow.document.write(
                                             '<h1>' + document.title + '</h1>'
                                         );
                                         mywindow.document.write(
-                                            document.getElementById(idElememt).innerHTML
+                                            document.getElementById(idElememt)
+                                                .innerHTML
                                         );
-        
+
                                         mywindow.document.close(); // necessary for IE >= 10
                                         mywindow.focus(); // necessary for IE >= 10*/
-        
+
                                         mywindow.print();
                                         // mywindow.close();
                                     }
@@ -1089,7 +1328,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div id="toast"></div>
             <div id="footer">Copyright &copy; 2022 Ngôi nhà Cafe</div>
         </div>
