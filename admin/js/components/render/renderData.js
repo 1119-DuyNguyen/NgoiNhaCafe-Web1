@@ -2,6 +2,8 @@ import renderManagerment from './renderManagerment.js';
 import actionsAndDecisions from './actionsAndDecisions.js';
 import { renderEditForm } from './renderForms.js';
 import dataObj from '../data.js';
+import { Data } from '../../../../src/database/data.js';
+var data = new Data();
 /**
  *
  * @param {int} page trang thứ mấy
@@ -665,32 +667,32 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             <th class="sort quantityColHead">Số lượng <span class="icon-sort-amount-asc"></span></th>
             <th class="sort priceColHead">Tổng tiền <span class="icon-sort-amount-asc"></span></th>
         </tr>`;
-
         if (dataObj.Bills === null) dataObj.Bills = [];
+        var listBill = data.getDataBill();
 
         var billArr = [];
         if (dataObj.Bills) {
             billArr.push({
-                id: dataObj.Bills[0].cart[0].id,
-                tag: dataObj.Bills[0].cart[0].tag,
-                title: dataObj.Bills[0].cart[0].title,
-                price: dataObj.Bills[0].cart[0].price,
-                size: dataObj.Bills[0].cart[0].size,
-                quantity: dataObj.Bills[0].cart[0].quantity,
+                id: listBill[0].cart[0].id,
+                tag: listBill[0].cart[0].tag,
+                title: listBill[0].cart[0].title,
+                price: listBill[0].cart[0].price,
+                size: listBill[0].cart[0].size,
+                quantity: listBill[0].cart[0].quantity,
             });
         }
         billArr.forEach((BElement) => {
             console.log(billArr);
-            var isDuplicate = false;
+            var isDuplicate;
             var dup;
-            dataObj.Bills.forEach((element) => {
+            listBill.forEach((element) => {
                 element.cart.forEach((element2) => {
+                    console.log(element2.title, BElement.title);
                     dup = element2;
                     if (
                         element2.id == BElement.id &&
-                        dataObj.Bills[0].cart[0] != element2
+                        listBill[0].cart[0] != element2
                     ) {
-                        console.log(element2.title, BElement.title);
                         isDuplicate = true;
                         let a = parseInt(BElement.quantity);
                         let b = parseInt(dup.quantity);
@@ -701,6 +703,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                     }
                 });
                 if (isDuplicate == false) {
+                    console.log('Push');
                     billArr.push({
                         id: dup.id,
                         tag: dup.tag,
@@ -712,6 +715,46 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                 }
             });
         });
+
+        // var inDex = 0;
+        // while (inDex <= billArr.length - 2) {
+        //     console.log(inDex, billArr.length);
+        //     billArr.forEach((BElement) => {
+        //         console.log(billArr);
+        //         var isDuplicate;
+        //         var dup;
+        //         listBill.forEach((element) => {
+        //             element.cart.forEach((element2) => {
+        //                 console.log(element2.title, billArr[inDex].title);
+        //                 dup = element2;
+        //                 if (
+        //                     element2.id == billArr[inDex].id &&
+        //                     listBill[0].cart[0] != element2
+        //                 ) {
+        //                     isDuplicate = true;
+        //                     let a = parseInt(billArr[inDex].quantity);
+        //                     let b = parseInt(dup.quantity);
+        //                     let c = a + b;
+        //                     billArr[inDex].quantity = c;
+        //                 } else {
+        //                     isDuplicate = false;
+        //                 }
+        //             });
+        //             if (isDuplicate == false) {
+        //                 inDex++;
+        //                 console.log('Push');
+        //                 billArr.push({
+        //                     id: dup.id,
+        //                     tag: dup.tag,
+        //                     title: dup.title,
+        //                     price: dup.price,
+        //                     size: dup.size,
+        //                     quantity: dup.quantity,
+        //                 });
+        //             }
+        //         });
+        //     });
+        // }
 
         // 100 99 98 97 96 95 94 93 92 91
         // tính toán số phần tử để lặp trong vòng lặp for - numOfItemsPerPage = 9
