@@ -1,3 +1,4 @@
+import dataBillJson from './bill.json' assert { type: 'json' };
 export function Data() {
     const keyImgs = 'dataImgs';
     const keyUsers = 'dataUsers';
@@ -225,6 +226,9 @@ totalprice : 5700000
 
     //init data
     this.initData = function () {
+        if (!this.getDataBill()) {
+            this.setDataBill(dataBillJson);
+        }
         if (!this.getDataUsers()) {
             //có nên bỏ email và id không ?
             var dataUsers = [
