@@ -674,10 +674,11 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         const selectTag = document.querySelector('.filter-product-tag');
         selectTag.innerHTML = `<span>Theo loại sản phẩm: </span>`;
         selectTag.innerHTML += `<select name="tag-filter" id="tag-filter">
-        <option value="undone" >-- Loại sản phẩm --</option>`;
+        <option value="undone" >-- Tất cả --</option>`;
         const selecttag = document.querySelector('#tag-filter');
         if (dataObj.Bills === null) dataObj.Bills = [];
         var listBill = data.getDataBill();
+        console.log(listBill);
 
         if (!Array.isArray(listBill) || listBill.length < 1) {
             listBill = [];
@@ -794,64 +795,67 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             });
         }
         s_orders.innerHTML = html;
+        sortTable();
 
         //hàm sort dữ liệu trên bảng
-        const sort = document.querySelectorAll('.sort');
-        var inSort = 0;
-        sort.forEach((element) => {
-            element.addEventListener('click', () => {
-                if (inSort == 0) {
-                    if (element.classList.contains('quantityColHead')) {
-                        sortTable(5, 1);
+        function sortTable() {
+            const sort = document.querySelectorAll('.sort');
+            var inSort = 0;
+            sort.forEach((element) => {
+                element.addEventListener('click', () => {
+                    if (inSort == 0) {
+                        if (element.classList.contains('quantityColHead')) {
+                            sortTable(5, 1);
+                        }
+                        if (element.classList.contains('priceColHead')) {
+                            sortTable(6, 1);
+                        }
+                        if (element.classList.contains('STT')) {
+                            sortTable(1, 1);
+                        }
+                        inSort = 1;
+                    } else if (inSort == 1) {
+                        if (element.classList.contains('quantityColHead')) {
+                            sortTable(5, 0);
+                        }
+                        if (element.classList.contains('priceColHead')) {
+                            sortTable(6, 0);
+                        }
+                        if (element.classList.contains('STT')) {
+                            sortTable(1, 0);
+                        }
+                        inSort = 0;
                     }
-                    if (element.classList.contains('priceColHead')) {
-                        sortTable(6, 1);
-                    }
-                    if (element.classList.contains('STT')) {
-                        sortTable(1, 1);
-                    }
-                    inSort = 1;
-                } else if (inSort == 1) {
-                    if (element.classList.contains('quantityColHead')) {
-                        sortTable(5, 0);
-                    }
-                    if (element.classList.contains('priceColHead')) {
-                        sortTable(6, 0);
-                    }
-                    if (element.classList.contains('STT')) {
-                        sortTable(1, 0);
-                    }
-                    inSort = 0;
-                }
+                });
             });
-        });
-        function sortTable(classSort, inSort) {
-            var table, rows, switching, i, x, y, shouldSwitch;
-            table = document.querySelector('.statistics');
-            switching = true;
-            while (switching) {
-                switching = false;
-                rows = table.rows;
+            function sortTable(classSort, inSort) {
+                var table, rows, switching, i, x, y, shouldSwitch;
+                table = document.querySelector('.statistics');
+                switching = true;
+                while (switching) {
+                    switching = false;
+                    rows = table.rows;
 
-                for (i = 1; i < rows.length - 1; i++) {
-                    shouldSwitch = false;
-                    x = rows[i].getElementsByTagName('td')[classSort];
-                    y = rows[i + 1].getElementsByTagName('td')[classSort];
-                    if (inSort == 1) {
-                        if (Number(x.innerHTML) > Number(y.innerHTML)) {
-                            shouldSwitch = true;
-                            break;
-                        }
-                    } else {
-                        if (Number(x.innerHTML) < Number(y.innerHTML)) {
-                            shouldSwitch = true;
-                            break;
+                    for (i = 1; i < rows.length - 1; i++) {
+                        shouldSwitch = false;
+                        x = rows[i].getElementsByTagName('td')[classSort];
+                        y = rows[i + 1].getElementsByTagName('td')[classSort];
+                        if (inSort == 1) {
+                            if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                                shouldSwitch = true;
+                                break;
+                            }
+                        } else {
+                            if (Number(x.innerHTML) < Number(y.innerHTML)) {
+                                shouldSwitch = true;
+                                break;
+                            }
                         }
                     }
-                }
-                if (shouldSwitch) {
-                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                    switching = true;
+                    if (shouldSwitch) {
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                    }
                 }
             }
         }
@@ -871,7 +875,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                     txtValue = td.textContent || td.innerText;
                     if (
                         txtValue.toUpperCase().indexOf(filter) > -1 ||
-                        filter == '-- LOẠI SẢN PHẨM --'
+                        filter == '-- TẤT CẢ --'
                     ) {
                         tr[i].style.display = '';
                     } else {
@@ -897,105 +901,125 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             }
             if (colIndex == 6) {
                 document.querySelector('.display-filter-result').innerHTML +=
-                    `Tổng số tiền:  ` + sumVal;
+                    `Tổng số tiền:  ` + sumVal + `đ`;
             }
         }
+        getSumCol(5);
+        getSumCol(6);
         selecttag.addEventListener('change', () => {
             filterTablebyTag();
             getSumCol(5);
             getSumCol(6);
         });
 
-        // document.querySelector(
-        //     ".admin-container[data-csr='analytics'] .managerment"
-        // ).innerHTML += `<div class="filter">
-        //     <p><b>Lọc đơn hàng</b></p>
-        //     <div>
-        //         <span>Theo thời gian</span>
-        //         <label name="range">từ ngày:</label>
+        document.querySelector(
+            ".admin-container[data-csr='analytics'] .statistic-managerment"
+        ).innerHTML += `<div class="filter">
+            <p><b>Lọc đơn hàng</b></p>
+            <div>
+                <span>Theo thời gian</span>
+                <label name="range">từ ngày:</label>
 
-        //         <input id="fromDay_A"
-        //             name="fromDay_A"
-        //             type="text" onfocus="(this.type = 'date')" />
-        //         <label name="range">đến ngày :</label>
-        //         <span> - </span>
-        //         <input id="toDay_A"
-        //             name="toDay_A"
-        //             type="text" onfocus="(this.type = 'date')"/>
-        //         <button class="btn btn-info" id="filter_A">Lọc</button>
-        //     </div>
-        // </div>`;
+                <input id="fromDay_A"
+                    name="fromDay_A"
+                    type="text" onfocus="(this.type = 'date')" />
+                <label name="range">đến ngày :</label>
+                <span> - </span>
+                <input id="toDay_A"
+                    name="toDay_A"
+                    type="text" onfocus="(this.type = 'date')"/>
+                <button class="btn btn-info" id="filter_A">Lọc</button>
+            </div>
+        </div>`;
 
-        // let fD, tD, dtmp, d1, d2, dBills;
-        // document.getElementById('filter_A').addEventListener('click', () => {
-        //     dBills = [];
-        //     fD = document.getElementById('fromDay_A').value;
-        //     tD = document.getElementById('toDay_A').value;
+        let fD, tD, dtmp, d1, d2;
+        document.getElementById('filter_A').addEventListener('click', () => {
+            var dBills = [];
+            fD = document.getElementById('fromDay_A').value;
+            tD = document.getElementById('toDay_A').value;
+            var html = `<tr>
+            <th></th>
+            <th class="sort STT" onMouseOver="this.style.cursor='pointer'" onMouseOut="this.style.cursor='pointer'">Stt<span class="icon-sort-amount-asc"></span></th>
+            <th>Loại sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th class="sort quantityColHead" onMouseOver="this.style.cursor='pointer'" onMouseOut="this.style.cursor='pointer'">Số lượng <span class="icon-sort-amount-asc"></span></th>
+            <th class="sort priceColHead" onMouseOver="this.style.cursor='pointer'" onMouseOut="this.style.cursor='pointer'">Tổng tiền <span class="icon-sort-amount-asc"></span></th>
+        </tr>`;
+            if (fD.length == 0 || tD.length == 0)
+                alert('Vui lòng chọn ngày cụ thể');
+            else {
+                fD = fD.split('-');
+                tD = tD.split('-');
+                d1 = new Date(fD[0], fD[1] - 1, fD[2]);
+                d2 = new Date(tD[0], tD[1] - 1, tD[2]);
 
-        //     if (fD.length == 0 || tD.length == 0)
-        //         alert('Vui lòng chọn ngày cụ thể');
-        //     else {
-        //         fD = fD.split('-');
-        //         tD = tD.split('-');
-        //         d1 = new Date(fD[0], fD[1] - 1, fD[2]);
-        //         d2 = new Date(tD[0], tD[1] - 1, tD[2]);
+                s_orders.innerHTML = '';
 
-        //         for (let i = 0, dbill; i < dataObj.Bills.length; i++) {
-        //             dbill = dataObj.Bills[i];
-        //             if (dbill.status == 'Đã xử lý') {
-        //                 dtmp = dbill.dateCreate.split('-');
-        //                 dtmp = new Date(dtmp[2], dtmp[1] - 1, dtmp[0]);
+                for (let i = 0; i < listBill.length; i++) {
+                    var dbill = listBill[i];
+                    dtmp = dbill.dateCreate.split('-');
+                    dtmp = new Date(dtmp[2], dtmp[1] - 1, dtmp[0]);
 
-        //                 dbill.id = i;
-        //                 if (
-        //                     dtmp.getTime() >= d1.getTime() &&
-        //                     dtmp.getTime() <= d2.getTime()
-        //                 )
-        //                     dBills.push(dbill);
-        //             }
-        //         }
+                    dbill.id = i;
+                    if (
+                        dtmp.getTime() >= d1.getTime() &&
+                        dtmp.getTime() <= d2.getTime()
+                    )
+                        dBills.push(dbill);
+                }
+                var cartFilter = [];
+                dBills.forEach((billElement) => {
+                    var carts = billElement.cart;
 
-        //         html = `<tr>
-        //             <th></th>
-        //             <th>STT</th>
-        //             <th>Ngày</th>
-        //             <th>Khách hàng</th>
-        //             <th>Giá</th>
-        //             <th>Trạng thái</th>
-        //             <th>Hành động</th>
-        //         </tr>`;
+                    carts.forEach((cart) => {
+                        var getCartObject = {};
 
-        //         for (let i = 0; i < dBills.length; i++) {
-        //             html += `<tr>
-        //                 <td>
-        //                     <input type="checkbox" value="${
-        //                         dBills[i].id
-        //                     }" class="checkbox" data-type="order"/>
-        //                 </td>
-        //                 <td>${i + 1}</td>
-        //                 <td>${dBills[i].dateCreate}</td>
-        //                 <td>${dBills[i].customer.username}</td>
-        //                 <td>${dBills[i].totalprice}đ</td>
-        //                 <td>${dBills[i].status}</td>
-        //                 <td>
-        //                     <button class="btn btn-info print-order_A" data-id="${
-        //                         dBills[i].id
-        //                     }">
-        //                         <span class="icon-info"></span>
-        //                     </button>
-        //                     <button class="btn btn-danger delete-order_A" data-id="${
-        //                         dBills[i].id
-        //                     }">
-        //                         <span class="icon-bin"></span>
-        //                     </button>
-        //                 </td>
-        //             </tr>`;
-        //         }
-        //         s_orders.innerHTML = html;
+                        // price của cart đã bao gồm giá tiền + size
+                        getCartObject.size = cart.size;
+                        getCartObject.id = cart.id;
+                        getCartObject.tag = cart.tag;
+                        getCartObject.quantity = cart.quantity;
+                        getCartObject.price = cart.price;
+                        getCartObject.title = cart.title;
+                        var isDuplicate = false;
+                        // lặp xem có bị trùng không
+                        for (var i = 0; i < cartFilter.length; ++i) {
+                            if (cartFilter[i].id === cart.id) {
+                                cartFilter[i].quantity =
+                                    parseInt(cartFilter[i].quantity) +
+                                    parseInt(cart.quantity);
+                                isDuplicate = true;
+                            }
+                        }
+                        if (!isDuplicate) {
+                            cartFilter.push(getCartObject);
+                        }
+                    });
+                });
+            }
+            console.log(cartFilter);
+            let count = 0;
+            cartFilter.forEach((element2) => {
+                let Tong = element2.price * element2.quantity;
 
-        //         del();
-        //     }
-        // });
+                html += `<tr >
+                            <td>
+                            </td>
+                            <td>${count + 1}</td>
+                            <td>${element2.tag}</td>
+                            <td>${element2.title}</td>
+                            <td>${element2.price}</td>
+                            <td class="quantityCol">${element2.quantity}</td>
+                            <td class="priceCol">${Tong}</td>
+                        </tr>`;
+                count++;
+            });
+            s_orders.innerHTML = html;
+            sortTable();
+            getSumCol(5);
+            getSumCol(6);
+        });
     }
 
     function renderHome() {
