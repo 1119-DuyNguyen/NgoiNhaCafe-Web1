@@ -1,4 +1,5 @@
 import dataObj from "./data.js";
+
 import { toast } from "../../src/components/toast.js";
 
 function checkLogin() {

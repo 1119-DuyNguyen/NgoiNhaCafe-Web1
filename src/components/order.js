@@ -11,34 +11,35 @@ const totalPriceElement = orderPage.querySelector('.cart-total-price');
 
 const btnPurchare = orderPage.querySelector('.btn-purchased');
 const btnDelete = orderPage.querySelector('.btn-deleted');
-var linkHistory = orderPage.querySelector('.order-history');
 
-//global data
-linkHistory.addEventListener('click', () => {
-    openOrderHistory();
-});
+var isInit = false;
 export function openCartPage() {
-    ready();
-}
-function resetDefaultSelectAll() {
-    const checkboxBtns = cartTable.getElementsByClassName('checkbox');
-
-    var btnSelectAll = checkboxBtns[0];
-    if (checkboxBtns.length > 1) {
-        btnSelectAll.click();
-    } else {
-        btnSelectAll.checked = false;
+    addItemsToCart();
+    resetCheckboxToUncheck();
+    applyCheckbox();
+    if (!isInit) {
+        ready();
+        isInit = true;
     }
 }
+/**
+ * add event vào các nút bấm chỉ 1 lần
+ */
 function ready() {
-    addItemsToCart();
-
-    applyCheckbox();
     applyOperatorQuantity();
     btnDelete.addEventListener('click', deleteBtnCarts);
-
     btnPurchare.addEventListener('click', purchasedBtnCart);
-    resetDefaultSelectAll();
+    var linkHistory = orderPage.querySelector('.order-history');
+    linkHistory.addEventListener('click', () => {
+        openOrderHistory();
+    });
+}
+// mặc định là false
+function resetCheckboxToUncheck() {
+    const checkboxBtns = cartTable.getElementsByClassName('checkbox');
+    for (var i = 0; i < checkboxBtns.length; ++i) {
+        checkboxBtns[i].checked = false;
+    }
 }
 function applyCheckbox() {
     const checkboxBtns = cartTable.getElementsByClassName('checkbox');
@@ -62,9 +63,11 @@ function deleteBtnCarts() {
     handleSubmitBtnCarts(
         (activeCheckboxes) => {
             if (activeCheckboxes) {
+                var elemenDeleted = 0;
                 activeCheckboxes.forEach((checkbox) => {
-                    data.spliceCart(checkbox.dataset.index);
+                    data.spliceCart(checkbox.dataset.index - elemenDeleted);
                     checkbox.closest('tr').remove();
+                    ++elemenDeleted;
                 });
             } else console.error('có lỗi xảy ra');
             updateSelect();
@@ -79,7 +82,7 @@ function convertSelectedCartsToBills(activeCheckboxes) {
     if (currentUser) {
         // cartFilter giúp lọc những cart trùng ra ngoài
         var cartFilter = [];
-        // đếm số phần tử xóa vì querySelectorAll là tĩnh nên data không đc cập nhập
+        // đếm số phần tử xóa vì index kh cập nhập
         var elemenDeleted = 0;
 
         activeCheckboxes.forEach((checkbox) => {
@@ -123,7 +126,6 @@ function convertSelectedCartsToBills(activeCheckboxes) {
             info: infoBill.join(','),
             totalprice: totalPriceElement.dataset.priceTotal,
         };
-        console.log(bill);
         data.pushBill(bill);
         updateSelect();
     } else {
@@ -158,6 +160,7 @@ function handleSubmitBtnCarts(callback, isAlert = false, message = '') {
             type: 'info',
         });
     }
+    resetCheckboxToUncheck();
 }
 
 // cộng trừ số lượng, tính tổng giá tiền
@@ -268,7 +271,7 @@ function upperFirstLetter(string) {
 
 /**
  *update số lượng phần tử sẽ xóa/ thanh toán, cập nhập nút select all, tổng giá tiền
- * @returns boolean true thì là đã chọn hết false nếu chưa chọn hết
+ * @returns boolean true thì là đã chọn hết false nếu chưa chọn hết dùng để gán event cho các checkbox của cart
  */
 function updateSelect() {
     //dataset.count có thể dùng tương lai
@@ -296,8 +299,13 @@ function updateSelect() {
     btnDelete.innerText = 'Xóa (' + countActiveCheckbox + ')';
     btnPurchare.dataset.count = countActiveCheckbox;
     btnPurchare.innerText = 'Thanh toán (' + countActiveCheckbox + ')';
+
     // length -1 vì không tính select all
-    if (countActiveCheckbox === cartTable.rows.length - 1) {
+    // >0 để bỏ tick của thằng btnSelectAll
+    if (
+        countActiveCheckbox === cartTable.rows.length - 1 &&
+        countActiveCheckbox > 0
+    ) {
         return true;
     } else return false;
 }
