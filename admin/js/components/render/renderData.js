@@ -674,7 +674,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         const selectTag = document.querySelector('.filter-product-tag');
         selectTag.innerHTML = `<span>Theo loại sản phẩm: </span>`;
         selectTag.innerHTML += `<select name="tag-filter" id="tag-filter">
-        <option value="undone" selected>-- Loại sản phẩm --</option>`;
+        <option value="undone" >-- Loại sản phẩm --</option>`;
         const selecttag = document.querySelector('#tag-filter');
         if (dataObj.Bills === null) dataObj.Bills = [];
         var listBill = data.getDataBill();
@@ -720,7 +720,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                     }
                 });
             });
-            console.log(cartFilter);
+
             // if (dataObj.Bills) {
             //     billArr.push({
             //         id: listBill[0].cart[0].id,
@@ -880,27 +880,51 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                 }
             }
         }
-        selecttag.addEventListener('change', filterTablebyTag);
+        //tính tổng một cột trên bảng
+        function getSumCol(colIndex) {
+            var table = document.querySelector('.statistics');
+            var sumVal = 0;
+            for (i = 1; i <= table.rows.length - 1; i++) {
+                let x = table.rows[i].cells[colIndex].innerHTML;
+                if (table.rows[i].style.display == '') {
+                    sumVal += parseFloat(x);
+                }
+            }
+            if (colIndex == 5) {
+                document.querySelector('.display-filter-result').innerHTML = '';
+                document.querySelector('.display-filter-result').innerHTML +=
+                    `Tổng số lượng:  ` + sumVal + `<br>`;
+            }
+            if (colIndex == 6) {
+                document.querySelector('.display-filter-result').innerHTML +=
+                    `Tổng số tiền:  ` + sumVal;
+            }
+        }
+        selecttag.addEventListener('change', () => {
+            filterTablebyTag();
+            getSumCol(5);
+            getSumCol(6);
+        });
 
-        document.querySelector(
-            ".admin-container[data-csr='analytics'] .managerment"
-        ).innerHTML += `<div class="filter">
-            <p><b>Lọc đơn hàng</b></p>
-            <div>
-                <span>Theo thời gian</span>
-                <label name="range">từ ngày:</label>
+        // document.querySelector(
+        //     ".admin-container[data-csr='analytics'] .managerment"
+        // ).innerHTML += `<div class="filter">
+        //     <p><b>Lọc đơn hàng</b></p>
+        //     <div>
+        //         <span>Theo thời gian</span>
+        //         <label name="range">từ ngày:</label>
 
-                <input id="fromDay_A"
-                    name="fromDay_A"
-                    type="text" onfocus="(this.type = 'date')" />
-                <label name="range">đến ngày :</label>
-                <span> - </span>
-                <input id="toDay_A"
-                    name="toDay_A"
-                    type="text" onfocus="(this.type = 'date')"/>
-                <button class="btn btn-info" id="filter_A">Lọc</button>
-            </div>
-        </div>`;
+        //         <input id="fromDay_A"
+        //             name="fromDay_A"
+        //             type="text" onfocus="(this.type = 'date')" />
+        //         <label name="range">đến ngày :</label>
+        //         <span> - </span>
+        //         <input id="toDay_A"
+        //             name="toDay_A"
+        //             type="text" onfocus="(this.type = 'date')"/>
+        //         <button class="btn btn-info" id="filter_A">Lọc</button>
+        //     </div>
+        // </div>`;
 
         // let fD, tD, dtmp, d1, d2, dBills;
         // document.getElementById('filter_A').addEventListener('click', () => {
@@ -971,7 +995,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
 
         //         del();
         //     }
-        //     });
+        // });
     }
 
     function renderHome() {
