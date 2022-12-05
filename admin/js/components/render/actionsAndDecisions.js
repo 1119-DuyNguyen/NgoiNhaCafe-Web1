@@ -1,3 +1,5 @@
+import dataObj from "../data.js";
+
 /**
  * Tính năng thực thi hàng loạt (xoá)
  * @param {string} type loại phần tử (users, products)
@@ -22,13 +24,13 @@
                     }
                     switch (type) {
                         case 'users':
-                            data.removeUser(idToRemove);
+                            dataObj.data.removeUser(idToRemove);
                             break;
                         case 'products':
-                            data.removeImg(idToRemove);
+                            dataObj.data.removeImg(idToRemove);
                             break;
                         case 'orders':
-                            data.removeBill(idToRemove);
+                            dataObj.data.removeBill(idToRemove);
                             break;
                     }
                     idToRemove = [];
