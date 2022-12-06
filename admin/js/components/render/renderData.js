@@ -14,9 +14,6 @@ var data = new Data();
 function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
     let html, first, i, count;
 
-    // Ứng với mỗi phần tử có class managerment
-    renderManagerment(numOfItemsPerPage);
-
     function applyCheckboxFeature(type) {
         // Hàm render chức năng check all checkbox cho từng trang
         function f1(type) {
@@ -911,22 +908,26 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             renderUsers(page);
             applyCheckboxFeature('users');
             actionsAndDecisions('users');
+            renderManagerment(numOfItemsPerPage);
             break;
 
         case 'products':
             renderProducts(page);
             applyCheckboxFeature('products');
             actionsAndDecisions('products');
+            renderManagerment(numOfItemsPerPage);
             break;
         case 'orders':
             renderOrders(page);
             applyCheckboxFeature('orders');
             actionsAndDecisions('orders');
+            renderManagerment(numOfItemsPerPage);
             break;
         case 'analytics':
             renderAnalytics(page);
             applyCheckboxFeature('analytics');
             actionsAndDecisions('analytics');
+            renderManagerment(numOfItemsPerPage);
             break;
 
         default:
@@ -935,6 +936,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             renderProducts(page);
             renderOrders(page);
             renderAnalytics(page);
+            renderManagerment(numOfItemsPerPage);
 
             applyCheckboxFeature();
             actionsAndDecisions();
