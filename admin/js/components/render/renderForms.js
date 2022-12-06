@@ -124,7 +124,10 @@ function renderForm(element_id, type = 1, formType = 1, id = 0) {
                 // chỉ khởi tạo 1 lần duy nhất
     
                 // Thêm danh sách tag
-                let listOfTags = ["Cà phê", "Trà", "Hi-Tea"];
+                let listOfTags = [
+                    'Cà Phê Việt Nam', 'Cà Phê Máy', 'Cold Brew',
+                   'Trà trái cây', 'Trà sữa Macchiato',
+                     'Hi-Tea Trà', 'Hi-Tea Đá Tuyết', 'Hi-Tea Bling Bling']
     
                 listOfTags.forEach((elem) => {
                     elemToAdd = document.createElement('option');
@@ -146,7 +149,10 @@ function renderForm(element_id, type = 1, formType = 1, id = 0) {
                 document.querySelector('#product-name-edit').value = obj.title;
 
                 // khai báo
-                let listOfTags = ["Cà phê", "Trà", "Hi-Tea"];
+                let listOfTags = [
+                'Cà Phê Việt Nam', 'Cà Phê Máy', 'Cold Brew',
+               'Trà trái cây', 'Trà sữa Macchiato',
+                 'Hi-Tea Trà', 'Hi-Tea Đá Tuyết', 'Hi-Tea Bling Bling']
                 let elemToAdd, check = false;
 
                 // reset lại select mặc định

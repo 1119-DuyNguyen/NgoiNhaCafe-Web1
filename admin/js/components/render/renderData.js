@@ -539,6 +539,9 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                 listBill = [];
                 html += '<tr colspan="7">Chưa có khách mua hàng </tr>';
             } else {
+                listBill=listBill.filter((bill)=>{
+                    return bill.status==="Đã xử lý";
+                })
                 // cartFilter giúp lọc những cart trùng ra ngoài
                 var cartFilter = [];
                 listBill.forEach((billElement) => {
@@ -812,6 +815,9 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                     s_orders.innerHTML = '';
 
                     for (let i = 0; i < listBill.length; i++) {
+                        listBill=listBill.filter((bill)=>{
+                            return bill.status==="Đã xử lý";
+                        })
                         var dbill = listBill[i];
                         dtmp = dbill.dateCreate.split('-');
                         dtmp = new Date(dtmp[2], dtmp[1] - 1, dtmp[0]);

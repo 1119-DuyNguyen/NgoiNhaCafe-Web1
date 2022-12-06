@@ -20,7 +20,7 @@
         ],
         "info": "3 X Cà Phê Sữa Đá Vừa,2 X Cà Phê Sữa Nóng Vừa",
         "totalprice": "187000",
-        "status": "Đang xử lý",
+        "status": "Đã xử lý",
         "dateCreate": "1-12-2022",
         "customer": {
             "id": 1,
@@ -54,7 +54,7 @@
         ],
         "info": "5 X Bạc Sỉu Vừa,10 X Cà Phê Sữa Đá Vừa",
         "totalprice": "525000",
-        "status": "Đang xử lý",
+        "status": "Đã xử lý",
         "dateCreate": "1-12-2022",
         "customer": {
             "id": 1,
@@ -88,7 +88,7 @@
         ],
         "info": "5 X Cà Phê Sữa Đá Vừa,10 X Bạc Sỉu Nóng Vừa",
         "totalprice": "585000",
-        "status": "Đang xử lý",
+        "status": "Đã xử lý",
         "dateCreate": "2-12-2022",
         "customer": {
             "id": 1,
@@ -114,7 +114,7 @@
         ],
         "info": "2 X Bạc Sỉu Vừa",
         "totalprice": "70000",
-        "status": "Đang xử lý",
+        "status": "Đã xử lý",
         "dateCreate": "2-12-2022",
         "customer": {
             "id": 1,
@@ -156,7 +156,7 @@
         ],
         "info": "1 X Trà Long Nhãn Hạt Chia (Nóng) Vừa,4 X Trà Hạt Sen - Nóng Vừa,5 X Cà Phê Sữa Đá Vừa",
         "totalprice": "480000",
-        "status": "Đang xử lý",
+        "status": "Đã xử lý",
         "dateCreate": "4-12-2022",
         "customer": {
             "id": 1,
@@ -198,7 +198,7 @@
         ],
         "info": "1 X Hi-Tea Đào Vừa,5 X Hi-Tea Đá Tuyết Yuzu Vải Vừa,3 X Bạc Sỉu Vừa",
         "totalprice": "465000",
-        "status": "Đang xử lý",
+        "status": "Đã xử lý",
         "dateCreate": "4-12-2022",
         "customer": {
             "id": 1,
