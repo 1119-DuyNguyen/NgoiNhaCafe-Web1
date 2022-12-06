@@ -14,6 +14,8 @@ var data = new Data();
 function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
     let html, first, i, count;
 
+    renderManagerment(numOfItemsPerPage);
+
     function applyCheckboxFeature(type) {
         // Hàm render chức năng check all checkbox cho từng trang
         function f1(type) {
@@ -340,9 +342,8 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
         // Lọc
 
         document.querySelector(
-            ".admin-container[data-csr='orders'] .managerment"
-        ).innerHTML += `<div class="filter">
-            <p><b>Lọc đơn hàng</b></p>
+            ".admin-container[data-csr='orders'] .filter"
+        ).innerHTML = `<p><b>Lọc đơn hàng</b></p>
             <div>
                 <span>Theo trạng thái: </span>
                 <select id="status_filter">
@@ -364,8 +365,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                     name="toDay"
                     type="text" onfocus="(this.type = 'date')"/>
                 <button class="btn btn-info" id="filter">Lọc</button>
-            </div>
-        </div>`;
+            </div>`;
 
         let fD, tD, dtmp, d1, d2, dBills;
         document.getElementById('filter').addEventListener('click', () => {
@@ -914,26 +914,22 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             renderUsers(page);
             applyCheckboxFeature('users');
             actionsAndDecisions('users');
-            renderManagerment(numOfItemsPerPage);
             break;
 
         case 'products':
             renderProducts(page);
             applyCheckboxFeature('products');
             actionsAndDecisions('products');
-            renderManagerment(numOfItemsPerPage);
             break;
         case 'orders':
             renderOrders(page);
             applyCheckboxFeature('orders');
             actionsAndDecisions('orders');
-            renderManagerment(numOfItemsPerPage);
             break;
         case 'analytics':
             renderAnalytics(page);
             applyCheckboxFeature('analytics');
             actionsAndDecisions('analytics');
-            renderManagerment(numOfItemsPerPage);
             break;
 
         default:
@@ -942,7 +938,6 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             renderProducts(page);
             renderOrders(page);
             renderAnalytics(page);
-            renderManagerment(numOfItemsPerPage);
 
             applyCheckboxFeature();
             actionsAndDecisions();

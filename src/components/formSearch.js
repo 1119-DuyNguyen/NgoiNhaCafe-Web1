@@ -230,23 +230,31 @@ export function openFormSearch(dataImgs) {
                 
                 contentPage.appendChild(li);
             })
-            
+            var pageBtns= []
             for(var i=0; i<= count;++i)
             {
                 var btn =document.createElement('button');
                 btn.classList.add("paginator_items")
-
+                if(i==0) btn.classList.add("--gray")
                 btn.textContent= i+1;
                 btn.dataset.index=i;
                 btn.addEventListener("click", (e)=>{
                     contentPage.innerHTML=''
                     // console.log(e.target.dataset.index)
+                    
+                    pageBtns.forEach((btn)=>{
+                        if(btn.classList.contains('--gray'))
+                        {
+                           btn.classList.remove("--gray")
+                        }
+                    })
+                    e.target.classList.add("--gray")
                     arr[e.target.dataset.index].forEach((li)=>{
                         contentPage.appendChild(li);
                     })
                     
                 })
-
+                pageBtns.push(btn)
                 if (arr[i].length > 0)
                     btnPage.appendChild(btn);
             }

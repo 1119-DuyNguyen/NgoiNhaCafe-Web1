@@ -133,6 +133,7 @@ export function Validator(formSelector) {
                 removeErrorMessage(e.target);
             };
         }
+        //Kiểm tra xem còn lỗi nào không
         function handleError(event) {
             var input = event.target;
             //remove special character and format string label
@@ -175,11 +176,11 @@ export function Validator(formSelector) {
                         continue;
                     }
                     switch (input.type) {
-                        case 'file':
-                            {
-                                formValues[input.name] = input.files;
-                            }
-                            break;
+                        // case 'file':
+                        //     {
+                        //         formValues[input.name] = input.files;
+                        //     }
+                        //     break;
                         default: {
                             formValues[input.name] = input.value;
                         }

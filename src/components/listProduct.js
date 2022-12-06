@@ -111,7 +111,7 @@ function showProduct() {
 
             imageContainer.innerHTML = showProductHtml;
             // cài animation cho mượt mà như sunsilk;
-            const timeDelay = 400;
+            const timeDelay = 200;
             setTimeout(() => {
                 //fadeIn
                 openDisplay(imageContainer);

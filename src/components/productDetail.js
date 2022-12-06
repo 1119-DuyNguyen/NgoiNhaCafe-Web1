@@ -188,15 +188,15 @@ export function productInfo(id, dataImgs) {
         img.addEventListener('click', (e) => {
             e.preventDefault();
             if (!img.dataset.id) return;
-            console.log(img.dataset.id);
+           // console.log(img.dataset.id);
             productInfo(img.dataset.id, dataImgs);
-            detailProduct.scrollIntoView(true);
-            //tránh header che kh thấy product
-            var scrolledY = window.scrollY;
-            const headerHeight = document.getElementById('header').offsetHeight;
-            if (scrolledY) {
-                window.scroll(0, scrolledY - headerHeight);
-            }
+            // detailProduct.scrollIntoView(true);
+            // //tránh header che kh thấy product
+            // var scrolledY = window.scrollY;
+            // const headerHeight = document.getElementById('header').offsetHeight;
+            // if (scrolledY) {
+            //     window.scroll(0, scrolledY - headerHeight);
+            // }
         });
     });
     // tăng / giảm số ly mua
