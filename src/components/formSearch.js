@@ -225,7 +225,7 @@ export function openFormSearch(dataImgs) {
         if(arr.length>0)
         {
             // mặc định là arr[0]
-            console.log(arr[0])
+            console.log(arr)
             arr[0].forEach((li)=>{
                 
                 contentPage.appendChild(li);
@@ -239,15 +239,16 @@ export function openFormSearch(dataImgs) {
                 btn.textContent= i+1;
                 btn.dataset.index=i;
                 btn.addEventListener("click", (e)=>{
-                   contentPage.innerHTML=''
-                  // console.log(e.target.dataset.index)
+                    contentPage.innerHTML=''
+                    // console.log(e.target.dataset.index)
                     arr[e.target.dataset.index].forEach((li)=>{
                         contentPage.appendChild(li);
                     })
                     
                 })
-           
-                btnPage.appendChild(btn);
+
+                if (arr[i].length > 0)
+                    btnPage.appendChild(btn);
             }
         }
 
