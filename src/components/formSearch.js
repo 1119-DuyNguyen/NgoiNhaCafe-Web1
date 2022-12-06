@@ -165,7 +165,20 @@ export function openFormSearch(dataImgs) {
         //Phải xóa kết quả cũ do append li và add event productDetail
         ulRelated.innerHTML = '';
         //csr với item match được
-        matchItems.forEach((item) => {
+        const arr =[];
+
+        var arrPage=[];
+        var count =0; 
+        var contentPage = document.createElement('ul');
+        contentPage.classList.add('option_selections');
+        var btnPage= document.createElement('div');
+
+        btnPage.classList.add("paginator");
+
+        ulRelated.appendChild(contentPage);
+        ulRelated.appendChild(btnPage);
+        matchItems.forEach((item,index) => {
+
             var li = document.createElement('li');
             li.classList.add('option_selections_item');
             li.innerHTML = `              
@@ -197,8 +210,46 @@ export function openFormSearch(dataImgs) {
                 e.preventDefault();
                 productInfo(item.id, dataImgs);
             });
-            ulRelated.appendChild(li);
+            arrPage.push(li);
+            if((index+1)%6==0)
+            {
+                arr.push(arrPage);
+                arrPage=[];
+                console.log(arr)
+                ++count;
+                
+            }
         });
+        arr.push(arrPage);
+        
+        if(arr.length>0)
+        {
+            // mặc định là arr[0]
+            console.log(arr[0])
+            arr[0].forEach((li)=>{
+                
+                contentPage.appendChild(li);
+            })
+            
+            for(var i=0; i< count;++i)
+            {
+                var btn =document.createElement('button');
+                btn.classList.add("paginator_items")
+
+                btn.textContent= i+1;
+                btn.dataset.index=i;
+                btn.addEventListener("click", (e)=>{
+                   contentPage.innerHTML=''
+                  // console.log(e.target.dataset.index)
+                    arr[e.target.dataset.index].forEach((li)=>{
+                        contentPage.appendChild(li);
+                    })
+                    
+                })
+           
+                btnPage.appendChild(btn);
+            }
+        }
 
         return matchItems;
     }

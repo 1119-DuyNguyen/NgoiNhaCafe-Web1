@@ -1,0 +1,16 @@
+.paginator {
+    .paginator_items {
+        display: inline-block;
+        
+        cursor: pointer;
+        background-color: $active-color;
+        padding: 5px 10px;
+        border: none;
+        color: white;
+        margin-left: 8px;
+        
+        .active {
+            background-color: darken($active-color, 10%);
+        }
+    }
+}

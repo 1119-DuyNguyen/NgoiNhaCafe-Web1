@@ -622,12 +622,12 @@ p {
     margin: 0;
   }
   .board__item .icon-mug,
-.board__item .icon-leaf,
-.board__item .icon-info,
-.board__item .icon-user,
-.board__item .icon-cart,
-.board__item .icon-circle-down,
-.board__item .icon-phone {
+  .board__item .icon-leaf,
+  .board__item .icon-info,
+  .board__item .icon-user,
+  .board__item .icon-cart,
+  .board__item .icon-circle-down,
+  .board__item .icon-phone {
     position: absolute;
     right: 20px;
     top: 16px;
@@ -638,7 +638,7 @@ p {
     border: 1.6px solid black;
   }
   .board__item .icon-info,
-.board__item .icon-circle-down {
+  .board__item .icon-circle-down {
     border: none;
     right: 17px;
     font-size: 19px;
@@ -760,12 +760,12 @@ p {
     line-height: 25px;
   }
   .board__item .icon-mug,
-.board__item .icon-leaf,
-.board__item .icon-info,
-.board__item .icon-user,
-.board__item .icon-cart,
-.board__item .icon-circle-down,
-.board__item .icon-phone {
+  .board__item .icon-leaf,
+  .board__item .icon-info,
+  .board__item .icon-user,
+  .board__item .icon-cart,
+  .board__item .icon-circle-down,
+  .board__item .icon-phone {
     position: absolute;
     right: -25px;
     top: 3px;
@@ -789,7 +789,7 @@ p {
     top: 3px;
   }
   .board__item .icon-info,
-.board__item .icon-circle-down {
+  .board__item .icon-circle-down {
     border: none;
     right: -22px;
     top: 11px;
@@ -3352,7 +3352,7 @@ p {
     padding-left: 10px;
   }
   #wrapper .about-us-text > p,
-#wrapper .about-who-we-are > p {
+  #wrapper .about-who-we-are > p {
     margin-top: 15px;
     text-align: justify;
   }
@@ -3379,24 +3379,24 @@ p {
     border: 8pt solid #e57905;
   }
   #wrapper .our-team-images .our-team-img-1,
-#wrapper .our-team-images .our-team-img-2,
-#wrapper .our-team-images .our-team-img-3,
-#wrapper .our-team-images .our-team-img-4 {
+  #wrapper .our-team-images .our-team-img-2,
+  #wrapper .our-team-images .our-team-img-3,
+  #wrapper .our-team-images .our-team-img-4 {
     width: 30%;
     min-width: 30%;
   }
   #wrapper .our-team-images .our-team-img-1 h2,
-#wrapper .our-team-images .our-team-img-2 h2,
-#wrapper .our-team-images .our-team-img-3 h2,
-#wrapper .our-team-images .our-team-img-4 h2 {
+  #wrapper .our-team-images .our-team-img-2 h2,
+  #wrapper .our-team-images .our-team-img-3 h2,
+  #wrapper .our-team-images .our-team-img-4 h2 {
     margin-top: 10px;
     font-size: 20px;
     font-weight: 600;
   }
   #wrapper .our-team-images .our-team-img-1 p,
-#wrapper .our-team-images .our-team-img-2 p,
-#wrapper .our-team-images .our-team-img-3 p,
-#wrapper .our-team-images .our-team-img-4 p {
+  #wrapper .our-team-images .our-team-img-2 p,
+  #wrapper .our-team-images .our-team-img-3 p,
+  #wrapper .our-team-images .our-team-img-4 p {
     font-size: 16px;
   }
   #wrapper .product-header {
@@ -3521,9 +3521,9 @@ p {
     margin-top: 0;
   }
   #wrapper .our-team-images .our-team-img-1,
-#wrapper .our-team-images .our-team-img-2,
-#wrapper .our-team-images .our-team-img-3,
-#wrapper .our-team-images .our-team-img-4 {
+  #wrapper .our-team-images .our-team-img-2,
+  #wrapper .our-team-images .our-team-img-3,
+  #wrapper .our-team-images .our-team-img-4 {
     padding-top: 35px;
     margin: auto;
     width: 60%;
@@ -3536,9 +3536,9 @@ p {
     min-width: 200px;
   }
   #wrapper .product-images-1,
-#wrapper .product-images-2,
-#wrapper .product-images-3,
-#wrapper .product-images-4 {
+  #wrapper .product-images-2,
+  #wrapper .product-images-3,
+  #wrapper .product-images-4 {
     display: block;
   }
   #wrapper .contact-content {
@@ -3592,9 +3592,9 @@ p {
     margin-top: 0;
   }
   #wrapper .our-team-images .our-team-img-1,
-#wrapper .our-team-images .our-team-img-2,
-#wrapper .our-team-images .our-team-img-3,
-#wrapper .our-team-images .our-team-img-4 {
+  #wrapper .our-team-images .our-team-img-2,
+  #wrapper .our-team-images .our-team-img-3,
+  #wrapper .our-team-images .our-team-img-4 {
     padding-top: 35px;
     margin: auto;
     width: 60%;
@@ -3607,9 +3607,9 @@ p {
     min-width: 80%;
   }
   #wrapper .product-images-1,
-#wrapper .product-images-2,
-#wrapper .product-images-3,
-#wrapper .product-images-4 {
+  #wrapper .product-images-2,
+  #wrapper .product-images-3,
+  #wrapper .product-images-4 {
     display: block;
   }
   #wrapper .contact-content {
@@ -4209,4 +4209,16 @@ p {
   .--darkMode .close-btn-wrap {
     color: white;
   }
+}
+.paginator .paginator_items {
+  display: inline-block;
+  cursor: pointer;
+  background-color: #e57905;
+  padding: 5px 10px;
+  border: none;
+  color: white;
+  margin-left: 8px;
+}
+.paginator .paginator_items .active {
+  background-color: #b35f04;
 }
