@@ -119,23 +119,20 @@ function renderForm(element_id, type = 1, formType = 1, id = 0) {
         if (formType == 1) {
             // add
             tag_field = document.querySelector('#product-type');
-        } else {
-            // edit
-            tag_field = document.querySelector('#product-type-edit');
-        }
 
-        if (tag_field.length == 0) {
-            // chỉ khởi tạo 1 lần duy nhất
-
-            // Thêm danh sách tag
-            let listOfTags = ["Cà phê", "Trà", "Hi-Tea"];
-
-            listOfTags.forEach((elem) => {
-                elemToAdd = document.createElement('option');
-                elemToAdd.text = elem;
-                elemToAdd.value = elem;
-                tag_field.add(elemToAdd);
-            });
+            if (tag_field.length == 0) {
+                // chỉ khởi tạo 1 lần duy nhất
+    
+                // Thêm danh sách tag
+                let listOfTags = ["Cà phê", "Trà", "Hi-Tea"];
+    
+                listOfTags.forEach((elem) => {
+                    elemToAdd = document.createElement('option');
+                    elemToAdd.text = elem;
+                    elemToAdd.value = elem;
+                    tag_field.add(elemToAdd);
+                });
+            }
         }
     }
 
@@ -147,7 +144,41 @@ function renderForm(element_id, type = 1, formType = 1, id = 0) {
             case 1: // product
                 obj = dataObj.data.getImg(id);
                 document.querySelector('#product-name-edit').value = obj.title;
-                document.querySelector('#product-type-edit').value = obj.tag;
+
+                // khai báo
+                let listOfTags = ["Cà phê", "Trà", "Hi-Tea"];
+                let elemToAdd, check = false;
+
+                // reset lại select mặc định
+                let tag_field = document.querySelector('#product-type-edit');
+                tag_field.innerHTML = "";
+
+                // ứng với mỗi tag trong danh sách tag
+                listOfTags.forEach(tag => {
+                    // thêm tag đó vào như một option
+                    elemToAdd = document.createElement('option');
+                    elemToAdd.text = tag;
+                    elemToAdd.value = tag;
+                    tag_field.add(elemToAdd);
+
+                    // nếu tag của sản phẩm tồn tại trong danh sách tag
+                    if (obj.tag.toLowerCase().includes(tag.toLowerCase()))
+                    {
+                        check = true;
+                        document.querySelector('#product-type-edit').value = tag;
+                    }
+                })
+
+                if (!check)
+                { // nếu không tồn tại tag
+                    // thêm tag vào select
+                    elemToAdd = document.createElement('option');
+                    elemToAdd.text = obj.tag;
+                    elemToAdd.value = obj.tag;
+                    tag_field.add(elemToAdd);
+                    tag_field.value = obj.tag;
+                }
+                
                 document.querySelector('#product-price-edit').value = obj.price;
                 document.querySelector('#product-desc-edit').value =
                     obj.description;

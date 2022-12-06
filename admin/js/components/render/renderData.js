@@ -523,308 +523,28 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
             <th class="sort priceColHead" onMouseOver="this.style.cursor='pointer'" onMouseOut="this.style.cursor='pointer'">Tổng tiền <span class="icon-sort-amount-asc"></span></th>
         </tr>`;
 
-        // tạo tag select để lọc theo tag sản phẩm
-        // tạo listBill để lấy data từ cái bill ra
+        // Nếu có ít nhất 1 bill
+        if (dataObj.data.getDataBill().length > 0) {
 
-        const selectTag = document.querySelector('.filter-product-tag');
-        selectTag.innerHTML = `<span>Theo loại sản phẩm: </span>`;
-        selectTag.innerHTML += `<select name="tag-filter" id="tag-filter">
-        <option value="undone" >-- Tất cả --</option>`;
-        const selecttag = document.querySelector('#tag-filter');
-        if (dataObj.Bills === null) dataObj.Bills = [];
-        var listBill = data.getDataBill();
-        console.log(listBill);
+            // tạo tag select để lọc theo tag sản phẩm
+            // tạo listBill để lấy data từ cái bill ra
 
-        if (!Array.isArray(listBill) || listBill.length < 1) {
-            listBill = [];
-            html += '<tr colspan="7">Chưa có khách mua hàng </tr>';
-        } else {
-            // cartFilter giúp lọc những cart trùng ra ngoài
-            var cartFilter = [];
-            listBill.forEach((billElement) => {
-                var carts = billElement.cart;
+            const selectTag = document.querySelector('.filter-product-tag');
+            selectTag.innerHTML = `<span>Theo loại sản phẩm: </span>`;
+            selectTag.innerHTML += `<select name="tag-filter" id="tag-filter">
+            <option value="undone" >-- Tất cả --</option>`;
+            const selecttag = document.querySelector('#tag-filter');
+            if (dataObj.Bills === null) dataObj.Bills = [];
+            var listBill = data.getDataBill();
+            console.log(listBill);
 
-                carts.forEach((cart) => {
-                    var getCartObject = {};
-
-                    // price của cart đã bao gồm giá tiền + size
-                    getCartObject.size = cart.size;
-                    getCartObject.id = cart.id;
-                    getCartObject.tag = cart.tag;
-                    getCartObject.quantity = cart.quantity;
-                    getCartObject.price = cart.price;
-                    getCartObject.title = cart.title;
-                    var isDuplicate = false;
-                    var isDuplicateTag = false;
-                    // lặp xem có bị trùng không
-                    for (var i = 0; i < cartFilter.length; ++i) {
-                        if (cartFilter[i].id === cart.id) {
-                            cartFilter[i].quantity =
-                                parseInt(cartFilter[i].quantity) +
-                                parseInt(cart.quantity);
-                            isDuplicate = true;
-                        }
-                        if (cartFilter[i].tag === cart.tag) {
-                            isDuplicateTag = true;
-                        }
-                    }
-                    if (!isDuplicate) {
-                        cartFilter.push(getCartObject);
-                    }
-                    if (!isDuplicateTag) {
-                        selecttag.innerHTML += `<option value="${getCartObject.tag}">${getCartObject.tag}</option>`;
-                    }
-                });
-            });
-
-            // if (dataObj.Bills) {
-            //     billArr.push({
-            //         id: listBill[0].cart[0].id,
-            //         tag: listBill[0].cart[0].tag,
-            //         title: listBill[0].cart[0].title,
-            //         price: listBill[0].cart[0].price,
-            //         size: listBill[0].cart[0].size,
-            //         quantity: listBill[0].cart[0].quantity,
-            //     });
-            // }
-            // lọc ra những cái cart
-            //     listBill.forEach((BElement) => {});
-            //     listBill.forEach((BElement) => {
-            //         var isDuplicate;
-            //         var dup;
-            //         billArr.forEach((element) => {
-            //             element.cart.forEach((element2) => {
-            //                 console.log(BElement.title, element2.title);
-            //                 dup = element2;
-            //                 if (
-            //                     element2.id == BElement.id &&
-            //                     listBill[0].cart[0] != element2
-            //                 ) {
-            //                     isDuplicate = true;
-            //                     let a = parseInt(BElement.quantity);
-            //                     let b = parseInt(dup.quantity);
-            //                     let c = a + b;
-            //                     BElement.quantity = c;
-            //                 } else {
-            //                     isDuplicate = false;
-            //                 }
-            //             });
-            //             if (isDuplicate == false) {
-            //                 console.log('Push');
-            //                 billArr.push({
-            //                     id: dup.id,
-            //                     tag: dup.tag,
-            //                     title: dup.title,
-            //                     price: dup.price,
-            //                     size: dup.size,
-            //                     quantity: dup.quantity,
-            //                 });
-            //             }
-            //         });
-            //     });
-            // }
-
-            // 100 99 98 97 96 95 94 93 92 91
-            // tính toán số phần tử để lặp trong vòng lặp for - numOfItemsPerPage = 9
-            // do lặp từ cuối lên đầu danh sách ->
-            let maxSize = dataObj.Bills.length - 1; // số lượng phần tử tối đa
-            first = maxSize - (page - 1) * numOfItemsPerPage; // nếu sl = 90, trang 1 -> first = 90 - 0 * 9 = 90
-            // 90 - 0 * 9 = 90 89 88 87 86 85 84 83 82
-            // 90 - 1 * 9 = 81 80 79 88 77 76 75 74 73
-            i = first;
-            count = 0;
-            cartFilter.forEach((element2, index2) => {
-                let Tong = element2.price * element2.quantity;
-                html += `<tr >
-                    <td>
-                    </td>
-                    <td>${count + 1}</td>
-                    <td>${element2.tag}</td>
-                    <td>${element2.title}</td>
-                    <td>${element2.price}</td>
-                    <td class="quantityCol">${element2.quantity}</td>
-                    <td class="priceCol">${Tong}</td>
-                </tr>`;
-                count++;
-                i--;
-            });
-        }
-        s_orders.innerHTML = html;
-        sortTable();
-
-        //hàm sort dữ liệu trên bảng
-        function sortTable() {
-            const sort = document.querySelectorAll('.sort');
-            var inSort = 0;
-            sort.forEach((element) => {
-                element.addEventListener('click', () => {
-                    if (inSort == 0) {
-                        if (element.classList.contains('quantityColHead')) {
-                            sortTable(5, 1);
-                        }
-                        if (element.classList.contains('priceColHead')) {
-                            sortTable(6, 1);
-                        }
-                        if (element.classList.contains('STT')) {
-                            sortTable(1, 1);
-                        }
-                        inSort = 1;
-                    } else if (inSort == 1) {
-                        if (element.classList.contains('quantityColHead')) {
-                            sortTable(5, 0);
-                        }
-                        if (element.classList.contains('priceColHead')) {
-                            sortTable(6, 0);
-                        }
-                        if (element.classList.contains('STT')) {
-                            sortTable(1, 0);
-                        }
-                        inSort = 0;
-                    }
-                });
-            });
-            function sortTable(classSort, inSort) {
-                var table, rows, switching, i, x, y, shouldSwitch;
-                table = document.querySelector('.statistics');
-                switching = true;
-                while (switching) {
-                    switching = false;
-                    rows = table.rows;
-
-                    for (i = 1; i < rows.length - 1; i++) {
-                        shouldSwitch = false;
-                        x = rows[i].getElementsByTagName('td')[classSort];
-                        y = rows[i + 1].getElementsByTagName('td')[classSort];
-                        if (inSort == 1) {
-                            if (Number(x.innerHTML) > Number(y.innerHTML)) {
-                                shouldSwitch = true;
-                                break;
-                            }
-                        } else {
-                            if (Number(x.innerHTML) < Number(y.innerHTML)) {
-                                shouldSwitch = true;
-                                break;
-                            }
-                        }
-                    }
-                    if (shouldSwitch) {
-                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                        switching = true;
-                    }
-                }
-            }
-        }
-
-        // Lọc
-
-        //lọc theo tag
-        function filterTablebyTag() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById('tag-filter');
-            filter = input.options[input.selectedIndex].text.toUpperCase();
-            table = document.querySelector('.statistics');
-            tr = table.getElementsByTagName('tr');
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName('td')[2];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (
-                        txtValue.toUpperCase().indexOf(filter) > -1 ||
-                        filter == '-- TẤT CẢ --'
-                    ) {
-                        tr[i].style.display = '';
-                    } else {
-                        tr[i].style.display = 'none';
-                    }
-                }
-            }
-        }
-        //tính tổng một cột trên bảng
-        function getSumCol(colIndex) {
-            var table = document.querySelector('.statistics');
-            var sumVal = 0;
-            for (i = 1; i <= table.rows.length - 1; i++) {
-                let x = table.rows[i].cells[colIndex].innerHTML;
-                if (table.rows[i].style.display == '') {
-                    sumVal += parseFloat(x);
-                }
-            }
-            if (colIndex == 5) {
-                document.querySelector('.display-filter-result').innerHTML = '';
-                document.querySelector('.display-filter-result').innerHTML +=
-                    `Tổng số lượng:  ` + sumVal + `<br>`;
-            }
-            if (colIndex == 6) {
-                document.querySelector('.display-filter-result').innerHTML +=
-                    `Tổng số tiền:  ` + sumVal + `đ`;
-            }
-        }
-        getSumCol(5);
-        getSumCol(6);
-        selecttag.addEventListener('change', () => {
-            filterTablebyTag();
-            getSumCol(5);
-            getSumCol(6);
-        });
-
-        document.querySelector(
-            ".admin-container[data-csr='analytics'] .statistic-managerment"
-        ).innerHTML += `<div class="filter">
-            <p><b>Lọc đơn hàng</b></p>
-            <div>
-                <span>Theo thời gian</span>
-                <label name="range">từ ngày:</label>
-
-                <input id="fromDay_A"
-                    name="fromDay_A"
-                    type="text" onfocus="(this.type = 'date')" />
-                <label name="range">đến ngày :</label>
-                <span> - </span>
-                <input id="toDay_A"
-                    name="toDay_A"
-                    type="text" onfocus="(this.type = 'date')"/>
-                <button class="btn btn-info" id="filter_A">Lọc</button>
-            </div>
-        </div>`;
-
-        let fD, tD, dtmp, d1, d2;
-        document.getElementById('filter_A').addEventListener('click', () => {
-            var dBills = [];
-            fD = document.getElementById('fromDay_A').value;
-            tD = document.getElementById('toDay_A').value;
-            var html = `<tr>
-            <th></th>
-            <th class="sort STT" onMouseOver="this.style.cursor='pointer'" onMouseOut="this.style.cursor='pointer'">Stt<span class="icon-sort-amount-asc"></span></th>
-            <th>Loại sản phẩm</th>
-            <th>Tên sản phẩm</th>
-            <th>Giá</th>
-            <th class="sort quantityColHead" onMouseOver="this.style.cursor='pointer'" onMouseOut="this.style.cursor='pointer'">Số lượng <span class="icon-sort-amount-asc"></span></th>
-            <th class="sort priceColHead" onMouseOver="this.style.cursor='pointer'" onMouseOut="this.style.cursor='pointer'">Tổng tiền <span class="icon-sort-amount-asc"></span></th>
-        </tr>`;
-            if (fD.length == 0 || tD.length == 0)
-                alert('Vui lòng chọn ngày cụ thể');
-            else {
-                fD = fD.split('-');
-                tD = tD.split('-');
-                d1 = new Date(fD[0], fD[1] - 1, fD[2]);
-                d2 = new Date(tD[0], tD[1] - 1, tD[2]);
-
-                s_orders.innerHTML = '';
-
-                for (let i = 0; i < listBill.length; i++) {
-                    var dbill = listBill[i];
-                    dtmp = dbill.dateCreate.split('-');
-                    dtmp = new Date(dtmp[2], dtmp[1] - 1, dtmp[0]);
-
-                    dbill.id = i;
-                    if (
-                        dtmp.getTime() >= d1.getTime() &&
-                        dtmp.getTime() <= d2.getTime()
-                    )
-                        dBills.push(dbill);
-                }
+            if (!Array.isArray(listBill) || listBill.length < 1) {
+                listBill = [];
+                html += '<tr colspan="7">Chưa có khách mua hàng </tr>';
+            } else {
+                // cartFilter giúp lọc những cart trùng ra ngoài
                 var cartFilter = [];
-                dBills.forEach((billElement) => {
+                listBill.forEach((billElement) => {
                     var carts = billElement.cart;
 
                     carts.forEach((cart) => {
@@ -838,6 +558,7 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                         getCartObject.price = cart.price;
                         getCartObject.title = cart.title;
                         var isDuplicate = false;
+                        var isDuplicateTag = false;
                         // lặp xem có bị trùng không
                         for (var i = 0; i < cartFilter.length; ++i) {
                             if (cartFilter[i].id === cart.id) {
@@ -846,35 +567,319 @@ function renderData(page = 1, numOfItemsPerPage = 9, type = '') {
                                     parseInt(cart.quantity);
                                 isDuplicate = true;
                             }
+                            if (cartFilter[i].tag === cart.tag) {
+                                isDuplicateTag = true;
+                            }
                         }
                         if (!isDuplicate) {
                             cartFilter.push(getCartObject);
                         }
+                        if (!isDuplicateTag) {
+                            selecttag.innerHTML += `<option value="${getCartObject.tag}">${getCartObject.tag}</option>`;
+                        }
                     });
                 });
-            }
-            console.log(cartFilter);
-            let count = 0;
-            cartFilter.forEach((element2) => {
-                let Tong = element2.price * element2.quantity;
 
-                html += `<tr >
-                            <td>
-                            </td>
-                            <td>${count + 1}</td>
-                            <td>${element2.tag}</td>
-                            <td>${element2.title}</td>
-                            <td>${element2.price}</td>
-                            <td class="quantityCol">${element2.quantity}</td>
-                            <td class="priceCol">${Tong}</td>
-                        </tr>`;
-                count++;
-            });
+                // if (dataObj.Bills) {
+                //     billArr.push({
+                //         id: listBill[0].cart[0].id,
+                //         tag: listBill[0].cart[0].tag,
+                //         title: listBill[0].cart[0].title,
+                //         price: listBill[0].cart[0].price,
+                //         size: listBill[0].cart[0].size,
+                //         quantity: listBill[0].cart[0].quantity,
+                //     });
+                // }
+                // lọc ra những cái cart
+                //     listBill.forEach((BElement) => {});
+                //     listBill.forEach((BElement) => {
+                //         var isDuplicate;
+                //         var dup;
+                //         billArr.forEach((element) => {
+                //             element.cart.forEach((element2) => {
+                //                 console.log(BElement.title, element2.title);
+                //                 dup = element2;
+                //                 if (
+                //                     element2.id == BElement.id &&
+                //                     listBill[0].cart[0] != element2
+                //                 ) {
+                //                     isDuplicate = true;
+                //                     let a = parseInt(BElement.quantity);
+                //                     let b = parseInt(dup.quantity);
+                //                     let c = a + b;
+                //                     BElement.quantity = c;
+                //                 } else {
+                //                     isDuplicate = false;
+                //                 }
+                //             });
+                //             if (isDuplicate == false) {
+                //                 console.log('Push');
+                //                 billArr.push({
+                //                     id: dup.id,
+                //                     tag: dup.tag,
+                //                     title: dup.title,
+                //                     price: dup.price,
+                //                     size: dup.size,
+                //                     quantity: dup.quantity,
+                //                 });
+                //             }
+                //         });
+                //     });
+                // }
+
+                // 100 99 98 97 96 95 94 93 92 91
+                // tính toán số phần tử để lặp trong vòng lặp for - numOfItemsPerPage = 9
+                // do lặp từ cuối lên đầu danh sách ->
+                let maxSize = dataObj.Bills.length - 1; // số lượng phần tử tối đa
+                first = maxSize - (page - 1) * numOfItemsPerPage; // nếu sl = 90, trang 1 -> first = 90 - 0 * 9 = 90
+                // 90 - 0 * 9 = 90 89 88 87 86 85 84 83 82
+                // 90 - 1 * 9 = 81 80 79 88 77 76 75 74 73
+                i = first;
+                count = 0;
+                cartFilter.forEach((element2, index2) => {
+                    let Tong = element2.price * element2.quantity;
+                    html += `<tr >
+                        <td>
+                        </td>
+                        <td>${count + 1}</td>
+                        <td>${element2.tag}</td>
+                        <td>${element2.title}</td>
+                        <td>${element2.price}</td>
+                        <td class="quantityCol">${element2.quantity}</td>
+                        <td class="priceCol">${Tong}</td>
+                    </tr>`;
+                    count++;
+                    i--;
+                });
+            }
             s_orders.innerHTML = html;
             sortTable();
+
+            //hàm sort dữ liệu trên bảng
+            function sortTable() {
+                const sort = document.querySelectorAll('.sort');
+                var inSort = 0;
+                sort.forEach((element) => {
+                    element.addEventListener('click', () => {
+                        if (inSort == 0) {
+                            if (element.classList.contains('quantityColHead')) {
+                                sortTable(5, 1);
+                            }
+                            if (element.classList.contains('priceColHead')) {
+                                sortTable(6, 1);
+                            }
+                            if (element.classList.contains('STT')) {
+                                sortTable(1, 1);
+                            }
+                            inSort = 1;
+                        } else if (inSort == 1) {
+                            if (element.classList.contains('quantityColHead')) {
+                                sortTable(5, 0);
+                            }
+                            if (element.classList.contains('priceColHead')) {
+                                sortTable(6, 0);
+                            }
+                            if (element.classList.contains('STT')) {
+                                sortTable(1, 0);
+                            }
+                            inSort = 0;
+                        }
+                    });
+                });
+                function sortTable(classSort, inSort) {
+                    var table, rows, switching, i, x, y, shouldSwitch;
+                    table = document.querySelector('.statistics');
+                    switching = true;
+                    while (switching) {
+                        switching = false;
+                        rows = table.rows;
+
+                        for (i = 1; i < rows.length - 1; i++) {
+                            shouldSwitch = false;
+                            x = rows[i].getElementsByTagName('td')[classSort];
+                            y = rows[i + 1].getElementsByTagName('td')[classSort];
+                            if (inSort == 1) {
+                                if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                                    shouldSwitch = true;
+                                    break;
+                                }
+                            } else {
+                                if (Number(x.innerHTML) < Number(y.innerHTML)) {
+                                    shouldSwitch = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (shouldSwitch) {
+                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                            switching = true;
+                        }
+                    }
+                }
+            }
+
+            // Lọc
+
+            //lọc theo tag
+            function filterTablebyTag() {
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById('tag-filter');
+                filter = input.options[input.selectedIndex].text.toUpperCase();
+                table = document.querySelector('.statistics');
+                tr = table.getElementsByTagName('tr');
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName('td')[2];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (
+                            txtValue.toUpperCase().indexOf(filter) > -1 ||
+                            filter == '-- TẤT CẢ --'
+                        ) {
+                            tr[i].style.display = '';
+                        } else {
+                            tr[i].style.display = 'none';
+                        }
+                    }
+                }
+            }
+            //tính tổng một cột trên bảng
+            function getSumCol(colIndex) {
+                var table = document.querySelector('.statistics');
+                var sumVal = 0;
+                for (i = 1; i <= table.rows.length - 1; i++) {
+                    let x = table.rows[i].cells[colIndex].innerHTML;
+                    if (table.rows[i].style.display == '') {
+                        sumVal += parseFloat(x);
+                    }
+                }
+                if (colIndex == 5) {
+                    document.querySelector('.display-filter-result').innerHTML = '';
+                    document.querySelector('.display-filter-result').innerHTML +=
+                        `Tổng số lượng:  ` + sumVal + `<br>`;
+                }
+                if (colIndex == 6) {
+                    document.querySelector('.display-filter-result').innerHTML +=
+                        `Tổng số tiền:  ` + sumVal + `đ`;
+                }
+            }
             getSumCol(5);
             getSumCol(6);
-        });
+            selecttag.addEventListener('change', () => {
+                filterTablebyTag();
+                getSumCol(5);
+                getSumCol(6);
+            });
+
+            document.querySelector(
+                ".admin-container[data-csr='analytics'] .statistic-managerment"
+            ).innerHTML += `<div class="filter">
+                <p><b>Lọc đơn hàng</b></p>
+                <div>
+                    <span>Theo thời gian</span>
+                    <label name="range">từ ngày:</label>
+
+                    <input id="fromDay_A"
+                        name="fromDay_A"
+                        type="text" onfocus="(this.type = 'date')" />
+                    <label name="range">đến ngày :</label>
+                    <span> - </span>
+                    <input id="toDay_A"
+                        name="toDay_A"
+                        type="text" onfocus="(this.type = 'date')"/>
+                    <button class="btn btn-info" id="filter_A">Lọc</button>
+                </div>
+            </div>`;
+
+            let fD, tD, dtmp, d1, d2;
+            document.getElementById('filter_A').addEventListener('click', () => {
+                var dBills = [];
+                fD = document.getElementById('fromDay_A').value;
+                tD = document.getElementById('toDay_A').value;
+                var html = `<tr>
+                <th></th>
+                <th class="sort STT" onMouseOver="this.style.cursor='pointer'" onMouseOut="this.style.cursor='pointer'">Stt<span class="icon-sort-amount-asc"></span></th>
+                <th>Loại sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th class="sort quantityColHead" onMouseOver="this.style.cursor='pointer'" onMouseOut="this.style.cursor='pointer'">Số lượng <span class="icon-sort-amount-asc"></span></th>
+                <th class="sort priceColHead" onMouseOver="this.style.cursor='pointer'" onMouseOut="this.style.cursor='pointer'">Tổng tiền <span class="icon-sort-amount-asc"></span></th>
+            </tr>`;
+                if (fD.length == 0 || tD.length == 0)
+                    alert('Vui lòng chọn ngày cụ thể');
+                else {
+                    fD = fD.split('-');
+                    tD = tD.split('-');
+                    d1 = new Date(fD[0], fD[1] - 1, fD[2]);
+                    d2 = new Date(tD[0], tD[1] - 1, tD[2]);
+
+                    s_orders.innerHTML = '';
+
+                    for (let i = 0; i < listBill.length; i++) {
+                        var dbill = listBill[i];
+                        dtmp = dbill.dateCreate.split('-');
+                        dtmp = new Date(dtmp[2], dtmp[1] - 1, dtmp[0]);
+
+                        dbill.id = i;
+                        if (
+                            dtmp.getTime() >= d1.getTime() &&
+                            dtmp.getTime() <= d2.getTime()
+                        )
+                            dBills.push(dbill);
+                    }
+                    var cartFilter = [];
+                    dBills.forEach((billElement) => {
+                        var carts = billElement.cart;
+
+                        carts.forEach((cart) => {
+                            var getCartObject = {};
+
+                            // price của cart đã bao gồm giá tiền + size
+                            getCartObject.size = cart.size;
+                            getCartObject.id = cart.id;
+                            getCartObject.tag = cart.tag;
+                            getCartObject.quantity = cart.quantity;
+                            getCartObject.price = cart.price;
+                            getCartObject.title = cart.title;
+                            var isDuplicate = false;
+                            // lặp xem có bị trùng không
+                            for (var i = 0; i < cartFilter.length; ++i) {
+                                if (cartFilter[i].id === cart.id) {
+                                    cartFilter[i].quantity =
+                                        parseInt(cartFilter[i].quantity) +
+                                        parseInt(cart.quantity);
+                                    isDuplicate = true;
+                                }
+                            }
+                            if (!isDuplicate) {
+                                cartFilter.push(getCartObject);
+                            }
+                        });
+                    });
+                }
+                console.log(cartFilter);
+                let count = 0;
+                cartFilter.forEach((element2) => {
+                    let Tong = element2.price * element2.quantity;
+
+                    html += `<tr >
+                                <td>
+                                </td>
+                                <td>${count + 1}</td>
+                                <td>${element2.tag}</td>
+                                <td>${element2.title}</td>
+                                <td>${element2.price}</td>
+                                <td class="quantityCol">${element2.quantity}</td>
+                                <td class="priceCol">${Tong}</td>
+                            </tr>`;
+                    count++;
+                });
+                s_orders.innerHTML = html;
+                sortTable();
+                getSumCol(5);
+                getSumCol(6);
+            });
+
+        }
     }
 
     function renderHome() {
