@@ -143,7 +143,7 @@ export function openFormSearch(dataImgs) {
             }
         }
         const title = dataImg.title.toLowerCase();
-
+        console.log(title)
         keyword = keyword.toLowerCase();
 
         return title.includes(keyword) && isAdvancedProduct;
@@ -231,7 +231,7 @@ export function openFormSearch(dataImgs) {
                 contentPage.appendChild(li);
             })
             
-            for(var i=0; i< count;++i)
+            for(var i=0; i<= count;++i)
             {
                 var btn =document.createElement('button');
                 btn.classList.add("paginator_items")
