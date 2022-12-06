@@ -36,6 +36,20 @@ export function Validator(formSelector) {
     }
     var rulesCollector = {};
     var validatorRules = {
+        fullname: function(value)
+        {
+            var regex = /[0-9!@#$%\^&?*)(+=._-]+/g
+            // for(var i=0; i<value.length;++i)
+            // {
+            //     var character=value.charAt(i);
+            //     console.log(character)
+            //     if((character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z')||character===' ')
+            //          {}
+            //   else return 'Họ tên không hợp lệ' 
+            // }
+            // return  undefined;1
+            return regex.test(value) ? "Họ tên không hợp lệ" : undefined;
+        },
         username: function (value) {
             var data = new Data();
             if (!data.getDataUsers()) return undefined;
