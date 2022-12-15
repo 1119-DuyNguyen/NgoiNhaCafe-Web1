@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Quản trị</title>
+        <link rel="stylesheet" href="../public/css/normalize.css" />
+        <link rel="stylesheet" href="../public/css/icomoon/style.css" />
+        <link rel="stylesheet" href="../public/css/admin.css" />
+    </head>
+    <body>
+        <noscript>Vui lòng bật Javascript!</noscript>
+        <div class="d-none" id="body-content">
+            <div id="header-admin">
+                <h1><i class="icon-menu" id="nav_open"></i> Quản trị</h1>
+                <div id="nav">
+                    <h1><i class="icon-cross" id="nav_close"></i></h1>
+                    <ul>
+                        <li>
+                            <a href="" class="csr-toggle" data-csr="home"
+                                ><i class="icon-home"></i> Trang chủ</a
+                            >
+                        </li>
+                        <li>
+                            <a href="" class="csr-toggle" data-csr="users"
+                                ><i class="icon-users"></i> Người dùng</a
+                            >
+                        </li>
+                        <li>
+                            <a href="" class="csr-toggle" data-csr="products"
+                                ><i class="icon-cup"></i> Sản phẩm</a
+                            >
+                        </li>
+                        <li>
+                            <a href="" class="csr-toggle" data-csr="orders"
+                                ><i class="icon-file-text2"></i> Đơn hàng</a
+                            >
+                        </li>
+                        <li>
+                            <a href="" class="csr-toggle" data-csr="analytics"
+                                ><i class="icon-file-text2"></i> Thống kê</a
+                            >
+                        </li>
+                        <li>
+                            <a href="" id="logout"
+                                ><i class="icon-exit"></i> Đăng xuất</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <div id="under-nav"></div>
+            </div>
+            <div id="main">
+                <div data-csr="home" class="admin-container --hidden">
+                    <h1>Bảng điều khiển</h1>
+                    <div class="card-container">
+                        <div class="card yellow">
+                            <div class="card-info">
+                                <span class="number">150</span>
+                                <p>Người đăng ký</p>
+                            </div>
+                            <a href="" class="card-btn"
+                                >Chi tiết <i class="icon-arrow-right"></i
+                            ></a>
+                        </div>
+                        <div class="card blue">
+                            <div class="card-info">
+                                <span class="number">150</span>
+                                <p>Đơn đặt hàng mới</p>
+                            </div>
+                            <a href="" class="card-btn"
+                                >Chi tiết <i class="icon-arrow-right"></i
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-container --hidden" data-csr="users">
+                    <h2>
+                        Người dùng
+                        <button class="btn btn-success" id="add-user-tag">
+                            Thêm mới
+                        </button>
+                    </h2>
+                    <div class="managerment">
+                        <div class="select-all">
+                            <input type="checkbox" class="check-all" />
+                            <label>Chọn tất cả</label>
+                        </div>
+                        <div class="actions">
+                            <select class="decisions">
+                                <option value="undone" selected>
+                                    -- Hành động --
+                                </option>
+                                <option value="delete">Xóa</option>
+                            </select>
+                            <button class="btn btn-info">Thực hiện</button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <!-- <tr>
+                                <th></th>
+                                <th>STT</th>
+                                <th>Họ tên</th>
+                                <th>Tên đăng nhập</th>
+                                <th>Địa chỉ email</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="1"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>1</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>anv</td>
+                                <td>
+                                    <a href="mailto:anguyen@example.com"
+                                        >anguyen@example.com</a
+                                    >
+                                </td>
+                                <td>
+                                    <button class="btn btn-info"><i class="icon-pencil"></i></button>
+                                    <button class="btn btn-info"><i class="icon-info"></i></button>
+                                    <button class="btn btn-danger"><i class="icon-bin"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="2"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>2</td>
+                                <td>Trần Quốc V</td>
+                                <td>vtq</td>
+                                <td>
+                                    <a href="mailto:vquoc@example.com"
+                                        >vquoc@example.com</a
+                                    >
+                                </td>
+                                <td>
+                                    <button class="btn btn-info"><i class="icon-pencil"></i></button>
+                                    <button class="btn btn-info"><i class="icon-info"></i></button>
+                                    <button class="btn btn-danger"><i class="icon-bin"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="3"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>3</td>
+                                <td>Nguyễn Văn C</td>
+                                <td>anv</td>
+                                <td>
+                                    <a href="mailto:cvan@example.com"
+                                        >cvan@example.com</a
+                                    >
+                                </td>
+                                <td>
+                                    <button class="btn btn-info"><i class="icon-pencil"></i></button>
+                                    <button class="btn btn-info"><i class="icon-info"></i></button>
+                                    <button class="btn btn-danger"><i class="icon-bin"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="4"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>4</td>
+                                <td>Trần Hà D</td>
+                                <td>vtq</td>
+                                <td>
+                                    <a href="mailto:had@example.com">had@example.com</a>
+                                </td>
+                                <td>
+                                    <button class="btn btn-info"><i class="icon-pencil"></i></button>
+                                    <button class="btn btn-info"><i class="icon-info"></i></button>
+                                    <button class="btn btn-danger"><i class="icon-bin"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="5"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>5</td>
+                                <td>Đặng Văn E</td>
+                                <td>vtq</td>
+                                <td>
+                                    <a href="mailto:edang@example.com"
+                                        >edang@example.com</a
+                                    >
+                                </td>
+                                <td>
+                                    <button class="btn btn-info"><i class="icon-pencil"></i></button>
+                                    <button class="btn btn-info"><i class="icon-info"></i></button>
+                                    <button class="btn btn-danger"><i class="icon-bin"></i></button>
+                                </td>
+                            </tr> -->
+                        </table>
+                    </div>
+                    <div class="paginator">
+                        <div class="paginator_items"></div>
+                    </div>
+
+                    <div id="add-user" class="modal --hide">
+                        <div class="container">
+                            <div class="content">
+                                <div class="close">
+                                    <i class="icon-cross icon"></i>
+                                </div>
+                                <div class="title">
+                                    <span>Thêm người dùng</span>
+                                </div>
+                                <form class="form" id="add-user-form">
+                                    <div class="form-group">
+                                        <label for="user-fullname"
+                                            >Họ và tên</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-fullname"
+                                            name="fullname"
+                                            data-rules="required|fullname"
+                                        />
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user-name"
+                                            >Tên đăng nhập</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-name"
+                                            name="username"
+                                            data-rules="required|username"
+                                        />
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user-address"
+                                            >Địa chỉ</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-address"
+                                            name="address"
+                                            data-rules="required"
+                                        />
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user-password"
+                                            >Mật khẩu</label
+                                        >
+                                        <input
+                                            type="password"
+                                            id="user-password"
+                                            name="password"
+                                            data-rules="required|password"
+                                        />
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user-phonenum"
+                                            >Số điện thoại</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-phonenum"
+                                            name="phone"
+                                            data-rules="required|phone"
+                                        />
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div>
+                                        <label for="user-permission"
+                                            >Loại người dùng</label
+                                        >
+                                        <select
+                                            name="type"
+                                            id="user-permission"
+                                        >
+                                            <option value="user" selected>
+                                                Người dùng cuối
+                                            </option>
+                                            <option value="admin">
+                                                Quản trị viên
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <button
+                                            class="btn btn-danger remove"
+                                            type="reset"
+                                        >
+                                            Đặt lại
+                                        </button>
+                                        <button
+                                            class="btn btn-info submit"
+                                            type="submit"
+                                        >
+                                            Thêm
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="edit-user" class="modal --hide">
+                        <div class="container">
+                            <div class="content">
+                                <div class="close">
+                                    <i class="icon-cross icon"></i>
+                                </div>
+                                <div class="title">
+                                    <span>Chỉnh sửa người dùng</span>
+                                </div>
+                                <form class="form" id="edit-user-form">
+                                    <div class="form-group">
+                                        <label for="user-name-edit"
+                                            >Họ và tên</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-fullname-edit"
+                                            name="fullname"
+                                            data-rules="required"
+                                        />
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user-name-edit"
+                                            >Tên đăng nhập</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-name-edit"
+                                            name="username"
+                                            data-rules="required|username"
+                                        />
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user-address-edit"
+                                            >Địa chỉ</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-address-edit"
+                                            name="address"
+                                            data-rules="required"
+                                        />
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user-password-edit"
+                                            >Mật khẩu</label
+                                        >
+                                        <input
+                                            type="password"
+                                            id="user-password-edit"
+                                            name="password"
+                                            data-rules="required|password"
+                                        />
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user-phonenum-edit"
+                                            >Số điện thoại</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="user-phonenum-edit"
+                                            name="phone"
+                                            data-rules="required|phone"
+                                        />
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div>
+                                        <label for="user-permission-edit"
+                                            >Loại người dùng</label
+                                        >
+                                        <select
+                                            name="type"
+                                            id="user-permission-edit"
+                                        >
+                                            <option disabled>
+                                                -- Vui lòng chọn --
+                                            </option>
+                                            <option value="user">
+                                                Người dùng cuối
+                                            </option>
+                                            <option value="admin">
+                                                Quản trị viên
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <button
+                                            class="btn btn-danger remove"
+                                            type="reset"
+                                        >
+                                            Đặt lại
+                                        </button>
+                                        <button
+                                            class="btn btn-info submit"
+                                            type="submit"
+                                        >
+                                            Cập nhật
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-container --hidden" data-csr="products">
+                    <h2 class="product-text">
+                        Danh mục sản phẩm
+
+                        <button id="add-product-tag" class="btn btn-success">
+                            Thêm mới
+                        </button>
+                    </h2>
+
+                    <div class="managerment">
+                        <div class="select-all">
+                            <input type="checkbox" class="check-all" />
+                            <label for="check-all">Chọn tất cả</label>
+                        </div>
+
+                        <div class="actions">
+                            <select class="decisions">
+                                <option value="undone" selected>
+                                    -- Hành động --
+                                </option>
+                                <option value="delete">Xóa</option>
+                            </select>
+                            <button class="btn btn-info">Thực hiện</button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <!-- <tr>
+                                <th></th>
+                                <th>STT</th>
+                                <th>Ảnh</th>
+                                <th>Tiêu đề</th>
+                                <th>Mô tả</th>
+                                <th>Giá</th>
+                                <th>Hành động</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="1"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>1</td>
+                                <td><img src="https://via.placeholder.com/120"></td>
+                                <td>Sản phẩm A</td>
+                                <td>
+                                    <div>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
+                                    </div>
+                                </td>
+                                <td>Amin</td>
+                                <td>
+                                    <button class="btn btn-info">
+                                        <span class="icon-pencil"></span>
+                                    </button>
+                                    <button class="btn btn-info">
+                                        <span class="icon-info"></span>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <span class="icon-bin"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="2"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>2</td>
+                                <td><img src="https://via.placeholder.com/120"></td>
+                                <td>Sản phẩm B</td>
+                                <td>
+                                    <div>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
+                                    </div>
+                                </td>
+                                <td>Amin</td>
+        
+                                <td>
+                                    <button class="btn btn-info">
+                                        <span class="icon-pencil"></span>
+                                    </button>
+                                    <button class="btn btn-info">
+                                        <span class="icon-info"></span>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <span class="icon-bin"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="3"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>3</td>
+                                <td><img src="https://via.placeholder.com/120"></td>
+                                <td>Sản phẩm C</td>
+                                <td>
+                                    <div>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
+                                    </div>
+                                </td>
+                                <td>Amin</td>
+        
+                                <td>
+                                    <button class="btn btn-info">
+                                        <span class="icon-pencil"></span>
+                                    </button>
+                                    <button class="btn btn-info">
+                                        <span class="icon-info"></span>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <span class="icon-bin"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="4"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>4</td>
+                                <td><img src="https://via.placeholder.com/120"></td>
+                                <td>Sản phẩm D</td>
+                                <td>
+                                    <div>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
+                                    </div>
+                                </td>
+                                <td>Amin</td>
+        
+                                <td>
+                                    <button class="btn btn-info">
+                                        <span class="icon-pencil"></span>
+                                    </button>
+                                    <button class="btn btn-info">
+                                        <span class="icon-info"></span>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <span class="icon-bin"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="5"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>5</td>
+                                <td><img src="https://via.placeholder.com/120"></td>
+                                <td>Sản phẩm E</td>
+                                <td>
+                                    <div>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, possimus mollitia distinctio sit architecto reprehenderit ad recusandae magnam at tempora consequuntur optio temporibus eaque pariatur aliquam. Eum, consequatur in!
+                                    </div>
+                                </td>
+                                <td>Amin</td>
+        
+                                <td>
+                                    <button class="btn btn-info">
+                                        <span class="icon-pencil"></span>
+                                    </button>
+                                    <button class="btn btn-info">
+                                        <span class="icon-info"></span>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <span class="icon-bin"></span>
+                                    </button>
+                                </td>
+                            </tr> -->
+                        </table>
+                    </div>
+                    <div class="paginator">
+                        <div class="paginator_items"></div>
+                    </div>
+                    <div id="add-product" class="modal --hide">
+                        <div class="container">
+                            <div class="content">
+                                <div class="close">
+                                    <i class="icon-cross icon"></i>
+                                </div>
+                                <div class="title">
+                                    <span>Thêm sản phẩm</span>
+                                </div>
+                                <form
+                                    action=""
+                                    class="form"
+                                    id="add-product-form"
+                                >
+                                    <div class="form-group">
+                                        <label for="product-name"
+                                            >Tên sản phẩm</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="product-name"
+                                            name="title"
+                                            data-rules="required"
+                                        />
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="product-type">Tag</label>
+                                        <select
+                                            type="text"
+                                            id="product-type"
+                                            name="tag"
+                                        ></select>
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="product-price">Giá</label>
+                                        <input
+                                            type="number"
+                                            id="product-price"
+                                            name="price"
+                                            data-rules="required"
+                                        />
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="product-desc">Mô tả</label>
+                                        <textarea
+                                            id="product-desc"
+                                            name="description"
+                                            data-rules="required"
+                                        ></textarea>
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div>
+                                        <label for="product-image">Ảnh</label>
+                                        <input
+                                            type="file"
+                                            name="image"
+                                            id="product-image"
+                                        />
+                                    </div>
+                                    <div>
+                                        <button
+                                            class="btn btn-danger remove"
+                                            type="reset"
+                                        >
+                                            Đặt lại
+                                        </button>
+                                        <button
+                                            class="btn btn-info submit"
+                                            type="submit"
+                                        >
+                                            Thêm
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="edit-product" class="modal --hide">
+                        <div class="container">
+                            <div class="content">
+                                <div class="close">
+                                    <i class="icon-cross icon"></i>
+                                </div>
+                                <div class="title">
+                                    <span>Chỉnh sửa sản phẩm</span>
+                                </div>
+                                <form
+                                    action=""
+                                    class="form"
+                                    id="edit-product-form"
+                                >
+                                    <div class="form-group row">
+                                        <label for="product-name-edit"
+                                            >Tên sản phẩm</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="product-name-edit"
+                                            name="title"
+                                            data-rules="required"
+                                        />
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="product-type-edit"
+                                            >Tag</label
+                                        >
+                                        <select
+                                            type="text"
+                                            id="product-type-edit"
+                                            name="tag"
+                                        ></select>
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="product-price-edit"
+                                            >Giá</label
+                                        >
+                                        <input
+                                            type="number"
+                                            id="product-price-edit"
+                                            name="price"
+                                            data-rules="required"
+                                        />
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="product-desc-edit"
+                                            >Mô tả</label
+                                        >
+                                        <textarea
+                                            id="product-desc-edit"
+                                            name="description"
+                                        ></textarea>
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div>
+                                        <label for="product-image-edit"
+                                            >Ảnh</label
+                                        >
+                                        <input
+                                            type="file"
+                                            name="image"
+                                            id="product-image-edit"
+                                        />
+                                    </div>
+                                    <div>
+                                        <button
+                                            class="btn btn-danger remove"
+                                            type="reset"
+                                        >
+                                            Đặt lại
+                                        </button>
+                                        <button
+                                            class="btn btn-info submit"
+                                            type="submit"
+                                        >
+                                            Cập nhật
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-container --hidden" data-csr="orders">
+                    <h2 class="product-text">Đơn hàng</h2>
+
+                    <div class="managerment">
+                        <div class="select-all">
+                            <input type="checkbox" class="check-all" />
+                            <label for="check-all">Chọn tất cả</label>
+                        </div>
+
+                        <div class="actions">
+                            <select class="decisions">
+                                <option value="undone" selected>
+                                    -- Hành động --
+                                </option>
+                                <option value="delete">Xóa</option>
+                            </select>
+                            <button class="btn btn-info">Thực hiện</button>
+                        </div>
+                    </div>
+                    <div class="filter">
+                            
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>STT</th>
+                                <th>Ngày</th>
+                                <th>Khách hàng</th>
+                                <th>Giá</th>
+                                <th>Trạng thái</th>
+                                <th>Hành động</th>
+                            </tr>
+                            <!-- <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="1"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>1</td>
+                                <td>01/01/1970</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>0đ</td>
+                                <td>Đang chờ</td>
+                                <td>
+                                    <button class="btn btn-info">
+                                        <span class="icon-pencil"></span>
+                                    </button>
+                                    <button class="btn btn-info">
+                                        <span class="icon-info"></span>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <span class="icon-bin"></span>
+                                    </button>
+                                </td>
+                            </tr> -->
+                        </table>
+                    </div>
+                    <div class="paginator">
+                        <div class="paginator_items"></div>
+                    </div>
+
+                    <div id="edit-order" class="modal --hide">
+                        <div class="container">
+                            <div class="content">
+                                <div class="close">
+                                    <i class="icon-cross icon"></i>
+                                </div>
+                                <div class="title">
+                                    <span>Chỉnh sửa đơn hàng</span>
+                                </div>
+                                <form
+                                    action=""
+                                    class="form"
+                                    id="edit-order-form"
+                                >
+                                    <div>
+                                        <label for="product-name-edit"
+                                            >Tên sản phẩm</label
+                                        >
+                                        <select id="order-status" name="status">
+                                            <option value="Đang xử lý">
+                                                Đang xử lý
+                                            </option>
+                                            <option value="Đã xử lý">
+                                                Đã xử lý
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <button
+                                            class="btn btn-danger remove"
+                                            type="reset"
+                                        >
+                                            Đặt lại
+                                        </button>
+                                        <button
+                                            class="btn btn-info submit"
+                                            type="submit"
+                                        >
+                                            Cập nhật
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="print-order" class="--hide modal">
+                        <style>
+                            #order-print-page > div {
+                                margin-bottom: 16px;
+                            }
+                            #order-print-page > div > * {
+                                display: block;
+                                margin-bottom: 8px;
+                            }
+                            .switch {
+                                position: relative;
+                                display: inline-block;
+                                width: 60px;
+                                height: 34px;
+                            }
+
+                            /* Hide default HTML checkbox */
+                            .switch input {
+                                opacity: 0;
+                                width: 0;
+                                height: 0;
+                            }
+
+                            /* The slider */
+                            .slider {
+                                position: absolute;
+                                cursor: pointer;
+                                top: 0;
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                background-color: #ccc;
+                                -webkit-transition: 0.4s;
+                                transition: 0.4s;
+                            }
+
+                            .slider:before {
+                                position: absolute;
+                                content: '';
+                                height: 26px;
+                                width: 26px;
+                                left: 4px;
+                                bottom: 4px;
+                                background-color: white;
+                                -webkit-transition: 0.4s;
+                                transition: 0.4s;
+                            }
+
+                            input:checked + .slider {
+                                background-color: #2196f3;
+                            }
+
+                            input:focus + .slider {
+                                box-shadow: 0 0 1px #2196f3;
+                            }
+
+                            input:checked + .slider:before {
+                                -webkit-transform: translateX(26px);
+                                -ms-transform: translateX(26px);
+                                transform: translateX(26px);
+                            }
+
+                            /* Rounded sliders */
+                            .slider.round {
+                                border-radius: 34px;
+                            }
+
+                            .slider.round:before {
+                                border-radius: 50%;
+                            }
+                        </style>
+                        <div
+                            class="container"
+                            style="
+                                width: 60%;
+                                text-align: left;
+                                overflow: hidden;
+                                height: 75%;
+                            "
+                        >
+                            <div
+                                class="content"
+                                style="
+                                    overflow-y: auto;
+                                    padding: 0 32px;
+                                    min-height: 500px;
+                                "
+                            >
+                                <div class="close">
+                                    <i class="icon-cross icon"></i>
+                                </div>
+                                <div class="title">In sản phẩm</div>
+                                <div id="order-print-page">
+                                    <div>
+                                        <span class="h2"
+                                            >Thông tin đơn hàng:</span
+                                        >
+                                        <p>1x Bị Phê Đá</p>
+                                    </div>
+                                    <div>
+                                        <span class="h2"
+                                            >Ngày tạo đơn hàng:</span
+                                        >
+                                        <p>00/00/0000</p>
+                                    </div>
+                                    <div>
+                                        <span class="h2">Tên khách hàng:</span>
+                                        <p>K.Duy & T.Duy</p>
+                                    </div>
+                                    <div>
+                                        <span class="h2">Địa chỉ:</span>
+                                        <p>
+                                            273 An Dương Vương, P3, Quận 5,
+                                            TPHCM
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <span class="h2">SĐT:</span>
+                                        <p>0969696969</p>
+                                    </div>
+                                    <div>
+                                        <span class="h2"
+                                            >Tổng giá trị hoá đơn:</span
+                                        >
+                                        <p>69 000đ</p>
+                                    </div>
+
+                                    <div>
+                                        <span class="h2">Tình trạng:</span>
+                                        <p>chưa xử lý</p>
+                                        <label class="switch">
+                                            <input type="checkbox" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- sau bỏ vào scss, js  -->
+                                <script>
+                                    function printElement(idElememt) {
+                                        var mywindow = window.open(
+                                            '',
+                                            'PRINT',
+                                            'height=' +
+                                                screen.availHeight +
+                                                ',width=' +
+                                                screen.availWidth
+                                        );
+
+                                        mywindow.document.write(
+                                            '<html><head><title>' +
+                                                document.title +
+                                                '</title>'
+                                        );
+                                        mywindow.document.write(
+                                            '</head><body >'
+                                        );
+                                        mywindow.document.write(
+                                            '<h1>' + document.title + '</h1>'
+                                        );
+                                        mywindow.document.write(
+                                            document.getElementById(idElememt)
+                                                .innerHTML
+                                        );
+
+                                        mywindow.document.close(); // necessary for IE >= 10
+                                        mywindow.focus(); // necessary for IE >= 10*/
+
+                                        mywindow.print();
+                                        // mywindow.close();
+                                    }
+                                </script>
+                                <button
+                                    class="print-btn"
+                                    style="
+                                        display: flex;
+                                        width: 100%;
+                                        justify-content: center;
+                                        align-items: center;
+                                        padding: 16px;
+                                        background-color: #000;
+                                        color: #fff;
+                                        border: 2px solid #000;
+                                        margin: 24px 0;
+                                        cursor: pointer;
+                                    "
+                                    onclick="printElement('order-print-page')"
+                                >
+                                    In đơn hàng
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-container --hidden" data-csr="analytics">
+                    <h2 class="product-text">Thống kê đơn hàng</h2>
+                    <div
+                        class="filter-product-tag"
+                        style="padding-bottom: 15px"
+                    ></div>
+
+                    <div class="statistic-managerment"></div>
+                    <div
+                        class="display-filter-result"
+                        style="font-weight: 600"
+                    ></div>
+
+                    <div class="table-container">
+                        <table class="statistics">
+                            <tr>
+                                <th></th>
+                                <th>STT</th>
+                                <th>Ngày</th>
+                                <th>Khách hàng</th>
+                                <th>Giá</th>
+                                <th>Trạng thái</th>
+                                <th>Hành động</th>
+                            </tr>
+                            <!-- <tr>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        value="1"
+                                        class="user-checkbox"
+                                    />
+                                </td>
+                                <td>1</td>
+                                <td>01/01/1970</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>0đ</td>
+                                <td>Đang chờ</td>
+                                <td>
+                                    <button class="btn btn-info">
+                                        <span class="icon-pencil"></span>
+                                    </button>
+                                    <button class="btn btn-info">
+                                        <span class="icon-info"></span>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <span class="icon-bin"></span>
+                                    </button>
+                                </td>
+                            </tr> -->
+                        </table>
+                    </div>
+                    <div class="paginator">
+                        <div class="paginator_items"></div>
+                    </div>
+
+                    <div id="print-order_A" class="--hide modal">
+                        <style>
+                            #order-print-page > div {
+                                margin-bottom: 16px;
+                            }
+                            #order-print-page > div > * {
+                                display: block;
+                                margin-bottom: 8px;
+                            }
+                            .switch {
+                                position: relative;
+                                display: inline-block;
+                                width: 60px;
+                                height: 34px;
+                            }
+
+                            /* Hide default HTML checkbox */
+                            .switch input {
+                                opacity: 0;
+                                width: 0;
+                                height: 0;
+                            }
+
+                            /* The slider */
+                            .slider {
+                                position: absolute;
+                                cursor: pointer;
+                                top: 0;
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                background-color: #ccc;
+                                -webkit-transition: 0.4s;
+                                transition: 0.4s;
+                            }
+
+                            .slider:before {
+                                position: absolute;
+                                content: '';
+                                height: 26px;
+                                width: 26px;
+                                left: 4px;
+                                bottom: 4px;
+                                background-color: white;
+                                -webkit-transition: 0.4s;
+                                transition: 0.4s;
+                            }
+
+                            input:checked + .slider {
+                                background-color: #2196f3;
+                            }
+
+                            input:focus + .slider {
+                                box-shadow: 0 0 1px #2196f3;
+                            }
+
+                            input:checked + .slider:before {
+                                -webkit-transform: translateX(26px);
+                                -ms-transform: translateX(26px);
+                                transform: translateX(26px);
+                            }
+
+                            /* Rounded sliders */
+                            .slider.round {
+                                border-radius: 34px;
+                            }
+
+                            .slider.round:before {
+                                border-radius: 50%;
+                            }
+                        </style>
+                        <div
+                            class="container"
+                            style="
+                                width: 60%;
+                                text-align: left;
+                                overflow: hidden;
+                                height: 75%;
+                            "
+                        >
+                            <div
+                                class="content"
+                                style="
+                                    overflow-y: auto;
+                                    padding: 0 32px;
+                                    min-height: 500px;
+                                "
+                            >
+                                <div class="close">
+                                    <i class="icon-cross icon"></i>
+                                </div>
+                                <div class="title">In sản phẩm</div>
+                                <div id="order-print-page">
+                                    <div>
+                                        <span class="h2"
+                                            >Thông tin đơn hàng:</span
+                                        >
+                                        <p>1x Bị Phê Đá</p>
+                                    </div>
+                                    <div>
+                                        <span class="h2"
+                                            >Ngày tạo đơn hàng:</span
+                                        >
+                                        <p>00/00/0000</p>
+                                    </div>
+                                    <div>
+                                        <span class="h2">Tên khách hàng:</span>
+                                        <p>K.Duy & T.Duy</p>
+                                    </div>
+                                    <div>
+                                        <span class="h2">Địa chỉ:</span>
+                                        <p>
+                                            273 An Dương Vương, P3, Quận 5,
+                                            TPHCM
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <span class="h2">SĐT:</span>
+                                        <p>0969696969</p>
+                                    </div>
+                                    <div>
+                                        <span class="h2"
+                                            >Tổng giá trị hoá đơn:</span
+                                        >
+                                        <p>69 000đ</p>
+                                    </div>
+
+                                    <div>
+                                        <span class="h2">Tình trạng:</span>
+                                        <p>chưa xử lý</p>
+                                        <label class="switch">
+                                            <input type="checkbox" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- sau bỏ vào scss, js  -->
+                                <script>
+                                    function printElement(idElememt) {
+                                        var mywindow = window.open(
+                                            '',
+                                            'PRINT',
+                                            'height=' +
+                                                screen.availHeight +
+                                                ',width=' +
+                                                screen.availWidth
+                                        );
+
+                                        mywindow.document.write(
+                                            '<html><head><title>' +
+                                                document.title +
+                                                '</title>'
+                                        );
+                                        mywindow.document.write(
+                                            '</head><body >'
+                                        );
+                                        mywindow.document.write(
+                                            '<h1>' + document.title + '</h1>'
+                                        );
+                                        mywindow.document.write(
+                                            document.getElementById(idElememt)
+                                                .innerHTML
+                                        );
+
+                                        mywindow.document.close(); // necessary for IE >= 10
+                                        mywindow.focus(); // necessary for IE >= 10*/
+
+                                        mywindow.print();
+                                        // mywindow.close();
+                                    }
+                                </script>
+                                <button
+                                    class="print-btn"
+                                    style="
+                                        display: flex;
+                                        width: 100%;
+                                        justify-content: center;
+                                        align-items: center;
+                                        padding: 16px;
+                                        background-color: #000;
+                                        color: #fff;
+                                        border: 2px solid #000;
+                                        margin: 24px 0;
+                                        cursor: pointer;
+                                    "
+                                    onclick="printElement('order-print-page')"
+                                >
+                                    In đơn hàng
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="toast"></div>
+            <div id="footer">Copyright &copy; 2022 Ngôi nhà Cafe</div>
+        </div>
+        <script type="module" src="./js/admin.js"></script>
+    </body>
+</html>

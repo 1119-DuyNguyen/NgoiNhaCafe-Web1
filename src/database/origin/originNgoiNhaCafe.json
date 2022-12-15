@@ -1,0 +1,730 @@
+[
+    {
+        "title": "Cà Phê Sữa Đá",
+        "description": "Cà phê Đắk Lắk nguyên chất được pha phin truyền thống kết hợp với sữa đặc tạo nên hương vị đậm đà, hài hòa giữa vị ngọt đầu lưỡi và vị đắng thanh thoát nơi hậu vị.",
+        "image": "https://product.hstatic.net/1000075078/product/1639377738_ca-phe-sua-da_ef9935e1bb0142c5b5d91718659657a3_large.jpg",
+        "id": 1,
+        "price": 29000,
+        "tag": "Ca"
+    },
+    {
+        "title": "Cà Phê Sữa Nóng",
+        "description": "Cà phê được pha phin truyền thống kết hợp với sữa đặc tạo nên hương vị đậm đà, hài hòa giữa vị ngọt đầu lưỡi và vị đắng thanh thoát nơi hậu vị.",
+        "image": "https://product.hstatic.net/1000075078/product/1639377770_cfsua-nong_143414797b134b02aaa048ac004c8e70_large.jpg",
+        "id": 2,
+        "price": 35000,
+        "tag": "Ca"
+    },
+    {
+        "title": "Bạc Sỉu",
+        "description": "Bạc sỉu chính là \"Ly sữa trắng kèm một chút cà phê\". Thức uống này rất phù hợp những ai vừa muốn trải nghiệm chút vị đắng của cà phê vừa muốn thưởng thức vị ngọt béo ngậy từ sữa.",
+        "image": "https://product.hstatic.net/1000075078/product/1639377904_bac-siu_12ef081a3577445a8fcbc84a0a0d6202_large.jpg",
+        "id": 3,
+        "price": 29000,
+        "tag": "Bac"
+    },
+    {
+        "title": "Bạc Sỉu Nóng",
+        "description": "Bạc sỉu chính là \"Ly sữa trắng kèm một chút cà phê\". Thức uống này rất phù hợp những ai vừa muốn trải nghiệm chút vị đắng của cà phê vừa muốn thưởng thức vị ngọt béo ngậy từ sữa.",
+        "image": "https://product.hstatic.net/1000075078/product/1639377926_bacsiunong_9d4b58bc5cf748ceafcdeb1ae12a8424_large.jpg",
+        "id": 4,
+        "price": 35000,
+        "tag": "Bac"
+    },
+    {
+        "title": "Cà Phê Đen Đá",
+        "description": "Không ngọt ngào như Bạc sỉu hay Cà phê sữa, Cà phê đen mang trong mình phong vị trầm lắng, thi vị hơn. Người ta thường phải ngồi rất lâu mới cảm nhận được hết hương thơm ngào ngạt, phảng phất mùi cacao và cái đắng mượt mà trôi tuột xuống vòm họng.",
+        "image": "https://product.hstatic.net/1000075078/product/1639377797_ca-phe-den-da_02551b995b25410d9cb7d0fb3df1c687_large.jpg",
+        "id": 5,
+        "price": 29000,
+        "tag": "Ca"
+    },
+    {
+        "title": "Cà Phê Đen Nóng",
+        "description": "Không ngọt ngào như Bạc sỉu hay Cà phê sữa, Cà phê đen mang trong mình phong vị trầm lắng, thi vị hơn. Người ta thường phải ngồi rất lâu mới cảm nhận được hết hương thơm ngào ngạt, phảng phất mùi cacao và cái đắng mượt mà trôi tuột xuống vòm họng.",
+        "image": "https://product.hstatic.net/1000075078/product/1639377816_ca-phe-den-nong_3bd45a4f6e9247bd9e414557de9ca217_large.jpg",
+        "id": 6,
+        "price": 35000,
+        "tag": "Ca"
+    },
+    {
+        "title": "Cà Phê Sữa Đá Chai Fresh 250ML",
+        "description": "Vẫn là hương vị cà phê sữa đậm đà quen thuộc của The Coffee House nhưng khoác lên mình một chiếc áo mới tiện lợi hơn, tiết kiệm hơn phù hợp với bình thường mới, giúp bạn tận hưởng một ngày dài trọn vẹn. *Sản phẩm dùng ngon nhất trong ngày. *Sản phẩm mặc định mức đường và không đá.",
+        "image": "https://product.hstatic.net/1000075078/product/bottlecfsd_496652_a204aa4534c14088b2bb0afe2a603c4e_large.jpg",
+        "id": 7,
+        "price": 75000,
+        "tag": "Ca"
+    },
+    {
+        "title": "Caramel Macchiato Đá",
+        "description": "Caramel Macchiato sẽ mang đến một sự ngạc nhiên thú vị khi vị thơm béo của bọt sữa, sữa tươi, vị đắng thanh thoát của cà phê Espresso hảo hạng và vị ngọt đậm của sốt caramel được gói gọn trong một tách cà phê.",
+        "image": "https://product.hstatic.net/1000075078/product/caramel-macchiato_143623_cc25b82c28634b9b8afa353c88a9cf0a_large.jpg",
+        "id": 8,
+        "price": 49000,
+        "tag": "Caramel"
+    },
+    {
+        "title": "Caramel Macchiato Nóng",
+        "description": "Caramel Macchiato sẽ mang đến một sự ngạc nhiên thú vị khi vị thơm béo của bọt sữa, sữa tươi, vị đắng thanh thoát của cà phê Espresso hảo hạng và vị ngọt đậm của sốt caramel được gói gọn trong một tách cà phê.",
+        "image": "https://product.hstatic.net/1000075078/product/caramelmacchiatonong_168039_c84b189aa68f4b4bbec111bf6dfa2d23_large.jpg",
+        "id": 9,
+        "price": 49000,
+        "tag": "Caramel"
+    },
+    {
+        "title": "Latte Đá",
+        "description": "Một sự kết hợp tinh tế giữa vị đắng cà phê Espresso nguyên chất hòa quyện cùng vị sữa nóng ngọt ngào, bên trên là một lớp kem mỏng nhẹ tạo nên một tách cà phê hoàn hảo về hương vị lẫn nhãn quan.",
+        "image": "https://product.hstatic.net/1000075078/product/latte-da_438410_337569be26574d0db21d539c1008ef41_large.jpg",
+        "id": 10,
+        "price": 49000,
+        "tag": "Latte"
+    },
+    {
+        "title": "Latte Nóng",
+        "description": "Một sự kết hợp tinh tế giữa vị đắng cà phê Espresso nguyên chất hòa quyện cùng vị sữa nóng ngọt ngào, bên trên là một lớp kem mỏng nhẹ tạo nên một tách cà phê hoàn hảo về hương vị lẫn nhãn quan.",
+        "image": "https://product.hstatic.net/1000075078/product/latte_851143_6afcc75d83f346dfb36743a7ba4e2f02_large.jpg",
+        "id": 11,
+        "price": 49000,
+        "tag": "Latte"
+    },
+    {
+        "title": "Americano Đá",
+        "description": "Americano được pha chế bằng cách pha thêm nước với tỷ lệ nhất định vào tách cà phê Espresso, từ đó mang lại hương vị nhẹ nhàng và giữ trọn được mùi hương cà phê đặc trưng.",
+        "image": "https://product.hstatic.net/1000075078/product/classic-cold-brew_791256_ee0cc84737414219a256209f726b4a50_large.jpg",
+        "id": 12,
+        "price": 39000,
+        "tag": "Americano"
+    },
+    {
+        "title": "Americano Nóng",
+        "description": "Americano được pha chế bằng cách pha thêm nước với tỷ lệ nhất định vào tách cà phê Espresso, từ đó mang lại hương vị nhẹ nhàng và giữ trọn được mùi hương cà phê đặc trưng.",
+        "image": "https://product.hstatic.net/1000075078/product/1636647328_arme-nong_4217637dd0364449b606d7f883146844_large.jpg",
+        "id": 13,
+        "price": 39000,
+        "tag": "Americano"
+    },
+    {
+        "title": "Cappuccino Đá",
+        "description": "Capuchino là thức uống hòa quyện giữa hương thơm của sữa, vị béo của bọt kem cùng vị đậm đà từ cà phê Espresso. Tất cả tạo nên một hương vị đặc biệt, một chút nhẹ nhàng, trầm lắng và tinh tế.",
+        "image": "https://product.hstatic.net/1000075078/product/capu-da_487470_f76bd35c080a41dcade79dbe5b5cc444_large.jpg",
+        "id": 14,
+        "price": 49000,
+        "tag": "Cappuccino"
+    },
+    {
+        "title": "Cappuccino Nóng",
+        "description": "Capuchino là thức uống hòa quyện giữa hương thơm của sữa, vị béo của bọt kem cùng vị đậm đà từ cà phê Espresso. Tất cả tạo nên một hương vị đặc biệt, một chút nhẹ nhàng, trầm lắng và tinh tế.",
+        "image": "https://product.hstatic.net/1000075078/product/cappuccino_621532_ea119e78e23c4fc3addb4d85d1dc83a7_large.jpg",
+        "id": 15,
+        "price": 49000,
+        "tag": "Cappuccino"
+    },
+    {
+        "title": "Espresso Đá",
+        "description": "Một tách Espresso nguyên bản được bắt đầu bởi những hạt Arabica chất lượng, phối trộn với tỉ lệ cân đối hạt Robusta, cho ra vị ngọt caramel, vị chua dịu và sánh đặc.",
+        "image": "https://product.hstatic.net/1000075078/product/cfdenda-espressoda_185438_bc62589b3dd74ee4aebc3ff8bc2177d5_large.jpg",
+        "id": 16,
+        "price": 45000,
+        "tag": "Espresso"
+    },
+    {
+        "title": "Espresso Nóng",
+        "description": "Một tách Espresso nguyên bản được bắt đầu bởi những hạt Arabica chất lượng, phối trộn với tỉ lệ cân đối hạt Robusta, cho ra vị ngọt caramel, vị chua dịu và sánh đặc.",
+        "image": "https://product.hstatic.net/1000075078/product/espressonong_612688_9285a05b0ac04f2da7133d9f702ce126_large.jpg",
+        "id": 17,
+        "price": 39000,
+        "tag": "Espresso"
+    },
+    {
+        "title": "Cold Brew Sữa Tươi",
+        "description": "Thanh mát và cân bằng với hương vị cà phê nguyên bản 100% Arabica Cầu Đất cùng sữa tươi thơm béo cho từng ngụm tròn vị, hấp dẫn.",
+        "image": "https://product.hstatic.net/1000075078/product/cold-brew-sua-tuoi_379576_8bc7cdd94a8847edae54e55354295353_large.jpg",
+        "id": 18,
+        "price": 45000,
+        "tag": "Cold"
+    },
+    {
+        "title": "Cold Brew Truyền Thống",
+        "description": "Tại The Coffee House, Cold Brew được ủ và phục vụ mỗi ngày từ 100% hạt Arabica Cầu Đất với hương gỗ thông, hạt dẻ, nốt sô-cô-la đặc trưng, thoang thoảng hương khói nhẹ giúp Cold Brew giữ nguyên vị tươi mới.",
+        "image": "https://product.hstatic.net/1000075078/product/classic-cold-brew_239501_1a3fb2ca91ae4b52a59f9bcbce10c9a0_large.jpg",
+        "id": 19,
+        "price": 45000,
+        "tag": "Cold"
+    },
+    {
+        "title": "CloudFee Creamy Hạnh Nhân Nướng",
+        "description": "Vị đắng của cà phê được dung hòa bởi sự ngọt ngào từ kem sữa, điểm tô chút nhẹ nhàng cùng lớp foam trắng bồng bềnh, quyện lẫn vị hạnh nhân nướng bùi bùi vui miệng, thêm thạch cà phê giòn ngon khó cưỡng. Đây là thức uống đúng gu giúp bạn khởi đầu ngày mới với tinh thần phơi phới.",
+        "image": "https://product.hstatic.net/1000075078/product/1659432079_almond-cm_79f0bec2a2e940b5bf51e681902161bb_large.jpg",
+        "id": 20,
+        "price": 39000,
+        "tag": "CloudFee"
+    },
+    {
+        "title": "CloudFee Creamy Caramel",
+        "description": "Vừa khơi dậy sự tươi tỉnh đầu ngày nhờ vị đắng nhè nhẹ của cà phê, vừa vỗ về khẩu vị với sự ngọt ngào quyện hòa giữa kem sữa và caramel thơm béo. Không chỉ vậy, topping thạch cà phê giòn dai để bạn thỏa sức nhâm nhi, càng tăng thêm sức hấp dẫn của thức uống cực đỉnh này.",
+        "image": "https://product.hstatic.net/1000075078/product/1659432072_caramel-cm_f7a02e5c6bf3446790d65e13478e6d6e_large.jpg",
+        "id": 21,
+        "price": 39000,
+        "tag": "CloudFee"
+    },
+    {
+        "title": "CloudFee Creamy Pandan Coconut",
+        "description": "Một kết hợp ăn ý giữa cà phê phin truyền thống và Espresso lừng danh nước Ý, kèm chút biến tấu cùng kem sữa ngọt ngào, lẫn vị thơm béo dừa lá dứa đậm chất Việt Nam. Đặc biệt, topping thạch cà phê giòn dai nhai cực đã, thử là ghiền ngay.",
+        "image": "https://product.hstatic.net/1000075078/product/1659432084_pandan-coconut-cm_83da5b4b32a949dca87cd983012a80ac_large.jpg",
+        "id": 22,
+        "price": 39000,
+        "tag": "CloudFee"
+    },
+    {
+        "title": "CloudFee Creme Brulee Hạnh Nhân Nướng",
+        "description": "CloudFee Creme Brulee Hạnh Nhân Nướng đánh thức vị giác bằng lớp kem trứng Creme Brulee ngọt ngào lẫn chút đắng nhẹ từ cà phê Espresso Ý. Nhấp từng ngụm để cảm nhận trọn vẹn vị hạnh nhân nướng thơm bùi cùng topping thạch cà phê dai giòn cực cuốn.",
+        "image": "https://product.hstatic.net/1000075078/product/1659432103_cbf-almond_ca914985f19b47f2951b1381e6a085f8_large.jpg",
+        "id": 23,
+        "price": 49000,
+        "tag": "CloudFee"
+    },
+    {
+        "title": "CloudFee Creme Brulee Caramel",
+        "description": "CloudFee Creme Brulee Caramel ngon khó cưỡng bởi lớp kem trứng Creme Brulee bồng bềnh béo mịn, ngọt thanh của Caramel, thêm xíu đắng nhẹ từ cà phê, kèm topping thạch cà phê dai dai giòn giòn.",
+        "image": "https://product.hstatic.net/1000075078/product/1659432096_cbf-caramel_0e4f4f70e0384a6e8dae9c4b4c727c3a_large.jpg",
+        "id": 24,
+        "price": 49000,
+        "tag": "CloudFee"
+    },
+    {
+        "title": "CloudFee Creme Brulee Ovaltine",
+        "description": "Hương vị cà phê Espresso Ý được biến tấu vô cùng ngọt ngào cùng lớp đường khò giòn tan, hoà quyện với độ mềm mịn của kem trứng, nhấn nhá chút vị socola Ovaltine đậm đà. Món còn nhân đôi độ ngon với topping thạch cà phê dai giòn mê ly.",
+        "image": "https://product.hstatic.net/1000075078/product/1659432110_cbf-ovaltine_b4e1d18e0f004186ad2c036a87ba7608_large.jpg",
+        "id": 25,
+        "price": 49000,
+        "tag": "CloudFee"
+    },
+    {
+        "title": "CloudFee Sữa Đá Sài Gòn",
+        "description": "Hương vị cà phê nguyên chất, kết hợp cùng sữa đặc và kem sữa tạo nên thức uống mới mẻ. CloudFee Sữa Đá Sài Gòn êm mượt, ngậy nhưng không ngấy, vừa ngòn ngọt vừa đăng đắng, hấp dẫn đến giọt cuối cùng.",
+        "image": "https://product.hstatic.net/1000075078/product/1663057412_cf-muoi-cf-sua_f58d7da98664454c9f289b27328ad684_large.jpg",
+        "id": 26,
+        "price": 45000,
+        "tag": "CloudFee"
+    },
+    {
+        "title": "CloudFee Muối Đà Nẵng",
+        "description": "Một chút mằn mặn của muối, quyện cùng vị đậm đà từ cà phê, beo béo của sữa đặc và kem sữa, CloudFee Muối Đà Nẵng chỉ cần nhấp một ngụm là nhớ hoài.",
+        "image": "https://product.hstatic.net/1000075078/product/1663057425_cf-muoi-cf-sua_53c3b7735d254c81a88d21dbcfd7acad_large.jpg",
+        "id": 27,
+        "price": 45000,
+        "tag": "CloudFee"
+    },
+    {
+        "title": "CloudFee Trứng Hà Nội",
+        "description": "Lấy cảm hứng từ cà phê trứng đặc sản thủ đô, CloudFee Trứng Hà Nội khiến bạn dễ ghiền ngay từ ngụm đầu tiên, bởi chút thơm béo từ kem trứng, ngọt của sữa, hài hòa cùng vị đắng nhẹ từ ca cao và cà phê.",
+        "image": "https://product.hstatic.net/1000075078/product/1663057423_cf-trung_a5ebcd80702d464c8c11b76ee936ec2b_large.jpg",
+        "id": 28,
+        "price": 45000,
+        "tag": "CloudFee"
+    },
+    {
+        "title": "Trà Long Nhãn Hạt Sen",
+        "description": "Thức uống mang hương vị của nhãn, của sen, của trà Oolong đầy thanh mát cho tất cả các thành viên trong dịp Tết này. An lành, thư thái và đậm đà chính là những gì The Coffee House mong muốn gửi trao đến bạn và gia đình.",
+        "image": "https://product.hstatic.net/1000075078/product/1649378747_tra-sen-nhan_de7055cebe2240d58faeefe0ef2d8dc6_large.jpg",
+        "id": 29,
+        "price": 49000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Đào Cam Sả - Đá",
+        "description": "Vị thanh ngọt của đào, vị chua dịu của Cam Vàng nguyên vỏ, vị chát của trà đen tươi được ủ mới mỗi 4 tiếng, cùng hương thơm nồng đặc trưng của sả chính là điểm sáng làm nên sức hấp dẫn của thức uống này.",
+        "image": "https://product.hstatic.net/1000075078/product/tra-dao-cam-xa_668678_23f64243ce3a468c90ccd86fbcb79434_large.jpg",
+        "id": 30,
+        "price": 49000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Đào Cam Sả - Nóng",
+        "description": "Vị thanh ngọt của đào, vị chua dịu của Cam Vàng nguyên vỏ, vị chát của trà đen tươi được ủ mới mỗi 4 tiếng, cùng hương thơm nồng đặc trưng của sả chính là điểm sáng làm nên sức hấp dẫn của thức uống này.",
+        "image": "https://product.hstatic.net/1000075078/product/tdcs-nong_288997_735c53f211304ae5b51df129b7cba967_large.jpg",
+        "id": 31,
+        "price": 55000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Hạt Sen - Đá",
+        "description": "Nền trà oolong hảo hạng kết hợp cùng hạt sen tươi, bùi bùi và lớp foam cheese béo ngậy. Trà hạt sen là thức uống thanh mát, nhẹ nhàng phù hợp cho cả buổi sáng và chiều tối.",
+        "image": "https://product.hstatic.net/1000075078/product/tra-sen_905594_a4cafeb994d84f629a8f680d32807e9d_large.jpg",
+        "id": 32,
+        "price": 49000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Hạt Sen - Nóng",
+        "description": "Nền trà oolong hảo hạng kết hợp cùng hạt sen tươi, bùi bùi thơm ngon. Trà hạt sen là thức uống thanh mát, nhẹ nhàng phù hợp cho cả buổi sáng và chiều tối.",
+        "image": "https://product.hstatic.net/1000075078/product/tra-sen-nong_025153_354cb53ccc96451c802316e2687da834_large.jpg",
+        "id": 33,
+        "price": 55000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Long Nhãn Hạt Chia",
+        "description": "Vị nhãn ngọt, tươi mát đặc trưng hoà quyện tinh tế cùng vị trà oolong hảo hạng và hạt chia mang đến cho bạn một thức uống không chỉ thơm ngon mà còn bổ dưỡng.",
+        "image": "https://product.hstatic.net/1000075078/product/tra-nhan-da_484810_bef7a4b0ca8042ef9bf5957560bded3c_large.jpg",
+        "id": 34,
+        "price": 49000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Long Nhãn Hạt Chia (Nóng)",
+        "description": "Vị nhãn ngọt, tươi mát đặc trưng hoà quyện tinh tế cùng vị trà oolong hảo hạng và hạt chia mang đến cho bạn một thức uống không chỉ thơm ngon mà còn bổ dưỡng.",
+        "image": "https://product.hstatic.net/1000075078/product/nhan-hat-chia--nong_140427_aa8d285e84034ef183363ff285ebad86_large.jpg",
+        "id": 35,
+        "price": 55000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Đào Cam Sả Chai Fresh 500ML",
+        "description": "Với phiên bản chai fresh 500ml, thức uống \"best seller\" đỉnh cao mang một diện mạo tươi mới, tiện lợi, phù hợp với bình thường mới và vẫn giữ nguyên vị thanh ngọt của đào, vị chua dịu của cam vàng nguyên vỏ và vị trà đen thơm lừng ly Trà đào cam sả nguyên bản. *Sản phẩm dùng ngon nhất trong ngày. *Sản phẩm mặc định mức đường và không đá.",
+        "image": "https://product.hstatic.net/1000075078/product/bottle_tradao_836487_25d2f30c65564638a21e35b8ce53d0f9_large.jpg",
+        "id": 36,
+        "price": 105000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Đen Macchiato",
+        "description": "Trà đen được ủ mới mỗi ngày, giữ nguyên được vị chát mạnh mẽ đặc trưng của lá trà, phủ bên trên là lớp Macchiato \"homemade\" bồng bềnh quyến rũ vị phô mai mặn mặn mà béo béo.",
+        "image": "https://product.hstatic.net/1000075078/product/tra-den-matchiato_430281_f138a793c027466c9f28833a33b56c65_large.jpg",
+        "id": 37,
+        "price": 55000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Hồng Trà Sữa Trân Châu",
+        "description": "Thêm chút ngọt ngào cho ngày mới với hồng trà nguyên lá, sữa thơm ngậy được cân chỉnh với tỉ lệ hoàn hảo, cùng trân châu trắng dai giòn có sẵn để bạn tận hưởng từng ngụm trà sữa ngọt ngào thơm ngậy thiệt đã.",
+        "image": "https://product.hstatic.net/1000075078/product/hong-tra-sua-tran-chau_326977_fbf18cd87fd2493a8807950f7a779aa9_large.jpg",
+        "id": 38,
+        "price": 55000,
+        "tag": "Hong"
+    },
+    {
+        "title": "Hồng Trà Sữa Nóng",
+        "description": "Từng ngụm trà chuẩn gu ấm áp, đậm đà beo béo bởi lớp sữa tươi chân ái hoà quyện.  Trà đen nguyên lá âm ấm dịu nhẹ, quyện cùng lớp sữa thơm béo khó lẫn - hương vị ấm áp chuẩn gu trà, cho từng ngụm nhẹ nhàng, ngọt dịu lưu luyến mãi nơi cuống họng.",
+        "image": "https://product.hstatic.net/1000075078/product/hong-tra-sua-nong_941687_7b950ed84d8c4669916d364c433acbd2_large.jpg",
+        "id": 39,
+        "price": 55000,
+        "tag": "Hong"
+    },
+    {
+        "title": "Trà sữa Oolong Nướng Trân Châu",
+        "description": "Hương vị chân ái đúng gu đậm đà với trà oolong được “sao” (nướng) lâu hơn cho hương vị đậm đà, hòa quyện với sữa thơm béo mang đến cảm giác mát lạnh, lưu luyến vị trà sữa đậm đà nơi vòm họng.",
+        "image": "https://product.hstatic.net/1000075078/product/1647510904_tra-sua-oolong-nuong-tran-chau-da_8eb4971e978c47ada0075ddd7073a4c9_large.jpeg",
+        "id": 40,
+        "price": 55000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà sữa Oolong Nướng (Nóng)",
+        "description": "Đậm đà chuẩn gu và ấm nóng - bởi lớp trà oolong nướng đậm vị hoà cùng lớp sữa thơm béo. Hương vị chân ái đúng gu đậm đà - trà oolong được \"sao\" (nướng) lâu hơn cho vị đậm đà, hoà quyện với sữa thơm ngậy. Cho từng ngụm ấm áp, lưu luyến vị trà sữa đậm đà mãi nơi cuống họng.",
+        "image": "https://product.hstatic.net/1000075078/product/oolong-nuong-nong_948581_c883bbe847b842fe94a950041e4b3435_large.jpg",
+        "id": 41,
+        "price": 55000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Sữa Mắc Ca Trân Châu",
+        "description": "Mỗi ngày với The Coffee House sẽ là điều tươi mới hơn với sữa hạt mắc ca thơm ngon, bổ dưỡng quyện cùng nền trà oolong cho vị cân bằng, ngọt dịu đi kèm cùng Trân châu trắng giòn dai mang lại cảm giác “đã” trong từng ngụm trà sữa.",
+        "image": "https://product.hstatic.net/1000075078/product/tra-sua-mac-ca_377522_e1783ad8c76946afa827d35802898ad9_large.jpg",
+        "id": 42,
+        "price": 55000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Hồng Trà Latte Macchiato",
+        "description": "Sự kết hợp hoàn hảo bởi hồng trà dịu nhẹ và sữa tươi, nhấn nhá thêm lớp macchiato trứ danh của The Coffee House mang đến cho bạn hương vị trà sữa đúng gu tinh tế và healthy.",
+        "image": "https://product.hstatic.net/1000075078/product/hong-tra-latte_618293_77ad0b8d8dc645928e955dbbe1d29393_large.jpg",
+        "id": 43,
+        "price": 55000,
+        "tag": "Hong"
+    },
+    {
+        "title": "Trà Sữa Oolong Nướng Trân Châu Chai Fresh 500ML",
+        "description": "Phiên bản chai fresh 500ml mới, The Coffee House tin rằng với diện mạo mới: tiện lợi và phù hợp với bình thường mới này, các tín đồ trà sữa sẽ được thưởng thức hương vị đậm đà, hòa quyện với sữa thơm béo mang đến cảm giác mát lạnh ở bất cứ nơi đâu. *Sản phẩm dùng ngon nhất trong ngày. *Sản phẩm mặc định mức đường và không đá.",
+        "image": "https://product.hstatic.net/1000075078/product/bottle_oolong_285082_32a8b1dbb1694a70a8bcd64c8a78f84d_large.jpg",
+        "id": 44,
+        "price": 95000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Hi-Tea Xoài Aloe Vera",
+        "description": "",
+        "image": "https://product.hstatic.net/1000075078/product/xoai-aloe-vera_e0f5402bf2964ef884079f5e9f424f43_large.jpg",
+        "id": 45,
+        "price": 49000,
+        "tag": "Hi"
+    },
+    {
+        "title": "Hi-Tea Dâu Tây Mận Muối Aloe Vera",
+        "description": "Sự kết hợp độc đáo giữa 3 sắc thái hương vị khác nhau: trà hoa Hibiscus chua thanh, Mận muối mặn mặn và Dâu tây tươi Đà Lạt cô đặc ngọt dịu. Ngoài ra, topping Aloe Vera tươi mát, ngon ngất ngây, đẹp đắm say, hứa hẹn sẽ khuấy đảo hè này.",
+        "image": "https://product.hstatic.net/1000075078/product/1655199351_dau-man-muoi-aloe-vera_ade04033afad4062b7d115ceb55770e4_large.jpg",
+        "id": 46,
+        "price": 49000,
+        "tag": "Hi"
+    },
+    {
+        "title": "HI-TEA Yuzu Trân Châu",
+        "description": "Không chỉ nổi bật với sắc đỏ đặc trưng từ trà hoa Hibiscus, Hi-Tea Yuzu còn gây ấn tượng với topping Yuzu (quýt Nhật) lạ miệng, kết hợp cùng trân châu trắng dai giòn sần sật, nhai vui vui.",
+        "image": "https://product.hstatic.net/1000075078/product/1653291194_hi-tea-yuzu_289c7cd6a17f4b7eb46ba442cfdad54d_large.jpg",
+        "id": 47,
+        "price": 49000,
+        "tag": "HI"
+    },
+    {
+        "title": "Hi-Tea Vải",
+        "description": "Chút ngọt ngào của Vải, mix cùng vị chua thanh tao từ trà hoa Hibiscus, mang đến cho bạn thức uống đúng chuẩn vừa ngon, vừa healthy.",
+        "image": "https://product.hstatic.net/1000075078/product/1653291204_hi-tea-vai_c25b379915f2427ca27f268d110a9d3f_large.jpg",
+        "id": 48,
+        "price": 49000,
+        "tag": "Hi"
+    },
+    {
+        "title": "Hi-Tea Đào",
+        "description": "Sự kết hợp ăn ý giữa Đào cùng trà hoa Hibiscus, tạo nên tổng thể hài hoà dễ gây “thương nhớ” cho team thích món thanh mát, có vị chua nhẹ.",
+        "image": "https://product.hstatic.net/1000075078/product/1653291185_hi-tea-dao_fd6735796eb243d59d5436f64f0b5e44_large.jpg",
+        "id": 49,
+        "price": 49000,
+        "tag": "Hi"
+    },
+    {
+        "title": "Hi-Tea Đá Tuyết Xoài Đào",
+        "description": "Những miếng đào vàng ươm kết hợp với đá tuyết vị xoài mát lành, cùng nền trà hoa Hibiscus chua dịu đem đến cảm giác lạ miệng, hấp dẫn đến tận ngụm cuối cùng.",
+        "image": "https://product.hstatic.net/1000075078/product/1653291164_da-tuyet-dao_c5846167b67c4e6a947fd254a4493d68_large.jpg",
+        "id": 50,
+        "price": 55000,
+        "tag": "Hi"
+    },
+    {
+        "title": "Hi-Tea Đá Tuyết Yuzu Vải",
+        "description": "Vị trà hoa Hibiscus chua chua, kết hợp cùng đá tuyết Yuzu mát lạnh tái tê, thêm miếng vải căng mọng, ngọt ngào sẽ khiến bạn thích thú ngay từ lần thử đầu tiên.",
+        "image": "https://product.hstatic.net/1000075078/product/1653291175_da-tuyet-vai_49c48855c52c4362bd83ac9ce6a67950_large.jpg",
+        "id": 51,
+        "price": 55000,
+        "tag": "Hi"
+    },
+    {
+        "title": "Hi-Tea Phúc Bồn Tử Bling Bling",
+        "description": "Nền trà Hibiscus thanh mát, quyện vị chua chua ngọt ngọt của phúc bồn tử 100% tự nhiên cùng quýt mọng nước mang đến cảm giác sảng khoái tức thì. Đặc biệt, bạn đừng bỏ lỡ trải nghiệm “khuấy để thấy trăng” với hiệu ứng bling bling lạ mắt, được làm từ bột nhũ vàng dùng trong thực phẩm.",
+        "image": "https://product.hstatic.net/1000075078/product/1663057376_hi-tea-pbt_e6ae36e72e384d13a40720e27869bacc_large.jpg",
+        "id": 52,
+        "price": 65000,
+        "tag": "Hi"
+    },
+    {
+        "title": "Bánh Mì Gậy Gà Kim Quất",
+        "description": "Phiên bản nâng cấp với trọng lượng tăng 80% so với bánh mì que thông thường, đem đến cho bạn bữa ăn nhanh gọn mà vẫn đầy đủ dinh dưỡng. Cắn một miếng là mê mẩn bởi vỏ bánh nướng giòn rụm, nhân đậm vị với từng miếng thịt gà mềm, ướp sốt kim quất chua ngọt, thơm nức đặc trưng. Càng \"đúng bài\" hơn khi thưởng thức kèm Cà phê đượm vị hoặc trà Hi-Tea thanh mát.",
+        "image": "https://product.hstatic.net/1000075078/product/bami-gay-ga-kim-quat-new_806059be690141ddbaae209fad5d1cb0_large.jpg",
+        "id": 53,
+        "price": 25000,
+        "tag": "Banh"
+    },
+    {
+        "title": "Bánh Mì Gậy Cá Ngừ Mayo",
+        "description": "Trọng lượng tăng 70% so với bánh mì que thông thường, thêm nhiều dinh dưỡng, thích hợp cho cả bữa ăn nhẹ lẫn ăn no. Ngon hết chỗ chê từ vỏ bánh nướng nóng giòn, cá ngừ đậm đà quyện lẫn sốt mayo thơm béo đến từng hạt bắp ngọt bùi hấp dẫn. Nhâm nhi bánh cùng ly Cà phê thơm nồng hay Hi-Tea tươi mát thì đúng chuẩn \"điểm mười\".",
+        "image": "https://product.hstatic.net/1000075078/product/bami-gay-tuna-new_177eab1b63b94d75b0b7fb4346421eb7_large.jpg",
+        "id": 54,
+        "price": 25000,
+        "tag": "Banh"
+    },
+    {
+        "title": "Bánh Mì Que Pate",
+        "description": "Vỏ bánh mì giòn tan, kết hợp với lớp nhân pate béo béo đậm đà sẽ là lựa chọn lý tưởng nhẹ nhàng để lấp đầy chiếc bụng đói , cho 1 bữa sáng - trưa - chiều - tối của bạn thêm phần thú vị.",
+        "image": "https://product.hstatic.net/1000075078/product/banhmique_056830_cf19291790d64a09a1e7e50e5047335b_large.jpg",
+        "id": 55,
+        "price": 15000,
+        "tag": "Banh"
+    },
+    {
+        "title": "Bánh Mì Que Pate Cay",
+        "description": "Vỏ bánh mì giòn tan, kết hợp với lớp nhân pate béo béo đậm đà và 1 chút cay cay sẽ là lựa chọn lý tưởng nhẹ nhàng để lấp đầy chiếc bụng đói , cho 1 bữa sáng - trưa - chiều - tối của bạn thêm phần thú vị.",
+        "image": "https://product.hstatic.net/1000075078/product/banhmique_683851_9de4fca3bcdf40dbbfc04cb516378d56_large.jpg",
+        "id": 56,
+        "price": 15000,
+        "tag": "Banh"
+    },
+    {
+        "title": "Bánh Mì VN Thịt Nguội",
+        "description": "Gói gọn trong ổ bánh mì Việt Nam là từng lớp chả, từng lớp jambon hòa quyện cùng bơ và pate thơm lừng, thêm dưa rau cho bữa sáng đầy năng lượng.  *Phần bánh sẽ ngon và đậm đà nhất khi kèm pate. Để đảm bảo hương vị được trọn vẹn, Nhà mong bạn thông cảm vì không thể thay đổi định lượng pate.",
+        "image": "https://product.hstatic.net/1000075078/product/1638440015_banh-mi-vietnam_6c65b016b3cf4bd1b9a6a24d6795b851_large.jpg",
+        "id": 57,
+        "price": 35000,
+        "tag": "Banh"
+    },
+    {
+        "title": "Croissant trứng muối",
+        "description": "Croissant trứng muối thơm lừng, bên ngoài vỏ bánh giòn hấp dẫn bên trong trứng muối vị ngon khó cưỡng.",
+        "image": "https://product.hstatic.net/1000075078/product/croissant-trung-muoi_880850_5d26db4e1e244a38ac2b6bccde00f656_large.jpg",
+        "id": 58,
+        "price": 35000,
+        "tag": "Croissant"
+    },
+    {
+        "title": "Chà Bông Phô Mai",
+        "description": "Chiếc bánh với lớp phô mai vàng sánh mịn bên trong, được bọc ngoài lớp vỏ xốp mềm thơm lừng. Thêm lớp chà bông mằn mặn hấp dẫn bên trên.",
+        "image": "https://product.hstatic.net/1000075078/product/cha-bong-pho-mai_204282_bb689cf28d7a4b188b37d4da429ab9f6_large.jpg",
+        "id": 59,
+        "price": 35000,
+        "tag": "Cha"
+    },
+    {
+        "title": "Mochi Kem Phúc Bồn Tử",
+        "description": "Bao bọc bởi lớp vỏ Mochi dẻo thơm, bên trong là lớp kem lạnh cùng nhân phúc bồn tử ngọt ngào. Gọi 1 chiếc Mochi cho ngày thật tươi mát. Sản phẩm phải bảo quán mát và dùng ngon nhất trong 2h sau khi nhận hàng.",
+        "image": "https://product.hstatic.net/1000075078/product/1643102019_mochi-phucbontu_685595dab92946238773885bb47c7c45_large.jpg",
+        "id": 60,
+        "price": 19000,
+        "tag": "Mochi"
+    },
+    {
+        "title": "Mochi Kem Việt Quất",
+        "description": "Bao bọc bởi lớp vỏ Mochi dẻo thơm, bên trong là lớp kem lạnh cùng nhân việt quất đặc trưng thơm thơm, ngọt dịu. Gọi 1 chiếc Mochi cho ngày thật tươi mát.  Sản phẩm phải bảo quán mát và dùng ngon nhất trong 2h sau khi nhận hàng.",
+        "image": "https://product.hstatic.net/1000075078/product/1643102034_mochi-vietquat_7f965d9d832c4cd89e994bbf3db9131c_large.jpg",
+        "id": 61,
+        "price": 19000,
+        "tag": "Mochi"
+    },
+    {
+        "title": "Mochi Kem Dừa Dứa",
+        "description": "Bao bọc bởi lớp vỏ Mochi dẻo thơm, bên trong là lớp kem lạnh cùng nhân dừa dứa thơm lừng lạ miệng. Gọi 1 chiếc Mochi cho ngày thật tươi mát.  Sản phẩm phải bảo quán mát và dùng ngon nhất trong 2h sau khi nhận hàng.",
+        "image": "https://product.hstatic.net/1000075078/product/1643101996_mochi-dua_ec2a0846eaf545fe8a54673f7a03277f_large.jpg",
+        "id": 62,
+        "price": 19000,
+        "tag": "Mochi"
+    },
+    {
+        "title": "Mochi Kem Chocolate",
+        "description": "Bao bọc bởi lớp vỏ Mochi dẻo thơm, bên trong là lớp kem lạnh cùng nhân chocolate độc đáo. Gọi 1 chiếc Mochi cho ngày thật tươi mát. Sản phẩm phải bảo quán mát và dùng ngon nhất trong 2h sau khi nhận hàng.",
+        "image": "https://product.hstatic.net/1000075078/product/1655348107_mochi-choco_a8ede951f5914e3ca32f7d19db33861b_large.jpg",
+        "id": 63,
+        "price": 19000,
+        "tag": "Mochi"
+    },
+    {
+        "title": "Mochi Kem Matcha",
+        "description": "Bao bọc bởi lớp vỏ Mochi dẻo thơm, bên trong là lớp kem lạnh cùng nhân trà xanh đậm vị. Gọi 1 chiếc Mochi cho ngày thật tươi mát. Sản phẩm phải bảo quán mát và dùng ngon nhất trong 2h sau khi nhận hàng.",
+        "image": "https://product.hstatic.net/1000075078/product/1655348113_mochi-traxanh_e36d98eec29a45ceb8729d273e924cd1_large.jpg",
+        "id": 64,
+        "price": 19000,
+        "tag": "Mochi"
+    },
+    {
+        "title": "Mochi Kem Xoài",
+        "description": "Bao bọc bởi lớp vỏ Mochi dẻo thơm, bên trong là lớp kem lạnh cùng nhân xoài chua chua ngọt ngọt. Gọi 1 chiếc Mochi cho ngày thật tươi mát.  Sản phẩm phải bảo quán mát và dùng ngon nhất trong 2h sau khi nhận hàng.",
+        "image": "https://product.hstatic.net/1000075078/product/1643101968_mochi-xoai_8fe0637b63444c39805c25c29d87148b_large.jpg",
+        "id": 65,
+        "price": 19000,
+        "tag": "Mochi"
+    },
+    {
+        "title": "Mousse Red Velvet",
+        "description": "Bánh nhiều lớp được phủ lớp kem bên trên bằng Cream cheese.",
+        "image": "https://product.hstatic.net/1000075078/product/5dd2087ff2546c2614fb08d1_red-velvet_087977_108ec15da1274e0a843d938e85d869c3_large.jpg",
+        "id": 66,
+        "price": 35000,
+        "tag": "Mousse"
+    },
+    {
+        "title": "Mousse Tiramisu",
+        "description": "Hương vị dễ ghiền được tạo nên bởi chút đắng nhẹ của cà phê, lớp kem trứng béo ngọt dịu hấp dẫn",
+        "image": "https://product.hstatic.net/1000075078/product/1638170137_tiramisu_bf8f6725065148878e55a0e9f957f6b1_large.jpg",
+        "id": 67,
+        "price": 35000,
+        "tag": "Mousse"
+    },
+    {
+        "title": "Mousse Gấu Chocolate",
+        "description": "Với vẻ ngoài đáng yêu và hương vị ngọt ngào, thơm béo nhất định bạn phải thử ít nhất 1 lần.",
+        "image": "https://product.hstatic.net/1000075078/product/1638170066_gau_79246a60c4194df9b84a19e5e16b9df4_large.jpg",
+        "id": 68,
+        "price": 39000,
+        "tag": "Mousse"
+    },
+    {
+        "title": "Mít Sấy",
+        "description": "Mít sấy khô vàng ươm, giòn rụm, giữ nguyên được vị ngọt lịm của mít tươi.",
+        "image": "https://product.hstatic.net/1000075078/product/mit-say_666228_0aa90d72832442f19cca2dcc878a7ed8_large.jpg",
+        "id": 69,
+        "price": 20000,
+        "tag": "Mit"
+    },
+    {
+        "title": "Gà Xé Lá Chanh",
+        "description": "Thịt gà được xé tơi, mang hương vị mặn, ngọt, cay cay quyện nhau vừa chuẩn, thêm chút thơm thơm thơm từ lá chanh sấy khô giòn giòn xua tan ngay cơn buồn miệng.",
+        "image": "https://product.hstatic.net/1000075078/product/kho-ga-la-chanh_995862_b71dd498af91487fadb92bb40260f1c0_large.jpg",
+        "id": 70,
+        "price": 25000,
+        "tag": "Ga"
+    },
+    {
+        "title": "Thùng Cà Phê Sữa Espresso",
+        "description": "",
+        "image": "https://product.hstatic.net/1000075078/product/24lon-espresso_17.55.34_7c83c964217141a69e3b68f6e23c0fb9_large.jpg",
+        "id": 71,
+        "price": 336000,
+        "tag": "Thung"
+    },
+    {
+        "title": "Combo 6 Lon Cà Phê Sữa Espresso",
+        "description": "",
+        "image": "https://product.hstatic.net/1000075078/product/6lon-espresso_17.57.32_5f9fc672fb25464cac861fad64cdcde6_large.jpg",
+        "id": 72,
+        "price": 84000,
+        "tag": "Combo"
+    },
+    {
+        "title": "Cà Phê Rang Xay Original 1 Túi 1KG",
+        "description": "Cà phê Original 1 của The Coffee House với 100% thành phần cà phê Robusta Đăk Lăk, vùng trồng cà phê ngon nhất Việt Nam. Bằng cách áp dụng kỹ thuật rang xay hiện đại, Cà phê Original 1 mang đến trải nghiệm tuyệt vời khi uống cà phê tại nhà với hương vị đậm đà truyền thống hợp khẩu vị của giới trẻ sành cà phê.",
+        "image": "https://product.hstatic.net/1000075078/product/1642387719_ori-1-1kg_f5bc42d1f43249318081d4d411ddf668_large.jpeg",
+        "id": 73,
+        "price": 235000,
+        "tag": "Ca"
+    },
+    {
+        "title": "Cà Phê Hòa Tan Đậm Vị Việt Túi 40x16G",
+        "description": "Bắt đầu ngày mới với tách cà phê sữa “Đậm vị Việt” mạnh mẽ sẽ giúp bạn luôn tỉnh táo và hứng khởi cho ngày làm việc thật hiệu quả.",
+        "image": "https://product.hstatic.net/1000075078/product/1642353251_ca-phe-dam-vi-viet-tui-new_fee29345cb77452088e5a33b09c0927a_large.jpeg",
+        "id": 74,
+        "price": 99000,
+        "tag": "Ca"
+    },
+    {
+        "title": "Cà Phê Rang Xay Original 1 250g",
+        "description": "Cà phê Original 1 của The Coffee House với thành phần chính cà phê Robusta Đắk Lắk, vùng trồng cà phê nổi tiếng nhất Việt Nam. Bằng cách áp dụng kỹ thuật rang xay hiện đại, Cà phê Original 1 mang đến trải nghiệm tuyệt vời khi uống cà phê tại nhà với hương vị đậm đà truyền thống hợp khẩu vị của giới trẻ sành cà phê.",
+        "image": "https://product.hstatic.net/1000075078/product/1639648297_ca-phe-rang-xay-original-1-250gr_bde6e24404144f659c16455331639837_large.jpg",
+        "id": 75,
+        "price": 60000,
+        "tag": "Ca"
+    },
+    {
+        "title": "Cà Phê Sữa Đá Hòa Tan (10 gói x 22g)",
+        "description": "Thật dễ dàng để bắt đầu ngày mới với tách cà phê sữa đá sóng sánh, thơm ngon như cà phê pha phin. Vị đắng thanh của cà phê hoà quyện với vị ngọt béo của sữa, giúp bạn luôn tỉnh táo và hứng khởi cho ngày làm việc thật hiệu quả.",
+        "image": "https://product.hstatic.net/1000075078/product/cpsd-3in1_971575_df98e4175aaf4e84852eb94557131656_large.jpg",
+        "id": 76,
+        "price": 44000,
+        "tag": "Ca"
+    },
+    {
+        "title": "Cà Phê Hoà Tan Đậm Vị Việt (18 gói x 16 gam)",
+        "description": "Bắt đầu ngày mới với tách cà phê sữa “Đậm vị Việt” mạnh mẽ sẽ giúp bạn luôn tỉnh táo và hứng khởi cho ngày làm việc thật hiệu quả.",
+        "image": "https://product.hstatic.net/1000075078/product/1639648313_ca-phe-sua-da-hoa-tan-dam-vi-viet_c26f00b68c174e82a342cf7b102d1d6d_large.jpg",
+        "id": 77,
+        "price": 48000,
+        "tag": "Ca"
+    },
+    {
+        "title": "Cà Phê Sữa Đá Hòa Tan Túi 25x22G",
+        "description": "Thật dễ dàng để bắt đầu ngày mới với tách cà phê sữa đá sóng sánh, thơm ngon như cà phê pha phin. Vị đắng thanh của cà phê hoà quyện với vị ngọt béo của sữa, giúp bạn luôn tỉnh táo và hứng khởi cho ngày làm việc thật hiệu quả.",
+        "image": "https://product.hstatic.net/1000075078/product/1639648355_ca-phe-sua-da-hoa-tan-tui-25x22gr_0bc2fdd677f7405d98d77cd0af909af5_large.jpg",
+        "id": 78,
+        "price": 99000,
+        "tag": "Ca"
+    },
+    {
+        "title": "Cà Phê Sữa Đá Pack 6 Lon",
+        "description": "Với thiết kế lon cao trẻ trung, hiện đại và tiện lợi, Cà phê sữa đá lon thơm ngon đậm vị của The Coffee House sẽ đồng hành cùng nhịp sống sôi nổi của tuổi trẻ và giúp bạn có được một ngày làm việc đầy hứng khởi.",
+        "image": "https://product.hstatic.net/1000075078/product/p6-lon-3in1_717216_2c6ecd3b3e8943dc919a75087d75187f_large.jpg",
+        "id": 79,
+        "price": 84000,
+        "tag": "Ca"
+    },
+    {
+        "title": "Thùng 24 Lon Cà Phê Sữa Đá ",
+        "description": "Với thiết kế lon cao trẻ trung, hiện đại và tiện lợi, Cà phê sữa đá lon thơm ngon đậm vị của The Coffee House sẽ đồng hành cùng nhịp sống sôi nổi của tuổi trẻ và giúp bạn có được một ngày làm việc đầy hứng khởi.",
+        "image": "https://product.hstatic.net/1000075078/product/24-lon-cpsd_225680_01e31e8b68164f5aaf20e378fd9c18c6_large.jpg",
+        "id": 80,
+        "price": 336000,
+        "tag": "Thung"
+    },
+    {
+        "title": "Trà Oolong Túi Lọc Tearoma 20x2G",
+        "description": "Trà Oolong túi lọc với mùi hương dịu nhẹ hoàn toàn từ tự nhiên, vị hậu ngọt,  và hương thơm tinh tế. Trà túi lọc Tearoma tiện lợi để sử dụng tại văn phòng, tại nhà,... nhưng vẫn đảm bảo được chất lượng về hương trà tinh tế, vị trà đậm đà.",
+        "image": "https://product.hstatic.net/1000075078/product/1639646968_tra-oolong-tui-loc-tearoma-20x2gr_c72d24e6be304123828a752c219f8c02_large.jpg",
+        "id": 81,
+        "price": 28000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Lài Túi Lọc Tearoma 20x2G",
+        "description": "Trà túi lọc Tearoma hương lài thơm tinh tế, thanh mát, trên nền trà xanh đậm đà khó quên. Trà túi lọc Tearoma tiện lợi để sử dụng tại văn phòng, tại nhà,.. nhưng vẫn đảm bảo được chất lượng về hương trà tinh tế, vị trà đậm đà.",
+        "image": "https://product.hstatic.net/1000075078/product/1639647075_tra-lai-tui-loc-tearoma-20x2gr_683a51cb729441a292fdad721dff9e9a_large.jpg",
+        "id": 82,
+        "price": 28000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Sen Túi Lọc Tearoma 20x2G",
+        "description": "Trà túi lọc Tearoma hương sen tinh tế, thanh mát, trên nền trà xanh đậm đà khó quên. Trà túi lọc Tearoma tiện lợi để sử dụng tại văn phòng, tại nhà, đi du lịch,... nhưng vẫn đảm bảo được chất lượng về hương trà tinh tế, vị trà đậm đà.",
+        "image": "https://product.hstatic.net/1000075078/product/1639648068_tra-sen-tui-loc-tearoma-20x2gr_4c2b539e6ce6400495c279d1b807c69e_large.jpg",
+        "id": 83,
+        "price": 28000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Đào Túi Lọc Tearoma 20x2G",
+        "description": "Trà túi lọc Tearoma hương đào với hương thơm tinh tế và hoàn toàn tự nhiên, cùng nền trà đen đậm vị khó quên. Trà túi lọc Tearoma tiện lợi để sử dụng tại văn phòng, tại nhà,.. nhưng vẫn đảm bảo được chất lượng về hương trà tinh tế, vị trà đậm đà.",
+        "image": "https://product.hstatic.net/1000075078/product/1639646846_tra-dao-tui-loc-tearoma-20x2gr_bbb26e4aee3e4095aaa3c7296123c04b_large.jpg",
+        "id": 84,
+        "price": 28000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Oolong Lá Tearoma 100G",
+        "description": "Trà Oolong Tearoma  được chọn lọc  bởi các búp trà non phủ sương, tươi mát trên cao nguyên Lâm Đồng. Có mùi hương dịu nhẹ hoàn toàn từ tự nhiên, vị hậu ngọt.",
+        "image": "https://product.hstatic.net/1000075078/product/1639648109_tra-oolong-la-tearoma-100gr_3fdd44883df2487896b8e166e3b853a0_large.jpg",
+        "id": 85,
+        "price": 100000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Xanh Lá Tearoma 100G",
+        "description": "Trà Xanh Tearoma không còn quá xa lạ với người Việt, hương trà xanh đặc trưng thoang thoảng từ búp trà tươi phủ sương tự nhiên, cùng hương vị đậm đà đặc trưng khó quên.",
+        "image": "https://product.hstatic.net/1000075078/product/1639648162_tra-xanh-la-tearoma-100gr_5248d027b01a4aaf9a9e11dc03a1d60e_large.jpg",
+        "id": 86,
+        "price": 75000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Lài Lá Tearoma 100G",
+        "description": "Trà Tearoma hương lài tinh tế, thanh mát, trên nền trà xanh đậm đà khó quên.",
+        "image": "https://product.hstatic.net/1000075078/product/1639648191_tra-lai-la-tearoma-100gr_cfb82d3b1bfd421996c660b56ba8a0ad_large.jpg",
+        "id": 87,
+        "price": 80000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Trà Sen Lá Tearoma 100G",
+        "description": "Trà Tearoma hương sen tinh tế, thanh mát, trên nền trà xanh đậm đà, đặc trưng khó quên.",
+        "image": "https://product.hstatic.net/1000075078/product/1639648222_tra-sen-la-tearoma-100gr_4acb55881a374147a43c075d44aa9f85_large.jpg",
+        "id": 88,
+        "price": 80000,
+        "tag": "Tra"
+    },
+    {
+        "title": "Giftset Trà Tearoma",
+        "description": "Hộp quà tặng với 4 hộp trà túi lọc Tearoma các loại là món quà thật ý nghĩa cho những người thân yêu.",
+        "image": "https://product.hstatic.net/1000075078/product/1641440575_gift-set-tearoma-1_10b5a32972c140bc939cb638b83646aa_large.jpeg",
+        "id": 89,
+        "price": 166000,
+        "tag": "Giftset"
+    },
+    {
+        "title": "Chocolate Đá",
+        "description": "Bột chocolate nguyên chất hoà cùng sữa tươi béo ngậy. Vị ngọt tự nhiên, không gắt cổ, để lại một chút đắng nhẹ, cay cay trên đầu lưỡi.",
+        "image": "https://product.hstatic.net/1000075078/product/chocolate-da_877186_79394df6f91d4b5fb866ce5622f35a47_large.jpg",
+        "id": 90,
+        "price": 55000,
+        "tag": "Chocolate"
+    },
+    {
+        "title": "Chocolate Nóng",
+        "description": "Bột chocolate nguyên chất hoà cùng sữa tươi béo ngậy. Vị ngọt tự nhiên, không gắt cổ, để lại một chút đắng nhẹ, cay cay trên đầu lưỡi.",
+        "image": "https://product.hstatic.net/1000075078/product/chocolatenong_949029_854df6e47d6d4ca9a3fd181fd026410a_large.jpg",
+        "id": 91,
+        "price": 55000,
+        "tag": "Chocolate"
+    }
+]

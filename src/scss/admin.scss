@@ -1,0 +1,404 @@
+@import './abstracts/variables';
+@import './abstracts/functions';
+@import './abstracts/_mixins';
+@import './base/normalize';
+@import './base/fonts';
+@import './base/animation';
+@import './layouts/modal';
+@import './components/Validator';
+@import './components/toast';
+
+a {
+    text-decoration: none;
+}
+
+html {
+    min-height: 100%;
+    font-family: sans-serif;
+}
+body {
+    min-height: 100vh;
+    position: relative;
+}
+h1,
+h2,
+h4,
+h5,
+h6 {
+    margin: 20px 0;
+}
+
+$active-color: #e57905;
+
+//
+
+.d-none {
+    display: none;
+}
+
+// Colors
+
+.yellow {
+    background-color: #ffc107;
+    .card-btn {
+        background-color: darken(#ffc107, 5%);
+        .icon-arrow-right {
+            color: darken(#ffc107, 5%);
+        }
+    }
+}
+.blue {
+    background-color: #17a2b8;
+    .card-btn {
+        background-color: darken(#17a2b8, 5%);
+        .icon-arrow-right {
+            color: darken(#17a2b8, 5%);
+        }
+    }
+}
+
+//
+
+.admin-container {
+    &.--hidden {
+        display: none;
+    }
+}
+
+.opened_nav {
+    left: 0 !important;
+}
+
+#header-admin {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    margin-bottom: 10px;
+    h1 {
+        margin: 5px 10px;
+        i {
+            padding-right: 20vw;
+        }
+    }
+    #nav {
+        position: fixed;
+        top: 0;
+        transition: left 0.5s ease-in-out;
+        left: -60%;
+        background-color: #fff;
+        height: 100%;
+        z-index: 9;
+        width: 60%;
+        ul {
+            li {
+                list-style: none;
+                a {
+                    transition: all 0.2s ease-in-out;
+                    display: block;
+                    padding: 15px;
+                    color: black;
+                    border-bottom: 1px solid gray;
+                    &:first-child {
+                        border-top: 1px solid gray;
+                        border-bottom: none;
+                    }
+                    &:hover {
+                        background-color: #cdcdcd;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    #under-nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        z-index: 8;
+
+        opacity: 0.8;
+
+        background-color: #000;
+    }
+}
+
+.btn {
+    padding: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    span,
+    i {
+        vertical-align: middle;
+    }
+
+    transition: background-color 0.2s ease-in-out;
+
+    padding: 5px;
+    border-radius: 4px;
+    &.btn-success {
+        background-color: #12d600;
+        &:active {
+            background-color: darken(#12d600, 10%);
+        }
+    }
+    &.btn-danger {
+        background-color: #d60000;
+        &:active {
+            background-color: darken(#d60000, 10%);
+        }
+    }
+    &.btn-info {
+        background-color: #1fb8ff;
+        &:active {
+            background-color: darken(#1fb8ff, 10%);
+        }
+    }
+    i {
+        vertical-align: middle;
+    }
+}
+
+// Trang chủ
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    .card {
+        margin: 0 auto;
+        text-align: center;
+        width: 95vw;
+        border: 1px solid gray;
+        box-sizing: border-box;
+        padding-top: 5px;
+        .card-info {
+            .number {
+                font-size: x-large;
+            }
+        }
+        .card-btn {
+            margin-top: 50px;
+            color: black;
+            display: block;
+            text-align: center;
+            padding: 5px;
+            .icon-arrow-right {
+                background-color: black;
+                border-radius: 50px;
+                padding: 3px;
+            }
+        }
+    }
+    @media only screen and (min-width: 768px) {
+        flex-direction: row;
+    }
+}
+
+#main {
+    min-height: 84vh;
+    .table-container {
+        overflow-y: auto;
+        min-height: 44vh;
+    }
+}
+
+.managerment {
+    user-select: none;
+    & > * {
+        display: inline-block;
+    }
+    margin: 5px;
+    .select-all {
+        label {
+            vertical-align: text-bottom;
+        }
+    }
+}
+
+.table-container {
+    overflow-x: auto;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        tr {
+            &:first-of-type {
+                background: $active-color;
+                color: white;
+                border-bottom: none;
+            }
+            border-bottom: 0.5px solid gray;
+            &:last-child {
+                border-bottom: none;
+            }
+            th {
+                &:nth-child(2) {
+                    width: 2%;
+                }
+            }
+            td {
+                img {
+                    width: 120px;
+                    height: 120px;
+                }
+                text-align: center;
+                & > div {
+                    display: inline-block;
+
+                    width: 20vw;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+            }
+            th,
+            td {
+                &:first-child {
+                    text-align: center;
+                }
+                &:nth-child(2) {
+                    width: 2%;
+                    text-align: center;
+                }
+                padding: 10px;
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+    }
+}
+
+.paginator {
+    text-align: center;
+    .paginator_items {
+        display: inline-block;
+        button {
+            cursor: pointer;
+            background-color: $active-color;
+            padding: 5px 10px;
+            border: none;
+            color: white;
+            margin-left: 2px;
+        }
+        margin: 15px auto;
+        .active {
+            background-color: darken($active-color, 10%);
+        }
+    }
+}
+
+//quản lý sản phẩm text CODE:của HuyLe
+.product-text {
+    .add-product-tag {
+        width: auto;
+        padding: 4px 8px;
+        font-size: 14px;
+        vertical-align: middle;
+    }
+}
+
+// Form thêm sản phẩm
+
+#add-product,
+#add-user,
+#edit-product,
+#edit-user,
+#edit-order {
+    .container {
+        padding: 20px;
+        .content {
+            overflow-y: auto;
+            form {
+                display: block;
+                margin: 0 auto;
+                width: 50%;
+                div {
+                    margin: 10px 0;
+                }
+                label {
+                    display: block;
+                    margin: 10px 0;
+                }
+                input {
+                    width: 100%;
+                    padding: 5px;
+                    border-radius: 10px;
+                    border: 1px solid gray;
+                    &[type='file'] {
+                        border: none;
+                    }
+                }
+                textarea {
+                    resize: none;
+                    width: 100%;
+                    height: 100px;
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}
+
+#footer {
+    background-color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-top: 1px solid gray;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    min-height: 50px;
+}
+// Responsive - desktop
+
+@media only screen and (min-width: 900px) {
+    #header-admin {
+        display: inline-block;
+        & > h1 {
+            display: inline-block;
+            .icon-menu {
+                display: none;
+            }
+        }
+        #nav {
+            & > h1 {
+                display: none;
+            }
+            width: initial;
+            background-color: initial;
+            display: block;
+            position: initial;
+            left: 0;
+            float: right;
+            ul {
+                display: inline-flex;
+                float: right;
+                li a {
+                    border: none !important;
+                }
+            }
+        }
+        #under-nav {
+            left: -100%;
+            display: none;
+        }
+    }
+
+    #main {
+        clear: both;
+        margin: 10px 40px;
+        margin-bottom: 0;
+        .table-container {
+            min-height: 58vh;
+        }
+    }
+}
+
+@media only screen and (max-width: 425px) and (orientation: landscape) {
+    #main {
+        .table-container {
+            min-height: 49vh;
+        }
+    }
+}

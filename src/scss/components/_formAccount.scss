@@ -1,0 +1,118 @@
+//mobile first
+#user-login,
+#user-register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .container {
+        width: 100%;
+        height: auto;
+        max-height: 90%;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 16;
+        .title {
+            justify-content: left;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 8px;
+        }
+        .content {
+            //clear fix
+            &::after {
+                //mặc định after là inline-block
+                display: block;
+                content: '';
+                clear: both;
+            }
+            padding: 16px;
+            display: inline-block;
+
+            overflow-y: auto;
+            font-size: 16px;
+            input {
+                font-size: 16px;
+                border-radius: 8px;
+                width: 100%;
+                background-color: #fafafa;
+                border: 1px solid #ededee;
+                display: inline-block;
+                padding: 8px;
+                min-height: 26px;
+            }
+            .row {
+                display: block;
+                margin-bottom: 16px;
+                & > * {
+                    display: inherit;
+                    margin-bottom: 8px;
+                }
+            }
+            .login-info {
+                label {
+                    margin-bottom: 8px;
+                }
+            }
+
+            #btnlogin,
+            #btnsignup {
+                border-radius: 16px;
+                width: 100%;
+                background-color: $active-color;
+                padding: 8px 0;
+                margin: 16px 0;
+                color: white;
+                border: 1px solid #ededee;
+                cursor: pointer;
+            }
+            p {
+                text-align: right;
+            }
+            a {
+                float: right;
+                padding: 8px;
+                text-decoration: none;
+                color: $active-color;
+                font-weight: 600;
+                &:hover {
+                    opacity: 0.4;
+                    cursor: pointer;
+                }
+            }
+            .error-login {
+                color: $error-color;
+            }
+        }
+    }
+}
+@media screen and (min-width: 720px) {
+    #user-login {
+        .container {
+            width: 40%;
+            .content {
+                input {
+                }
+            }
+        }
+    }
+    #user-register {
+        .container {
+            width: 80%;
+            height: auto;
+
+            .content {
+                .row {
+                    float: left;
+                    width: calc(50% - 32px);
+                    margin-left: 32px;
+                    height: 96px;
+                    &:nth-child(odd) {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,3 +1,4 @@
-public/css/style.css
+src/database/*.php
+src/database/php.ini
 node_modules/
 .vscode

@@ -360,12 +360,10 @@ html {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: 'Times New Roman', 'Times', 'Georgia', serif;
+    font-family: Verdana, Tahoma, sans-serif;
+    scroll-behavior: smooth;
 }
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.42857143;
     color: #333;
     background-color: #fff;
 }
@@ -391,7 +389,7 @@ h6,
 
 h1,
 .h1 {
-    font-size: 36px;
+    font-size: 32px;
 }
 
 h2,
