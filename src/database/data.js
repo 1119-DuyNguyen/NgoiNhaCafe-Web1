@@ -1,4 +1,8 @@
-import dataBillJson from './bill.json';
+
+let dataBillJson=[];
+fetch('./bill.json')
+    .then((response) => response.json())
+    .then((json) => dataBillJson=json);
 export function Data() {
     const keyImgs = 'dataImgs';
     const keyUsers = 'dataUsers';
