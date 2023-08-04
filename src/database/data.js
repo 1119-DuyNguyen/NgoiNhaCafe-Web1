@@ -1,4 +1,4 @@
-import dataBillJson from './bill.json' assert { type: 'json' };
+import dataBillJson from './bill.json';
 export function Data() {
     const keyImgs = 'dataImgs';
     const keyUsers = 'dataUsers';
