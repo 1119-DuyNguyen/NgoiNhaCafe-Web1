@@ -1,7 +1,7 @@
 import { Data } from "../../src/database/data.js";
 import { closeDisplay, openDisplay,btnCloseId, toggleDisplay } from "../../src/library/display.js";
 import { toast } from "../../src/components/toast.js";
-import toppingData from "../../src/database/topping.json" assert {type: 'json'};
+//import toppingData from "../../src/database/topping.json" assert {type: 'json'};
 import printOrderFunction from "./printorder.js";
 
 // Import from components
