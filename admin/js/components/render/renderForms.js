@@ -1,5 +1,5 @@
 import { openDisplay, btnCloseId } from '../../../../src/library/display.js';
-import toppingData from '../../../../src/database/topping.json' assert { type: 'json' };
+// import toppingData from '../../../../src/database/topping.json' assert { type: 'json' };
 import dataObj from '../data.js';
 import { Validator } from '../../../../src/library/Validator.js';
 
